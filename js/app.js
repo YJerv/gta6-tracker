@@ -1,5 +1,5 @@
-import { DEFAULT_TAB, isTabEnabled } from "./config.js";
-import { illustrationCredits, renderMain, parseRoute, ROUTES } from "./render.js";
+import { isTabEnabled, readChromeCollapsed, writeChromeCollapsed } from "./config.js";
+import { illustrationCredits, mapViewForCar, renderMain, parseRoute, ROUTES } from "./render.js";
 import {
   STORAGE_KEY,
   buildCatalog,
@@ -75,6 +75,15 @@ function openEnabledRoute() {
   if (location.hash !== hash) location.replace(hash);
 }
 
+function applyChromeCollapsed() {
+  const collapsed = Boolean(state?.chromeCollapsed);
+  document.body.classList.toggle("chrome-collapsed", collapsed);
+  const button = document.getElementById("chrome-toggle");
+  if (!button) return;
+  button.setAttribute("aria-pressed", collapsed ? "true" : "false");
+  button.textContent = collapsed ? "Show header" : "More map";
+}
+
 function syncChrome(route) {
   const report = completionReport(state.catalog, state.progress);
   document.getElementById("view-title").textContent = ROUTES[route.section].title;
@@ -107,7 +116,10 @@ function fillExport() {
   document.getElementById("data-stamp").textContent = `Content files last updated ${dates.at(-1)}.`;
 }
 
+let glideToken = 0;
+
 function render() {
+  glideToken += 1;
   const route = currentRoute();
   const main = document.getElementById("main");
   main.innerHTML = renderMain({
@@ -126,7 +138,17 @@ function render() {
       selected: state.selectedCar,
     },
   });
-  applyMapTransform();
+  if (route.section === "cars" && state.selectedCar) {
+    const pins = [...main.querySelectorAll("[data-car-pin]")];
+    const kept = pins.length === 1 && pins[0].dataset.carPin === state.selectedCar;
+    if (!kept) {
+      state.selectedCar = null;
+      state.mapView = { x: 0, y: 0, scale: 1 };
+      render();
+      return;
+    }
+  }
+  applyMapTransform(state.mapView, { instant: true });
   main.dataset.ready = "true";
   main.dataset.section = route.section;
   if (route.sub) main.dataset.currentSub = route.sub;
@@ -134,6 +156,7 @@ function render() {
   syncChrome(route);
   if (state.sheetOpen) fillExport();
   const about = document.getElementById("about-credits");
+  applyChromeCollapsed();
   if (about) about.textContent = illustrationCredits(state.data.story).join("\n\n");
   if (state.restoreFocus) {
     const selector = state.restoreFocus;
@@ -266,11 +289,17 @@ function onClick(event) {
     location.hash = `#/${route.section}/${sub.dataset.sub}`;
     return;
   }
+  if (target.closest("[data-car-clear]")) {
+    showAllCars();
+    return;
+  }
+  if (target.closest("#chrome-toggle")) {
+    toggleChrome();
+    return;
+  }
   const carOpen = target.closest("[data-car-pin], [data-car-open]");
   if (carOpen) {
-    state.selectedCar = carOpen.dataset.carPin || carOpen.dataset.carOpen;
-    render();
-    document.getElementById("car-card")?.scrollIntoView({ block: "nearest" });
+    focusSelectedCar(carOpen.dataset.carPin || carOpen.dataset.carOpen);
     return;
   }
   const carArea = target.closest("[data-car-area]");
@@ -403,6 +432,71 @@ function onSubmit(event) {
 const mapPointers = new Map();
 let mapPinch = null;
 
+function mapFrame() {
+  const stage = document.querySelector("[data-map-stage]");
+  const layer = document.querySelector("[data-map-layer]");
+  if (!stage || !layer || !stage.clientWidth) return null;
+  return {
+    stageW: stage.clientWidth,
+    stageH: stage.clientHeight,
+    ratio: Number(layer.dataset.mapRatio) || 1,
+  };
+}
+
+function focusSelectedCar(id, { animate = true } = {}) {
+  const from = { ...state.mapView };
+  state.selectedCar = id;
+  render();
+  const car = state.data.cars?.cars?.find((item) => item.id === id);
+  const frame = mapFrame();
+  if (!car || car.mapX == null || car.mapY == null || !frame || state.selectedCar !== id) return;
+  const to = mapViewForCar(car, frame);
+  if (animate) {
+    glideMap(from, to);
+    document.querySelector("[data-map-stage]")?.scrollIntoView({ block: "start", behavior: "smooth" });
+  } else {
+    state.mapView = to;
+    applyMapTransform(to, { instant: true });
+  }
+}
+
+function showAllCars({ animate = true } = {}) {
+  const from = { ...state.mapView };
+  state.selectedCar = null;
+  const to = { x: 0, y: 0, scale: 1 };
+  render();
+  if (animate) glideMap(from, to);
+  else {
+    state.mapView = to;
+    clampMap();
+    applyMapTransform(state.mapView, { instant: true });
+  }
+}
+
+function toggleChrome() {
+  state.chromeCollapsed = !state.chromeCollapsed;
+  writeChromeCollapsed(localStorage, state.chromeCollapsed);
+  applyChromeCollapsed();
+  requestAnimationFrame(() => {
+    if (!state) return;
+    if (state.selectedCar) focusSelectedCar(state.selectedCar, { animate: false });
+    else {
+      clampMap();
+      applyMapTransform();
+    }
+  });
+}
+
+function glideMap(from, to) {
+  const token = ++glideToken;
+  state.mapView = { ...to };
+  applyMapTransform(from, { instant: true });
+  requestAnimationFrame(() => {
+    if (token !== glideToken || !state) return;
+    applyMapTransform(state.mapView);
+  });
+}
+
 function clampMap() {
   const stage = document.querySelector("[data-map-stage]");
   const layer = document.querySelector("[data-map-layer]");
@@ -419,27 +513,39 @@ function clampMap() {
   view.y = Math.min(0, Math.max(minY, view.y));
 }
 
-function applyMapTransform() {
+function applyMapTransform(view, options) {
   const layer = document.querySelector("[data-map-layer]");
   const stage = document.querySelector("[data-map-stage]");
-  if (!layer || !stage || !state?.mapView) return;
-  const { x, y, scale } = state.mapView;
+  const current = view || state?.mapView;
+  if (!layer || !stage || !current) return;
+  const pins = [...document.querySelectorAll("[data-car-pin]")];
+  if (options?.instant) {
+    layer.style.transition = "none";
+    for (const pin of pins) pin.style.transition = "none";
+  }
+  const { x, y, scale } = current;
   layer.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
   const baseW = stage.clientWidth;
   const ratio = Number(layer.dataset.mapRatio) || 1;
   const baseH = baseW * ratio;
-  document.querySelectorAll("[data-car-pin]").forEach((pin) => {
+  for (const pin of pins) {
     const px = (Number(pin.dataset.mapX) / 100) * baseW * scale + x;
     const py = (Number(pin.dataset.mapY) / 100) * baseH * scale + y;
     pin.style.left = `${px}px`;
     pin.style.top = `${py}px`;
-  });
+  }
+  if (options?.instant) {
+    layer.getBoundingClientRect();
+    layer.style.transition = "";
+    for (const pin of pins) pin.style.transition = "";
+  }
 }
 
 function onMapPointerDown(event) {
   const stage = event.target.closest("[data-map-stage]");
   if (!stage || !state) return;
-  if (event.target.closest("[data-map-zoom], [data-car-pin]")) return;
+  if (event.target.closest("[data-map-zoom], [data-car-pin], [data-car-clear]")) return;
+  stage.classList.add("is-panning");
   stage.setPointerCapture(event.pointerId);
   mapPointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
   if (mapPointers.size === 2) {
@@ -474,6 +580,7 @@ function onMapPointerEnd(event) {
   if (!mapPointers.has(event.pointerId)) return;
   mapPointers.delete(event.pointerId);
   if (mapPointers.size < 2) mapPinch = null;
+  if (mapPointers.size === 0) document.querySelector("[data-map-stage]")?.classList.remove("is-panning");
 }
 
 function bind() {
@@ -532,6 +639,7 @@ async function boot() {
       carPrecision: "all",
       selectedCar: null,
       mapView: { x: 0, y: 0, scale: 1 },
+      chromeCollapsed: readChromeCollapsed(localStorage),
       cashError: null,
       sheetOpen: false,
       resetArmed: false,

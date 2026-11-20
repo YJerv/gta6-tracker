@@ -24,8 +24,8 @@ import {
   toggleId,
   visibleThroughChapter,
 } from "../js/progress.js";
-import { ENABLED_TABS, isTabEnabled } from "../js/config.js";
-import { illustrationCredits, parseRoute, renderCard, renderMain } from "../js/render.js";
+import { CHROME_KEY, ENABLED_TABS, isTabEnabled, readChromeCollapsed, writeChromeCollapsed } from "../js/config.js";
+import { illustrationCredits, mapViewForCar, parseRoute, renderCard, renderMain } from "../js/render.js";
 import { validateAll } from "../scripts/schema.js";
 import { loadData } from "../scripts/validate.js";
 
@@ -342,6 +342,81 @@ test("sourced cars use the Leonida map and hide later chapters", () => {
   const vague = structuredClone(data);
   vague.cars.cars[0].precision = "nearby";
   assert.ok(validateAll(vague).some((error) => error.includes("precision")));
+});
+
+test("a selected car is the only pin, and zoom follows precision", () => {
+  const progress = emptyProgress(NOW);
+  const carsUi = { area: "all", found: "all", chapter: "all", precision: "all", selected: null };
+  const all = renderMain({ ...model(progress, { section: "cars" }), carsUi });
+  const allPins = [...all.matchAll(/data-car-pin="([^"]+)"/g)].map((match) => match[1]);
+  assert.ok(allPins.length > 1);
+  assert.equal(all.includes("Show all cars"), false);
+  assert.ok(allPins.includes("car-dinka-enduro"));
+  assert.ok(allPins.includes("car-driveshaft-hustler"));
+
+  const one = renderMain({
+    ...model(progress, { section: "cars" }),
+    carsUi: { ...carsUi, selected: "car-dinka-enduro" },
+  });
+  assert.deepEqual(
+    [...one.matchAll(/data-car-pin="([^"]+)"/g)].map((match) => match[1]),
+    ["car-dinka-enduro"],
+  );
+  assert.match(one, /data-car-clear/);
+  assert.match(one, /Show all cars/);
+
+  const street = renderMain({
+    ...model(progress, { section: "cars" }),
+    carsUi: { ...carsUi, precision: "street" },
+  });
+  const streetPins = [...street.matchAll(/data-car-pin="([^"]+)"/g)].map((match) => match[1]);
+  assert.ok(streetPins.includes("car-driveshaft-hustler"));
+  assert.equal(streetPins.includes("car-dinka-enduro"), false);
+
+  const dropped = renderMain({
+    ...model(progress, { section: "cars" }),
+    carsUi: { ...carsUi, precision: "street", selected: "car-dinka-enduro" },
+  });
+  assert.equal([...dropped.matchAll(/data-car-pin="([^"]+)"/g)].some((match) => match[1] === "car-dinka-enduro"), false);
+  assert.equal(dropped.includes("Show all cars"), false);
+
+  const frame = { stageW: 360, stageH: 640, ratio: 1920 / 1402 };
+  const exact = mapViewForCar({ mapX: 50, mapY: 40, precision: "exact" }, frame);
+  const streetView = mapViewForCar({ mapX: 50, mapY: 40, precision: "street" }, frame);
+  const area = mapViewForCar({ mapX: 50, mapY: 40, precision: "area" }, frame);
+  assert.equal(exact.scale, 2.8);
+  assert.equal(streetView.scale, 1.9);
+  assert.equal(area.scale, 1.2);
+  assert.ok(exact.scale > streetView.scale && streetView.scale > area.scale);
+  const baseW = frame.stageW;
+  const baseH = baseW * frame.ratio;
+  const px = (50 / 100) * baseW * streetView.scale;
+  const py = (40 / 100) * baseH * streetView.scale;
+  assert.ok(Math.abs(streetView.x + px - frame.stageW / 2) < 0.01);
+  assert.ok(Math.abs(streetView.y + py - frame.stageH / 2) < 0.01);
+});
+
+test("the map header stays collapsed when that choice was saved", () => {
+  const storage = {
+    values: new Map(),
+    getItem(key) { return this.values.has(key) ? this.values.get(key) : null; },
+    setItem(key, value) { this.values.set(key, String(value)); },
+  };
+  assert.equal(readChromeCollapsed(storage), false);
+  writeChromeCollapsed(storage, true);
+  assert.equal(storage.getItem(CHROME_KEY), "1");
+  assert.equal(readChromeCollapsed(storage), true);
+  writeChromeCollapsed(storage, false);
+  assert.equal(readChromeCollapsed(storage), false);
+  assert.equal(readChromeCollapsed({ getItem() { throw new Error("blocked"); } }), false);
+
+  const html = readFileSync(path.join(root, "index.html"), "utf8");
+  const css = readFileSync(path.join(root, "css/styles.css"), "utf8");
+  assert.match(html, /id="chrome-toggle"/);
+  assert.match(css, /body\.chrome-collapsed \.topbar/);
+  assert.match(css, /body\.chrome-collapsed \.tabs/);
+  assert.match(css, /body\.chrome-collapsed \.cars-chrome/);
+  assert.match(css, /body\.chrome-collapsed \.map-stage/);
 });
 
 test("rendered story hides later mission text and escapes markup", () => {

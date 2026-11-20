@@ -91,6 +91,26 @@ export function hashFor(item) {
   return "#/home";
 }
 
+const FOCUS_SCALE = { exact: 2.8, street: 1.9, area: 1.2 };
+
+/** Centre a car pin in the map window. Exact is closer than street, and area is wider. */
+export function mapViewForCar(car, frame) {
+  const requested = FOCUS_SCALE[car.precision] || FOCUS_SCALE.area;
+  const baseW = frame.stageW;
+  const baseH = baseW * frame.ratio;
+  const fit = Math.min(1, frame.stageH / baseH);
+  const scale = Math.min(4, Math.max(fit, requested));
+  const px = (Number(car.mapX) / 100) * baseW * scale;
+  const py = (Number(car.mapY) / 100) * baseH * scale;
+  const minX = Math.min(0, frame.stageW - baseW * scale);
+  const minY = Math.min(0, frame.stageH - baseH * scale);
+  return {
+    scale,
+    x: Math.min(0, Math.max(minX, frame.stageW / 2 - px)),
+    y: Math.min(0, Math.max(minY, frame.stageH / 2 - py)),
+  };
+}
+
 function formatLongDate(isoDate) {
   const [year, month, day] = isoDate.split("-").map(Number);
   return new Intl.DateTimeFormat("en-GB", {
@@ -569,31 +589,36 @@ function renderCars(model) {
   if (ui.area !== "all") shown = shown.filter((entry) => entry.car.area === ui.area);
   if (ui.found === "found") shown = shown.filter((entry) => model.progress.cars.includes(entry.car.id));
   if (ui.found === "open") shown = shown.filter((entry) => !model.progress.cars.includes(entry.car.id));
-  if (ui.precision !== "all") shown = shown.filter((entry) => entry.car.precision === ui.precision);
+  const precision = ui.precision || "all";
+  if (precision !== "all") shown = shown.filter((entry) => entry.car.precision === precision);
   const numberOf = (entry) => visible.indexOf(entry) + 1;
-  const pins = shown.filter((entry) => entry.car.mapX != null && entry.car.mapY != null);
   const map = model.data.cars.map;
   const ratio = map.image && map.width && map.height ? `${map.width} / ${map.height}` : "1 / 1";
   const ratioValue = map.image && map.width && map.height ? map.height / map.width : 1;
   const picture = map.image
     ? `<img class="map-photo" src="${e(map.image)}" alt="${e(map.imageAlt || "")}" width="${Number(map.width)}" height="${Number(map.height)}" draggable="false">`
     : `<div class="map-grid" aria-hidden="true"></div><p class="map-empty">Map image to come</p>`;
-  const pinHtml = pins.map((entry) => {
-    const number = numberOf(entry);
-    const selected = ui.selected === entry.car.id ? " is-selected" : "";
-    const chapter = entry.car.chapterOrder == null ? "0" : String(entry.car.chapterOrder);
-    const precision = entry.car.precision || "area";
-    return `<button type="button" class="map-pin precision-${e(precision)}${selected}" data-car-pin="${e(entry.car.id)}" data-map-x="${entry.car.mapX}" data-map-y="${entry.car.mapY}" data-chapter="${e(chapter)}" aria-label="Show car ${number}, chapter ${e(chapter)}, ${e(precision)}"><span class="map-dot">${number}</span></button>`;
-  }).join("");
   const legend = [...new Set(shown.map((entry) => entry.car.chapterOrder).filter((order) => order != null))]
     .sort((a, b) => a - b)
     .map((order) => `<span class="legend-item"><i class="map-dot" data-chapter="${order}"></i>Ch ${order}</span>`)
     .join("");
   const precisionLegend = `<span class="legend-item"><i class="map-dot precision-exact"></i>Exact</span><span class="legend-item"><i class="map-dot precision-street"></i>Street</span><span class="legend-item"><i class="map-dot precision-area"></i>Area</span>`;
-  const selected = visible.find((entry) => entry.car.id === ui.selected);
+  const selected = shown.find((entry) => entry.car.id === ui.selected) || null;
+  const pinSource = selected ? [selected] : shown;
+  const focusedPins = pinSource.filter((entry) => entry.car.mapX != null && entry.car.mapY != null);
+  const pinHtml = focusedPins.map((entry) => {
+    const number = numberOf(entry);
+    const chapter = entry.car.chapterOrder == null ? "0" : String(entry.car.chapterOrder);
+    const pinPrecision = entry.car.precision || "area";
+    const selectedClass = selected ? " is-selected" : "";
+    return `<button type="button" class="map-pin precision-${e(pinPrecision)}${selectedClass}" data-car-pin="${e(entry.car.id)}" data-map-x="${entry.car.mapX}" data-map-y="${entry.car.mapY}" data-chapter="${e(chapter)}" aria-label="Show car ${number}, chapter ${e(chapter)}, ${e(pinPrecision)}"><span class="map-dot">${number}</span></button>`;
+  }).join("");
   const card = selected
     ? renderCarCard(selected, numberOf(selected), model)
     : `<p class="fine">Tap a pin or a car in the list.</p>`;
+  const showAll = selected
+    ? `<button type="button" class="map-clear" data-car-clear>Show all cars</button>`
+    : "";
   const areaChips = [`<button type="button" class="chip${ui.area === "all" ? " is-active" : ""}" data-car-area="all">All areas</button>`]
     .concat(areas.map((area) => `<button type="button" class="chip${ui.area === area ? " is-active" : ""}" data-car-area="${e(area)}">${e(area)}</button>`))
     .join("");
@@ -601,7 +626,7 @@ function renderCars(model) {
     .map(([id, label]) => `<button type="button" class="chip${ui.found === id ? " is-active" : ""}" data-car-found="${id}">${label}</button>`)
     .join("");
   const precisionChips = [["all", "All precision"], ["exact", "Exact"], ["street", "Street"], ["area", "Area"]]
-    .map(([id, label]) => `<button type="button" class="chip${ui.precision === id ? " is-active" : ""}" data-car-precision="${id}">${label}</button>`)
+    .map(([id, label]) => `<button type="button" class="chip${precision === id ? " is-active" : ""}" data-car-precision="${id}">${label}</button>`)
     .join("");
   const chapterChips = [`<button type="button" class="chip${ui.chapter === "all" ? " is-active" : ""}" data-car-chapter="all">All chapters</button>`]
     .concat(chapters.map((order) => `<button type="button" class="chip${String(ui.chapter) === String(order) ? " is-active" : ""}" data-car-chapter="${order}">Chapter ${order}</button>`))
@@ -621,23 +646,24 @@ function renderCars(model) {
     order == null ? "cars-chapter-start" : `cars-chapter-${order}`,
   )).join("");
   const credit = `${map.imageCredit ? `<p class="map-credit">${e(map.imageCredit)}</p>` : ""}${map.source ? `<p class="map-credit">${e(map.source)}</p>` : ""}`;
-  return `${banner(INTRO.cars)}
+  return `<div class="cars-chrome">${banner(INTRO.cars)}</div>
     <div class="map-stage" data-map-stage>
       <div class="map-layer" data-map-layer data-map-ratio="${ratioValue}" style="aspect-ratio:${ratio}">
         ${picture}
       </div>
       ${pinHtml}
+      ${showAll}
       <div class="map-zoom">
         <button type="button" data-map-zoom="out" aria-label="Zoom out">−</button>
         <button type="button" data-map-zoom="in" aria-label="Zoom in">+</button>
       </div>
     </div>
-    ${legend ? `<p class="map-legend">${legend}</p>` : ""}
-    <p class="map-legend precision-legend">${precisionLegend}</p>
-    ${credit}
+    ${legend ? `<p class="map-legend cars-chrome">${legend}</p>` : ""}
+    <p class="map-legend precision-legend cars-chrome">${precisionLegend}</p>
+    <div class="chips cars-chrome" role="group" aria-label="Filter by precision">${precisionChips}</div>
+    <div class="cars-chrome">${credit}</div>
     <div id="car-card">${card}</div>
     <div class="chips" role="group" aria-label="Filter by chapter">${chapterChips}</div>
-    <div class="chips" role="group" aria-label="Filter by precision">${precisionChips}</div>
     <div class="chips" role="group" aria-label="Found or still to find">${foundChips}</div>
     <div class="chips" role="group" aria-label="Filter by area">${areaChips}</div>
     <div class="car-list">${list}</div>

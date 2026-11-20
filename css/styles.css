@@ -12,7 +12,7 @@
   --teal: #3ee0a2;
   --teal-ink: #06281a;
   --danger: #ffb4b4;
-  --dock: 124px;
+  --dock: 184px;
   --font: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color-scheme: dark;
 }
@@ -452,6 +452,23 @@ h1 {
   top: 0;
   width: 100%;
   transform-origin: 0 0;
+  transition: transform 0.35s ease;
+}
+
+body.chrome-collapsed {
+  --dock: 120px;
+}
+
+body.chrome-collapsed .topbar,
+body.chrome-collapsed .tabs,
+body.chrome-collapsed .cars-chrome {
+  display: none;
+}
+
+body.chrome-collapsed .map-stage {
+  height: auto;
+  aspect-ratio: 1402 / 1920;
+  max-height: calc(100dvh - var(--dock) - 24px - env(safe-area-inset-bottom));
 }
 
 .map-grid,
@@ -495,6 +512,7 @@ h1 {
   z-index: 1;
   display: grid;
   place-items: center;
+  transition: left 0.35s ease, top 0.35s ease;
 }
 
 .map-dot {
@@ -535,7 +553,24 @@ h1 {
 .precision-legend .precision-street { background: transparent; border: 2px dashed var(--pin); }
 .precision-legend .precision-area { background: transparent; border: 2px solid var(--pin); }
 
+.map-stage.is-panning .map-layer,
+.map-stage.is-panning .map-pin { transition: none; }
+
 .map-pin.is-selected .map-dot { outline: 2px solid #fff; outline-offset: 2px; }
+
+.map-clear {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  z-index: 3;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--amber);
+  color: var(--ink-amber);
+  font-weight: 800;
+}
 
 .badge-precision { margin-left: 6px; }
 .badge-precision.precision-exact { background: #3a2a10; color: #ffd27a; }
@@ -808,6 +843,26 @@ textarea { min-height: 140px; resize: vertical; }
   backdrop-filter: blur(16px);
   border-top: 1px solid var(--line);
   padding-bottom: env(safe-area-inset-bottom);
+}
+
+.chrome-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 24px);
+  margin: 8px 12px 0;
+  min-height: 48px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 176, 32, 0.45);
+  background: var(--amber);
+  color: var(--ink-amber);
+  font-weight: 800;
+}
+
+.chrome-toggle[aria-pressed="true"] {
+  background: var(--bg-2);
+  color: var(--ink);
+  border-color: var(--line);
 }
 
 .dock-tools {
