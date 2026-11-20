@@ -70,7 +70,7 @@ test("recorded brief stays factual and placeholders stay unverified", () => {
 
 test("schema rejects invented titles, missing sources, bad dates, and duplicate ids", () => {
   const invented = structuredClone(data);
-  invented.story.chapters[0].missions[0].title = "The marina job";
+  invented.story.chapters[0].missions.find((mission) => mission.id === "chapter-1-mission-11").title = "The marina job";
   assert.ok(validateAll(invented).some((error) => error.includes("PLACEHOLDER")));
 
   const unsourced = structuredClone(data);
@@ -136,7 +136,8 @@ test("spoilers cover later chapters until revealed or switched off", () => {
   const open = setSpoilersHidden(progress, false, NOW);
   assert.equal(isHidden(later, open, through), false);
 
-  const doneChapterOne = ["chapter-1-mission-1", "chapter-1-mission-2", "chapter-1-mission-3"]
+  const doneChapterOne = data.story.chapters[0].missions
+    .map((mission) => mission.id)
     .reduce((current, id) => toggleId(current, "missions", id, NOW).progress, progress);
   const caughtUp = nextUp(catalog, doneChapterOne);
   assert.equal(caughtUp.story.id, "chapter-2-mission-1");
@@ -198,7 +199,10 @@ test("story chapters and missions fold, and the choice is kept", () => {
   const story = renderMain(model(fresh, { section: "story" }));
   assert.match(story, /Expand all/);
   assert.match(story, /data-chapter-toggle="chapter-1"[^>]*aria-expanded="true"/);
-  assert.match(story, /0\/3/);
+  assert.match(story, /0\/22/);
+  assert.match(story, />Prologue</);
+  assert.match(story, /PowerPyx/);
+  assert.match(story, /Sourced/);
   assert.match(story, /data-mission-toggle="chapter-1-mission-1"[^>]*aria-expanded="true"/);
   assert.match(story, /data-mission-toggle="chapter-1-mission-2"[^>]*aria-expanded="false"/);
   assert.equal(story.split("Bonus and gold objectives").length - 1, 1);
@@ -210,14 +214,15 @@ test("story chapters and missions fold, and the choice is kept", () => {
   assert.match(collapsed, /data-chapter-toggle="chapter-1"[^>]*aria-expanded="false"/);
 
   const everything = renderMain(model(opened, { section: "story" }));
-  assert.equal(everything.split("Bonus and gold objectives").length - 1, 3);
+  assert.equal(everything.split("Bonus and gold objectives").length - 1, 22);
   assert.doesNotMatch(everything, /Chapter 2 mission/);
 });
 
 test("rendered story hides later mission text and escapes markup", () => {
   const progress = emptyProgress(NOW);
   const hidden = renderMain(model(progress, { section: "story" }));
-  assert.match(hidden, /Chapter 1 mission 1/);
+  assert.match(hidden, />Prologue</);
+  assert.match(hidden, /PowerPyx/);
   assert.doesNotMatch(hidden, /Chapter 2 mission/);
   assert.match(hidden, /Show this/);
   assert.match(hidden, /Placeholder/);
@@ -287,7 +292,8 @@ test("routes and the home dashboard stay inside the spoiler boundary", () => {
 
   const home = renderMain(model(emptyProgress(NOW), { section: "home" }));
   assert.match(home, /Next up/);
-  assert.match(home, /Chapter 1 mission 1/);
+  assert.match(home, /Prologue/);
+  assert.match(home, /named guides/);
   assert.doesNotMatch(home, /Chapter 2 mission/);
   assert.match(home, /Not set/);
   assert.match(home, /Single-player only/);

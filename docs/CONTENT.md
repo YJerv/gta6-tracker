@@ -1,6 +1,8 @@
 # Filling in tracker content
 
-The app is a shell. Game facts live in `/data/*.json`. Replace a placeholder only when you have a source you can name. Do not invent mission names, characters, locations, prices, or other GTA VI facts.
+Game facts live in `/data/*.json`. Replace a placeholder only when you have a source you can name. Do not invent mission names, characters, locations, prices, or other GTA VI facts.
+
+Chapter 1 missions 1 to 10 are already verified in `data/story.json`. Keep their ids. Do not rewrite that text unless you are correcting it from the named guides. Missions 11 to 22 in that chapter, and chapters 2 to 5, are still placeholders.
 
 Player-facing copy in the app uses British English. Keep new sentences in British English too.
 

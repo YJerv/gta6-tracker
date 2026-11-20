@@ -222,9 +222,9 @@ function renderMissionRow(item, detail, progress, open) {
   const on = progress[item.list].includes(item.id);
   const body = open
     ? `<div class="mission-body">
+        ${sourceHtml(detail)}
         ${detail.summary ? `<p class="summary">${e(detail.summary)}</p>` : ""}
         ${blocksHtml(detail.blocks)}
-        ${sourceHtml(detail)}
       </div>`
     : "";
   return `<article class="card mission-card${on ? " is-done" : ""}">
@@ -454,7 +454,7 @@ function renderHome(model) {
     </button>`).join("");
   return `${warning}
     ${banner(model.data.meta.statusNote)}
-    ${banner("Mission names, places, and prices are placeholders until a verified guide is added.", true)}
+    ${banner("Chapter 1 missions 1 to 10 are sourced from named guides. The rest are placeholders until verified.", true)}
     <div class="hero">
       ${ringSvg(report.percent)}
       <div>

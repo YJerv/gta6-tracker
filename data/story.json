@@ -1,37 +1,249 @@
 {
-  "version": 1,
+  "version": 2,
   "lastUpdated": "2026-11-20",
   "section": "story",
-  "description": "Story missions grouped by chapter. Chapter count and mission count are a scaffold, not a claim about the game. Replace a placeholder only with sourced, verified text, and set verified to true.",
+  "description": "Story missions grouped by chapter. Chapter 1 missions 1 to 10 are filled from named guides. Every other row is a placeholder until a verified guide covers it. Sources list five chapters, so the old sixth scaffold chapter has been removed.",
   "chapters": [
     {
-      "verified": false,
-      "source": null,
+      "verified": true,
+      "source": "PC Gamer, 'GTA 6 mission list: All chapters and missions' (https://www.pcgamer.com/games/grand-theft-auto/gta-6-mission-list/); VGC, 'Grand Theft Auto 6 complete walkthrough hub' (https://www.videogameschronicle.com/guide/grand-theft-auto-6-complete-walkthrough-hub/); PowerPyx, 'GTA 6 Full Walkthrough - All Missions' (https://www.powerpyx.com/gta-6-full-walkthrough-all-missions/); KeenGamer chapter list (https://www.keengamer.com/articles/guides/gta-6-walkthrough-all-chapters-and-story-missions-in-order/). All read 20 November 2026.",
       "generic": false,
       "id": "chapter-1",
       "order": 1,
-      "title": "PLACEHOLDER: Chapter 1",
-      "summary": "PLACEHOLDER: Chapter summary to be filled from a verified guide.",
+      "title": "Chapter 1: Just Like Paradise",
+      "summary": "The opening chapter, set in the Leonida Keys. PC Gamer and VGC list 22 main story missions, starting with the Prologue. The first 10 are filled in here. PowerPyx notes the early Key Lento missions can unlock in a slightly different order, there are no gold medals, and there's no mission replay, so keep a manual save at the start and end of each chapter.",
       "missions": [
         {
-          "verified": false,
-          "source": null,
+          "verified": true,
+          "source": "PowerPyx, 'GTA 6 Prologue Walkthrough' (https://www.powerpyx.com/gta-6-prologue-walkthrough/); VGC, 'GTA 6 Prologue Mission Walkthrough' (https://www.videogameschronicle.com/guide/gta-6-prologue-mission-walkthrough/); Tech4Gamers, 'GTA 6 Prologue Mission: Complete Walkthrough' (https://gta.tech4gamers.com/gta-6/missions/prologue/). All read 20 November 2026.",
           "generic": false,
           "id": "chapter-1-mission-1",
           "order": 1,
-          "title": "PLACEHOLDER: Chapter 1 mission 1 - to be filled from a verified guide",
-          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
-          "steps": [],
+          "title": "Prologue",
+          "summary": "Lucia's opening mission. It starts automatically when you begin the game at Hamlet Prison. You meet a prison counsellor, then play a flashback robbery and chase. No reward. PowerPyx files it as a separate Prologue; PC Gamer and VGC count it as Chapter 1 mission 1.",
+          "steps": [
+            "Turn around in the cell, hold LT to focus on a cellmate and talk to them.",
+            "Follow the guard, CO Wilson, through the common area. Wait while he takes a phone call, then follow him down the corridor to the counsellor's office.",
+            "In the flashback inside the Payday Loan store, aim at the teller and press X to threaten him.",
+            "Press Y to grab the cash he puts on the counter, then mash the prompted button to shake off the customer who grabs you.",
+            "Run from the police across the rooftops. The flashing blue and red circle on the minimap is the police search area.",
+            "When you get control again, follow the marker back to the coffee shop to end the mission."
+          ],
           "bonusObjectives": [],
-          "missables": []
+          "missables": [
+            "Nothing missable. The chase can't be escaped and the arrest at the end always happens, so neither is a failure."
+          ]
         },
         {
-          "verified": false,
-          "source": null,
+          "verified": true,
+          "source": "PowerPyx, 'GTA 6 Gone Fishing Walkthrough' (https://www.powerpyx.com/gta-6-gone-fishing-walkthrough/); VGC, 'GTA 6 Gone Fishing Mission Walkthrough' (https://www.videogameschronicle.com/guide/gta-6-gone-fishing-mission-walkthrough/); GTA 6 Notebook, 'How to complete Gone Fishing in GTA 6' (https://gta6notebook.com/walkthrough/gone-fishing/). All read 20 November 2026.",
           "generic": false,
           "id": "chapter-1-mission-2",
           "order": 2,
-          "title": "PLACEHOLDER: Chapter 1 mission 2 - to be filled from a verified guide",
+          "title": "Gone Fishing",
+          "summary": "Jason's first mission. It starts straight after the Prologue, with Cal on a boat. Collect Donnie's air-dropped packages, sneak into a Kingfishers camp in the swamp to free Donnie, then fly a seaplane back to Brian's Marina. Reward: Jason's house in Key Lento (PowerPyx).",
+          "steps": [
+            "Chase Donnie's plane by boat. Slow down beside each floating package so Cal can hook it. Press L3 and R3 together to use Focus if you can't see one.",
+            "Follow the route to the swamp. Hold LB, pick the binoculars from the bottom-right slot and watch the deal on the docks.",
+            "Get off at the nearby docks. Stay crouched (B) and choke out guards from behind. Keep to the left side of the camp, away from the patrolled main road.",
+            "Free Donnie from the shack next to the big turbine. Hold R3 to highlight the turbine if you lose your way. Use the front door once the guard wanders off.",
+            "Beat the brute who walks in with your fists, blocking his swings. Then take the Zombix (the healing item) and equip a gun.",
+            "Fight or run to the seaplane at the dock. RB moves you in and out of cover.",
+            "Take off with RT and the left stick held down, then fly to Brian's Marina. Slow down to land on the water and taxi in.",
+            "After the cutscene, drive Cal home in Jason's pickup, then drive to Jason's house to finish."
+          ],
+          "bonusObjectives": [
+            "Optional: grab the cash in the white and red trailer on the way to the plane. One enemy is inside (PowerPyx, VGC)."
+          ],
+          "missables": [
+            "The trailer cash is missable. PowerPyx says taking it also earns 'professional' reputation.",
+            "There's a hammer behind Donnie's shack if you want a melee weapon (VGC)."
+          ]
+        },
+        {
+          "verified": true,
+          "source": "PowerPyx, 'GTA 6 Gear Up (Pick Up Another Gun) Walkthrough' (https://www.powerpyx.com/gta-6-gear-up-pick-up-another-gun-walkthrough/); VGC, 'GTA 6 Gear Up Mission Walkthrough' (https://www.videogameschronicle.com/guide/gta-6-gear-up-mission-walkthrough/); GTA BOOM, 'How to Complete Gear Up in GTA 6' (https://www.gtaboom.com/gta-6-gear-up-mission-walkthrough-26a2); Output Lag, 'GTA 6 Gear Up: Mission Walkthrough' (https://outputlag.com/guides/gta-6-gear-up-mission/). All read 20 November 2026.",
+          "generic": false,
+          "id": "chapter-1-mission-3",
+          "order": 3,
+          "title": "Gear Up",
+          "summary": "Shown on the map as 'Pick Up Another Gun'. Jason buys a longarm from Andrew at Chuck's Tackle & Shot (Ammu-Nation) in Key Lento, then deals with a Kingfishers ambush outside. Reward: the longarm you choose. Missions 3 to 6 unlock after Gone Fishing and can be played in any order.",
+          "steps": [
+            "Collect the cash from the mailbox outside Jason's house first. VGC says mission reward money is delivered there, so check it regularly.",
+            "Drive to Chuck's Tackle & Shot and hold LT on Andrew at the counter to talk.",
+            "Open Longarms and buy one. Andrew's discounted picks are the Moreland 850 shotgun at $350 (normally $700) and the Mediator tactical rifle at $450 (normally $900). Either one completes the mission.",
+            "Leave the store. Three Kingfishers arrive by truck.",
+            "Deal with them, then get in your car and let Jason's call to Donnie finish to end the mission."
+          ],
+          "bonusObjectives": [],
+          "missables": [
+            "No lasting choices. PowerPyx says dying in the ambush just respawns you at home and still ends the mission."
+          ]
+        },
+        {
+          "verified": true,
+          "source": "PowerPyx, 'GTA 6 Just a Scratch (Fix Your Car) Walkthrough' (https://www.powerpyx.com/gta-6-just-a-scratch-fix-your-car-walkthrough/); VGC, 'GTA 6 Just A Scratch Mission Walkthrough' (https://www.videogameschronicle.com/guide/gta-6-just-a-scratch-mission-walkthrough/); GTA BOOM, 'How to Complete Just a Scratch in GTA 6' (https://www.gtaboom.com/gta-6-just-a-scratch-mission-walkthrough-da82); GTA 6 Notebook, 'How to complete Just A Scratch in GTA 6' (https://gta6notebook.com/walkthrough/just-a-scratch/). All read 20 November 2026.",
+          "generic": false,
+          "id": "chapter-1-mission-4",
+          "order": 4,
+          "title": "Just A Scratch",
+          "summary": "Shown on the map as 'Fix Your Car'. A short tutorial: take Jason's '70 Ganado to Joey at Coastal Auto Care in Key Lento for a free engine repair and respray. Afterwards you can call Joey to repair or deliver the car.",
+          "steps": [
+            "Drive Jason's '70 Ganado from his house to Coastal Auto Care. If you've wrecked it, make a manual save and reload, and it reappears outside the house.",
+            "Talk to Joey outside the garage, then drive in when the shutter opens.",
+            "Choose Performance > Full Engine > Stock Engine (Restore), which is free.",
+            "Choose Cosmetics > Respray and pick a colour marked Free. Gloss finishes are free; metallic costs extra.",
+            "Leave the shop to finish."
+          ],
+          "bonusObjectives": [
+            "Ultimate Edition owners can fit the free 'Retro Build - Ultimate Edition' kit under Pro Builds > Full Kits. It's optional."
+          ],
+          "missables": [
+            "The free repair only applies during this mission. After it, repairs cost money (VGC, GTA 6 Notebook).",
+            "The Ganado is replaced later, and any upgrades you buy go with it. You can't register a new personal vehicle until Chapter 2 (PowerPyx)."
+          ]
+        },
+        {
+          "verified": true,
+          "source": "PowerPyx, 'GTA 6 Lab Fees (Collect Brian's Rent) Walkthrough' (https://www.powerpyx.com/gta-6-lab-fees-collect-brians-rent-walkthrough/); VGC, 'GTA 6 Lab Fees Mission Walkthrough' (https://www.videogameschronicle.com/guide/gta-6-lab-fees-mission-walkthrough/); GTA 6 Notebook, 'How to complete Lab Fees in GTA 6' (https://gta6notebook.com/walkthrough/lab-fees/). All read 20 November 2026.",
+          "generic": false,
+          "id": "chapter-1-mission-5",
+          "order": 5,
+          "title": "Lab Fees",
+          "summary": "Shown on the map as 'Collect Brian's Rent'. Jason collects rent for Brian from Moonstone Boutique, a gift shop in Key Lento's art market behind The Wonder Whale. He takes product instead and stashes it in Brian's Lockup. Reward: $600, delivered later to the mailbox outside Jason's house.",
+          "steps": [
+            "Go to the locked Moonstone Boutique, call Brian from your phone's Contacts, then walk in.",
+            "Hold LT on the clerk and ask for the rent. When he pulls a bat, grab it, draw a weapon or punch him until he gives in.",
+            "Open the back-room door with code 0420. The clerk tells you, and it's also on a notepad in the shop.",
+            "Take all the acid, then leave and call Brian.",
+            "Drive to Brian's Lockup (green map icon) further south. The door code is 7700.",
+            "Drop the bag in the yellow 'Deposit Narcotics' box to finish."
+          ],
+          "bonusObjectives": [
+            "Optional: empty the cash register and break open the lockbox in the back room for extra cash."
+          ],
+          "missables": [
+            "Scan the Wonder Whale statue next to the shop with the WAINK app. It's one of the WAINK scan collectibles (VGC).",
+            "Killing the clerk still lets you finish, but it alerts the police (VGC)."
+          ]
+        },
+        {
+          "verified": true,
+          "source": "PowerPyx, 'GTA 6 Unwanted Attention (Go See Cal) Walkthrough' (https://www.powerpyx.com/gta-6-unwanted-attention-go-see-cal-walkthrough/); VGC, 'GTA 6 Unwanted Attention Mission Walkthrough' (https://www.videogameschronicle.com/guide/gta-6-unwanted-attention-mission-walkthrough/). All read 20 November 2026.",
+          "generic": false,
+          "id": "chapter-1-mission-6",
+          "order": 6,
+          "title": "Unwanted Attention",
+          "summary": "Shown on the map as 'Go See Cal'. Cal is fishing by the bridge in the north of Key Lento. Drive with him to the police impound in Hamlet, recover Brian's Imponte Phoenix, lose the cops and respray it. This mission teaches the new heat and recognition system. Reward: police radio scanner app plus $150.",
+          "steps": [
+            "Talk to Cal in the north of Key Lento and drive his truck to the impound in Hamlet. Cal installs the police scanner app on your phone.",
+            "Climb into the impound through the gap at the top of the wall on the left, or over the containers in the back corner.",
+            "Use the WAINK app on your phone to scan cars. The target is the red Phoenix hooked to a tow truck.",
+            "Get in the tow truck and release the hook, then hotwire the Phoenix and wait at the gate. The police always spot you here.",
+            "Lose the cops by leaving the flashing search area on the minimap. Don't wreck the Phoenix, or the mission fails.",
+            "Respray it at the Hamlet Pay 'n' Spray and park it in Brian's garage nearby.",
+            "Take the $150 from the back room. Change your hat and glasses on the item wheel, then buy an outfit at the gun store next door."
+          ],
+          "bonusObjectives": [],
+          "missables": [
+            "Knocked-out impound guards stop answering their radio, and the police send a patrol to check (PowerPyx).",
+            "Tip for later: after a chase, the police remember your outfit and car. Respray, swap cars or change clothes to lose recognition."
+          ]
+        },
+        {
+          "verified": true,
+          "source": "PowerPyx, 'GTA 6 Pipework (Collect Mandy's Rent) Walkthrough' (https://www.powerpyx.com/gta-6-pipework-collect-mandys-rent-walkthrough/); VGC, 'GTA 6 Pipework Mission Walkthrough' (https://www.videogameschronicle.com/guide/gta-6-pipework-mission-walkthrough/). All read 20 November 2026.",
+          "generic": false,
+          "id": "chapter-1-mission-7",
+          "order": 7,
+          "title": "Pipework",
+          "summary": "Shown on the map as 'Collect Mandy's Rent'. Jason collects rent from Brian's tenant Mandy in Key Lento, but she won't pay until he fixes her sink. A short, comic handyman job. PowerPyx says it unlocks after Gear Up, Lab Fees, Just A Scratch and Unwanted Attention.",
+          "steps": [
+            "Talk to Mandy outside her house and follow her inside.",
+            "Ask about the plunger. It's on the bathroom floor.",
+            "Take it to the kitchen sink and plunge by tapping the right stick (R3).",
+            "Use the wrench on the pipe under the sink to finish the repair.",
+            "Collect the rent and leave the house."
+          ],
+          "bonusObjectives": [
+            "Optional: pick up the Macizo Cigar box that gets thrown into the street as you leave (PowerPyx)."
+          ],
+          "missables": [
+            "The Macizo Cigar is only there as you leave this mission.",
+            "Mandy can't be romanced, however you play the mission (VGC)."
+          ]
+        },
+        {
+          "verified": true,
+          "source": "PowerPyx, 'GTA 6 Hey Arnold! (Meet Brian) Walkthrough' (https://www.powerpyx.com/gta-6-hey-arnold-meet-brian-walkthrough/); GTA 6 Notebook, 'How to complete Hey Arnold! in GTA 6' (https://gta6notebook.com/walkthrough/hey-arnold/). All read 20 November 2026.",
+          "generic": false,
+          "id": "chapter-1-mission-8",
+          "order": 8,
+          "title": "Hey Arnold!",
+          "summary": "Shown on the map as 'Meet Brian'. A few minutes after Pipework, Brian calls. Meet him at the pool bar in the south of Key Lento, then track down his broker, Arnold, near the radar station in Maroon Key. Includes a car chase with bikers and a choice at the end. Sources disagree on the reward: PowerPyx lists none, GTA 6 Notebook lists $1,200.",
+          "steps": [
+            "Get behind the wheel of Brian's truck and wait for him to get in.",
+            "Drive to the nearby liquor store to pick up Cal.",
+            "Head for the pink search area in Maroon Key. It becomes an exact marker as you get close. Take the first road on the left to find Arnold by a small building.",
+            "When the shooting starts, chase Arnold's car. Draw your gun while driving and use slow motion (L3 and R3) to pick off the bikers. Stunt jumps at the bridge happen automatically.",
+            "When he crashes, chase him on foot to the docks, where he surrenders.",
+            "Choose whether to kill him or let him go."
+          ],
+          "bonusObjectives": [],
+          "missables": [
+            "The Arnold choice doesn't change the story. GTA 6 Notebook says sparing him gives a Restrained rating and killing him gives a Hardened rating on your Criminal Profile.",
+            "Two optional, missable jobs can appear around now: Get Shirley's Rum and Steal the Scooter. They don't count toward trophies or 100% completion."
+          ]
+        },
+        {
+          "verified": true,
+          "source": "PowerPyx, 'GTA 6 Island Dreams (Work for Kenton) Walkthrough' (https://www.powerpyx.com/gta-6-island-dreams-work-for-kenton-walkthrough/); VGC, 'GTA 6 Island Dreams Walkthrough' (https://www.videogameschronicle.com/guide/gta-6-island-dreams-walkthrough/). All read 20 November 2026.",
+          "generic": false,
+          "id": "chapter-1-mission-9",
+          "order": 9,
+          "title": "Island Dreams",
+          "summary": "Shown on the map as 'Work for Kenton'. Treasure hunter Kenton Rees runs the Island Dreams shop by the beach. Jason leads a bachelor party on a dive to a shipwreck and uses a metal detector to find treasure. Reward: $400 (PowerPyx), and you can use Kenton's boat afterwards (VGC).",
+          "steps": [
+            "Talk to Kenton in his Island Dreams shop, then drive his boat to the marked dive spot.",
+            "Put on the yellow scuba gear at the back of the boat and dive in. L3 swims faster.",
+            "Lead the bachelor party through the underwater trench to the shipwreck.",
+            "Equip the metal detector (bottom-right slot of the weapon wheel). Sweep the pink area until the light turns green, then collect each of the 3 treasures.",
+            "Lift the grate to free Dobbs, then swim back towards the boat.",
+            "Equip the Arras Bullhead harpoon. When the shark appears, shoot it at close range, because the harpoon's shot drops over distance."
+          ],
+          "bonusObjectives": [],
+          "missables": [
+            "If you don't stop the shark, Dobbs dies. PowerPyx says either outcome is fine and only changes the closing dialogue.",
+            "You can come back to this and other shipwrecks later for treasure you didn't collect (VGC).",
+            "Hold LB near fish while diving to study them for the 100% checklist (PowerPyx)."
+          ]
+        },
+        {
+          "verified": true,
+          "source": "PowerPyx, 'GTA 6 Feng Shui (Meet Cal) Walkthrough' (https://www.powerpyx.com/gta-6-feng-shui-meet-cal-walkthrough/); VGC, 'GTA 6 Feng Shui Mission Walkthrough' (https://www.videogameschronicle.com/guide/gta-6-feng-shui-mission-walkthrough/). All read 20 November 2026.",
+          "generic": false,
+          "id": "chapter-1-mission-10",
+          "order": 10,
+          "title": "Feng Shui",
+          "summary": "Shown on the map as 'Meet Cal'. Shortly after Island Dreams, the marker appears at Jason's house. Jason and Cal rearrange the furniture and play games on the JoyStation console. No reward, and no way to fail.",
+          "steps": [
+            "Enter Jason's house, grab beers from the fridge and sit on the couch with Cal.",
+            "Move the TV, coffee table, couch and chair. Moving the table again just puts it back where it was.",
+            "Play Tenebrae Lux. Clear the board puzzles (spiked or triple pieces destroy flat pieces) until Jason asks to switch games.",
+            "Play Street Trash III. You can't win it, so die quickly to save time or play until it ends."
+          ],
+          "bonusObjectives": [],
+          "missables": [
+            "After this mission, you can play the JoyStation at the safehouse whenever you like (VGC)."
+          ]
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-1-mission-11",
+          "order": 11,
+          "title": "PLACEHOLDER: Chapter 1 mission 11 - to be filled from a verified guide",
           "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
           "steps": [],
           "bonusObjectives": [],
@@ -41,9 +253,129 @@
           "verified": false,
           "source": null,
           "generic": false,
-          "id": "chapter-1-mission-3",
-          "order": 3,
-          "title": "PLACEHOLDER: Chapter 1 mission 3 - to be filled from a verified guide",
+          "id": "chapter-1-mission-12",
+          "order": 12,
+          "title": "PLACEHOLDER: Chapter 1 mission 12 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-1-mission-13",
+          "order": 13,
+          "title": "PLACEHOLDER: Chapter 1 mission 13 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-1-mission-14",
+          "order": 14,
+          "title": "PLACEHOLDER: Chapter 1 mission 14 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-1-mission-15",
+          "order": 15,
+          "title": "PLACEHOLDER: Chapter 1 mission 15 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-1-mission-16",
+          "order": 16,
+          "title": "PLACEHOLDER: Chapter 1 mission 16 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-1-mission-17",
+          "order": 17,
+          "title": "PLACEHOLDER: Chapter 1 mission 17 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-1-mission-18",
+          "order": 18,
+          "title": "PLACEHOLDER: Chapter 1 mission 18 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-1-mission-19",
+          "order": 19,
+          "title": "PLACEHOLDER: Chapter 1 mission 19 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-1-mission-20",
+          "order": 20,
+          "title": "PLACEHOLDER: Chapter 1 mission 20 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-1-mission-21",
+          "order": 21,
+          "title": "PLACEHOLDER: Chapter 1 mission 21 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-1-mission-22",
+          "order": 22,
+          "title": "PLACEHOLDER: Chapter 1 mission 22 - to be filled from a verified guide",
           "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
           "steps": [],
           "bonusObjectives": [],
@@ -232,53 +564,6 @@
           "id": "chapter-5-mission-3",
           "order": 3,
           "title": "PLACEHOLDER: Chapter 5 mission 3 - to be filled from a verified guide",
-          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
-          "steps": [],
-          "bonusObjectives": [],
-          "missables": []
-        }
-      ]
-    },
-    {
-      "verified": false,
-      "source": null,
-      "generic": false,
-      "id": "chapter-6",
-      "order": 6,
-      "title": "PLACEHOLDER: Chapter 6",
-      "summary": "PLACEHOLDER: Chapter summary to be filled from a verified guide.",
-      "missions": [
-        {
-          "verified": false,
-          "source": null,
-          "generic": false,
-          "id": "chapter-6-mission-1",
-          "order": 1,
-          "title": "PLACEHOLDER: Chapter 6 mission 1 - to be filled from a verified guide",
-          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
-          "steps": [],
-          "bonusObjectives": [],
-          "missables": []
-        },
-        {
-          "verified": false,
-          "source": null,
-          "generic": false,
-          "id": "chapter-6-mission-2",
-          "order": 2,
-          "title": "PLACEHOLDER: Chapter 6 mission 2 - to be filled from a verified guide",
-          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
-          "steps": [],
-          "bonusObjectives": [],
-          "missables": []
-        },
-        {
-          "verified": false,
-          "source": null,
-          "generic": false,
-          "id": "chapter-6-mission-3",
-          "order": 3,
-          "title": "PLACEHOLDER: Chapter 6 mission 3 - to be filled from a verified guide",
           "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
           "steps": [],
           "bonusObjectives": [],

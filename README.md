@@ -2,7 +2,7 @@
 
 A mobile-first progress tracker for a single-player GTA VI playthrough on Xbox Series X|S. It is a static site: HTML, CSS, and vanilla JavaScript, with no build step and no backend. Progress stays in the browser. After one online visit, a service worker opens the same files offline.
 
-Launch is recorded here as **19 November 2026**, single-player only. No online mode was announced as of 20 November 2026. This copy does **not** include verified mission names, characters, locations, or prices. Those slots are labelled placeholders until a sourced guide is written into `/data`.
+Launch is recorded here as **19 November 2026**, single-player only. No online mode was announced as of 20 November 2026. Chapter 1 missions 1 to 10 are sourced from named guides in `data/story.json`. Every other mission, place, and price is still a placeholder until a verified guide is added.
 
 ## Use it
 
@@ -125,7 +125,7 @@ Known framing only. Do not hide mission or location facts in here.
 
 Each mission: `id`, `order` (unique inside the chapter), `title`, `verified`, `source`, `generic`, `summary`, `steps`, `bonusObjectives`, `missables`. The three lists are arrays of strings (empty until a guide provides them, at most 12 lines, 300 characters each).
 
-The chapter count in the repo is a scaffold, not a claim about the game. Add or delete chapters so the list matches a verified guide.
+The shipped file has five chapters, which is what the cited guides list. Chapter 1 is verified as "Just Like Paradise" and has 22 mission slots. Missions 1 to 10 are sourced. Missions 11 to 22, and chapters 2 to 5, are still placeholders. Keep the ids `chapter-1-mission-1` through `chapter-1-mission-10` stable so saved ticks still match.
 
 ```json
 {

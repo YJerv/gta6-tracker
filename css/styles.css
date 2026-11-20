@@ -292,7 +292,7 @@ h1 {
 
 .block ul { margin: 0 0 8px; padding-left: 1.1rem; }
 
-.block li { margin: 4px 0; }
+.block li { margin: 4px 0; overflow-wrap: anywhere; }
 
 .empty-line { margin: 0 0 8px; color: var(--faint); }
 
