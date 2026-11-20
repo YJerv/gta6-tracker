@@ -1,0 +1,290 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-11-20",
+  "section": "story",
+  "description": "Story missions grouped by chapter. Chapter count and mission count are a scaffold, not a claim about the game. Replace a placeholder only with sourced, verified text, and set verified to true.",
+  "chapters": [
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "chapter-1",
+      "order": 1,
+      "title": "PLACEHOLDER: Chapter 1",
+      "summary": "PLACEHOLDER: Chapter summary to be filled from a verified guide.",
+      "missions": [
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-1-mission-1",
+          "order": 1,
+          "title": "PLACEHOLDER: Chapter 1 mission 1 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-1-mission-2",
+          "order": 2,
+          "title": "PLACEHOLDER: Chapter 1 mission 2 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-1-mission-3",
+          "order": 3,
+          "title": "PLACEHOLDER: Chapter 1 mission 3 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        }
+      ]
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "chapter-2",
+      "order": 2,
+      "title": "PLACEHOLDER: Chapter 2",
+      "summary": "PLACEHOLDER: Chapter summary to be filled from a verified guide.",
+      "missions": [
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-2-mission-1",
+          "order": 1,
+          "title": "PLACEHOLDER: Chapter 2 mission 1 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-2-mission-2",
+          "order": 2,
+          "title": "PLACEHOLDER: Chapter 2 mission 2 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-2-mission-3",
+          "order": 3,
+          "title": "PLACEHOLDER: Chapter 2 mission 3 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        }
+      ]
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "chapter-3",
+      "order": 3,
+      "title": "PLACEHOLDER: Chapter 3",
+      "summary": "PLACEHOLDER: Chapter summary to be filled from a verified guide.",
+      "missions": [
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-3-mission-1",
+          "order": 1,
+          "title": "PLACEHOLDER: Chapter 3 mission 1 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-3-mission-2",
+          "order": 2,
+          "title": "PLACEHOLDER: Chapter 3 mission 2 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-3-mission-3",
+          "order": 3,
+          "title": "PLACEHOLDER: Chapter 3 mission 3 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        }
+      ]
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "chapter-4",
+      "order": 4,
+      "title": "PLACEHOLDER: Chapter 4",
+      "summary": "PLACEHOLDER: Chapter summary to be filled from a verified guide.",
+      "missions": [
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-4-mission-1",
+          "order": 1,
+          "title": "PLACEHOLDER: Chapter 4 mission 1 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-4-mission-2",
+          "order": 2,
+          "title": "PLACEHOLDER: Chapter 4 mission 2 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-4-mission-3",
+          "order": 3,
+          "title": "PLACEHOLDER: Chapter 4 mission 3 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        }
+      ]
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "chapter-5",
+      "order": 5,
+      "title": "PLACEHOLDER: Chapter 5",
+      "summary": "PLACEHOLDER: Chapter summary to be filled from a verified guide.",
+      "missions": [
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-5-mission-1",
+          "order": 1,
+          "title": "PLACEHOLDER: Chapter 5 mission 1 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-5-mission-2",
+          "order": 2,
+          "title": "PLACEHOLDER: Chapter 5 mission 2 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-5-mission-3",
+          "order": 3,
+          "title": "PLACEHOLDER: Chapter 5 mission 3 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        }
+      ]
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "chapter-6",
+      "order": 6,
+      "title": "PLACEHOLDER: Chapter 6",
+      "summary": "PLACEHOLDER: Chapter summary to be filled from a verified guide.",
+      "missions": [
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-6-mission-1",
+          "order": 1,
+          "title": "PLACEHOLDER: Chapter 6 mission 1 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-6-mission-2",
+          "order": 2,
+          "title": "PLACEHOLDER: Chapter 6 mission 2 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        },
+        {
+          "verified": false,
+          "source": null,
+          "generic": false,
+          "id": "chapter-6-mission-3",
+          "order": 3,
+          "title": "PLACEHOLDER: Chapter 6 mission 3 - to be filled from a verified guide",
+          "summary": "PLACEHOLDER: Spoiler-light overview to be filled from a verified guide.",
+          "steps": [],
+          "bonusObjectives": [],
+          "missables": []
+        }
+      ]
+    }
+  ]
+}

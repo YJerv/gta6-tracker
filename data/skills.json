@@ -1,0 +1,179 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-11-20",
+  "section": "skills",
+  "description": "Xbox settings and drills are generic controller practice, not GTA VI instructions. Stat rows are placeholders until a verified guide explains how the game levels them. Generic entries must keep chapterOrder null.",
+  "xboxSettings": [
+    {
+      "id": "setting-dead-zone",
+      "title": "Look and move dead zones",
+      "verified": true,
+      "source": "Generic Xbox Series controller guidance. Not a GTA VI setting, and not a recommended number.",
+      "generic": true,
+      "chapterOrder": null,
+      "topic": "dead-zone",
+      "detail": "If the camera or the character creeps while your thumb is off the stick, the dead zone is too small. If a small push does nothing, it is too large. Change one stick, try it, then decide on the other. Use the Xbox Accessories app, or the in-game stick options if you find them. This tracker does not know which of those GTA VI exposes."
+    },
+    {
+      "id": "setting-aim-assist",
+      "title": "Aim assist as a category",
+      "verified": true,
+      "source": "Generic Xbox Series controller guidance. Not a GTA VI setting, and not a recommended number.",
+      "generic": true,
+      "chapterOrder": null,
+      "topic": "aim-assist",
+      "detail": "Treat aim assist as a choice you make on purpose: off, a light pull, or a strong pull, using whatever names the pause menu actually shows. Pick one and leave it while you practise. Do not assume a particular GTA VI option exists until you see it."
+    },
+    {
+      "id": "setting-sensitivity",
+      "title": "Sensitivity before acceleration",
+      "verified": true,
+      "source": "Generic Xbox Series controller guidance. Not a GTA VI setting, and not a recommended number.",
+      "generic": true,
+      "chapterOrder": null,
+      "topic": "sensitivity",
+      "detail": "Start from the default. If you overshoot, lower the sensitivity before you add acceleration or extra ramp. If turning feels sluggish, raise sensitivity a little. One change per session, so you know what helped."
+    },
+    {
+      "id": "setting-feedback",
+      "title": "Vibration and trigger feedback",
+      "verified": true,
+      "source": "Generic Xbox Series controller guidance. Not a GTA VI setting, and not a recommended number.",
+      "generic": true,
+      "chapterOrder": null,
+      "topic": "feedback",
+      "detail": "On Xbox Series X|S you can quiet vibration for the controller from the guide menu, and some games also scale trigger resistance. Turn effects down if a long session makes your hands tired. Whether GTA VI uses trigger rumble is not recorded here."
+    },
+    {
+      "id": "setting-display",
+      "title": "Screen height, subtitles, and HUD scale",
+      "verified": true,
+      "source": "Generic Xbox Series controller guidance. Not a GTA VI setting, and not a recommended number.",
+      "generic": true,
+      "chapterOrder": null,
+      "topic": "display",
+      "detail": "Sit so the centre of the television is near eye level. If on-screen text is small, look for a subtitle size or a HUD scale control. Those are generic names to look for, not verified GTA VI menu labels."
+    },
+    {
+      "id": "setting-layout",
+      "title": "Confirm the button layout once",
+      "verified": true,
+      "source": "Generic Xbox Series controller guidance. Not a GTA VI setting, and not a recommended number.",
+      "generic": true,
+      "chapterOrder": null,
+      "topic": "layout",
+      "detail": "A standard Xbox pad confirms with the bottom face button. Before a long session, open the game's controls page once so the layout matches what you expect. This tracker has no verified remapping for GTA VI."
+    }
+  ],
+  "drills": [
+    {
+      "id": "drill-driving-brake",
+      "title": "Brake before the bend",
+      "verified": true,
+      "source": "Generic driving-practice idea for a controller. Not a GTA VI route or vehicle.",
+      "generic": true,
+      "chapterOrder": null,
+      "discipline": "driving",
+      "detail": "On a quiet road, brake in a straight line, then turn with a steady stick. Aim for one smooth arc. If you are still braking hard while the wheel is turned, you started the bend too late."
+    },
+    {
+      "id": "drill-driving-handbrake",
+      "title": "Short handbrake taps",
+      "verified": true,
+      "source": "Generic driving-practice idea for a controller. Not a GTA VI route or vehicle.",
+      "generic": true,
+      "chapterOrder": null,
+      "discipline": "driving",
+      "detail": "On a wide, empty stretch, tap the handbrake briefly so the car rotates, steer the other way, and ease the throttle back on. Keep the tap short. A long hold usually just spins you."
+    },
+    {
+      "id": "drill-driving-recovery",
+      "title": "Steer out of a slide",
+      "verified": true,
+      "source": "Generic driving-practice idea for a controller. Not a GTA VI route or vehicle.",
+      "generic": true,
+      "chapterOrder": null,
+      "discipline": "driving",
+      "detail": "When the car starts to slide, look where you want to go, steer that way, and ease off the power until the tyres grip. Avoid sawing the stick from side to side."
+    },
+    {
+      "id": "drill-driving-mirror",
+      "title": "Check behind you before you move over",
+      "verified": true,
+      "source": "Generic driving-practice idea for a controller. Not a GTA VI route or vehicle.",
+      "generic": true,
+      "chapterOrder": null,
+      "discipline": "driving",
+      "detail": "Before a lane change, glance at the mirror or the rear view if the game offers one, then move over. Build the habit in calm traffic. This is not a claim about a particular camera button."
+    },
+    {
+      "id": "drill-aim-preaim",
+      "title": "Centre the aim before you step out",
+      "verified": true,
+      "source": "Generic aiming-practice idea for a controller. Not a GTA VI weapon or encounter.",
+      "generic": true,
+      "chapterOrder": null,
+      "discipline": "aiming",
+      "detail": "Put the aim point where you expect someone to be, then move out of cover. Correct with small stick movements rather than a big swipe."
+    },
+    {
+      "id": "drill-aim-track",
+      "title": "Track, then fire a short burst",
+      "verified": true,
+      "source": "Generic aiming-practice idea for a controller. Not a GTA VI weapon or encounter.",
+      "generic": true,
+      "chapterOrder": null,
+      "discipline": "aiming",
+      "detail": "Follow a moving target for a moment before you shoot. Short bursts are easier to correct than holding the trigger until the magazine is empty."
+    },
+    {
+      "id": "drill-aim-reset",
+      "title": "Bring the aim back to centre",
+      "verified": true,
+      "source": "Generic aiming-practice idea for a controller. Not a GTA VI weapon or encounter.",
+      "generic": true,
+      "chapterOrder": null,
+      "discipline": "aiming",
+      "detail": "After a fight, return the aim to the middle of the screen so the next encounter does not start pointed at the floor or the sky."
+    },
+    {
+      "id": "drill-aim-distance",
+      "title": "Stand still for a far target",
+      "verified": true,
+      "source": "Generic aiming-practice idea for a controller. Not a GTA VI weapon or encounter.",
+      "generic": true,
+      "chapterOrder": null,
+      "discipline": "aiming",
+      "detail": "For a distant target, stop moving, aim, then fire a short burst. For a near target, strafe and keep the point on the body. This is general practice, not a weapon guide."
+    }
+  ],
+  "stats": [
+    {
+      "id": "stat-placeholder-1",
+      "title": "PLACEHOLDER: Stat 1 - to be filled from a verified guide",
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "chapterOrder": 1,
+      "detail": "PLACEHOLDER: How this stat increases and what it changes."
+    },
+    {
+      "id": "stat-placeholder-2",
+      "title": "PLACEHOLDER: Stat 2 - to be filled from a verified guide",
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "chapterOrder": 1,
+      "detail": "PLACEHOLDER: How this stat increases and what it changes."
+    },
+    {
+      "id": "stat-placeholder-3",
+      "title": "PLACEHOLDER: Stat 3 - to be filled from a verified guide",
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "chapterOrder": 3,
+      "detail": "PLACEHOLDER: How this stat increases and what it changes."
+    }
+  ]
+}
