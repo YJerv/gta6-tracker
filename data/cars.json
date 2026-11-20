@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-11-20",
+  "section": "cars",
+  "description": "Secret and rare cars and where to find them. Every row is a placeholder until a verified guide names the car, the area, and the steps. Do not invent cars or locations.",
+  "map": {
+    "image": null,
+    "imageCredit": null,
+    "imageAlt": null,
+    "source": null,
+    "width": null,
+    "height": null
+  },
+  "cars": [
+    {
+      "id": "car-placeholder-1",
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "chapterOrder": null,
+      "title": "PLACEHOLDER: Secret car 1 - to be filled from a verified guide",
+      "category": "PLACEHOLDER: Class",
+      "area": "PLACEHOLDER: Area 1",
+      "mapX": 22,
+      "mapY": 30,
+      "steps": [
+        "PLACEHOLDER: How to find it, to be filled from a verified guide."
+      ],
+      "notes": "PLACEHOLDER: Extra notes to be filled from a verified guide."
+    },
+    {
+      "id": "car-placeholder-2",
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "chapterOrder": null,
+      "title": "PLACEHOLDER: Secret car 2 - to be filled from a verified guide",
+      "category": "PLACEHOLDER: Class",
+      "area": "PLACEHOLDER: Area 2",
+      "mapX": 68,
+      "mapY": 62,
+      "steps": [
+        "PLACEHOLDER: How to find it, to be filled from a verified guide."
+      ],
+      "notes": "PLACEHOLDER: Extra notes to be filled from a verified guide."
+    },
+    {
+      "id": "car-placeholder-3",
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "chapterOrder": 3,
+      "title": "PLACEHOLDER: Secret car 3 - to be filled from a verified guide",
+      "category": "PLACEHOLDER: Class",
+      "area": "PLACEHOLDER: Area 3",
+      "mapX": 48,
+      "mapY": 78,
+      "steps": [
+        "PLACEHOLDER: How to find it, to be filled from a verified guide."
+      ],
+      "notes": "PLACEHOLDER: Extra notes to be filled from a verified guide."
+    }
+  ]
+}

@@ -41,6 +41,7 @@ if (invokedDirectly) {
     stats: data.skills.stats.length,
     vehicles: data.gear.vehicles.length,
     weapons: data.gear.weapons.length,
+    cars: data.cars.cars.length,
     news: data.online.news.length,
     checklist: data.online.checklist.length,
   };

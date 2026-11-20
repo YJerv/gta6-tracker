@@ -15,7 +15,7 @@ import {
   toggleId,
 } from "./progress.js";
 
-const DATA_FILES = ["meta", "story", "money", "collectibles", "secrets", "skills", "gear", "online"];
+const DATA_FILES = ["meta", "story", "money", "collectibles", "secrets", "skills", "gear", "cars", "online"];
 
 let state = null;
 let deferredPrompt = null;
@@ -100,7 +100,13 @@ function render() {
     storageWarning: state.storageWarning,
     canInstall: Boolean(deferredPrompt),
     cashError: state.cashError,
+    carsUi: {
+      area: state.carArea,
+      found: state.carFound,
+      selected: state.selectedCar,
+    },
   });
+  applyMapTransform();
   main.dataset.ready = "true";
   main.dataset.section = route.section;
   if (route.sub) main.dataset.currentSub = route.sub;
@@ -240,6 +246,33 @@ function onClick(event) {
     location.hash = `#/${route.section}/${sub.dataset.sub}`;
     return;
   }
+  const carOpen = target.closest("[data-car-pin], [data-car-open]");
+  if (carOpen) {
+    state.selectedCar = carOpen.dataset.carPin || carOpen.dataset.carOpen;
+    render();
+    document.getElementById("car-card")?.scrollIntoView({ block: "nearest" });
+    return;
+  }
+  const carArea = target.closest("[data-car-area]");
+  if (carArea) {
+    state.carArea = carArea.dataset.carArea;
+    render();
+    return;
+  }
+  const carFound = target.closest("[data-car-found]");
+  if (carFound) {
+    state.carFound = carFound.dataset.carFound;
+    render();
+    return;
+  }
+  const zoom = target.closest("[data-map-zoom]");
+  if (zoom) {
+    const delta = zoom.dataset.mapZoom === "in" ? 0.4 : -0.4;
+    state.mapView.scale += delta;
+    clampMap();
+    applyMapTransform();
+    return;
+  }
   const area = target.closest("[data-area]");
   if (area) {
     state.areaId = area.dataset.area;
@@ -335,7 +368,74 @@ function onSubmit(event) {
   announce("Cash saved.");
 }
 
+const mapPointers = new Map();
+let mapPinch = null;
+
+function clampMap() {
+  const stage = document.querySelector("[data-map-stage]");
+  if (!stage || !state?.mapView) return;
+  const width = stage.clientWidth;
+  const height = stage.clientHeight;
+  const view = state.mapView;
+  view.scale = Math.min(4, Math.max(1, view.scale));
+  const minX = width - width * view.scale;
+  const minY = height - height * view.scale;
+  view.x = Math.min(0, Math.max(minX, view.x));
+  view.y = Math.min(0, Math.max(minY, view.y));
+}
+
+function applyMapTransform() {
+  const layer = document.querySelector("[data-map-layer]");
+  if (!layer || !state?.mapView) return;
+  const { x, y, scale } = state.mapView;
+  layer.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+}
+
+function onMapPointerDown(event) {
+  const stage = event.target.closest("[data-map-stage]");
+  if (!stage || !state) return;
+  if (event.target.closest("[data-map-zoom], [data-car-pin]")) return;
+  stage.setPointerCapture(event.pointerId);
+  mapPointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+  if (mapPointers.size === 2) {
+    const [first, second] = [...mapPointers.values()];
+    mapPinch = {
+      distance: Math.hypot(first.x - second.x, first.y - second.y) || 1,
+      scale: state.mapView.scale,
+    };
+  }
+}
+
+function onMapPointerMove(event) {
+  if (!mapPointers.has(event.pointerId) || !state) return;
+  const previous = mapPointers.get(event.pointerId);
+  const next = { x: event.clientX, y: event.clientY };
+  mapPointers.set(event.pointerId, next);
+  if (mapPointers.size >= 2 && mapPinch) {
+    const [first, second] = [...mapPointers.values()];
+    const distance = Math.hypot(first.x - second.x, first.y - second.y) || 1;
+    state.mapView.scale = mapPinch.scale * (distance / mapPinch.distance);
+    state.mapView.x += next.x - previous.x;
+    state.mapView.y += next.y - previous.y;
+  } else if (mapPointers.size === 1) {
+    state.mapView.x += next.x - previous.x;
+    state.mapView.y += next.y - previous.y;
+  }
+  clampMap();
+  applyMapTransform();
+}
+
+function onMapPointerEnd(event) {
+  if (!mapPointers.has(event.pointerId)) return;
+  mapPointers.delete(event.pointerId);
+  if (mapPointers.size < 2) mapPinch = null;
+}
+
 function bind() {
+  document.addEventListener("pointerdown", onMapPointerDown);
+  document.addEventListener("pointermove", onMapPointerMove);
+  document.addEventListener("pointerup", onMapPointerEnd);
+  document.addEventListener("pointercancel", onMapPointerEnd);
   window.addEventListener("hashchange", () => {
     if (state) render();
   });
@@ -379,6 +479,10 @@ async function boot() {
       progress: loaded.progress,
       storageWarning: loaded.warning,
       areaId: "all",
+      carArea: "all",
+      carFound: "all",
+      selectedCar: null,
+      mapView: { x: 0, y: 0, scale: 1 },
       cashError: null,
       sheetOpen: false,
       resetArmed: false,

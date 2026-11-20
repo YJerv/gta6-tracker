@@ -34,6 +34,7 @@ export const ROUTES = {
       { id: "stats", label: "Stats" },
     ],
   },
+  cars: { title: "Cars", subs: [] },
   gear: {
     title: "Gear",
     subs: [
@@ -56,6 +57,7 @@ const INTRO = {
   map: "Filter the checklist by area. Secrets are on their own tab. Area names are placeholders, not verified locations.",
   skills: "Xbox settings and drills are generic controller practice. They are not GTA VI instructions. Stat rows are placeholders.",
   gear: "Vehicles and weapons to look for, by story stage, once a verified guide fills them in.",
+  cars: "Secret and rare cars, once a verified guide names them. Every row here is a placeholder. Drag the map, or use the plus and minus buttons.",
   online: "Readiness items are generic preparation. They are not a description of an online mode.",
 };
 
@@ -82,6 +84,7 @@ export function hashFor(item) {
   if (item.list === "settings") return "#/skills";
   if (item.list === "weapons") return "#/gear/weapons";
   if (item.list === "vehicles") return "#/gear";
+  if (item.list === "cars") return "#/cars";
   if (item.list === "online") return "#/online/checklist";
   return "#/home";
 }
@@ -507,6 +510,95 @@ function renderHome(model) {
     <p class="fine">Content files last updated ${e(formatLongDate(latest))}.</p>`;
 }
 
+function renderCarCard(entry, number, model) {
+  const car = entry.car;
+  const detail = model.catalog.details.get(car.id);
+  const found = model.progress.cars.includes(car.id);
+  return `<article class="card car-card">
+    <p class="kicker">Car ${number}</p>
+    <h3>${e(car.title)}</h3>
+    <p class="badge-row">${badges(car)}</p>
+    <p class="summary">${e(car.category)} · ${e(car.area)}</p>
+    ${missionFigure(detail)}
+    ${blocksHtml(detail.blocks)}
+    <p class="summary">${e(car.notes)}</p>
+    ${sourceHtml(car)}
+    <button type="button" class="car-found" data-tick="cars:${e(car.id)}" aria-pressed="${found ? "true" : "false"}" aria-label="${found ? "Clear" : "Found it"} ${e(car.title)}">
+      <span class="tick-box"></span>
+      <span>${found ? "Found" : "Found it"}</span>
+    </button>
+  </article>`;
+}
+
+function renderCars(model) {
+  const through = visibleThroughChapter(model.catalog.chapters, model.progress.missions);
+  const ui = model.carsUi || { area: "all", found: "all", selected: null };
+  const rows = model.data.cars.cars.map((car) => ({ car }));
+  const visible = [];
+  const hidden = [];
+  for (const entry of rows) {
+    const subject = { id: entry.car.id, chapterOrder: entry.car.chapterOrder, groupId: null };
+    if (isHidden(subject, model.progress, through)) hidden.push(entry);
+    else visible.push(entry);
+  }
+  const areas = [...new Set(visible.map((entry) => entry.car.area))];
+  let shown = visible;
+  if (ui.area !== "all") shown = shown.filter((entry) => entry.car.area === ui.area);
+  if (ui.found === "found") shown = shown.filter((entry) => model.progress.cars.includes(entry.car.id));
+  if (ui.found === "open") shown = shown.filter((entry) => !model.progress.cars.includes(entry.car.id));
+  const numberOf = (entry) => visible.indexOf(entry) + 1;
+  const pins = shown.filter((entry) => entry.car.mapX != null && entry.car.mapY != null);
+  const map = model.data.cars.map;
+  const picture = map.image
+    ? `<img class="map-photo" src="${e(map.image)}" alt="${e(map.imageAlt || "")}" width="${Number(map.width)}" height="${Number(map.height)}" draggable="false">`
+    : `<div class="map-grid" aria-hidden="true"></div><p class="map-empty">Map image to come</p>`;
+  const pinHtml = pins.map((entry) => {
+    const number = numberOf(entry);
+    const selected = ui.selected === entry.car.id ? " is-selected" : "";
+    return `<button type="button" class="map-pin${selected}" data-car-pin="${e(entry.car.id)}" style="left:${entry.car.mapX}%;top:${entry.car.mapY}%" aria-label="Show car ${number}">${number}</button>`;
+  }).join("");
+  const selected = visible.find((entry) => entry.car.id === ui.selected);
+  const card = selected
+    ? renderCarCard(selected, numberOf(selected), model)
+    : `<p class="fine">Tap a pin or a car in the list.</p>`;
+  const areaChips = [`<button type="button" class="chip${ui.area === "all" ? " is-active" : ""}" data-car-area="all">All areas</button>`]
+    .concat(areas.map((area) => `<button type="button" class="chip${ui.area === area ? " is-active" : ""}" data-car-area="${e(area)}">${e(area)}</button>`))
+    .join("");
+  const foundChips = [["all", "All"], ["open", "Still to find"], ["found", "Found"]]
+    .map(([id, label]) => `<button type="button" class="chip${ui.found === id ? " is-active" : ""}" data-car-found="${id}">${label}</button>`)
+    .join("");
+  const list = shown.map((entry) => {
+    const found = model.progress.cars.includes(entry.car.id);
+    const on = ui.selected === entry.car.id ? " is-selected" : "";
+    return `<button type="button" class="car-row${on}" data-car-open="${e(entry.car.id)}">
+      <span class="map-pin-num">${numberOf(entry)}</span>
+      <span class="car-row-copy"><strong>${e(entry.car.title)}</strong><span>${e(entry.car.area)}</span></span>
+      <span class="car-row-state">${found ? "Found" : "To find"}</span>
+    </button>`;
+  }).join("") || `<p class="fine">No cars in this filter.</p>`;
+  const hiddenHtml = hidden.map((entry) => shield(
+    entry.car.chapterOrder == null ? "Hidden car" : `Car in chapter ${entry.car.chapterOrder}`,
+    "The name and the steps stay covered until you show this car or turn spoilers off.",
+    entry.car.id,
+  )).join("");
+  return `${banner(INTRO.cars)}
+    <div class="map-stage" data-map-stage>
+      <div class="map-layer" data-map-layer>
+        ${picture}
+        ${pinHtml}
+      </div>
+      <div class="map-zoom">
+        <button type="button" data-map-zoom="out" aria-label="Zoom out">−</button>
+        <button type="button" data-map-zoom="in" aria-label="Zoom in">+</button>
+      </div>
+    </div>
+    <div id="car-card">${card}</div>
+    <div class="chips" role="group" aria-label="Found or still to find">${foundChips}</div>
+    <div class="chips" role="group" aria-label="Filter by area">${areaChips}</div>
+    <div class="car-list">${list}</div>
+    ${hiddenHtml}`;
+}
+
 export function renderMain(model) {
   switch (model.route.section) {
     case "story": return renderStory(model);
@@ -514,6 +606,7 @@ export function renderMain(model) {
     case "map": return renderMap(model);
     case "skills": return renderSkills(model);
     case "gear": return renderGear(model);
+    case "cars": return renderCars(model);
     case "online": return renderOnline(model);
     default: return renderHome(model);
   }

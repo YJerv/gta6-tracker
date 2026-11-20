@@ -33,6 +33,10 @@ Money and gear use editorial stages. The validator requires:
 
 Change those numbers in `scripts/schema.js` (`STAGE_CHAPTER`) and in the data together if a verified guide needs a different split. Do not treat the stage names as official chapter titles.
 
+## Cars
+
+`data/cars.json` is the secret-car list. Do not invent a car, an area, or a map coordinate. Replace a placeholder only from a verified guide: set `verified` to `true`, name the `source`, and remove every `PLACEHOLDER:` prefix. `chapterOrder` is `null` when the car is available from the start, or a story chapter `order` when naming it would spoil a later chapter. `mapX` and `mapY` are percentages of the map picture. Leave `map.image` null until you have a map file, then set the credit, alt text, width, and height, and add that file to the service worker.
+
 ## Add or remove rows
 
 - Keep `id` values kebab-case and unique across every data file. Old ids stay ticked in saved progress, so do not recycle an id for a different row.

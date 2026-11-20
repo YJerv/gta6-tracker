@@ -6,7 +6,7 @@ Launch is recorded here as **19 November 2026**, single-player only. No online m
 
 ## Use it
 
-Open `index.html` over HTTP (not as a bare file, or the JSON will not load). The bottom bar has Home, Story, Money, Map, Skills, Gear, and Online. Spoilers and Settings sit just above it, in thumb reach.
+Open `index.html` over HTTP (not as a bare file, or the JSON will not load). The bottom bar has Home, Story, Money, Map, Skills, Cars, Gear, and Online. It scrolls sideways so each target stays large. Spoilers and Settings sit just above it, in thumb reach.
 
 - **Home** shows completion, a cash figure you type yourself, and the next unticked mission.
 - **Story** is chapters and missions, with steps, bonus or gold objectives, and missables inside each card.
@@ -253,6 +253,31 @@ Generic rows must say they are not GTA VI instructions.
   "role": "PLACEHOLDER: Suggested role to be filled from a verified guide.",
   "where": "PLACEHOLDER: Where to find it, to be filled from a verified guide.",
   "detail": "PLACEHOLDER: Why this is a strong pick at this stage."
+}
+```
+
+### `data/cars.json`
+
+Secret and rare cars, with a map. `map` has `image` (a path under `images/`, or `null` until a map picture exists), `imageCredit`, `imageAlt`, `source`, `width`, and `height`. Credit, alt, width, and height are required when `image` is set, and the file must exist. When `image` is null, credit and alt are null too.
+
+Each car: `id`, `verified`, `source`, `generic` (must be `false`), `chapterOrder` (`null` if it is available from the start), `title`, `category`, `area`, `mapX`, `mapY` (each `null` or a number from 0 to 100), `steps`, `notes`. Optional `image`, `imageCredit`, and `imageAlt` follow the same rules as a mission picture. Unverified text starts with `PLACEHOLDER:`.
+
+```json
+{
+  "id": "car-placeholder-1",
+  "verified": false,
+  "source": null,
+  "generic": false,
+  "chapterOrder": null,
+  "title": "PLACEHOLDER: Secret car 1 - to be filled from a verified guide",
+  "category": "PLACEHOLDER: Class",
+  "area": "PLACEHOLDER: Area 1",
+  "mapX": 22,
+  "mapY": 30,
+  "steps": [
+    "PLACEHOLDER: How to find it, to be filled from a verified guide."
+  ],
+  "notes": "PLACEHOLDER: Extra notes to be filled from a verified guide."
 }
 ```
 

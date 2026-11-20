@@ -17,6 +17,7 @@ export const DATA_FILES = [
   "secrets",
   "skills",
   "gear",
+  "cars",
   "online",
 ];
 
@@ -110,6 +111,7 @@ function envelopeKeys(section) {
     secrets: ["entries"],
     skills: ["xboxSettings", "drills", "stats"],
     gear: ["vehicles", "weapons"],
+    cars: ["map", "cars"],
     online: ["news", "checklist"],
   };
   return common.concat(extra[section]);
@@ -532,6 +534,72 @@ function checkOnline(data, errors, ids) {
   });
 }
 
+function checkPercent(value, label, errors) {
+  if (value === null) return;
+  if (typeof value !== "number" || !Number.isFinite(value) || value < 0 || value > 100) {
+    push(errors, label, "must be null or a number from 0 to 100");
+  }
+}
+
+function checkPositiveOrNull(value, label, errors) {
+  if (value === null) return;
+  if (!Number.isInteger(value) || value < 1) push(errors, label, "must be null or a positive integer");
+}
+
+function checkCars(data, errors, ids) {
+  checkEnvelope(data, "cars", errors);
+  const map = data.map;
+  const mapPath = "cars.map";
+  if (!exactKeys(map, ["image", "imageCredit", "imageAlt", "source", "width", "height"], mapPath, errors)) return;
+  const imageSet = typeof map.image === "string";
+  if (!(map.image === null || imageSet)) push(errors, `${mapPath}.image`, "must be null or a path under images/");
+  if (imageSet) {
+    if (!/^images\/[a-z0-9.-]+$/.test(map.image)) push(errors, `${mapPath}.image`, "must be a relative path under images/");
+    else if (!existsSync(path.join(root, map.image))) push(errors, `${mapPath}.image`, `file not found (${map.image})`);
+    if (typeof map.imageCredit !== "string" || map.imageCredit.trim().length < 8) {
+      push(errors, `${mapPath}.imageCredit`, "is required when image is set");
+    }
+    if (typeof map.imageAlt !== "string" || map.imageAlt.trim().length < 8) {
+      push(errors, `${mapPath}.imageAlt`, "is required when image is set");
+    }
+    if (!Number.isInteger(map.width) || map.width < 1) push(errors, `${mapPath}.width`, "is required when image is set");
+    if (!Number.isInteger(map.height) || map.height < 1) push(errors, `${mapPath}.height`, "is required when image is set");
+  } else if (map.image === null) {
+    if (map.imageCredit !== null) push(errors, `${mapPath}.imageCredit`, "must be null when there is no map image");
+    if (map.imageAlt !== null) push(errors, `${mapPath}.imageAlt`, "must be null when there is no map image");
+    checkPositiveOrNull(map.width, `${mapPath}.width`, errors);
+    checkPositiveOrNull(map.height, `${mapPath}.height`, errors);
+  }
+  if (!(map.source === null || (typeof map.source === "string" && map.source.trim().length > 0))) {
+    push(errors, `${mapPath}.source`, "must be a string or null");
+  }
+  if (!Array.isArray(data.cars) || data.cars.length < 1) {
+    push(errors, "cars.cars", "must be a non-empty array");
+    return;
+  }
+  data.cars.forEach((car, index) => {
+    const carPath = `cars.cars[${index}]`;
+    if (!exactKeys(car, ["id", "verified", "source", "generic", "chapterOrder", "title", "category", "area", "mapX", "mapY", "steps", "notes"], carPath, errors, ["image", "imageCredit", "imageAlt"])) return;
+    checkId(car.id, `${carPath}.id`, errors, ids);
+    if (car.generic !== false) push(errors, `${carPath}.generic`, "must be false");
+    checkVerifiedPair(car, carPath, errors, ["title", "category", "area", "notes", "steps"]);
+    checkChapterOrder(car.chapterOrder, `${carPath}.chapterOrder`, errors, { allowNull: true, generic: false });
+    checkPercent(car.mapX, `${carPath}.mapX`, errors);
+    checkPercent(car.mapY, `${carPath}.mapY`, errors);
+    checkStringList(car.steps, `${carPath}.steps`, errors);
+    if (typeof car.notes !== "string" || car.notes.length > 500) {
+      push(errors, `${carPath}.notes`, "must be text up to 500 characters");
+    }
+    if (typeof car.category !== "string" || car.category.length > 120) {
+      push(errors, `${carPath}.category`, "must be text up to 120 characters");
+    }
+    if (typeof car.area !== "string" || car.area.length > 120) {
+      push(errors, `${carPath}.area`, "must be text up to 120 characters");
+    }
+    checkMissionImage(car, carPath, errors);
+  });
+}
+
 function checkChapterReferences(data, chapterOrders, errors) {
   const refs = [];
   for (const entry of data.money?.earners || []) refs.push(["money earner", entry.chapterOrder]);
@@ -544,6 +612,7 @@ function checkChapterReferences(data, chapterOrders, errors) {
   for (const entry of data.skills?.stats || []) refs.push(["stat", entry.chapterOrder]);
   for (const entry of data.gear?.vehicles || []) refs.push(["vehicle", entry.chapterOrder]);
   for (const entry of data.gear?.weapons || []) refs.push(["weapon", entry.chapterOrder]);
+  for (const entry of data.cars?.cars || []) refs.push(["car", entry.chapterOrder]);
   for (const [label, order] of refs) {
     if (Number.isInteger(order) && !chapterOrders.has(order)) {
       push(errors, label, `chapterOrder ${order} does not match a story chapter`);
@@ -574,6 +643,7 @@ export function validateAll(data) {
   checkSecrets(data.secrets, errors, ids, areaIds);
   checkSkills(data.skills, errors, ids);
   checkGear(data.gear, errors, ids);
+  checkCars(data.cars, errors, ids);
   checkOnline(data.online, errors, ids);
   checkChapterReferences(data, chapterOrders, errors);
   return errors;

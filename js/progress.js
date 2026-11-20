@@ -13,6 +13,7 @@ export const LIST_KEYS = [
   "weapons",
   "money",
   "online",
+  "cars",
 ];
 
 export const SECTION_DEFS = [
@@ -21,6 +22,7 @@ export const SECTION_DEFS = [
   { id: "collectibles", label: "Collectibles", hash: "#/map", lists: ["collectibles"] },
   { id: "secrets", label: "Secrets", hash: "#/map/secrets", lists: ["secrets"] },
   { id: "skills", label: "Skills", hash: "#/skills", lists: ["settings", "drills", "stats"] },
+  { id: "cars", label: "Cars", hash: "#/cars", lists: ["cars"] },
   { id: "gear", label: "Gear", hash: "#/gear", lists: ["vehicles", "weapons"] },
   { id: "online", label: "Online prep", hash: "#/online", lists: ["online"] },
 ];
@@ -33,11 +35,12 @@ const STAGE_LABEL = {
   late: "Late story",
 };
 
-const SIDE_ORDER = ["drills", "collectibles", "online", "settings", "vehicles", "weapons", "money", "stats", "secrets"];
+const SIDE_ORDER = ["drills", "collectibles", "cars", "online", "settings", "vehicles", "weapons", "money", "stats", "secrets"];
 
 const SIDE_BLURB = {
   drills: "A generic drill you can do without later-chapter details.",
   collectibles: "A collectible in a chapter you have already opened.",
+  cars: "A secret car in a chapter you have already opened.",
   online: "Generic preparation while online is unannounced.",
   settings: "A generic Xbox setting to decide once.",
   vehicles: "A vehicle row you have already opened.",
@@ -60,6 +63,7 @@ export function emptyProgress(now = new Date().toISOString()) {
     weapons: [],
     money: [],
     online: [],
+    cars: [],
     cash: null,
     cashNote: "",
     spoilersHidden: true,
@@ -588,6 +592,31 @@ export function buildCatalog(data) {
       kicker: "Generic readiness",
       summary: entry.detail,
       blocks: [],
+    }));
+  });
+
+  data.cars.cars.forEach((entry, index) => {
+    add({
+      id: entry.id,
+      list: "cars",
+      section: "cars",
+      title: entry.title,
+      chapterOrder: entry.chapterOrder,
+      groupId: null,
+      sort: index,
+      stage: null,
+      areaId: null,
+      sub: null,
+    }, detailFor(entry, {
+      kicker: entry.area,
+      summary: entry.notes,
+      image: entry.image || null,
+      imageCredit: entry.imageCredit || null,
+      imageAlt: entry.imageAlt || null,
+      blocks: [
+        { heading: "Class", lines: [entry.category] },
+        { heading: "How to find it", lines: entry.steps },
+      ],
     }));
   });
 

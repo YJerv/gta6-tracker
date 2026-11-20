@@ -282,6 +282,42 @@ test("mission illustrations are credited and stay inside the open mission", () =
   assert.match(page, /fan content policy covers non-commercial use only/);
 });
 
+test("secret cars stay placeholders and later ones stay covered", () => {
+  assert.equal(data.cars.cars.length, 3);
+  assert.equal(data.cars.map.image, null);
+  for (const car of data.cars.cars) {
+    assert.equal(car.verified, false);
+    assert.equal(car.source, null);
+    assert.match(car.title, /^PLACEHOLDER:/);
+  }
+  const progress = emptyProgress(NOW);
+  const page = renderMain(model(progress, { section: "cars" }));
+  assert.match(page, /Map image to come/);
+  assert.match(page, /data-car-pin="car-placeholder-1"/);
+  assert.match(page, /left:22%/);
+  assert.match(page, /Secret car 1/);
+  assert.doesNotMatch(page, /Secret car 3/);
+  assert.match(page, /Car in chapter 3/);
+
+  const open = renderMain({
+    ...model(progress, { section: "cars" }),
+    carsUi: { area: "all", found: "all", selected: "car-placeholder-1" },
+  });
+  assert.match(open, /Found it/);
+  assert.match(open, /How to find it/);
+  assert.match(open, /data-car-area="PLACEHOLDER: Area 1"/);
+  assert.doesNotMatch(open, /data-car-area="PLACEHOLDER: Area 3"/);
+
+  const shown = renderMain(model(setSpoilersHidden(progress, false, NOW), { section: "cars" }));
+  assert.match(shown, /Secret car 3/);
+
+  const broken = structuredClone(data);
+  broken.cars.cars[0].image = "images/missing-car.jpg";
+  broken.cars.cars[0].imageCredit = "Image credit";
+  broken.cars.cars[0].imageAlt = "A placeholder car picture";
+  assert.ok(validateAll(broken).some((error) => error.includes("file not found")));
+});
+
 test("rendered story hides later mission text and escapes markup", () => {
   const progress = emptyProgress(NOW);
   const hidden = renderMain(model(progress, { section: "story" }));
