@@ -410,7 +410,30 @@ h1 {
 
 .mission-toggle .badge-row { margin: 0; flex: none; }
 
-.mission-body { padding: 0 8px 8px 56px; }
+.mission-body { padding: 0 8px 8px 12px; }
+
+.mission-figure { margin: 4px 0 12px; }
+
+.mission-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #2a241c;
+}
+
+.illustration-note,
+.image-credit {
+  display: block;
+  margin-top: 6px;
+  overflow-wrap: anywhere;
+}
+
+.illustration-note { color: var(--muted); font-size: 0.85rem; }
+
+.image-credit { color: var(--faint); font-size: 0.75rem; line-height: 1.35; }
 
 .group-head h2, .group-title {
   margin: 0 0 6px;

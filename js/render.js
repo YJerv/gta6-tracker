@@ -222,6 +222,7 @@ function renderMissionRow(item, detail, progress, open) {
   const on = progress[item.list].includes(item.id);
   const body = open
     ? `<div class="mission-body">
+        ${missionFigure(detail)}
         ${sourceHtml(detail)}
         ${detail.summary ? `<p class="summary">${e(detail.summary)}</p>` : ""}
         ${blocksHtml(detail.blocks)}
@@ -291,6 +292,31 @@ function renderStory(model) {
     </section>`;
   }).join("");
   return `${banner(INTRO.story)}${renderNotice(model.data.story.notice)}${controls}${chapters}`;
+}
+
+function missionFigure(detail) {
+  if (!detail.image) return "";
+  return `<figure class="mission-figure">
+    <img src="${e(detail.image)}" alt="${e(detail.imageAlt)}" width="1600" height="900" loading="lazy" decoding="async">
+    <figcaption>
+      <span class="badge badge-generic">Illustration</span>
+      <span class="illustration-note">Official promo image, not a screenshot of this mission.</span>
+      <span class="image-credit">${e(detail.imageCredit)}</span>
+    </figcaption>
+  </figure>`;
+}
+
+export function illustrationCredits(story) {
+  const seen = new Set();
+  const lines = [];
+  for (const chapter of story.chapters) {
+    for (const mission of chapter.missions) {
+      if (typeof mission.imageCredit !== "string" || seen.has(mission.imageCredit)) continue;
+      seen.add(mission.imageCredit);
+      lines.push(mission.imageCredit);
+    }
+  }
+  return lines;
 }
 
 function renderNotice(notice) {

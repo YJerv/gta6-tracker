@@ -6,6 +6,8 @@ Chapter 1 missions 1 to 10 are already verified in `data/story.json`. Keep their
 
 `notice` on that file is the Good to know box at the top of Story. It needs a source and a `lastUpdated` date. It is not covered by the spoiler switch. Add a line only when a guide actually says it, and say so in the text when two guides disagree.
 
+A mission may have `image`, `imageCredit`, and `imageAlt` together. `image` is a file under `images/` (for example `images/chapter-1-mission-1.jpg`). Leave all three off when there is no picture. Put the new file in `sw.js` `RELATIVE_ASSETS` and bump `CACHE`. The picture is an illustration inside the expanded mission, not a claim that it is a screenshot of that mission.
+
 Player-facing copy in the app uses British English. Keep new sentences in British English too.
 
 ## Replace one placeholder

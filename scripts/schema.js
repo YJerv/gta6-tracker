@@ -3,6 +3,12 @@
  * Keep this file in step with the "Data file format" section of README.md.
  */
 
+import { existsSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+
 export const DATA_FILES = [
   "meta",
   "story",
@@ -38,12 +44,12 @@ function push(errors, path, message) {
   errors.push(`${path} ${message}`);
 }
 
-function exactKeys(obj, keys, path, errors) {
+function exactKeys(obj, keys, path, errors, optional = []) {
   if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
     push(errors, path, "must be an object");
     return false;
   }
-  const allowed = new Set(keys);
+  const allowed = new Set([...keys, ...optional]);
   for (const key of Object.keys(obj)) {
     if (!allowed.has(key)) push(errors, path, `has unknown key "${key}"`);
   }
@@ -51,6 +57,26 @@ function exactKeys(obj, keys, path, errors) {
     if (!(key in obj)) push(errors, path, `is missing "${key}"`);
   }
   return true;
+}
+
+function checkMissionImage(mission, label, errors) {
+  const present = ["image", "imageCredit", "imageAlt"].filter((key) => key in mission);
+  if (present.length === 0) return;
+  if (present.length !== 3) {
+    push(errors, label, "image, imageCredit and imageAlt must be set together");
+    return;
+  }
+  if (typeof mission.image !== "string" || !/^images\/[a-z0-9.-]+$/.test(mission.image)) {
+    push(errors, `${label}.image`, "must be a relative path under images/");
+  } else if (!existsSync(path.join(root, mission.image))) {
+    push(errors, `${label}.image`, `file not found (${mission.image})`);
+  }
+  if (typeof mission.imageCredit !== "string" || mission.imageCredit.trim().length < 8) {
+    push(errors, `${label}.imageCredit`, "is required when image is set");
+  }
+  if (typeof mission.imageAlt !== "string" || mission.imageAlt.trim().length < 8 || mission.imageAlt.length > 300) {
+    push(errors, `${label}.imageAlt`, "is required when image is set");
+  }
 }
 
 function checkEnvelope(data, section, errors) {
@@ -282,7 +308,8 @@ function checkStory(data, errors, ids, chapterOrders) {
     const missionOrders = new Set();
     chapter.missions.forEach((mission, missionIndex) => {
       const missionPath = `${path}.missions[${missionIndex}]`;
-      if (!exactKeys(mission, ["id", "order", "title", "verified", "source", "generic", "summary", "steps", "bonusObjectives", "missables"], missionPath, errors)) return;
+      if (!exactKeys(mission, ["id", "order", "title", "verified", "source", "generic", "summary", "steps", "bonusObjectives", "missables"], missionPath, errors, ["image", "imageCredit", "imageAlt"])) return;
+      checkMissionImage(mission, missionPath, errors);
       checkId(mission.id, `${missionPath}.id`, errors, ids);
       if (!Number.isInteger(mission.order) || mission.order < 1) push(errors, `${missionPath}.order`, "must be a positive integer");
       if (missionOrders.has(mission.order)) push(errors, `${missionPath}.order`, "duplicates another mission order in this chapter");

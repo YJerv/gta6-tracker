@@ -127,6 +127,8 @@ Known framing only. Do not hide mission or location facts in here.
 
 Each mission: `id`, `order` (unique inside the chapter), `title`, `verified`, `source`, `generic`, `summary`, `steps`, `bonusObjectives`, `missables`. The three lists are arrays of strings (empty until a guide provides them, at most 12 lines, 300 characters each).
 
+Optional illustration fields, set together or not at all: `image` (a relative path under `images/`, and the file must exist), `imageCredit`, and `imageAlt`. The picture is shown only inside that mission once it is expanded, so the spoiler switch hides it with the rest of the mission. Add the file to `RELATIVE_ASSETS` in `sw.js` and bump `CACHE`.
+
 The shipped file has five chapters, which is what the cited guides list. Chapter 1 is verified as "Just Like Paradise" and has 22 mission slots. Missions 1 to 10 are sourced. Missions 11 to 22, and chapters 2 to 5, are still placeholders. Keep the ids `chapter-1-mission-1` through `chapter-1-mission-10` stable so saved ticks still match.
 
 ```json

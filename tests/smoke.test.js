@@ -24,7 +24,7 @@ import {
   toggleId,
   visibleThroughChapter,
 } from "../js/progress.js";
-import { parseRoute, renderCard, renderMain } from "../js/render.js";
+import { illustrationCredits, parseRoute, renderCard, renderMain } from "../js/render.js";
 import { validateAll } from "../scripts/schema.js";
 import { loadData } from "../scripts/validate.js";
 
@@ -238,6 +238,48 @@ test("the story notice stays above the chapters when spoilers are hidden", () =>
   const broken = structuredClone(data);
   broken.story.notice.source = "";
   assert.ok(validateAll(broken).some((error) => error.includes("story.notice.source")));
+});
+
+test("mission illustrations are credited and stay inside the open mission", () => {
+  const missions = data.story.chapters[0].missions;
+  const withImage = missions.filter((mission) => mission.image);
+  assert.deepEqual(withImage.map((mission) => mission.id), [
+    "chapter-1-mission-1",
+    "chapter-1-mission-2",
+    "chapter-1-mission-3",
+    "chapter-1-mission-4",
+    "chapter-1-mission-5",
+    "chapter-1-mission-6",
+    "chapter-1-mission-8",
+    "chapter-1-mission-9",
+    "chapter-1-mission-10",
+  ]);
+  assert.equal("image" in missions.find((mission) => mission.id === "chapter-1-mission-7"), false);
+  assert.equal(illustrationCredits(data.story).length, 1);
+  assert.match(illustrationCredits(data.story)[0], /Rockstar Games/);
+
+  const open = renderMain(model(emptyProgress(NOW), { section: "story" }));
+  assert.match(open, /src="images\/chapter-1-mission-1\.jpg"/);
+  assert.match(open, /loading="lazy"/);
+  assert.match(open, /Lucia in an orange prison jumpsuit and handcuffs, escorted past other inmates\./);
+  assert.match(open, /Illustration/);
+  assert.match(open, /Official promo image, not a screenshot of this mission/);
+  assert.doesNotMatch(open, /src="images\/chapter-1-mission-2\.jpg"/);
+
+  const shut = renderMain(model(setStoryOpen(emptyProgress(NOW), "chapters", "chapter-1", false, NOW), { section: "story" }));
+  assert.equal(shut.includes("<img"), false);
+
+  const missing = structuredClone(data);
+  missing.story.chapters[0].missions[0].image = "images/missing.jpg";
+  assert.ok(validateAll(missing).some((error) => error.includes("file not found")));
+
+  const bare = structuredClone(data);
+  delete bare.story.chapters[0].missions[0].imageAlt;
+  assert.ok(validateAll(bare).some((error) => error.includes("imageAlt") || error.includes("set together")));
+
+  const page = readFileSync(path.join(root, "index.html"), "utf8");
+  assert.match(page, /free, non-commercial, and has no ads/);
+  assert.match(page, /fan content policy covers non-commercial use only/);
 });
 
 test("rendered story hides later mission text and escapes markup", () => {

@@ -355,6 +355,9 @@ function detailFor(entry, extra) {
     source: entry.source,
     summary: extra.summary,
     blocks: extra.blocks || [],
+    image: extra.image || null,
+    imageCredit: extra.imageCredit || null,
+    imageAlt: extra.imageAlt || null,
   };
 }
 
@@ -387,6 +390,9 @@ export function buildCatalog(data) {
         }, detailFor(mission, {
           kicker: `Chapter ${chapter.order} · Mission ${mission.order}`,
           summary: mission.summary,
+          image: mission.image || null,
+          imageCredit: mission.imageCredit || null,
+          imageAlt: mission.imageAlt || null,
           blocks: [
             { heading: "Steps", lines: mission.steps },
             { heading: "Bonus and gold objectives", lines: mission.bonusObjectives },

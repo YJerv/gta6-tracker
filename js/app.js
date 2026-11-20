@@ -1,4 +1,4 @@
-import { renderMain, parseRoute, ROUTES } from "./render.js";
+import { illustrationCredits, renderMain, parseRoute, ROUTES } from "./render.js";
 import {
   STORAGE_KEY,
   buildCatalog,
@@ -107,6 +107,8 @@ function render() {
   else delete main.dataset.currentSub;
   syncChrome(route);
   if (state.sheetOpen) fillExport();
+  const about = document.getElementById("about-credits");
+  if (about) about.textContent = illustrationCredits(state.data.story).join("\n\n");
   if (state.restoreFocus) {
     const selector = state.restoreFocus;
     state.restoreFocus = null;
