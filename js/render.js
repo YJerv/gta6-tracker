@@ -58,7 +58,7 @@ const INTRO = {
   map: "Filter the checklist by area. Secrets are on their own tab. Area names are placeholders, not verified locations.",
   skills: "Xbox settings and drills are generic controller practice. They are not GTA VI instructions. Stat rows are placeholders.",
   gear: "Vehicles and weapons to look for, by story stage, once a verified guide fills them in.",
-  cars: "Secret and rare cars, once a verified guide names them. Every row here is a placeholder. Drag the map, or use the plus and minus buttons.",
+  cars: "Pins sit on Rockstar's Leonida poster. They mark the right neighbourhood, not the building. Drag the map, or use plus and minus.",
   online: "Readiness items are generic preparation. They are not a description of an online mode.",
 };
 
@@ -518,13 +518,15 @@ function renderCarCard(entry, number, model) {
   const car = entry.car;
   const detail = model.catalog.details.get(car.id);
   const found = model.progress.cars.includes(car.id);
+  const chapter = car.chapterOrder == null ? "From the start" : `Chapter ${car.chapterOrder}`;
   return `<article class="card car-card">
-    <p class="kicker">Car ${number}</p>
+    <p class="kicker">Car ${number} · ${e(chapter)}</p>
     <h3>${e(car.title)}</h3>
     <p class="badge-row">${badges(car)}</p>
     <p class="summary">${e(car.category)} · ${e(car.area)}</p>
     ${missionFigure(detail)}
     ${blocksHtml(detail.blocks)}
+    <p class="pin-note">Pin is approximate. The poster has no street names, so it marks the right neighbourhood, not the building.</p>
     <p class="summary">${e(car.notes)}</p>
     ${sourceHtml(car)}
     <button type="button" class="car-found" data-tick="cars:${e(car.id)}" aria-pressed="${found ? "true" : "false"}" aria-label="${found ? "Clear" : "Found it"} ${e(car.title)}">
@@ -536,31 +538,46 @@ function renderCarCard(entry, number, model) {
 
 function renderCars(model) {
   const through = visibleThroughChapter(model.catalog.chapters, model.progress.missions);
-  const ui = model.carsUi || { area: "all", found: "all", selected: null };
+  const ui = model.carsUi || { area: "all", found: "all", chapter: "all", selected: null };
   const rows = model.data.cars.cars.map((car) => ({ car }));
   const visible = [];
   const hidden = [];
   for (const entry of rows) {
-    const subject = { id: entry.car.id, chapterOrder: entry.car.chapterOrder, groupId: null };
+    const groupId = entry.car.chapterOrder == null ? "cars-chapter-start" : `cars-chapter-${entry.car.chapterOrder}`;
+    const subject = { id: entry.car.id, chapterOrder: entry.car.chapterOrder, groupId };
     if (isHidden(subject, model.progress, through)) hidden.push(entry);
     else visible.push(entry);
   }
-  const areas = [...new Set(visible.map((entry) => entry.car.area))];
-  let shown = visible;
+  const chapters = [...new Set(rows.map((entry) => entry.car.chapterOrder).filter((order) => order != null))].sort((a, b) => a - b);
+  let pool = visible;
+  let hiddenPool = hidden;
+  if (ui.chapter !== "all") {
+    pool = pool.filter((entry) => String(entry.car.chapterOrder) === String(ui.chapter));
+    hiddenPool = hiddenPool.filter((entry) => String(entry.car.chapterOrder) === String(ui.chapter));
+  }
+  const areas = [...new Set(pool.map((entry) => entry.car.area))];
+  let shown = pool;
   if (ui.area !== "all") shown = shown.filter((entry) => entry.car.area === ui.area);
   if (ui.found === "found") shown = shown.filter((entry) => model.progress.cars.includes(entry.car.id));
   if (ui.found === "open") shown = shown.filter((entry) => !model.progress.cars.includes(entry.car.id));
   const numberOf = (entry) => visible.indexOf(entry) + 1;
   const pins = shown.filter((entry) => entry.car.mapX != null && entry.car.mapY != null);
   const map = model.data.cars.map;
+  const ratio = map.image && map.width && map.height ? `${map.width} / ${map.height}` : "1 / 1";
+  const ratioValue = map.image && map.width && map.height ? map.height / map.width : 1;
   const picture = map.image
     ? `<img class="map-photo" src="${e(map.image)}" alt="${e(map.imageAlt || "")}" width="${Number(map.width)}" height="${Number(map.height)}" draggable="false">`
     : `<div class="map-grid" aria-hidden="true"></div><p class="map-empty">Map image to come</p>`;
   const pinHtml = pins.map((entry) => {
     const number = numberOf(entry);
     const selected = ui.selected === entry.car.id ? " is-selected" : "";
-    return `<button type="button" class="map-pin${selected}" data-car-pin="${e(entry.car.id)}" style="left:${entry.car.mapX}%;top:${entry.car.mapY}%" aria-label="Show car ${number}">${number}</button>`;
+    const chapter = entry.car.chapterOrder == null ? "0" : String(entry.car.chapterOrder);
+    return `<button type="button" class="map-pin${selected}" data-car-pin="${e(entry.car.id)}" data-map-x="${entry.car.mapX}" data-map-y="${entry.car.mapY}" data-chapter="${e(chapter)}" aria-label="Show car ${number}, chapter ${e(chapter)}"><span class="map-dot">${number}</span></button>`;
   }).join("");
+  const legend = [...new Set(shown.map((entry) => entry.car.chapterOrder).filter((order) => order != null))]
+    .sort((a, b) => a - b)
+    .map((order) => `<span class="legend-item"><i class="map-dot" data-chapter="${order}"></i>Ch ${order}</span>`)
+    .join("");
   const selected = visible.find((entry) => entry.car.id === ui.selected);
   const card = selected
     ? renderCarCard(selected, numberOf(selected), model)
@@ -571,6 +588,9 @@ function renderCars(model) {
   const foundChips = [["all", "All"], ["open", "Still to find"], ["found", "Found"]]
     .map(([id, label]) => `<button type="button" class="chip${ui.found === id ? " is-active" : ""}" data-car-found="${id}">${label}</button>`)
     .join("");
+  const chapterChips = [`<button type="button" class="chip${ui.chapter === "all" ? " is-active" : ""}" data-car-chapter="all">All chapters</button>`]
+    .concat(chapters.map((order) => `<button type="button" class="chip${String(ui.chapter) === String(order) ? " is-active" : ""}" data-car-chapter="${order}">Chapter ${order}</button>`))
+    .join("");
   const list = shown.map((entry) => {
     const found = model.progress.cars.includes(entry.car.id);
     const on = ui.selected === entry.car.id ? " is-selected" : "";
@@ -580,23 +600,29 @@ function renderCars(model) {
       <span class="car-row-state">${found ? "Found" : "To find"}</span>
     </button>`;
   }).join("") || `<p class="fine">No cars in this filter.</p>`;
-  const hiddenHtml = hidden.map((entry) => shield(
-    entry.car.chapterOrder == null ? "Hidden car" : `Car in chapter ${entry.car.chapterOrder}`,
-    "The name and the steps stay covered until you show this car or turn spoilers off.",
-    entry.car.id,
+  const hiddenHtml = [...new Set(hiddenPool.map((entry) => entry.car.chapterOrder))].map((order) => shield(
+    order == null ? "Hidden cars" : `Cars in chapter ${order}`,
+    "Names and steps stay covered until you show this chapter or turn spoilers off.",
+    order == null ? "cars-chapter-start" : `cars-chapter-${order}`,
   )).join("");
+  const credit = map.imageCredit
+    ? `<p class="map-credit"><span class="badge badge-generic">Illustration</span> ${e(map.imageCredit)}</p>`
+    : "";
   return `${banner(INTRO.cars)}
     <div class="map-stage" data-map-stage>
-      <div class="map-layer" data-map-layer>
+      <div class="map-layer" data-map-layer data-map-ratio="${ratioValue}" style="aspect-ratio:${ratio}">
         ${picture}
-        ${pinHtml}
       </div>
+      ${pinHtml}
       <div class="map-zoom">
         <button type="button" data-map-zoom="out" aria-label="Zoom out">−</button>
         <button type="button" data-map-zoom="in" aria-label="Zoom in">+</button>
       </div>
     </div>
+    ${legend ? `<p class="map-legend">${legend}</p>` : ""}
+    ${credit}
     <div id="car-card">${card}</div>
+    <div class="chips" role="group" aria-label="Filter by chapter">${chapterChips}</div>
     <div class="chips" role="group" aria-label="Found or still to find">${foundChips}</div>
     <div class="chips" role="group" aria-label="Filter by area">${areaChips}</div>
     <div class="car-list">${list}</div>

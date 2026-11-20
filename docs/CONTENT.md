@@ -35,7 +35,7 @@ Change those numbers in `scripts/schema.js` (`STAGE_CHAPTER`) and in the data to
 
 ## Cars
 
-`data/cars.json` is the secret-car list. Do not invent a car, an area, or a map coordinate. Replace a placeholder only from a verified guide: set `verified` to `true`, name the `source`, and remove every `PLACEHOLDER:` prefix. `chapterOrder` is `null` when the car is available from the start, or a story chapter `order` when naming it would spoil a later chapter. `mapX` and `mapY` are percentages of the map picture. Leave `map.image` null until you have a map file, then set the credit, alt text, width, and height, and add that file to the service worker.
+`data/cars.json` is the secret-car list. Do not invent a car, an area, or a map coordinate. `mapX` and `mapY` are percentages from the top-left of `map.image`. `chapterOrder` is `null` when the car is available from the start, or a story chapter `order` when naming it would spoil a later chapter. A car picture lives under `images/cars/`. Set `image`, `imageCredit`, and `imageAlt` together, or leave all three `null`. Add every new picture, including the map, to `sw.js` and bump `CACHE`. The card already tells the player the pin is only approximate.
 
 ## Add or remove rows
 

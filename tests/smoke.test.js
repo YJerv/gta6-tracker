@@ -283,40 +283,54 @@ test("mission illustrations are credited and stay inside the open mission", () =
   assert.match(page, /fan content policy covers non-commercial use only/);
 });
 
-test("secret cars stay placeholders and later ones stay covered", () => {
-  assert.equal(data.cars.cars.length, 3);
-  assert.equal(data.cars.map.image, null);
+test("sourced cars use the Leonida map and hide later chapters", () => {
+  assert.equal(data.cars.cars.length, 30);
+  assert.equal(data.cars.map.image, "images/cars/leonida-map.jpg");
+  assert.equal(data.cars.map.width, 1402);
+  assert.equal(data.cars.map.height, 1920);
+  assert.match(data.cars.map.imageCredit, /Rockstar Games/);
+  const withPicture = data.cars.cars.filter((car) => car.image);
+  assert.equal(withPicture.length, 4);
+  assert.ok(data.cars.cars.some((car) => car.image === null && car.imageCredit === null && car.imageAlt === null));
   for (const car of data.cars.cars) {
-    assert.equal(car.verified, false);
-    assert.equal(car.source, null);
-    assert.match(car.title, /^PLACEHOLDER:/);
+    assert.equal(car.verified, true);
+    assert.equal(typeof car.source, "string");
+    assert.ok(car.mapX >= 0 && car.mapX <= 100);
+    assert.ok(car.mapY >= 0 && car.mapY <= 100);
   }
+
   const progress = emptyProgress(NOW);
   const page = renderMain(model(progress, { section: "cars" }));
-  assert.match(page, /Map image to come/);
-  assert.match(page, /data-car-pin="car-placeholder-1"/);
-  assert.match(page, /left:22%/);
-  assert.match(page, /Secret car 1/);
-  assert.doesNotMatch(page, /Secret car 3/);
-  assert.match(page, /Car in chapter 3/);
+  assert.match(page, /src="images\/cars\/leonida-map\.jpg"/);
+  assert.match(page, /data-car-pin="car-dinka-enduro"/);
+  assert.match(page, /data-map-x="56.8"/);
+  assert.match(page, /Driveshaft Hustler/);
+  assert.doesNotMatch(page, /Twinstripe Vigero/);
+  assert.match(page, /Cars in chapter 3/);
+  assert.match(page, /data-car-chapter="1"/);
+  assert.match(page, /Map: Rockstar Games/);
 
   const open = renderMain({
     ...model(progress, { section: "cars" }),
-    carsUi: { area: "all", found: "all", selected: "car-placeholder-1" },
+    carsUi: { area: "all", found: "all", chapter: "all", selected: "car-dinka-enduro" },
   });
+  assert.match(open, /src="images\/cars\/car-dinka-enduro\.jpg"/);
+  assert.match(open, /Pin is approximate/);
   assert.match(open, /Found it/);
-  assert.match(open, /How to find it/);
-  assert.match(open, /data-car-area="PLACEHOLDER: Area 1"/);
-  assert.doesNotMatch(open, /data-car-area="PLACEHOLDER: Area 3"/);
+  assert.match(open, /Illustration/);
 
   const shown = renderMain(model(setSpoilersHidden(progress, false, NOW), { section: "cars" }));
-  assert.match(shown, /Secret car 3/);
+  assert.match(shown, /Twinstripe Vigero/);
 
   const broken = structuredClone(data);
-  broken.cars.cars[0].image = "images/missing-car.jpg";
+  broken.cars.cars[0].image = "images/cars/missing-car.jpg";
   broken.cars.cars[0].imageCredit = "Image credit";
-  broken.cars.cars[0].imageAlt = "A placeholder car picture";
+  broken.cars.cars[0].imageAlt = "A car picture";
   assert.ok(validateAll(broken).some((error) => error.includes("file not found")));
+
+  const half = structuredClone(data);
+  half.cars.cars[1].image = "images/cars/car-dinka-enduro.jpg";
+  assert.ok(validateAll(half).some((error) => error.includes("set together")));
 });
 
 test("rendered story hides later mission text and escapes markup", () => {

@@ -121,6 +121,7 @@ function render() {
     carsUi: {
       area: state.carArea,
       found: state.carFound,
+      chapter: state.carChapter,
       selected: state.selectedCar,
     },
   });
@@ -283,6 +284,12 @@ function onClick(event) {
     render();
     return;
   }
+  const carChapter = target.closest("[data-car-chapter]");
+  if (carChapter) {
+    state.carChapter = carChapter.dataset.carChapter;
+    render();
+    return;
+  }
   const zoom = target.closest("[data-map-zoom]");
   if (zoom) {
     const delta = zoom.dataset.mapZoom === "in" ? 0.4 : -0.4;
@@ -391,22 +398,35 @@ let mapPinch = null;
 
 function clampMap() {
   const stage = document.querySelector("[data-map-stage]");
-  if (!stage || !state?.mapView) return;
-  const width = stage.clientWidth;
-  const height = stage.clientHeight;
+  const layer = document.querySelector("[data-map-layer]");
+  if (!stage || !layer || !state?.mapView) return;
   const view = state.mapView;
-  view.scale = Math.min(4, Math.max(1, view.scale));
-  const minX = width - width * view.scale;
-  const minY = height - height * view.scale;
+  const baseW = stage.clientWidth;
+  const ratio = Number(layer.dataset.mapRatio) || 1;
+  const baseH = baseW * ratio;
+  const fit = Math.min(1, stage.clientHeight / baseH);
+  view.scale = Math.min(4, Math.max(fit, view.scale));
+  const minX = Math.min(0, stage.clientWidth - baseW * view.scale);
+  const minY = Math.min(0, stage.clientHeight - baseH * view.scale);
   view.x = Math.min(0, Math.max(minX, view.x));
   view.y = Math.min(0, Math.max(minY, view.y));
 }
 
 function applyMapTransform() {
   const layer = document.querySelector("[data-map-layer]");
-  if (!layer || !state?.mapView) return;
+  const stage = document.querySelector("[data-map-stage]");
+  if (!layer || !stage || !state?.mapView) return;
   const { x, y, scale } = state.mapView;
   layer.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+  const baseW = stage.clientWidth;
+  const ratio = Number(layer.dataset.mapRatio) || 1;
+  const baseH = baseW * ratio;
+  document.querySelectorAll("[data-car-pin]").forEach((pin) => {
+    const px = (Number(pin.dataset.mapX) / 100) * baseW * scale + x;
+    const py = (Number(pin.dataset.mapY) / 100) * baseH * scale + y;
+    pin.style.left = `${px}px`;
+    pin.style.top = `${py}px`;
+  });
 }
 
 function onMapPointerDown(event) {
@@ -501,6 +521,7 @@ async function boot() {
       areaId: "all",
       carArea: "all",
       carFound: "all",
+      carChapter: "all",
       selectedCar: null,
       mapView: { x: 0, y: 0, scale: 1 },
       cashError: null,

@@ -1,5 +1,5 @@
 /* Bump CACHE when shipped files change so old caches are dropped. */
-const CACHE = "gta6-tracker-v4";
+const CACHE = "gta6-tracker-v5";
 
 const RELATIVE_ASSETS = [
   "./index.html",
@@ -32,6 +32,11 @@ const RELATIVE_ASSETS = [
   "./images/chapter-1-mission-8.jpg",
   "./images/chapter-1-mission-9.jpg",
   "./images/chapter-1-mission-10.jpg",
+  "./images/cars/leonida-map.jpg",
+  "./images/cars/car-dinka-enduro.jpg",
+  "./images/cars/car-grotti-cheetah-95.jpg",
+  "./images/cars/car-vapid-dominator-buggy-67.jpg",
+  "./images/cars/car-vapid-stanier-55.jpg",
 ];
 
 const ASSETS = RELATIVE_ASSETS.map((asset) => new URL(asset, self.location).href);

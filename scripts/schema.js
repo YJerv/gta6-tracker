@@ -60,15 +60,22 @@ function exactKeys(obj, keys, path, errors, optional = []) {
   return true;
 }
 
+const IMAGE_PATH = /^images\/(?:cars\/)?[a-z0-9.-]+$/;
+
+function imageValueSet(value) {
+  return value !== null && value !== undefined;
+}
+
 function checkMissionImage(mission, label, errors) {
-  const present = ["image", "imageCredit", "imageAlt"].filter((key) => key in mission);
-  if (present.length === 0) return;
-  if (present.length !== 3) {
+  const names = ["image", "imageCredit", "imageAlt"];
+  const set = names.filter((key) => imageValueSet(mission[key]));
+  if (set.length === 0) return;
+  if (set.length !== 3) {
     push(errors, label, "image, imageCredit and imageAlt must be set together");
     return;
   }
-  if (typeof mission.image !== "string" || !/^images\/[a-z0-9.-]+$/.test(mission.image)) {
-    push(errors, `${label}.image`, "must be a relative path under images/");
+  if (typeof mission.image !== "string" || !IMAGE_PATH.test(mission.image)) {
+    push(errors, `${label}.image`, "must be a relative path under images/ or images/cars/");
   } else if (!existsSync(path.join(root, mission.image))) {
     push(errors, `${label}.image`, `file not found (${mission.image})`);
   }
@@ -554,7 +561,7 @@ function checkCars(data, errors, ids) {
   const imageSet = typeof map.image === "string";
   if (!(map.image === null || imageSet)) push(errors, `${mapPath}.image`, "must be null or a path under images/");
   if (imageSet) {
-    if (!/^images\/[a-z0-9.-]+$/.test(map.image)) push(errors, `${mapPath}.image`, "must be a relative path under images/");
+    if (!IMAGE_PATH.test(map.image)) push(errors, `${mapPath}.image`, "must be a relative path under images/ or images/cars/");
     else if (!existsSync(path.join(root, map.image))) push(errors, `${mapPath}.image`, `file not found (${map.image})`);
     if (typeof map.imageCredit !== "string" || map.imageCredit.trim().length < 8) {
       push(errors, `${mapPath}.imageCredit`, "is required when image is set");
@@ -587,8 +594,8 @@ function checkCars(data, errors, ids) {
     checkPercent(car.mapX, `${carPath}.mapX`, errors);
     checkPercent(car.mapY, `${carPath}.mapY`, errors);
     checkStringList(car.steps, `${carPath}.steps`, errors);
-    if (typeof car.notes !== "string" || car.notes.length > 500) {
-      push(errors, `${carPath}.notes`, "must be text up to 500 characters");
+    if (typeof car.notes !== "string" || car.notes.length > 800) {
+      push(errors, `${carPath}.notes`, "must be text up to 800 characters");
     }
     if (typeof car.category !== "string" || car.category.length > 120) {
       push(errors, `${carPath}.category`, "must be text up to 120 characters");
