@@ -4,6 +4,8 @@ Game facts live in `/data/*.json`. Replace a placeholder only when you have a so
 
 Chapter 1 missions 1 to 10 are already verified in `data/story.json`. Keep their ids. Do not rewrite that text unless you are correcting it from the named guides. Missions 11 to 22 in that chapter, and chapters 2 to 5, are still placeholders.
 
+`notice` on that file is the Good to know box at the top of Story. It needs a source and a `lastUpdated` date. It is not covered by the spoiler switch. Add a line only when a guide actually says it, and say so in the text when two guides disagree.
+
 Player-facing copy in the app uses British English. Keep new sentences in British English too.
 
 ## Replace one placeholder

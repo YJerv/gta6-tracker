@@ -218,6 +218,28 @@ test("story chapters and missions fold, and the choice is kept", () => {
   assert.doesNotMatch(everything, /Chapter 2 mission/);
 });
 
+test("the story notice stays above the chapters when spoilers are hidden", () => {
+  assert.equal(data.story.notice.title, "Good to know");
+  assert.equal(data.story.notice.lastUpdated, "2026-11-20");
+  assert.match(data.story.notice.source, /PowerPyx/);
+  assert.equal(data.story.notice.items.length, 3);
+
+  const hidden = renderMain(model(emptyProgress(NOW), { section: "story" }));
+  const shown = renderMain(model(setSpoilersHidden(emptyProgress(NOW), false, NOW), { section: "story" }));
+  for (const html of [hidden, shown]) {
+    assert.match(html, /<details class="notice" open>/);
+    assert.match(html, /Good to know/);
+    assert.match(html, /no gold medals/);
+    assert.match(html, /missions 3 to 6/);
+    assert.match(html, /guides disagree/);
+    assert.ok(html.indexOf("Good to know") < html.indexOf("data-chapter-toggle"));
+  }
+
+  const broken = structuredClone(data);
+  broken.story.notice.source = "";
+  assert.ok(validateAll(broken).some((error) => error.includes("story.notice.source")));
+});
+
 test("rendered story hides later mission text and escapes markup", () => {
   const progress = emptyProgress(NOW);
   const hidden = renderMain(model(progress, { section: "story" }));

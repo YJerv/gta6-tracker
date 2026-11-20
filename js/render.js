@@ -290,7 +290,16 @@ function renderStory(model) {
       ${cards}
     </section>`;
   }).join("");
-  return `${banner(INTRO.story)}${controls}${chapters}`;
+  return `${banner(INTRO.story)}${renderNotice(model.data.story.notice)}${controls}${chapters}`;
+}
+
+function renderNotice(notice) {
+  const items = notice.items.map((item) => `<li>${e(item)}</li>`).join("");
+  return `<details class="notice" open>
+    <summary>${e(notice.title)}</summary>
+    <ol>${items}</ol>
+    <p class="source"><span>Source</span> ${e(notice.source)}</p>
+  </details>`;
 }
 
 function renderMoney(model) {

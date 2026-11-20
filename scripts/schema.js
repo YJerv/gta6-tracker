@@ -78,7 +78,7 @@ function envelopeKeys(section) {
   const common = ["version", "lastUpdated", "section", "description"];
   const extra = {
     meta: ["gameTitle", "platform", "releaseDate", "singlePlayerOnly", "onlineAnnounced", "statusNote", "facts"],
-    story: ["chapters"],
+    story: ["notice", "chapters"],
     money: ["earners", "purchases"],
     collectibles: ["areas"],
     secrets: ["entries"],
@@ -232,8 +232,32 @@ function checkMeta(data, errors, ids) {
   });
 }
 
+function checkNotice(notice, errors) {
+  const path = "story.notice";
+  if (!exactKeys(notice, ["title", "source", "lastUpdated", "items"], path, errors)) return;
+  if (typeof notice.title !== "string" || notice.title.trim().length < 3 || notice.title.length > 80) {
+    push(errors, `${path}.title`, "must be short text");
+  }
+  if (typeof notice.source !== "string" || notice.source.trim().length < 8) {
+    push(errors, `${path}.source`, "must name a source");
+  }
+  if (!isRealDate(notice.lastUpdated)) push(errors, `${path}.lastUpdated`, "must be a real YYYY-MM-DD date");
+  if (!Array.isArray(notice.items) || notice.items.length < 1 || notice.items.length > 8) {
+    push(errors, `${path}.items`, "must be 1 to 8 lines");
+    return;
+  }
+  notice.items.forEach((item, index) => {
+    if (typeof item !== "string" || item.trim().length < 10 || item.length > 400) {
+      push(errors, `${path}.items[${index}]`, "must be a sentence up to 400 characters");
+    } else if (item.includes("PLACEHOLDER:")) {
+      push(errors, `${path}.items[${index}]`, "must not be a placeholder");
+    }
+  });
+}
+
 function checkStory(data, errors, ids, chapterOrders) {
   checkEnvelope(data, "story", errors);
+  checkNotice(data.notice, errors);
   if (!Array.isArray(data.chapters) || data.chapters.length < 1) {
     push(errors, "story.chapters", "must be a non-empty array");
     return;

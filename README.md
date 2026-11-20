@@ -121,6 +121,8 @@ Known framing only. Do not hide mission or location facts in here.
 
 ### `data/story.json`
 
+`notice` sits above the chapters on the Story tab. It is not hidden by the spoiler switch. Fields: `title`, `source` (non-empty), `lastUpdated` (`YYYY-MM-DD`), and `items` (1 to 8 sentences, no `PLACEHOLDER:` prefix). The player can fold it. It is not a dismiss control.
+
 `chapters` is a non-empty array. Chapter fields: `id`, `order` (unique positive integer), `title`, `verified`, `source`, `generic`, `summary`, `missions`.
 
 Each mission: `id`, `order` (unique inside the chapter), `title`, `verified`, `source`, `generic`, `summary`, `steps`, `bonusObjectives`, `missables`. The three lists are arrays of strings (empty until a guide provides them, at most 12 lines, 300 characters each).
@@ -129,9 +131,22 @@ The shipped file has five chapters, which is what the cited guides list. Chapter
 
 ```json
 {
-  "id": "chapter-1-mission-1",
-  "order": 1,
-  "title": "PLACEHOLDER: Chapter 1 mission 1 - to be filled from a verified guide",
+  "title": "Good to know",
+  "source": "PowerPyx, read 20 November 2026.",
+  "lastUpdated": "2026-11-20",
+  "items": [
+    "GTA VI has no gold medals and no mission replay, so do the optional extras the first time."
+  ]
+}
+```
+
+A placeholder mission still looks like this:
+
+```json
+{
+  "id": "chapter-1-mission-11",
+  "order": 11,
+  "title": "PLACEHOLDER: Chapter 1 mission 11 - to be filled from a verified guide",
   "verified": false,
   "source": null,
   "generic": false,

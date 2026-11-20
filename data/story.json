@@ -3,6 +3,16 @@
   "lastUpdated": "2026-11-20",
   "section": "story",
   "description": "Story missions grouped by chapter. Chapter 1 missions 1 to 10 are filled from named guides. Every other row is a placeholder until a verified guide covers it. Sources list five chapters, so the old sixth scaffold chapter has been removed.",
+  "notice": {
+    "title": "Good to know",
+    "source": "PowerPyx, read 20 November 2026.",
+    "lastUpdated": "2026-11-20",
+    "items": [
+      "GTA VI has no gold medals and no mission replay, so do the optional extras the first time (for example the trailer cash in Gone Fishing), because you cannot go back for them.",
+      "After Gone Fishing, missions 3 to 6 (Gear Up, Just A Scratch, Lab Fees, Unwanted Attention) can be played in any order.",
+      "Where guides disagree (for example the Hey Arnold! reward), the app says so rather than guessing."
+    ]
+  },
   "chapters": [
     {
       "verified": true,

@@ -313,6 +313,33 @@ h1 {
 
 .group-head { margin: 16px 0 10px; }
 
+.notice {
+  margin: 0 0 12px;
+  background: #3a2a10;
+  border: 1px solid rgba(255, 176, 32, 0.5);
+  border-radius: 16px;
+  padding: 2px 14px 10px;
+}
+
+.notice summary {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: #ffe7c2;
+  cursor: pointer;
+}
+
+.notice ol {
+  margin: 0 0 8px;
+  padding-left: 1.2rem;
+  color: #ffe7c2;
+}
+
+.notice li { margin: 8px 0; overflow-wrap: anywhere; }
+
 .fold-bar { display: flex; gap: 8px; margin: 0 0 12px; }
 
 .fold-bar .btn-ghost { width: auto; flex: 1; }
