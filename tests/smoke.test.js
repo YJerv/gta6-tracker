@@ -303,7 +303,12 @@ test("sourced cars use the Leonida map and hide later chapters", () => {
   const page = renderMain(model(progress, { section: "cars" }));
   assert.match(page, /src="images\/cars\/leonida-map\.jpg"/);
   assert.match(page, /data-car-pin="car-dinka-enduro"/);
-  assert.match(page, /data-map-x="56.8"/);
+  assert.match(page, /data-map-x="58.6"/);
+  assert.match(page, /precision-exact/);
+  assert.match(page, /data-car-precision="street"/);
+  assert.match(page, /GTADB/);
+  assert.match(page, /GTA6Map\.io/);
+  assert.match(page, /GTA6 GPS/);
   assert.match(page, /Driveshaft Hustler/);
   assert.doesNotMatch(page, /Twinstripe Vigero/);
   assert.match(page, /Cars in chapter 3/);
@@ -315,7 +320,9 @@ test("sourced cars use the Leonida map and hide later chapters", () => {
     carsUi: { area: "all", found: "all", chapter: "all", selected: "car-dinka-enduro" },
   });
   assert.match(open, /src="images\/cars\/car-dinka-enduro\.jpg"/);
-  assert.match(open, /Pin is approximate/);
+  assert.match(open, /On the right block, roughly 1-2% of map width error/);
+  assert.match(open, /The poster has no street names/);
+  assert.match(open, />Exact</);
   assert.match(open, /Found it/);
   assert.match(open, /Illustration/);
 
@@ -331,6 +338,10 @@ test("sourced cars use the Leonida map and hide later chapters", () => {
   const half = structuredClone(data);
   half.cars.cars[1].image = "images/cars/car-dinka-enduro.jpg";
   assert.ok(validateAll(half).some((error) => error.includes("set together")));
+
+  const vague = structuredClone(data);
+  vague.cars.cars[0].precision = "nearby";
+  assert.ok(validateAll(vague).some((error) => error.includes("precision")));
 });
 
 test("rendered story hides later mission text and escapes markup", () => {

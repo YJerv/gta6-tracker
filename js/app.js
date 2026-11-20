@@ -122,6 +122,7 @@ function render() {
       area: state.carArea,
       found: state.carFound,
       chapter: state.carChapter,
+      precision: state.carPrecision,
       selected: state.selectedCar,
     },
   });
@@ -287,6 +288,12 @@ function onClick(event) {
   const carChapter = target.closest("[data-car-chapter]");
   if (carChapter) {
     state.carChapter = carChapter.dataset.carChapter;
+    render();
+    return;
+  }
+  const carPrecision = target.closest("[data-car-precision]");
+  if (carPrecision) {
+    state.carPrecision = carPrecision.dataset.carPrecision;
     render();
     return;
   }
@@ -522,6 +529,7 @@ async function boot() {
       carArea: "all",
       carFound: "all",
       carChapter: "all",
+      carPrecision: "all",
       selectedCar: null,
       mapView: { x: 0, y: 0, scale: 1 },
       cashError: null,

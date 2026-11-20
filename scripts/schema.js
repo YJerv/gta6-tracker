@@ -586,14 +586,17 @@ function checkCars(data, errors, ids) {
   }
   data.cars.forEach((car, index) => {
     const carPath = `cars.cars[${index}]`;
-    if (!exactKeys(car, ["id", "verified", "source", "generic", "chapterOrder", "title", "category", "area", "mapX", "mapY", "steps", "notes"], carPath, errors, ["image", "imageCredit", "imageAlt"])) return;
+    if (!exactKeys(car, ["id", "verified", "source", "generic", "chapterOrder", "title", "category", "area", "mapX", "mapY", "precision", "steps", "notes"], carPath, errors, ["image", "imageCredit", "imageAlt"])) return;
     checkId(car.id, `${carPath}.id`, errors, ids);
     if (car.generic !== false) push(errors, `${carPath}.generic`, "must be false");
     checkVerifiedPair(car, carPath, errors, ["title", "category", "area", "notes", "steps"]);
     checkChapterOrder(car.chapterOrder, `${carPath}.chapterOrder`, errors, { allowNull: true, generic: false });
     checkPercent(car.mapX, `${carPath}.mapX`, errors);
     checkPercent(car.mapY, `${carPath}.mapY`, errors);
-    checkStringList(car.steps, `${carPath}.steps`, errors);
+    if (!["exact", "street", "area"].includes(car.precision)) {
+      push(errors, `${carPath}.precision`, "must be exact, street, or area");
+    }
+    checkStringList(car.steps, `${carPath}.steps`, errors, { itemMax: 600 });
     if (typeof car.notes !== "string" || car.notes.length > 800) {
       push(errors, `${carPath}.notes`, "must be text up to 800 characters");
     }

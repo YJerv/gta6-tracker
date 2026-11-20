@@ -437,7 +437,7 @@ h1 {
 
 .map-stage {
   position: relative;
-  height: 220px;
+  height: 168px;
   margin: 0 0 12px;
   overflow: hidden;
   border-radius: 16px;
@@ -510,16 +510,41 @@ h1 {
   line-height: 1;
 }
 
-.map-pin[data-chapter="1"] .map-dot,
-.map-legend .map-dot[data-chapter="1"] { background: #ffb020; }
-.map-pin[data-chapter="2"] .map-dot,
-.map-legend .map-dot[data-chapter="2"] { background: #3ee0a2; }
-.map-pin[data-chapter="3"] .map-dot,
-.map-legend .map-dot[data-chapter="3"] { background: #8eb6ff; }
-.map-pin[data-chapter="5"] .map-dot,
-.map-legend .map-dot[data-chapter="5"] { background: #ff9b73; }
+.map-pin[data-chapter="1"],
+.map-legend .map-dot[data-chapter="1"] { --pin: #ffb020; }
+.map-pin[data-chapter="2"],
+.map-legend .map-dot[data-chapter="2"] { --pin: #3ee0a2; }
+.map-pin[data-chapter="3"],
+.map-legend .map-dot[data-chapter="3"] { --pin: #8eb6ff; }
+.map-pin[data-chapter="5"],
+.map-legend .map-dot[data-chapter="5"] { --pin: #ff9b73; }
+
+.map-legend .map-dot[data-chapter] { background: var(--pin); }
+.map-pin.precision-exact .map-dot { background: var(--pin); color: #1a1203; }
+.map-pin.precision-street .map-dot {
+  background: transparent;
+  color: var(--pin);
+  border: 2px dashed var(--pin);
+}
+.map-pin.precision-area .map-dot {
+  background: transparent;
+  color: var(--pin);
+  border: 2px solid var(--pin);
+}
+.precision-legend .map-dot { --pin: #ffb020; background: var(--pin); color: #1a1203; }
+.precision-legend .precision-street { background: transparent; border: 2px dashed var(--pin); }
+.precision-legend .precision-area { background: transparent; border: 2px solid var(--pin); }
 
 .map-pin.is-selected .map-dot { outline: 2px solid #fff; outline-offset: 2px; }
+
+.badge-precision { margin-left: 6px; }
+.badge-precision.precision-exact { background: #3a2a10; color: #ffd27a; }
+.badge-precision.precision-street { background: #1c2c4a; color: #d5e4ff; }
+.badge-precision.precision-area { background: #243028; color: #d7ffe8; }
+
+.car-card .summary,
+.car-card .pin-note,
+.map-credit { overflow-wrap: anywhere; }
 
 .map-legend {
   display: flex;
