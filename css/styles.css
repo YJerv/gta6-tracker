@@ -766,9 +766,9 @@ textarea { min-height: 140px; resize: vertical; }
 .tabs::-webkit-scrollbar { display: none; }
 
 .tabs button {
-  flex: 0 0 72px;
+  flex: 1 1 0;
   min-width: 72px;
-  min-height: 58px;
+  min-height: 64px;
   padding: 6px 0 8px;
   border: 0;
   background: transparent;
@@ -783,6 +783,8 @@ textarea { min-height: 140px; resize: vertical; }
 }
 
 .tabs button svg { width: 22px; height: 22px; }
+
+.tabs button[hidden] { display: none; }
 
 .tabs button.is-active {
   color: var(--amber);

@@ -24,6 +24,7 @@ import {
   toggleId,
   visibleThroughChapter,
 } from "../js/progress.js";
+import { ENABLED_TABS, isTabEnabled } from "../js/config.js";
 import { illustrationCredits, parseRoute, renderCard, renderMain } from "../js/render.js";
 import { validateAll } from "../scripts/schema.js";
 import { loadData } from "../scripts/validate.js";
@@ -385,18 +386,36 @@ test("money, map, skills, gear, and online render the right rows", () => {
 });
 
 test("routes and the home dashboard stay inside the spoiler boundary", () => {
-  assert.deepEqual(parseRoute(""), { section: "home", sub: null });
-  assert.deepEqual(parseRoute("#/map/secrets"), { section: "map", sub: "secrets" });
-  assert.deepEqual(parseRoute("#/nope"), { section: "home", sub: null });
-  assert.equal(parseRoute("#/skills/drills").sub, "drills");
+  assert.deepEqual(ENABLED_TABS, ["story", "cars"]);
+  assert.equal(isTabEnabled("story"), true);
+  assert.equal(isTabEnabled("home"), false);
+  assert.deepEqual(parseRoute(""), { section: "story", sub: null });
+  assert.deepEqual(parseRoute("#/story"), { section: "story", sub: null });
+  assert.deepEqual(parseRoute("#/cars"), { section: "cars", sub: null });
+  assert.deepEqual(parseRoute("#/map/secrets"), { section: "story", sub: null });
+  assert.deepEqual(parseRoute("#/nope"), { section: "story", sub: null });
+  assert.equal(parseRoute("#/skills/drills").section, "story");
 
   const home = renderMain(model(emptyProgress(NOW), { section: "home" }));
   assert.match(home, /Next up/);
   assert.match(home, /Prologue/);
+  assert.match(home, /data-goto="#\/story"/);
+  assert.match(home, /data-goto="#\/cars"/);
+  assert.doesNotMatch(home, /data-goto="#\/money"/);
+  assert.doesNotMatch(home, /data-goto="#\/map/);
+  assert.doesNotMatch(home, /data-goto="#\/skills/);
+  assert.doesNotMatch(home, /data-goto="#\/gear/);
+  assert.doesNotMatch(home, /data-goto="#\/online/);
   assert.match(home, /named guides/);
   assert.doesNotMatch(home, /Chapter 2 mission/);
   assert.match(home, /Not set/);
   assert.match(home, /Single-player only/);
+  const caughtUp = data.story.chapters[0].missions
+    .map((mission) => mission.id)
+    .reduce((current, id) => toggleId(current, "missions", id, NOW).progress, emptyProgress(NOW));
+  const laterHome = renderMain(model(caughtUp, { section: "home" }));
+  assert.match(laterHome, /data-goto="#\/story"/);
+  assert.doesNotMatch(laterHome, /data-goto="#\/skills/);
   const withCash = setCash(emptyProgress(NOW), { cash: "40", note: "<b>note</b>" }, NOW).progress;
   const cashed = renderMain(model(withCash, { section: "home" }));
   assert.match(cashed, />40</);

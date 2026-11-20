@@ -1,3 +1,4 @@
+import { DEFAULT_TAB, isTabEnabled, tabForHash } from "./config.js";
 import { escapeHtml as e } from "./html.js";
 import {
   completionReport,
@@ -67,7 +68,8 @@ const STAGE_TITLE = { early: "Early story", mid: "Mid story", late: "Late story"
 export function parseRoute(hash) {
   const raw = String(hash || "").replace(/^#/, "").replace(/^\//, "");
   const [name, sub] = raw.split("/").filter(Boolean);
-  const section = Object.prototype.hasOwnProperty.call(ROUTES, name) ? name : "home";
+  const parsed = Object.prototype.hasOwnProperty.call(ROUTES, name) ? name : DEFAULT_TAB;
+  const section = isTabEnabled(parsed) ? parsed : DEFAULT_TAB;
   const subs = ROUTES[section].subs;
   const match = subs.find((item) => item.id === sub);
   return { section, sub: match ? match.id : (subs[0] ? subs[0].id : null) };
@@ -450,11 +452,13 @@ function renderNext(model) {
     </article>`;
   }
   if (!suggestion.side) return story;
+  const sideHash = hashFor(suggestion.side);
+  if (!isTabEnabled(tabForHash(sideHash))) return story;
   return `${story}<article class="card">
     <p class="kicker">Also</p>
     <h3>${e(suggestion.side.title)}</h3>
     <p class="summary">${e(suggestion.side.blurb)}</p>
-    <button type="button" class="btn-ghost" data-goto="${e(hashFor(suggestion.side))}">Open it</button>
+    <button type="button" class="btn-ghost" data-goto="${e(sideHash)}">Open it</button>
   </article>`;
 }
 
@@ -486,7 +490,7 @@ function renderHome(model) {
     ? '<button type="button" class="btn-primary" data-install="1">Install app</button>'
     : '<p class="fine">To install: browser menu, then Install or Add to Home screen. After one online visit, pages open offline.</p>';
   const latest = Object.values(model.data).map((file) => file.lastUpdated).sort().at(-1);
-  const links = report.sections.map((section) => `<button type="button" class="section-link" data-goto="${e(section.hash)}">
+  const links = report.sections.filter((section) => isTabEnabled(tabForHash(section.hash))).map((section) => `<button type="button" class="section-link" data-goto="${e(section.hash)}">
       <span class="section-link-text"><strong>${e(section.label)}</strong><span>${section.done}/${section.total}</span></span>
       <span class="bar" aria-hidden="true"><span style="width:${section.percent}%"></span></span>
     </button>`).join("");

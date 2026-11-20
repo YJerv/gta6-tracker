@@ -1,3 +1,4 @@
+import { DEFAULT_TAB, isTabEnabled } from "./config.js";
 import { illustrationCredits, renderMain, parseRoute, ROUTES } from "./render.js";
 import {
   STORAGE_KEY,
@@ -55,6 +56,23 @@ function announce(text) {
   if (!live) return;
   live.textContent = "";
   live.textContent = text;
+}
+
+function applyTabVisibility() {
+  document.querySelectorAll("[data-tab]").forEach((button) => {
+    const enabled = isTabEnabled(button.dataset.tab);
+    button.hidden = !enabled;
+    if (!enabled) {
+      button.classList.remove("is-active");
+      button.removeAttribute("aria-current");
+    }
+  });
+}
+
+function openEnabledRoute() {
+  const route = parseRoute(location.hash);
+  const hash = `#/${route.section}${route.sub ? `/${route.sub}` : ""}`;
+  if (location.hash !== hash) location.replace(hash);
 }
 
 function syncChrome(route) {
@@ -464,6 +482,8 @@ function registerSw() {
 }
 
 async function boot() {
+  applyTabVisibility();
+  openEnabledRoute();
   bind();
   try {
     const data = {};

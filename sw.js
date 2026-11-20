@@ -1,10 +1,11 @@
 /* Bump CACHE when shipped files change so old caches are dropped. */
-const CACHE = "gta6-tracker-v3";
+const CACHE = "gta6-tracker-v4";
 
 const RELATIVE_ASSETS = [
   "./index.html",
   "./css/styles.css",
   "./js/app.js",
+  "./js/config.js",
   "./js/progress.js",
   "./js/render.js",
   "./js/html.js",
