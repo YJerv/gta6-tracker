@@ -2,7 +2,9 @@ import { escapeHtml as e } from "./html.js";
 import {
   completionReport,
   formatCash,
+  isChapterExpanded,
   isHidden,
+  isMissionExpanded,
   nextUp,
   visibleThroughChapter,
 } from "./progress.js";
@@ -49,7 +51,7 @@ export const ROUTES = {
 };
 
 const INTRO = {
-  story: "Tick a mission when you finish it. Later chapters stay covered while spoilers are hidden. Names below are placeholders, not a walkthrough.",
+  story: "Tap a chapter to show its missions, and a mission to show steps. The one you are on starts open. Later chapters stay covered while spoilers are hidden.",
   money: "Earners and purchases are grouped into early, mid, and late stages. Those stages are editorial, not official chapter names. No prices are filled in.",
   map: "Filter the checklist by area. Secrets are on their own tab. Area names are placeholders, not verified locations.",
   skills: "Xbox settings and drills are generic controller practice. They are not GTA VI instructions. Stat rows are placeholders.",
@@ -212,8 +214,40 @@ function renderStaged(items, model) {
   }).join("");
 }
 
+function chevron(open) {
+  return `<span class="chevron${open ? " is-open" : ""}" aria-hidden="true"></span>`;
+}
+
+function renderMissionRow(item, detail, progress, open) {
+  const on = progress[item.list].includes(item.id);
+  const body = open
+    ? `<div class="mission-body">
+        ${detail.summary ? `<p class="summary">${e(detail.summary)}</p>` : ""}
+        ${blocksHtml(detail.blocks)}
+        ${sourceHtml(detail)}
+      </div>`
+    : "";
+  return `<article class="card mission-card${on ? " is-done" : ""}">
+    <div class="mission-row">
+      <button type="button" class="tick" data-tick="${e(item.list)}:${e(item.id)}" aria-pressed="${on ? "true" : "false"}" aria-label="${on ? "Clear" : "Tick"} ${e(detail.title)}">
+        <span class="tick-box"></span>
+      </button>
+      <button type="button" class="mission-toggle" data-mission-toggle="${e(item.id)}" aria-expanded="${open ? "true" : "false"}">
+        <span class="mission-title">${e(detail.title)}</span>
+        <span class="badge-row">${badges(detail)}</span>
+        ${chevron(open)}
+      </button>
+    </div>
+    ${body}
+  </article>`;
+}
+
 function renderStory(model) {
   const through = visibleThroughChapter(model.catalog.chapters, model.progress.missions);
+  const controls = `<div class="fold-bar">
+    <button type="button" class="btn-ghost" data-story-fold="expand">Expand all</button>
+    <button type="button" class="btn-ghost" data-story-fold="collapse">Collapse all</button>
+  </div>`;
   const chapters = model.catalog.chapters.map((chapter) => {
     const missions = model.catalog.items
       .filter((item) => item.list === "missions" && item.groupId === chapter.id)
@@ -227,28 +261,36 @@ function renderStory(model) {
       );
     }
     const done = chapter.missionIds.filter((id) => model.progress.missions.includes(id)).length;
-    const cards = missions.map((item) => {
-      if (isHidden(item, model.progress, through)) {
-        return shield(
-          `Chapter ${chapter.order}`,
-          "This mission stays covered until you show it or turn spoilers off.",
-          item.id,
-        );
-      }
-      return renderCard(item, model.catalog.details.get(item.id), model.progress);
-    }).join("");
+    const total = chapter.missionIds.length;
+    const expanded = isChapterExpanded(model.catalog, model.progress, chapter.id);
+    const cards = expanded
+      ? missions.map((item) => {
+        if (isHidden(item, model.progress, through)) {
+          return shield(
+            `Chapter ${chapter.order}`,
+            "This mission stays covered until you show it or turn spoilers off.",
+            item.id,
+          );
+        }
+        const detail = model.catalog.details.get(item.id);
+        const missionOpen = isMissionExpanded(model.catalog, model.progress, item.id);
+        return renderMissionRow(item, detail, model.progress, missionOpen);
+      }).join("")
+      : "";
+    const summary = expanded
+      ? `<div class="chapter-extra"><p class="badge-row">${badges(chapter)}</p><p class="summary">${e(chapter.summary)}</p></div>`
+      : "";
     return `<section class="group">
-      <header class="group-head">
-        <p class="kicker">Chapter ${chapter.order}</p>
-        <h2>${e(chapter.title)}</h2>
-        <p class="badge-row">${badges(chapter)}</p>
-        <p class="summary">${e(chapter.summary)}</p>
-        <p class="count">${done} of ${chapter.missionIds.length} ticked</p>
-      </header>
+      <button type="button" class="chapter-toggle" data-chapter-toggle="${e(chapter.id)}" aria-expanded="${expanded ? "true" : "false"}" aria-label="${expanded ? "Hide" : "Show"} missions in ${e(chapter.title)}. ${done} of ${total} ticked.">
+        ${chevron(expanded)}
+        <span class="chapter-name">${e(chapter.title)}</span>
+        <span class="count">${done}/${total}</span>
+      </button>
+      ${summary}
       ${cards}
     </section>`;
   }).join("");
-  return `${banner(INTRO.story)}${chapters}`;
+  return `${banner(INTRO.story)}${controls}${chapters}`;
 }
 
 function renderMoney(model) {

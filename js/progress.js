@@ -64,8 +64,26 @@ export function emptyProgress(now = new Date().toISOString()) {
     cashNote: "",
     spoilersHidden: true,
     revealedIds: [],
+    storyOpen: { chapters: {}, missions: {} },
     updatedAt: now,
   };
+}
+
+function normaliseStoryOpen(value) {
+  const chapters = {};
+  const missions = {};
+  if (!value || typeof value !== "object" || Array.isArray(value)) return { chapters, missions };
+  for (const group of ["chapters", "missions"]) {
+    const source = value[group];
+    if (!source || typeof source !== "object" || Array.isArray(source)) continue;
+    const target = group === "chapters" ? chapters : missions;
+    for (const [id, open] of Object.entries(source)) {
+      if (typeof id !== "string" || id.trim() === "" || id.length > 80) continue;
+      if (typeof open !== "boolean") continue;
+      target[id] = open;
+    }
+  }
+  return { chapters, missions };
 }
 
 function cleanIdList(value) {
@@ -96,6 +114,7 @@ export function normaliseProgress(input, now = new Date().toISOString()) {
   const progress = emptyProgress(now);
   for (const key of LIST_KEYS) progress[key] = cleanIdList(input[key]);
   progress.revealedIds = cleanIdList(input.revealedIds);
+  progress.storyOpen = normaliseStoryOpen(input.storyOpen);
   if (typeof input.spoilersHidden === "boolean") progress.spoilersHidden = input.spoilersHidden;
 
   if (input.cash === null || input.cash === undefined) {
@@ -274,6 +293,57 @@ export function nextUp(catalog, progress) {
     }
   }
   return { through, story, side };
+}
+
+function savedStoryOpen(progress) {
+  const saved = progress.storyOpen;
+  return {
+    chapters: saved && saved.chapters ? saved.chapters : {},
+    missions: saved && saved.missions ? saved.missions : {},
+  };
+}
+
+/** True when this chapter's mission list should be open. Missing keys follow the next-up chapter. */
+export function isChapterExpanded(catalog, progress, chapterId) {
+  const saved = savedStoryOpen(progress);
+  if (Object.prototype.hasOwnProperty.call(saved.chapters, chapterId)) return saved.chapters[chapterId];
+  const suggestion = nextUp(catalog, progress);
+  return Boolean(suggestion.story && suggestion.story.groupId === chapterId);
+}
+
+/** True when this mission's steps should be open. Missing keys follow the next-up mission. */
+export function isMissionExpanded(catalog, progress, missionId) {
+  const saved = savedStoryOpen(progress);
+  if (Object.prototype.hasOwnProperty.call(saved.missions, missionId)) return saved.missions[missionId];
+  const suggestion = nextUp(catalog, progress);
+  return Boolean(suggestion.story && suggestion.story.id === missionId);
+}
+
+export function setStoryOpen(progress, group, id, open, now = new Date().toISOString()) {
+  if (group !== "chapters" && group !== "missions") return progress;
+  if (typeof id !== "string" || id.trim() === "") return progress;
+  const saved = savedStoryOpen(progress);
+  return {
+    ...progress,
+    storyOpen: {
+      chapters: { ...saved.chapters },
+      missions: { ...saved.missions },
+      [group]: { ...saved[group], [id]: Boolean(open) },
+    },
+    updatedAt: now,
+  };
+}
+
+/** Record an explicit open or closed value for every chapter and mission. */
+export function setAllStoryOpen(progress, catalog, open, now = new Date().toISOString()) {
+  const chapters = {};
+  const missions = {};
+  const value = Boolean(open);
+  for (const chapter of catalog.chapters) chapters[chapter.id] = value;
+  for (const item of catalog.items) {
+    if (item.list === "missions") missions[item.id] = value;
+  }
+  return { ...progress, storyOpen: { chapters, missions }, updatedAt: now };
 }
 
 function detailFor(entry, extra) {

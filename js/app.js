@@ -8,8 +8,10 @@ import {
   importBundle,
   normaliseProgress,
   revealId,
+  setAllStoryOpen,
   setCash,
   setSpoilersHidden,
+  setStoryOpen,
   toggleId,
 } from "./progress.js";
 
@@ -105,6 +107,11 @@ function render() {
   else delete main.dataset.currentSub;
   syncChrome(route);
   if (state.sheetOpen) fillExport();
+  if (state.restoreFocus) {
+    const selector = state.restoreFocus;
+    state.restoreFocus = null;
+    document.querySelector(selector)?.focus();
+  }
 }
 
 function commit(progress) {
@@ -258,6 +265,27 @@ function onClick(event) {
   if (reveal) {
     commit(revealId(state.progress, reveal.dataset.reveal));
     announce("Shown.");
+    return;
+  }
+  const missionToggle = target.closest("[data-mission-toggle]");
+  if (missionToggle) {
+    const id = missionToggle.dataset.missionToggle;
+    const open = missionToggle.getAttribute("aria-expanded") !== "true";
+    state.restoreFocus = `[data-mission-toggle="${id}"]`;
+    commit(setStoryOpen(state.progress, "missions", id, open));
+    return;
+  }
+  const chapterToggle = target.closest("[data-chapter-toggle]");
+  if (chapterToggle) {
+    const id = chapterToggle.dataset.chapterToggle;
+    const open = chapterToggle.getAttribute("aria-expanded") !== "true";
+    state.restoreFocus = `[data-chapter-toggle="${id}"]`;
+    commit(setStoryOpen(state.progress, "chapters", id, open));
+    return;
+  }
+  const fold = target.closest("[data-story-fold]");
+  if (fold) {
+    commit(setAllStoryOpen(state.progress, state.catalog, fold.dataset.storyFold === "expand"));
     return;
   }
   if (target.closest("#spoiler-toggle, #sheet-spoiler")) {

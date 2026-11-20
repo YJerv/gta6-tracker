@@ -284,6 +284,7 @@ Export produces:
     "cashNote": "After the prologue",
     "spoilersHidden": true,
     "revealedIds": [],
+    "storyOpen": { "chapters": { "chapter-1": true }, "missions": {} },
     "updatedAt": "2026-11-20T12:00:00.000Z"
   }
 }
@@ -292,6 +293,8 @@ Export produces:
 `cash` is a whole number you typed, or `null`. It is not read from the game. Unknown ids are kept on import so a future content edit does not wipe old ticks, but only ids that still exist count toward the percentage. Completion is the share of trackable rows that are ticked. News items are not trackable.
 
 `revealedIds` holds ids you opened with **Show this** while spoilers stay hidden. Revealing a chapter id opens that chapter. Revealing `money-mid`, `vehicles-late`, or an area id opens that block.
+
+`storyOpen` remembers which story chapters and missions are expanded on this device. A missing id follows the default: the chapter that contains the next unticked mission is expanded, and so is that mission. Every other chapter and mission starts collapsed. `true` or `false` overrides that default. Expand all and Collapse all write an explicit value for every id. Spoiler covers ignore this and stay hidden.
 
 ## Screenshots
 

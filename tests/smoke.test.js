@@ -11,12 +11,16 @@ import {
   exportBundle,
   formatCash,
   importBundle,
+  isChapterExpanded,
   isHidden,
+  isMissionExpanded,
   nextUp,
   normaliseProgress,
   revealId,
+  setAllStoryOpen,
   setCash,
   setSpoilersHidden,
+  setStoryOpen,
   toggleId,
   visibleThroughChapter,
 } from "../js/progress.js";
@@ -161,6 +165,55 @@ test("export and import round-trip, and rubbish is rejected", () => {
   assert.equal(importBundle("[]", NOW).ok, false);
 });
 
+test("story chapters and missions fold, and the choice is kept", () => {
+  const fresh = emptyProgress(NOW);
+  assert.equal(isChapterExpanded(catalog, fresh, "chapter-1"), true);
+  assert.equal(isChapterExpanded(catalog, fresh, "chapter-2"), false);
+  assert.equal(isMissionExpanded(catalog, fresh, "chapter-1-mission-1"), true);
+  assert.equal(isMissionExpanded(catalog, fresh, "chapter-1-mission-2"), false);
+
+  const shutChapter = setStoryOpen(fresh, "chapters", "chapter-1", false, NOW);
+  assert.equal(isChapterExpanded(catalog, shutChapter, "chapter-1"), false);
+  const shutMission = setStoryOpen(fresh, "missions", "chapter-1-mission-1", false, NOW);
+  assert.equal(isMissionExpanded(catalog, shutMission, "chapter-1-mission-1"), false);
+  assert.equal(isMissionExpanded(catalog, shutMission, "chapter-1-mission-2"), false);
+
+  const moved = toggleId(fresh, "missions", "chapter-1-mission-1", NOW).progress;
+  assert.equal(isMissionExpanded(catalog, moved, "chapter-1-mission-1"), false);
+  assert.equal(isMissionExpanded(catalog, moved, "chapter-1-mission-2"), true);
+
+  const opened = setAllStoryOpen(fresh, catalog, true, NOW);
+  assert.equal(isChapterExpanded(catalog, opened, "chapter-3"), true);
+  assert.equal(isMissionExpanded(catalog, opened, "chapter-2-mission-3"), true);
+  const closed = setAllStoryOpen(opened, catalog, false, NOW);
+  assert.equal(isChapterExpanded(catalog, closed, "chapter-1"), false);
+  assert.equal(isMissionExpanded(catalog, closed, "chapter-1-mission-1"), false);
+
+  const exported = exportBundle(shutChapter, NOW);
+  const imported = importBundle(exported.bundle, NOW);
+  assert.equal(imported.ok, true);
+  assert.equal(imported.progress.storyOpen.chapters["chapter-1"], false);
+  assert.equal(normaliseProgress({ version: 1, storyOpen: { chapters: { bad: "yes" }, missions: [] } }, NOW).progress.storyOpen.chapters.bad, undefined);
+
+  const story = renderMain(model(fresh, { section: "story" }));
+  assert.match(story, /Expand all/);
+  assert.match(story, /data-chapter-toggle="chapter-1"[^>]*aria-expanded="true"/);
+  assert.match(story, /0\/3/);
+  assert.match(story, /data-mission-toggle="chapter-1-mission-1"[^>]*aria-expanded="true"/);
+  assert.match(story, /data-mission-toggle="chapter-1-mission-2"[^>]*aria-expanded="false"/);
+  assert.equal(story.split("Bonus and gold objectives").length - 1, 1);
+  assert.doesNotMatch(story, /data-chapter-toggle="chapter-2"/);
+  assert.doesNotMatch(story, /Chapter 2 mission/);
+
+  const collapsed = renderMain(model(shutChapter, { section: "story" }));
+  assert.doesNotMatch(collapsed, /Chapter 1 mission 1/);
+  assert.match(collapsed, /data-chapter-toggle="chapter-1"[^>]*aria-expanded="false"/);
+
+  const everything = renderMain(model(opened, { section: "story" }));
+  assert.equal(everything.split("Bonus and gold objectives").length - 1, 3);
+  assert.doesNotMatch(everything, /Chapter 2 mission/);
+});
+
 test("rendered story hides later mission text and escapes markup", () => {
   const progress = emptyProgress(NOW);
   const hidden = renderMain(model(progress, { section: "story" }));
@@ -169,7 +222,8 @@ test("rendered story hides later mission text and escapes markup", () => {
   assert.match(hidden, /Show this/);
   assert.match(hidden, /Placeholder/);
 
-  const shown = renderMain(model(setSpoilersHidden(progress, false, NOW), { section: "story" }));
+  const shownProgress = setStoryOpen(setSpoilersHidden(progress, false, NOW), "chapters", "chapter-2", true, NOW);
+  const shown = renderMain(model(shownProgress, { section: "story" }));
   assert.match(shown, /Chapter 2 mission 1/);
 
   const html = renderCard(

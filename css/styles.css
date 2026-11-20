@@ -313,6 +313,78 @@ h1 {
 
 .group-head { margin: 16px 0 10px; }
 
+.fold-bar { display: flex; gap: 8px; margin: 0 0 12px; }
+
+.fold-bar .btn-ghost { width: auto; flex: 1; }
+
+.chapter-toggle {
+  width: 100%;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 12px 14px;
+  color: inherit;
+}
+
+.chapter-name { flex: 1; font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; }
+
+.chapter-toggle .count, .count {
+  flex: none;
+  color: var(--amber-2);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.chevron {
+  width: 10px;
+  height: 10px;
+  flex: none;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  margin-right: 2px;
+}
+
+.chevron.is-open { transform: rotate(45deg) translate(-2px, -2px); }
+
+.chapter-extra { margin: 8px 4px 10px; }
+
+.mission-card { padding: 4px 8px 4px 4px; }
+
+.mission-row { display: flex; align-items: stretch; gap: 0; }
+
+.mission-toggle {
+  flex: 1;
+  min-width: 0;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: 8px 4px 8px 0;
+  color: inherit;
+}
+
+.mission-title {
+  flex: 1;
+  min-width: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.mission-toggle .badge-row { margin: 0; flex: none; }
+
+.mission-body { padding: 0 8px 8px 56px; }
+
 .group-head h2, .group-title {
   margin: 0 0 6px;
   font-size: 1.15rem;
