@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-11-20",
+  "section": "gear",
+  "description": "Vehicles and weapons worth seeking, by the same editorial stages as money.json. Where and role stay placeholders until a verified guide names them. No prices.",
+  "vehicles": [
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "vehicle-early-1",
+      "title": "PLACEHOLDER: Early-story vehicle 1 - to be filled from a verified guide",
+      "stage": "early",
+      "chapterOrder": 1,
+      "role": "PLACEHOLDER: Suggested role to be filled from a verified guide.",
+      "where": "PLACEHOLDER: Where to find it, to be filled from a verified guide.",
+      "detail": "PLACEHOLDER: Why this is a strong pick at this stage."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "vehicle-early-2",
+      "title": "PLACEHOLDER: Early-story vehicle 2 - to be filled from a verified guide",
+      "stage": "early",
+      "chapterOrder": 1,
+      "role": "PLACEHOLDER: Suggested role to be filled from a verified guide.",
+      "where": "PLACEHOLDER: Where to find it, to be filled from a verified guide.",
+      "detail": "PLACEHOLDER: Why this is a strong pick at this stage."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "vehicle-mid-1",
+      "title": "PLACEHOLDER: Mid-story vehicle 1 - to be filled from a verified guide",
+      "stage": "mid",
+      "chapterOrder": 3,
+      "role": "PLACEHOLDER: Suggested role to be filled from a verified guide.",
+      "where": "PLACEHOLDER: Where to find it, to be filled from a verified guide.",
+      "detail": "PLACEHOLDER: Why this is a strong pick at this stage."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "vehicle-mid-2",
+      "title": "PLACEHOLDER: Mid-story vehicle 2 - to be filled from a verified guide",
+      "stage": "mid",
+      "chapterOrder": 3,
+      "role": "PLACEHOLDER: Suggested role to be filled from a verified guide.",
+      "where": "PLACEHOLDER: Where to find it, to be filled from a verified guide.",
+      "detail": "PLACEHOLDER: Why this is a strong pick at this stage."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "vehicle-late-1",
+      "title": "PLACEHOLDER: Late-story vehicle 1 - to be filled from a verified guide",
+      "stage": "late",
+      "chapterOrder": 5,
+      "role": "PLACEHOLDER: Suggested role to be filled from a verified guide.",
+      "where": "PLACEHOLDER: Where to find it, to be filled from a verified guide.",
+      "detail": "PLACEHOLDER: Why this is a strong pick at this stage."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "vehicle-late-2",
+      "title": "PLACEHOLDER: Late-story vehicle 2 - to be filled from a verified guide",
+      "stage": "late",
+      "chapterOrder": 5,
+      "role": "PLACEHOLDER: Suggested role to be filled from a verified guide.",
+      "where": "PLACEHOLDER: Where to find it, to be filled from a verified guide.",
+      "detail": "PLACEHOLDER: Why this is a strong pick at this stage."
+    }
+  ],
+  "weapons": [
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "weapon-early-1",
+      "title": "PLACEHOLDER: Early-story weapon 1 - to be filled from a verified guide",
+      "stage": "early",
+      "chapterOrder": 1,
+      "role": "PLACEHOLDER: Suggested role to be filled from a verified guide.",
+      "where": "PLACEHOLDER: Where to find it, to be filled from a verified guide.",
+      "detail": "PLACEHOLDER: Why this is a strong pick at this stage."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "weapon-early-2",
+      "title": "PLACEHOLDER: Early-story weapon 2 - to be filled from a verified guide",
+      "stage": "early",
+      "chapterOrder": 1,
+      "role": "PLACEHOLDER: Suggested role to be filled from a verified guide.",
+      "where": "PLACEHOLDER: Where to find it, to be filled from a verified guide.",
+      "detail": "PLACEHOLDER: Why this is a strong pick at this stage."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "weapon-mid-1",
+      "title": "PLACEHOLDER: Mid-story weapon 1 - to be filled from a verified guide",
+      "stage": "mid",
+      "chapterOrder": 3,
+      "role": "PLACEHOLDER: Suggested role to be filled from a verified guide.",
+      "where": "PLACEHOLDER: Where to find it, to be filled from a verified guide.",
+      "detail": "PLACEHOLDER: Why this is a strong pick at this stage."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "weapon-mid-2",
+      "title": "PLACEHOLDER: Mid-story weapon 2 - to be filled from a verified guide",
+      "stage": "mid",
+      "chapterOrder": 3,
+      "role": "PLACEHOLDER: Suggested role to be filled from a verified guide.",
+      "where": "PLACEHOLDER: Where to find it, to be filled from a verified guide.",
+      "detail": "PLACEHOLDER: Why this is a strong pick at this stage."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "weapon-late-1",
+      "title": "PLACEHOLDER: Late-story weapon 1 - to be filled from a verified guide",
+      "stage": "late",
+      "chapterOrder": 5,
+      "role": "PLACEHOLDER: Suggested role to be filled from a verified guide.",
+      "where": "PLACEHOLDER: Where to find it, to be filled from a verified guide.",
+      "detail": "PLACEHOLDER: Why this is a strong pick at this stage."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "weapon-late-2",
+      "title": "PLACEHOLDER: Late-story weapon 2 - to be filled from a verified guide",
+      "stage": "late",
+      "chapterOrder": 5,
+      "role": "PLACEHOLDER: Suggested role to be filled from a verified guide.",
+      "where": "PLACEHOLDER: Where to find it, to be filled from a verified guide.",
+      "detail": "PLACEHOLDER: Why this is a strong pick at this stage."
+    }
+  ]
+}
