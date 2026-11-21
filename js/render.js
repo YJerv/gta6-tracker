@@ -58,7 +58,6 @@ const INTRO = {
   map: "Filter the checklist by area. Secrets are on their own tab. Area names are placeholders, not verified locations.",
   skills: "Xbox settings and drills are generic controller practice. They are not GTA VI instructions. Stat rows are placeholders.",
   gear: "Vehicles and weapons to look for, by story stage, once a verified guide fills them in.",
-  cars: "Pins sit on Rockstar's Leonida poster. They mark the right neighbourhood, not the building. Drag the map, or use plus and minus.",
   online: "Readiness items are generic preparation. They are not a description of an online mode.",
 };
 
@@ -444,6 +443,9 @@ function ringSvg(percent) {
 
 function renderNext(model) {
   const suggestion = nextUp(model.catalog, model.progress);
+  const storyButton = isTabEnabled("story")
+    ? `<button type="button" class="btn-primary" data-goto="#/story">Open story</button>`
+    : "";
   let story = "";
   if (!suggestion.story) {
     story = `<article class="card next-card">
@@ -458,7 +460,7 @@ function renderNext(model) {
       <p class="summary">It is in chapter ${suggestion.story.chapterOrder}, past the furthest chapter you have ticked.</p>
       <div class="btn-row">
         <button type="button" class="btn-primary" data-reveal="${e(suggestion.story.id)}">Show this mission</button>
-        <button type="button" class="btn-ghost" data-goto="#/story">Open story</button>
+        ${storyButton}
       </div>
     </article>`;
   } else {
@@ -466,7 +468,7 @@ function renderNext(model) {
       <p class="kicker">Next up · Chapter ${suggestion.story.chapterOrder}</p>
       <h2>${e(suggestion.story.title)}</h2>
       <div class="btn-row">
-        <button type="button" class="btn-primary" data-goto="#/story">Open story</button>
+        ${storyButton}
         <button type="button" class="btn-ghost" data-tick="missions:${e(suggestion.story.id)}">Tick done</button>
       </div>
     </article>`;
@@ -534,6 +536,44 @@ function renderHome(model) {
     <p class="fine">Content files last updated ${e(formatLongDate(latest))}.</p>`;
 }
 
+function foldSection(heading, body) {
+  return `<section class="block">
+    <button type="button" class="block-toggle" data-block-toggle aria-expanded="false">
+      ${chevron(false)}
+      <span>${e(heading)}</span>
+    </button>
+    <div class="block-body" hidden>${body}</div>
+  </section>`;
+}
+
+function linkify(text) {
+  return String(text).split(/(https?:\/\/[^\s)]+)/).map((part, index) => (
+    index % 2 === 1 ? `<a href="${e(part)}">${e(part)}</a>` : e(part)
+  )).join("");
+}
+
+function carFigure(car) {
+  if (!car.image) {
+    return `<div class="car-figure car-figure-empty"><span>Image coming soon</span></div>`;
+  }
+  return `<figure class="car-figure">
+    <img src="${e(car.image)}" alt="${e(car.imageAlt || "")}" loading="lazy" decoding="async">
+    ${car.imageCredit ? `<figcaption class="image-credit">${e(car.imageCredit)}</figcaption>` : ""}
+  </figure>`;
+}
+
+function carSections(car, detail) {
+  const blocks = (detail?.blocks || []).map((block) => {
+    const lines = block.lines.length
+      ? `<ul>${block.lines.map((line) => `<li>${e(line)}</li>`).join("")}</ul>`
+      : `<p class="empty-line">Nothing verified yet.</p>`;
+    return foldSection(block.heading, lines);
+  }).join("");
+  const notes = car.notes ? foldSection("Notes", `<p class="summary">${e(car.notes)}</p>`) : "";
+  const sources = foldSection("Sources", `<p class="source">${linkify(car.source || "No source yet.")}</p>`);
+  return `${blocks}${notes}${sources}`;
+}
+
 function renderCarCard(entry, number, model) {
   const car = entry.car;
   const detail = model.catalog.details.get(car.id);
@@ -549,20 +589,25 @@ function renderCarCard(entry, number, model) {
     ? precisionText
     : `${precisionText} The poster has no street names.`;
   return `<article class="card car-card">
+    ${carFigure(car)}
     <p class="kicker">Car ${number} · ${e(chapter)}</p>
     <h3>${e(car.title)}</h3>
     <p class="badge-row">${badges(car)} <span class="badge badge-precision precision-${e(car.precision)}">${e(precisionLabel)}</span></p>
-    <p class="summary">${e(car.category)} · ${e(car.area)}</p>
-    ${missionFigure(detail)}
-    ${blocksHtml(detail.blocks)}
+    <p class="summary">${e(car.area)}</p>
     <p class="pin-note">${e(posterNote)}</p>
-    <p class="summary">${e(car.notes)}</p>
-    ${sourceHtml(car)}
+    ${carSections(car, detail)}
     <button type="button" class="car-found" data-tick="cars:${e(car.id)}" aria-pressed="${found ? "true" : "false"}" aria-label="${found ? "Clear" : "Found it"} ${e(car.title)}">
       <span class="tick-box"></span>
       <span>${found ? "Found" : "Found it"}</span>
     </button>
   </article>`;
+}
+
+function filterSelect(name, label, value, options) {
+  const choices = options.map(([id, text]) => (
+    `<option value="${e(String(id))}"${String(value) === String(id) ? " selected" : ""}>${e(text)}</option>`
+  )).join("");
+  return `<label class="filter"><span>${e(label)}</span><select data-car-${name} aria-label="${e(label)}">${choices}</select></label>`;
 }
 
 function renderCars(model) {
@@ -602,7 +647,6 @@ function renderCars(model) {
     .sort((a, b) => a - b)
     .map((order) => `<span class="legend-item"><i class="map-dot" data-chapter="${order}"></i>Ch ${order}</span>`)
     .join("");
-  const precisionLegend = `<span class="legend-item"><i class="map-dot precision-exact"></i>Exact</span><span class="legend-item"><i class="map-dot precision-street"></i>Street</span><span class="legend-item"><i class="map-dot precision-area"></i>Area</span>`;
   const selected = shown.find((entry) => entry.car.id === ui.selected) || null;
   const pinSource = selected ? [selected] : shown;
   const focusedPins = pinSource.filter((entry) => entry.car.mapX != null && entry.car.mapY != null);
@@ -619,25 +663,19 @@ function renderCars(model) {
   const showAll = selected
     ? `<button type="button" class="map-clear" data-car-clear>Show all cars</button>`
     : "";
-  const areaChips = [`<button type="button" class="chip${ui.area === "all" ? " is-active" : ""}" data-car-area="all">All areas</button>`]
-    .concat(areas.map((area) => `<button type="button" class="chip${ui.area === area ? " is-active" : ""}" data-car-area="${e(area)}">${e(area)}</button>`))
-    .join("");
-  const foundChips = [["all", "All"], ["open", "Still to find"], ["found", "Found"]]
-    .map(([id, label]) => `<button type="button" class="chip${ui.found === id ? " is-active" : ""}" data-car-found="${id}">${label}</button>`)
-    .join("");
-  const precisionChips = [["all", "All precision"], ["exact", "Exact"], ["street", "Street"], ["area", "Area"]]
-    .map(([id, label]) => `<button type="button" class="chip${precision === id ? " is-active" : ""}" data-car-precision="${id}">${label}</button>`)
-    .join("");
-  const chapterChips = [`<button type="button" class="chip${ui.chapter === "all" ? " is-active" : ""}" data-car-chapter="all">All chapters</button>`]
-    .concat(chapters.map((order) => `<button type="button" class="chip${String(ui.chapter) === String(order) ? " is-active" : ""}" data-car-chapter="${order}">Chapter ${order}</button>`))
-    .join("");
+  const chapterOptions = [["all", "All"]].concat(chapters.map((order) => [String(order), `Ch ${order}`]));
+  const filters = [
+    filterSelect("chapter", "Chapter", ui.chapter, chapterOptions),
+    filterSelect("precision", "Precision", precision, [["all", "All"], ["exact", "Exact"], ["street", "Street"], ["area", "Area"]]),
+    filterSelect("found", "Status", ui.found, [["all", "All"], ["open", "Still to find"], ["found", "Found"]]),
+  ].join("");
+  const areaOptions = [["all", "All areas"]].concat(areas.map((area) => [area, area]));
+  const areaSelect = filterSelect("area", "Area", ui.area, areaOptions);
   const list = shown.map((entry) => {
-    const found = model.progress.cars.includes(entry.car.id);
     const on = ui.selected === entry.car.id ? " is-selected" : "";
     return `<button type="button" class="car-row${on}" data-car-open="${e(entry.car.id)}">
       <span class="map-pin-num">${numberOf(entry)}</span>
-      <span class="car-row-copy"><strong>${e(entry.car.title)}</strong><span>${e(entry.car.area)}</span></span>
-      <span class="car-row-state">${found ? "Found" : "To find"}</span>
+      <span class="car-row-name">${e(entry.car.title)}</span>
     </button>`;
   }).join("") || `<p class="fine">No cars in this filter.</p>`;
   const hiddenHtml = [...new Set(hiddenPool.map((entry) => entry.car.chapterOrder))].map((order) => shield(
@@ -646,28 +684,26 @@ function renderCars(model) {
     order == null ? "cars-chapter-start" : `cars-chapter-${order}`,
   )).join("");
   const credit = `${map.imageCredit ? `<p class="map-credit">${e(map.imageCredit)}</p>` : ""}${map.source ? `<p class="map-credit">${e(map.source)}</p>` : ""}`;
-  return `<div class="cars-chrome">${banner(INTRO.cars)}</div>
-    <div class="map-stage" data-map-stage>
+  return `<div class="map-stage" data-map-stage>
       <div class="map-layer" data-map-layer data-map-ratio="${ratioValue}" style="aspect-ratio:${ratio}">
         ${picture}
       </div>
       ${pinHtml}
       ${showAll}
+      <button type="button" class="map-open" data-map-open>Map</button>
+      <button type="button" class="map-close" data-map-close>Close</button>
       <div class="map-zoom">
         <button type="button" data-map-zoom="out" aria-label="Zoom out">−</button>
         <button type="button" data-map-zoom="in" aria-label="Zoom in">+</button>
       </div>
     </div>
     ${legend ? `<p class="map-legend cars-chrome">${legend}</p>` : ""}
-    <p class="map-legend precision-legend cars-chrome">${precisionLegend}</p>
-    <div class="chips cars-chrome" role="group" aria-label="Filter by precision">${precisionChips}</div>
-    <div class="cars-chrome">${credit}</div>
+    <div class="filter-row">${filters}</div>
+    <div class="filter-area">${areaSelect}</div>
     <div id="car-card">${card}</div>
-    <div class="chips" role="group" aria-label="Filter by chapter">${chapterChips}</div>
-    <div class="chips" role="group" aria-label="Found or still to find">${foundChips}</div>
-    <div class="chips" role="group" aria-label="Filter by area">${areaChips}</div>
     <div class="car-list">${list}</div>
-    ${hiddenHtml}`;
+    ${hiddenHtml}
+    <div class="map-credits">${credit}</div>`;
 }
 
 export function renderMain(model) {

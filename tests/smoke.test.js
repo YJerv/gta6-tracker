@@ -305,15 +305,24 @@ test("sourced cars use the Leonida map and hide later chapters", () => {
   assert.match(page, /data-car-pin="car-dinka-enduro"/);
   assert.match(page, /data-map-x="58.6"/);
   assert.match(page, /precision-exact/);
-  assert.match(page, /data-car-precision="street"/);
+  assert.match(page, /class="filter-row"/);
+  assert.match(page, /data-car-precision/);
+  assert.match(page, /data-car-found/);
+  assert.match(page, /value="street"/);
+  assert.match(page, /Still to find/);
+  assert.doesNotMatch(page, /All precision/);
+  assert.doesNotMatch(page, /Pins sit on Rockstar/);
+  assert.match(page, /data-map-open/);
   assert.match(page, /GTADB/);
   assert.match(page, /GTA6Map\.io/);
   assert.match(page, /GTA6 GPS/);
   assert.match(page, /Driveshaft Hustler/);
   assert.doesNotMatch(page, /Twinstripe Vigero/);
   assert.match(page, /Cars in chapter 3/);
-  assert.match(page, /data-car-chapter="1"/);
+  assert.match(page, /data-car-chapter/);
+  assert.match(page, /value="1"/);
   assert.match(page, /Map: Rockstar Games/);
+  assert.ok(page.indexOf('class="car-list"') < page.indexOf('class="map-credits"'));
 
   const open = renderMain({
     ...model(progress, { section: "cars" }),
@@ -324,7 +333,17 @@ test("sourced cars use the Leonida map and hide later chapters", () => {
   assert.match(open, /The poster has no street names/);
   assert.match(open, />Exact</);
   assert.match(open, /Found it/);
-  assert.match(open, /Illustration/);
+  assert.match(open, /data-block-toggle/);
+  assert.match(open, />Class</);
+  assert.match(open, />How to find it</);
+  assert.match(open, />Sources</);
+  assert.match(open, /https:\/\/www\.powerpyx\.com/);
+  const plain = renderMain({
+    ...model(progress, { section: "cars" }),
+    carsUi: { area: "all", found: "all", chapter: "all", selected: "car-driveshaft-hustler" },
+  });
+  assert.match(plain, /Image coming soon/);
+  assert.doesNotMatch(plain, /car-row-copy/);
 
   const shown = renderMain(model(setSpoilersHidden(progress, false, NOW), { section: "cars" }));
   assert.match(shown, /Twinstripe Vigero/);
@@ -417,6 +436,9 @@ test("the map header stays collapsed when that choice was saved", () => {
   assert.match(css, /body\.chrome-collapsed \.tabs/);
   assert.match(css, /body\.chrome-collapsed \.cars-chrome/);
   assert.match(css, /body\.chrome-collapsed \.map-stage/);
+  assert.match(css, /body\.map-open \.map-stage/);
+  assert.match(css, /\.tabs\[hidden\]/);
+  assert.match(css, /main \{[^}]*var\(--dock\)/);
 });
 
 test("rendered story hides later mission text and escapes markup", () => {
@@ -486,20 +508,21 @@ test("money, map, skills, gear, and online render the right rows", () => {
 });
 
 test("routes and the home dashboard stay inside the spoiler boundary", () => {
-  assert.deepEqual(ENABLED_TABS, ["story", "cars"]);
-  assert.equal(isTabEnabled("story"), true);
+  assert.deepEqual(ENABLED_TABS, ["cars"]);
+  assert.equal(isTabEnabled("cars"), true);
+  assert.equal(isTabEnabled("story"), false);
   assert.equal(isTabEnabled("home"), false);
-  assert.deepEqual(parseRoute(""), { section: "story", sub: null });
-  assert.deepEqual(parseRoute("#/story"), { section: "story", sub: null });
+  assert.deepEqual(parseRoute(""), { section: "cars", sub: null });
+  assert.deepEqual(parseRoute("#/story"), { section: "cars", sub: null });
   assert.deepEqual(parseRoute("#/cars"), { section: "cars", sub: null });
-  assert.deepEqual(parseRoute("#/map/secrets"), { section: "story", sub: null });
-  assert.deepEqual(parseRoute("#/nope"), { section: "story", sub: null });
-  assert.equal(parseRoute("#/skills/drills").section, "story");
+  assert.deepEqual(parseRoute("#/map/secrets"), { section: "cars", sub: null });
+  assert.deepEqual(parseRoute("#/nope"), { section: "cars", sub: null });
+  assert.equal(parseRoute("#/skills/drills").section, "cars");
 
   const home = renderMain(model(emptyProgress(NOW), { section: "home" }));
   assert.match(home, /Next up/);
   assert.match(home, /Prologue/);
-  assert.match(home, /data-goto="#\/story"/);
+  assert.doesNotMatch(home, /data-goto="#\/story"/);
   assert.match(home, /data-goto="#\/cars"/);
   assert.doesNotMatch(home, /data-goto="#\/money"/);
   assert.doesNotMatch(home, /data-goto="#\/map/);
@@ -514,7 +537,7 @@ test("routes and the home dashboard stay inside the spoiler boundary", () => {
     .map((mission) => mission.id)
     .reduce((current, id) => toggleId(current, "missions", id, NOW).progress, emptyProgress(NOW));
   const laterHome = renderMain(model(caughtUp, { section: "home" }));
-  assert.match(laterHome, /data-goto="#\/story"/);
+  assert.doesNotMatch(laterHome, /data-goto="#\/story"/);
   assert.doesNotMatch(laterHome, /data-goto="#\/skills/);
   const withCash = setCash(emptyProgress(NOW), { cash: "40", note: "<b>note</b>" }, NOW).progress;
   const cashed = renderMain(model(withCash, { section: "home" }));

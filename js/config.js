@@ -3,7 +3,7 @@
  * Put a name back in this list to switch that section on again.
  * Names match the data-tab buttons in index.html: home, story, money, map, skills, cars, gear, online.
  */
-export const ENABLED_TABS = ["story", "cars"];
+export const ENABLED_TABS = ["cars"];
 
 /** First name in ENABLED_TABS is the page the app opens on. */
 export const DEFAULT_TAB = ENABLED_TABS[0];

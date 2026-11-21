@@ -6,7 +6,7 @@ Launch is recorded here as **19 November 2026**, single-player only. No online m
 
 ## Use it
 
-Open `index.html` over HTTP (not as a bare file, or the JSON will not load). The app opens on Story. The bottom bar currently shows Story and Cars only, with Spoilers and Settings just above it. Other sections are still in the code and the data files. Add a name back to `ENABLED_TABS` in `js/config.js` (`home`, `story`, `money`, `map`, `skills`, `cars`, `gear`, `online`) to show that tab again.
+Open `index.html` over HTTP (not as a bare file, or the JSON will not load). The app opens on Cars. The bottom bar hides while only one section is switched on. Spoilers and Settings stay above it. Other sections, including Story, are still in the code and the data files. Add a name back to `ENABLED_TABS` in `js/config.js` (`home`, `story`, `money`, `map`, `skills`, `cars`, `gear`, `online`) to show that tab again.
 
 - **Home** shows completion, a cash figure you type yourself, and the next unticked mission.
 - **Story** is chapters and missions, with steps, bonus or gold objectives, and missables inside each card.

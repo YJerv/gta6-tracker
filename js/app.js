@@ -59,14 +59,26 @@ function announce(text) {
 }
 
 function applyTabVisibility() {
+  let enabledCount = 0;
   document.querySelectorAll("[data-tab]").forEach((button) => {
     const enabled = isTabEnabled(button.dataset.tab);
     button.hidden = !enabled;
+    if (enabled) enabledCount += 1;
     if (!enabled) {
       button.classList.remove("is-active");
       button.removeAttribute("aria-current");
     }
   });
+  const tabs = document.querySelector(".tabs");
+  if (tabs) tabs.hidden = enabledCount < 2;
+  document.body.classList.toggle("single-tab", enabledCount < 2);
+}
+
+function syncDockHeight() {
+  const dock = document.querySelector(".dock");
+  if (!dock) return;
+  const height = Math.ceil(dock.getBoundingClientRect().height);
+  document.documentElement.style.setProperty("--dock", `${height}px`);
 }
 
 function openEnabledRoute() {
@@ -157,6 +169,8 @@ function render() {
   if (state.sheetOpen) fillExport();
   const about = document.getElementById("about-credits");
   applyChromeCollapsed();
+  document.body.classList.toggle("map-open", Boolean(state.mapOpen));
+  syncDockHeight();
   if (about) about.textContent = illustrationCredits(state.data.story).join("\n\n");
   if (state.restoreFocus) {
     const selector = state.restoreFocus;
@@ -293,6 +307,23 @@ function onClick(event) {
     showAllCars();
     return;
   }
+  if (target.closest("[data-map-open]")) {
+    setMapOpen(true);
+    return;
+  }
+  if (target.closest("[data-map-close]")) {
+    setMapOpen(false);
+    return;
+  }
+  const blockToggle = target.closest("[data-block-toggle]");
+  if (blockToggle) {
+    const open = blockToggle.getAttribute("aria-expanded") !== "true";
+    blockToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    blockToggle.querySelector(".chevron")?.classList.toggle("is-open", open);
+    const body = blockToggle.parentElement?.querySelector(".block-body");
+    if (body) body.hidden = !open;
+    return;
+  }
   if (target.closest("#chrome-toggle")) {
     toggleChrome();
     return;
@@ -413,6 +444,17 @@ function onClick(event) {
   }
 }
 
+function onChange(event) {
+  const target = event.target;
+  if (!(target instanceof HTMLSelectElement) || !state) return;
+  if (target.matches("[data-car-area]")) state.carArea = target.value;
+  else if (target.matches("[data-car-found]")) state.carFound = target.value;
+  else if (target.matches("[data-car-chapter]")) state.carChapter = target.value;
+  else if (target.matches("[data-car-precision]")) state.carPrecision = target.value;
+  else return;
+  render();
+}
+
 function onSubmit(event) {
   const form = event.target;
   if (!(form instanceof HTMLFormElement) || form.id !== "cash-form" || !state) return;
@@ -473,17 +515,34 @@ function showAllCars({ animate = true } = {}) {
   }
 }
 
+function refitMap() {
+  if (!state) return;
+  const car = state.selectedCar
+    ? state.data.cars?.cars?.find((item) => item.id === state.selectedCar)
+    : null;
+  const frame = mapFrame();
+  if (car && car.mapX != null && car.mapY != null && frame) {
+    state.mapView = mapViewForCar(car, frame);
+    applyMapTransform(state.mapView, { instant: true });
+    return;
+  }
+  clampMap();
+  applyMapTransform(state.mapView, { instant: true });
+}
+
+function setMapOpen(open) {
+  state.mapOpen = open;
+  document.body.classList.toggle("map-open", open);
+  requestAnimationFrame(() => refitMap());
+}
+
 function toggleChrome() {
   state.chromeCollapsed = !state.chromeCollapsed;
   writeChromeCollapsed(localStorage, state.chromeCollapsed);
   applyChromeCollapsed();
   requestAnimationFrame(() => {
-    if (!state) return;
-    if (state.selectedCar) focusSelectedCar(state.selectedCar, { animate: false });
-    else {
-      clampMap();
-      applyMapTransform();
-    }
+    syncDockHeight();
+    refitMap();
   });
 }
 
@@ -544,7 +603,7 @@ function applyMapTransform(view, options) {
 function onMapPointerDown(event) {
   const stage = event.target.closest("[data-map-stage]");
   if (!stage || !state) return;
-  if (event.target.closest("[data-map-zoom], [data-car-pin], [data-car-clear]")) return;
+  if (event.target.closest("[data-map-zoom], [data-car-pin], [data-car-clear], [data-map-open], [data-map-close]")) return;
   stage.classList.add("is-panning");
   stage.setPointerCapture(event.pointerId);
   mapPointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
@@ -597,9 +656,13 @@ function bind() {
     if (state) render();
   });
   document.body.addEventListener("click", onClick);
+  document.body.addEventListener("change", onChange);
   document.body.addEventListener("submit", onSubmit);
+  window.addEventListener("resize", () => syncDockHeight());
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeSheet();
+    if (event.key !== "Escape") return;
+    if (state?.mapOpen) setMapOpen(false);
+    else closeSheet();
   });
   document.getElementById("import-file").addEventListener("change", async (event) => {
     const file = event.target.files && event.target.files[0];
@@ -639,6 +702,7 @@ async function boot() {
       carPrecision: "all",
       selectedCar: null,
       mapView: { x: 0, y: 0, scale: 1 },
+      mapOpen: false,
       chromeCollapsed: readChromeCollapsed(localStorage),
       cashError: null,
       sheetOpen: false,
