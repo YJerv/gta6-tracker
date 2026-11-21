@@ -260,7 +260,7 @@ Generic rows must say they are not GTA VI instructions.
 
 Secret and rare cars, with a map. `map` has `image` (a path under `images/` or `images/cars/`, or `null`), `imageCredit`, `imageAlt`, `source`, `width`, and `height`. Credit, alt, width, and height are required when `image` is a path, and the file must exist. `width` and `height` are the picture's pixel size. Pins use `mapX` and `mapY` as percentages from the top-left of that picture.
 
-Each car: `id`, `verified`, `source`, `generic` (must be `false`), `chapterOrder` (`null` if it is available from the start), `title`, `category`, `area`, `mapX`, `mapY` (each `null` or a number from 0 to 100), `precision` (`exact`, `street`, or `area`), `steps`, `notes`. `image`, `imageCredit`, and `imageAlt` may be omitted or `null` when there is no picture. When `image` is a path, credit and alt are required and the file must exist. Unverified text starts with `PLACEHOLDER:`. Steps may be long when guides disagree; the card wraps them.
+Each car: `id`, `verified`, `source`, `generic` (must be `false`), `chapterOrder` (`null` if it is available from the start), `title`, `category`, `area`, `mapX`, `mapY` (each `null` or a number from 0 to 100), `precision` (`exact`, `street`, or `area`), `steps`, `notes`, `image`, `imageCredit`, `imageAlt`, `imageSource`, and `imageVerified`. Leave `image`, `imageCredit`, `imageAlt`, and `imageSource` all `null` when there is no picture. When `image` is a path under `images/cars/`, the credit, alt, and source URL are required and the file must exist. `imageVerified` is `true` or `false`. Unverified text starts with `PLACEHOLDER:`. Steps may be long when guides disagree; the card wraps them.
 
 `precision` is how close the pin is. `exact` means the right block, roughly 1-2% of the map width. `street` means street level. `area` means the general area only. The poster still has no street names.
 
@@ -282,7 +282,12 @@ The shipped file uses Rockstar's Leonida map poster (`images/cars/leonida-map.jp
   "steps": [
     "PLACEHOLDER: How to find it, to be filled from a verified guide."
   ],
-  "notes": "PLACEHOLDER: Extra notes to be filled from a verified guide."
+  "notes": "PLACEHOLDER: Extra notes to be filled from a verified guide.",
+  "image": null,
+  "imageCredit": null,
+  "imageAlt": null,
+  "imageSource": null,
+  "imageVerified": false
 }
 ```
 

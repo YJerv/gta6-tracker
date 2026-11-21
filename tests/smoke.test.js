@@ -290,8 +290,16 @@ test("sourced cars use the Leonida map and hide later chapters", () => {
   assert.equal(data.cars.map.height, 1920);
   assert.match(data.cars.map.imageCredit, /Rockstar Games/);
   const withPicture = data.cars.cars.filter((car) => car.image);
-  assert.equal(withPicture.length, 4);
-  assert.ok(data.cars.cars.some((car) => car.image === null && car.imageCredit === null && car.imageAlt === null));
+  assert.equal(withPicture.length, 29);
+  assert.equal(withPicture.filter((car) => car.imageVerified === true).length, 8);
+  assert.equal(withPicture.filter((car) => car.imageVerified === false).length, 21);
+  assert.ok(withPicture.every((car) => typeof car.imageSource === "string" && car.imageSource.startsWith("https://")));
+  const hustler = data.cars.cars.find((car) => car.id === "car-driveshaft-hustler");
+  assert.equal(hustler.image, null);
+  assert.equal(hustler.imageCredit, null);
+  assert.equal(hustler.imageAlt, null);
+  assert.equal(hustler.imageSource, null);
+  assert.equal(hustler.imageVerified, false);
   for (const car of data.cars.cars) {
     assert.equal(car.verified, true);
     assert.equal(typeof car.source, "string");
@@ -338,11 +346,20 @@ test("sourced cars use the Leonida map and hide later chapters", () => {
   assert.match(open, />How to find it</);
   assert.match(open, />Sources</);
   assert.match(open, /https:\/\/www\.powerpyx\.com/);
+  assert.doesNotMatch(open, /image-unverified/);
+  const unverified = renderMain({
+    ...model(progress, { section: "cars" }),
+    carsUi: { area: "all", found: "all", chapter: "all", selected: "car-penumbra-ff-eclipse" },
+  });
+  assert.match(unverified, /src="images\/cars\/car-penumbra-ff-eclipse\.jpg"/);
+  assert.match(unverified, /image-unverified/);
+  assert.match(unverified, /Unverified image/);
   const plain = renderMain({
     ...model(progress, { section: "cars" }),
     carsUi: { area: "all", found: "all", chapter: "all", selected: "car-driveshaft-hustler" },
   });
   assert.match(plain, /Image coming soon/);
+  assert.doesNotMatch(plain, /image-unverified/);
   assert.doesNotMatch(plain, /car-row-copy/);
 
   const shown = renderMain(model(setSpoilersHidden(progress, false, NOW), { section: "cars" }));
@@ -350,13 +367,18 @@ test("sourced cars use the Leonida map and hide later chapters", () => {
 
   const broken = structuredClone(data);
   broken.cars.cars[0].image = "images/cars/missing-car.jpg";
-  broken.cars.cars[0].imageCredit = "Image credit";
-  broken.cars.cars[0].imageAlt = "A car picture";
+  broken.cars.cars[0].imageCredit = "Image credit text";
+  broken.cars.cars[0].imageAlt = "A car picture that is missing";
+  broken.cars.cars[0].imageSource = "https://example.com/missing.jpg";
   assert.ok(validateAll(broken).some((error) => error.includes("file not found")));
 
   const half = structuredClone(data);
   half.cars.cars[1].image = "images/cars/car-dinka-enduro.jpg";
   assert.ok(validateAll(half).some((error) => error.includes("set together")));
+
+  const badUrl = structuredClone(data);
+  badUrl.cars.cars[0].imageSource = "not a url";
+  assert.ok(validateAll(badUrl).some((error) => error.includes("imageSource")));
 
   const vague = structuredClone(data);
   vague.cars.cars[0].precision = "nearby";

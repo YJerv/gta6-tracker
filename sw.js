@@ -1,5 +1,5 @@
 /* Bump CACHE when shipped files change so old caches are dropped. */
-const CACHE = "gta6-tracker-v7";
+const CACHE = "gta6-tracker-v8";
 
 const RELATIVE_ASSETS = [
   "./index.html",
@@ -33,10 +33,35 @@ const RELATIVE_ASSETS = [
   "./images/chapter-1-mission-9.jpg",
   "./images/chapter-1-mission-10.jpg",
   "./images/cars/leonida-map.jpg",
+  "./images/cars/car-annis-hellion.jpg",
+  "./images/cars/car-ascot-paragon.jpg",
+  "./images/cars/car-bf-bandito.jpg",
+  "./images/cars/car-bravado-banshee.jpg",
+  "./images/cars/car-bravado-gauntlet-hellfire.jpg",
+  "./images/cars/car-canis-crawler-82.jpg",
+  "./images/cars/car-declasse-vamos.jpg",
+  "./images/cars/car-declasse-yosemite-1500.jpg",
   "./images/cars/car-dinka-enduro.jpg",
+  "./images/cars/car-granforma-zorrusso.jpg",
   "./images/cars/car-grotti-cheetah-95.jpg",
+  "./images/cars/car-hauners-p996-lazer.jpg",
+  "./images/cars/car-hauners-rhino-tank.jpg",
+  "./images/cars/car-invetero-coquette-d10.jpg",
+  "./images/cars/car-karin-futo.jpg",
+  "./images/cars/car-mamba-gt.jpg",
+  "./images/cars/car-pegassi-infernus.jpg",
+  "./images/cars/car-pegassi-tempesta.jpg",
+  "./images/cars/car-pegassi-toros.jpg",
+  "./images/cars/car-pegassi-vitello.jpg",
+  "./images/cars/car-penumbra-ff-eclipse.jpg",
+  "./images/cars/car-pfister-growler.jpg",
+  "./images/cars/car-piccia-furia.jpg",
+  "./images/cars/car-teniente-manana.jpg",
+  "./images/cars/car-truffade-thrax.jpg",
+  "./images/cars/car-twinstripe-vigero.jpg",
   "./images/cars/car-vapid-dominator-buggy-67.jpg",
   "./images/cars/car-vapid-stanier-55.jpg",
+  "./images/cars/car-western-nightblade.jpg",
 ];
 
 const ASSETS = RELATIVE_ASSETS.map((asset) => new URL(asset, self.location).href);

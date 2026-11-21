@@ -556,9 +556,12 @@ function carFigure(car) {
   if (!car.image) {
     return `<div class="car-figure car-figure-empty"><span>Image coming soon</span></div>`;
   }
+  const unverified = car.imageVerified === false
+    ? `<span class="image-unverified">Unverified image</span>`
+    : "";
   return `<figure class="car-figure">
     <img src="${e(car.image)}" alt="${e(car.imageAlt || "")}" loading="lazy" decoding="async">
-    ${car.imageCredit ? `<figcaption class="image-credit">${e(car.imageCredit)}</figcaption>` : ""}
+    <figcaption class="image-credit">${unverified}<span>${e(car.imageCredit || "")}</span></figcaption>
   </figure>`;
 }
 

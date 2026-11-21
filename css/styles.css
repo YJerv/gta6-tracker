@@ -732,7 +732,8 @@ body.map-open .map-close {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   border-radius: 14px;
   background: #241028;
 }
@@ -750,7 +751,25 @@ body.map-open .map-close {
   text-transform: uppercase;
 }
 
-.car-figure .image-credit { color: var(--faint); }
+.car-figure .image-credit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--faint);
+}
+
+.image-unverified {
+  flex: none;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #6b1830;
+  color: #ffe4ea;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
 
 .block-toggle {
   width: 100%;

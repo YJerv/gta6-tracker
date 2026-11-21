@@ -66,6 +66,37 @@ function imageValueSet(value) {
   return value !== null && value !== undefined;
 }
 
+const IMAGE_URL = /^https?:\/\/\S+$/;
+
+function checkCarImage(car, label, errors) {
+  const names = ["image", "imageCredit", "imageAlt", "imageSource"];
+  const set = names.filter((key) => imageValueSet(car[key]));
+  if (typeof car.imageVerified !== "boolean") {
+    push(errors, `${label}.imageVerified`, "must be true or false");
+  }
+  if (set.length !== 0 && set.length !== names.length) {
+    push(errors, label, "image, imageCredit, imageAlt and imageSource must be set together");
+  }
+  if (typeof car.image === "string") {
+    if (!IMAGE_PATH.test(car.image)) {
+      push(errors, `${label}.image`, "must be a relative path under images/ or images/cars/");
+    } else if (!existsSync(path.join(root, car.image))) {
+      push(errors, `${label}.image`, `file not found (${car.image})`);
+    }
+  } else if (car.image != null) {
+    push(errors, `${label}.image`, "must be null or a path under images/");
+  }
+  if (imageValueSet(car.imageCredit) && (typeof car.imageCredit !== "string" || car.imageCredit.trim().length < 8)) {
+    push(errors, `${label}.imageCredit`, "is required when image is set");
+  }
+  if (imageValueSet(car.imageAlt) && (typeof car.imageAlt !== "string" || car.imageAlt.trim().length < 8 || car.imageAlt.length > 300)) {
+    push(errors, `${label}.imageAlt`, "is required when image is set");
+  }
+  if (imageValueSet(car.imageSource) && (typeof car.imageSource !== "string" || !IMAGE_URL.test(car.imageSource))) {
+    push(errors, `${label}.imageSource`, "must be an http or https URL");
+  }
+}
+
 function checkMissionImage(mission, label, errors) {
   const names = ["image", "imageCredit", "imageAlt"];
   const set = names.filter((key) => imageValueSet(mission[key]));
@@ -586,7 +617,7 @@ function checkCars(data, errors, ids) {
   }
   data.cars.forEach((car, index) => {
     const carPath = `cars.cars[${index}]`;
-    if (!exactKeys(car, ["id", "verified", "source", "generic", "chapterOrder", "title", "category", "area", "mapX", "mapY", "precision", "steps", "notes"], carPath, errors, ["image", "imageCredit", "imageAlt"])) return;
+    if (!exactKeys(car, ["id", "verified", "source", "generic", "chapterOrder", "title", "category", "area", "mapX", "mapY", "precision", "steps", "notes", "image", "imageCredit", "imageAlt", "imageSource", "imageVerified"], carPath, errors)) return;
     checkId(car.id, `${carPath}.id`, errors, ids);
     if (car.generic !== false) push(errors, `${carPath}.generic`, "must be false");
     checkVerifiedPair(car, carPath, errors, ["title", "category", "area", "notes", "steps"]);
@@ -606,7 +637,7 @@ function checkCars(data, errors, ids) {
     if (typeof car.area !== "string" || car.area.length > 120) {
       push(errors, `${carPath}.area`, "must be text up to 120 characters");
     }
-    checkMissionImage(car, carPath, errors);
+    checkCarImage(car, carPath, errors);
   });
 }
 
