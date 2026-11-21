@@ -37,6 +37,7 @@ export const ROUTES = {
   },
   cars: { title: "Cars", subs: [] },
   weapons: { title: "Weapons", subs: [] },
+  steal: { title: "Steal", subs: [] },
   gear: {
     title: "Gear",
     subs: [
@@ -95,8 +96,8 @@ export function hashFor(item) {
 const FOCUS_SCALE = { exact: 2.8, street: 1.9, area: 1.2 };
 
 /** Centre a car pin in the map window. Exact is closer than street, and area is wider. */
-export function mapViewForCar(car, frame) {
-  const requested = FOCUS_SCALE[car.precision] || FOCUS_SCALE.area;
+export function mapViewForCar(car, frame, requestedScale) {
+  const requested = requestedScale || FOCUS_SCALE[car.precision] || FOCUS_SCALE.area;
   const baseW = frame.stageW;
   const baseH = baseW * frame.ratio;
   const fit = Math.min(1, frame.stageH / baseH);
@@ -110,6 +111,49 @@ export function mapViewForCar(car, frame) {
     x: Math.min(0, Math.max(minX, frame.stageW / 2 - px)),
     y: Math.min(0, Math.max(minY, frame.stageH / 2 - py)),
   };
+}
+
+/** Fit several pins in the map window, with a little padding around the group. */
+export function mapViewForPoints(points, frame) {
+  if (!points.length) return { x: 0, y: 0, scale: 1 };
+  if (points.length === 1) return mapViewForCar(points[0], frame);
+  const xs = points.map((point) => Number(point.mapX));
+  const ys = points.map((point) => Number(point.mapY));
+  const padX = Math.max(3, (Math.max(...xs) - Math.min(...xs)) * 0.12);
+  const padY = Math.max(3, (Math.max(...ys) - Math.min(...ys)) * 0.12);
+  const minPX = Math.max(0, Math.min(...xs) - padX);
+  const maxPX = Math.min(100, Math.max(...xs) + padX);
+  const minPY = Math.max(0, Math.min(...ys) - padY);
+  const maxPY = Math.min(100, Math.max(...ys) + padY);
+  const baseW = frame.stageW;
+  const baseH = baseW * frame.ratio;
+  const spanW = Math.max(1, ((maxPX - minPX) / 100) * baseW);
+  const spanH = Math.max(1, ((maxPY - minPY) / 100) * baseH);
+  const fit = Math.min(1, frame.stageH / baseH);
+  const cover = Math.max(fit, frame.stageH / baseH);
+  const scale = Math.min(4, Math.max(cover, Math.min(frame.stageW / spanW, frame.stageH / spanH)));
+  return mapViewForCar({
+    mapX: (minPX + maxPX) / 2,
+    mapY: (minPY + maxPY) / 2,
+    precision: "area",
+  }, frame, scale);
+}
+
+/** Group nearby spots so a full map does not draw hundreds of pins. */
+export function clusterLocations(locations, cell) {
+  if (!cell) return locations.map((spot) => ({ ...spot, members: [spot] }));
+  const groups = new Map();
+  for (const spot of locations) {
+    const key = `${Math.floor(Number(spot.mapX) / cell)}:${Math.floor(Number(spot.mapY) / cell)}`;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(spot);
+  }
+  return [...groups.values()].map((members) => ({
+    mapX: members.reduce((sum, spot) => sum + Number(spot.mapX), 0) / members.length,
+    mapY: members.reduce((sum, spot) => sum + Number(spot.mapY), 0) / members.length,
+    precision: members.length === 1 ? members[0].precision : "area",
+    members,
+  }));
 }
 
 function formatLongDate(isoDate) {
@@ -729,6 +773,178 @@ function renderMapList(model, spec) {
     <div class="map-credits">${credit}</div>`;
 }
 
+function moneyAmount(value) {
+  return `$${Math.round(value).toLocaleString("en-GB")}`;
+}
+
+export function payoutLine(item) {
+  if (item.payoutMin == null || item.payoutMax == null) return "Varies";
+  if (item.payoutMin === item.payoutMax) return moneyAmount(item.payoutMin);
+  return `${moneyAmount(item.payoutMin)} to ${moneyAmount(item.payoutMax)}`;
+}
+
+export function stealTotals(items, foundIds) {
+  const found = new Set(foundIds || []);
+  let total = 0;
+  let done = 0;
+  for (const item of items) {
+    if (!item.locations.length) {
+      total += 1;
+      if (found.has(item.id)) done += 1;
+    } else {
+      total += item.locations.length;
+      done += item.locations.filter((spot) => found.has(spot.id)).length;
+    }
+  }
+  return { done, total };
+}
+
+function stealProgress(item, found) {
+  if (!item.locations.length) return { done: found.has(item.id) ? 1 : 0, total: 1 };
+  return {
+    done: item.locations.filter((spot) => found.has(spot.id)).length,
+    total: item.locations.length,
+  };
+}
+
+function renderSteal(model) {
+  const spec = MAP_LISTS.steal;
+  const file = model.data.steal;
+  const items = file && Array.isArray(file.items) ? file.items : [];
+  const ui = model.listUi || { category: "all", payout: "all", found: "all", sort: "default", selected: null, spot: null };
+  const found = new Set(model.stealFound || []);
+  const through = visibleThroughChapter(model.catalog.chapters, model.progress.missions);
+  const visible = [];
+  const hidden = [];
+  for (const item of items) {
+    const subject = {
+      id: item.id,
+      chapterOrder: item.chapterOrder,
+      groupId: item.chapterOrder == null ? "steal-chapter-start" : `steal-chapter-${item.chapterOrder}`,
+    };
+    if (isHidden(subject, model.progress, through)) hidden.push(item);
+    else visible.push(item);
+  }
+  let shown = visible.slice();
+  if (ui.category && ui.category !== "all") shown = shown.filter((item) => item.category === ui.category);
+  if (ui.payout && ui.payout !== "all") shown = shown.filter((item) => item.payoutBand === ui.payout);
+  const finished = (item) => {
+    const count = stealProgress(item, found);
+    return count.done === count.total && count.total > 0;
+  };
+  if (ui.found === "found") shown = shown.filter(finished);
+  if (ui.found === "open") shown = shown.filter((item) => !finished(item));
+  if (ui.sort === "payout") {
+    shown = shown.slice().sort((a, b) => (b.payoutMax ?? -1) - (a.payoutMax ?? -1));
+  }
+  const selected = shown.find((item) => item.id === ui.selected) || null;
+  const spot = selected && ui.spot ? selected.locations.find((place) => place.id === ui.spot) : null;
+  const categories = [...new Set(items.map((item) => item.category))].sort();
+  const filters = [
+    filterSelect("category", "Type", ui.category || "all", [["all", "All"]].concat(categories.map((name) => [name, name]))),
+    filterSelect("payout", "Pay", ui.payout || "all", [["all", "All"], ["low", "Low"], ["medium", "Mid"], ["high", "High"]]),
+    filterSelect("found", "Status", ui.found || "all", [["all", "All"], ["open", "To do"], ["found", "Done"]]),
+    filterSelect("sort", "Sort", ui.sort || "default", [["default", "Default"], ["payout", "Best pay"]]),
+  ].join("");
+  const map = file.map || {};
+  const ratio = map.width && map.height ? `${map.width} / ${map.height}` : "1 / 1";
+  const ratioValue = map.width && map.height ? map.height / map.width : 1;
+  const picture = map.image
+    ? `<img class="map-photo" src="${e(map.image)}" alt="${e(map.imageAlt || "")}" width="${Number(map.width)}" height="${Number(map.height)}" draggable="false">`
+    : "";
+  let pinHtml = "";
+  if (spot) {
+    pinHtml = `<button type="button" class="map-pin is-small precision-${e(spot.precision)} is-selected" data-spot="${e(spot.id)}" data-item="${e(selected.id)}" data-map-x="${spot.mapX}" data-map-y="${spot.mapY}" aria-label="${e(spot.name)}"><span class="map-dot"></span></button>`;
+  } else if (selected && selected.locations.length) {
+    const groups = selected.locations.length > 40
+      ? clusterLocations(selected.locations, 3.5)
+      : selected.locations.map((place) => ({ ...place, members: [place] }));
+    pinHtml = groups.map((group) => {
+      if (group.members.length === 1) {
+        const place = group.members[0];
+        return `<button type="button" class="map-pin is-small precision-${e(place.precision)}" data-spot="${e(place.id)}" data-item="${e(selected.id)}" data-map-x="${place.mapX}" data-map-y="${place.mapY}" aria-label="${e(place.name)}"><span class="map-dot"></span></button>`;
+      }
+      return `<button type="button" class="map-pin is-small precision-area" data-cluster="${e(group.members.map((place) => place.id).join(","))}" data-item="${e(selected.id)}" data-map-x="${group.mapX}" data-map-y="${group.mapY}" aria-label="${group.members.length} spots"><span class="map-dot">${group.members.length}</span></button>`;
+    }).join("");
+  } else if (!selected) {
+    const places = shown.flatMap((item) => item.locations.map((place) => ({ ...place, itemId: item.id })));
+    pinHtml = clusterLocations(places, 6).map((group) => (
+      `<button type="button" class="map-pin is-small precision-area" data-cluster="${e(group.members.map((place) => place.id).join(","))}" data-map-x="${group.mapX}" data-map-y="${group.mapY}" aria-label="${group.members.length} spots"><span class="map-dot">${group.members.length}</span></button>`
+    )).join("");
+  }
+  const showAll = selected
+    ? `<button type="button" class="map-clear" data-clear>Show all</button>`
+    : "";
+  const list = shown.map((item, index) => {
+    const count = stealProgress(item, found);
+    const noPin = item.locations.length === 0;
+    return `<button type="button" class="car-row${item.id === ui.selected ? " is-selected" : ""}" data-open="${e(item.id)}">
+      <span class="map-pin-num">${index + 1}</span>
+      <span class="car-row-name">${e(item.title)}</span>
+      ${noPin ? `<span class="no-pin">No map pin</span>` : `<span class="spot-count">${count.done}/${count.total}</span>`}
+    </button>`;
+  }).join("") || `<p class="fine">No jobs in this filter.</p>`;
+  const card = selected ? renderStealCard(selected, found, spec) : `<p class="fine">${e(spec.prompt)}</p>`;
+  const hiddenHtml = [...new Set(hidden.map((item) => item.chapterOrder))].map((order) => shield(
+    order === 0 ? "Open-world jobs" : `Jobs in chapter ${order}`,
+    "Names stay covered until you show this chapter or turn spoilers off.",
+    `steal-chapter-${order}`,
+  )).join("");
+  const credit = `${map.imageCredit ? `<p class="map-credit">${e(map.imageCredit)}</p>` : ""}${map.source ? `<p class="map-credit">${e(map.source)}</p>` : ""}`;
+  return `<div class="map-stage" data-map-stage>
+      <div class="map-layer" data-map-layer data-map-ratio="${ratioValue}" style="aspect-ratio:${ratio}">${picture}</div>
+      ${pinHtml}
+      ${showAll}
+      <button type="button" class="map-open" data-map-open>Map</button>
+      <button type="button" class="map-close" data-map-close>Close</button>
+      <div class="map-zoom">
+        <button type="button" data-map-zoom="out" aria-label="Zoom out">−</button>
+        <button type="button" data-map-zoom="in" aria-label="Zoom in">+</button>
+      </div>
+    </div>
+    <div class="filter-row filter-row-4">${filters}</div>
+    <div id="car-card">${card}</div>
+    <div class="car-list">${list}</div>
+    ${hiddenHtml}
+    <div class="map-credits">${credit}</div>`;
+}
+
+function renderStealCard(item, found, spec) {
+  const count = stealProgress(item, found);
+  const noPin = item.locations.length === 0;
+  const heat = item.heat ? `<span class="badge heat heat-${e(item.heat)}">Heat ${e(item.heat)}</span>` : "";
+  const confirmed = item.verified ? "" : `<p class="probable">Not fully confirmed. One source, or the guides do not agree.</p>`;
+  const spots = item.locations.length
+    ? foldSection("Spots", item.locations.map((place) => {
+      const on = found.has(place.id);
+      return `<div class="spot-line">
+        <button type="button" class="spot-open" data-spot="${e(place.id)}" data-item="${e(item.id)}">${e(place.name)}</button>
+        <button type="button" class="spot-tick" data-tick="steal:${e(place.id)}" aria-pressed="${on ? "true" : "false"}" aria-label="${on ? "Clear" : "Done"} ${e(place.name)}"><span class="tick-box"></span></button>
+      </div>`;
+    }).join(""))
+    : "";
+  const itemTick = noPin
+    ? `<button type="button" class="car-found" data-tick="steal:${e(item.id)}" aria-pressed="${found.has(item.id) ? "true" : "false"}" aria-label="${found.has(item.id) ? "Clear" : "Done"} ${e(item.title)}"><span class="tick-box"></span><span>${found.has(item.id) ? "Done" : "Mark done"}</span></button>`
+    : `<p class="spot-count-line">${count.done} of ${count.total} spots done</p>`;
+  return `<article class="card car-card">
+    ${carFigure(item)}
+    <p class="kicker">${item.chapterOrder === 0 ? "Open world" : `Chapter ${item.chapterOrder}`} · ${e(item.category)}</p>
+    <h3>${e(item.title)}</h3>
+    <p class="badge-row">${item.verified ? `<span class="badge badge-sourced">Sourced</span>` : `<span class="badge badge-placeholder">Not fully confirmed</span>`} ${heat} ${noPin ? `<span class="badge no-pin">No map pin</span>` : ""}</p>
+    <p class="payout-line">${e(payoutLine(item))}</p>
+    <p class="summary">${e(item.summary)}</p>
+    ${confirmed}
+    ${foldSection("How to do it", `<ul>${item.howTo.map((line) => `<li>${e(line)}</li>`).join("")}</ul>`)}
+    ${foldSection("Tools needed", item.toolsNeeded.length ? `<ul>${item.toolsNeeded.map((line) => `<li>${e(line)}</li>`).join("")}</ul>` : `<p class="fine">No tool named.</p>`)}
+    ${foldSection("Payout", `<p class="payout-line">${e(payoutLine(item))}</p>${item.cooldown ? `<p>${e(item.cooldown)}</p>` : ""}<p class="fine">These figures come from guides, not from play-testing this app.</p>`)}
+    ${foldSection("Where to sell", `<p>${e(item.sellAt || "No guide names a buyer.")}</p>`)}
+    ${item.notes ? foldSection("Notes", `<p class="summary">${e(item.notes)}</p>`) : ""}
+    ${foldSection("Sources", `<p class="source">${linkify(item.source || "No source yet.")}</p>`)}
+    ${spots}
+    ${itemTick}
+  </article>`;
+}
+
 export function renderMain(model) {
   switch (model.route.section) {
     case "story": return renderStory(model);
@@ -738,6 +954,7 @@ export function renderMain(model) {
     case "gear": return renderGear(model);
     case "cars": return renderMapList(model, MAP_LISTS.cars);
     case "weapons": return renderMapList(model, MAP_LISTS.weapons);
+    case "steal": return renderSteal(model);
     case "online": return renderOnline(model);
     default: return renderHome(model);
   }

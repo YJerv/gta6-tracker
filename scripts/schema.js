@@ -19,6 +19,7 @@ export const DATA_FILES = [
   "gear",
   "cars",
   "weapons",
+  "steal",
   "online",
 ];
 
@@ -61,7 +62,7 @@ function exactKeys(obj, keys, path, errors, optional = []) {
   return true;
 }
 
-const IMAGE_PATH = /^images\/(?:(?:cars|weapons)\/)?[a-z0-9.-]+$/;
+const IMAGE_PATH = /^images\/(?:(?:cars|weapons|steal)\/)?[a-z0-9.-]+$/;
 
 function imageValueSet(value) {
   return value !== null && value !== undefined;
@@ -152,6 +153,7 @@ function envelopeKeys(section) {
     gear: ["vehicles", "weapons"],
     cars: ["map", "cars"],
     weapons: ["map", "weapons"],
+    steal: ["map", "items"],
     online: ["news", "checklist"],
   };
   return common.concat(extra[section]);
@@ -656,6 +658,81 @@ function checkMapSection(data, section, errors, ids, options = {}) {
   });
 }
 
+function checkMoneyOrNull(value, label, errors) {
+  if (value === null) return;
+  if (typeof value !== "number" || !Number.isFinite(value) || value < 0) {
+    push(errors, label, "must be null or a number from 0 up");
+  }
+}
+
+function checkSteal(data, errors, ids) {
+  checkEnvelope(data, "steal", errors);
+  const map = data.map;
+  const mapPath = "steal.map";
+  if (!exactKeys(map, ["image", "imageCredit", "imageAlt", "source", "width", "height"], mapPath, errors)) return;
+  if (typeof map.image !== "string" || !IMAGE_PATH.test(map.image)) {
+    push(errors, `${mapPath}.image`, "must be a relative path under images/");
+  } else if (!existsSync(path.join(root, map.image))) {
+    push(errors, `${mapPath}.image`, `file not found (${map.image})`);
+  }
+  if (!Array.isArray(data.items) || data.items.length < 1) {
+    push(errors, "steal.items", "must be a non-empty array");
+    return;
+  }
+  data.items.forEach((item, index) => {
+    const itemPath = `steal.items[${index}]`;
+    const keys = ["id", "title", "category", "verified", "source", "summary", "howTo", "toolsNeeded", "payoutMin", "payoutMax", "payoutBand", "heat", "sellAt", "cooldown", "chapterOrder", "notes", "image", "imageCredit", "imageAlt", "imageSource", "imageVerified", "locations"];
+    if (!exactKeys(item, keys, itemPath, errors)) return;
+    checkId(item.id, `${itemPath}.id`, errors, ids);
+    if (item.generic !== undefined && item.generic !== false) push(errors, `${itemPath}.generic`, "must be false");
+    checkVerifiedPair({ ...item, generic: false }, itemPath, errors, ["title", "category", "summary", "notes", "howTo", "toolsNeeded"], { uncertain: true });
+    checkChapterOrder(item.chapterOrder, `${itemPath}.chapterOrder`, errors, { allowNull: true, allowZero: true, generic: false });
+    if (typeof item.summary !== "string" || item.summary.length > 400) {
+      push(errors, `${itemPath}.summary`, "must be text up to 400 characters");
+    }
+    if (typeof item.category !== "string" || item.category.length > 80) {
+      push(errors, `${itemPath}.category`, "must be text up to 80 characters");
+    }
+    checkStringList(item.howTo, `${itemPath}.howTo`, errors, { max: 12, itemMax: 600 });
+    checkStringList(item.toolsNeeded, `${itemPath}.toolsNeeded`, errors, { max: 8, itemMax: 160 });
+    checkMoneyOrNull(item.payoutMin, `${itemPath}.payoutMin`, errors);
+    checkMoneyOrNull(item.payoutMax, `${itemPath}.payoutMax`, errors);
+    if (!(item.payoutBand === null || ["low", "medium", "high"].includes(item.payoutBand))) {
+      push(errors, `${itemPath}.payoutBand`, "must be low, medium, high, or null");
+    }
+    if (!(item.heat === null || ["low", "medium", "high"].includes(item.heat))) {
+      push(errors, `${itemPath}.heat`, "must be low, medium, high, or null");
+    }
+    if (!(item.sellAt === null || (typeof item.sellAt === "string" && item.sellAt.length <= 400))) {
+      push(errors, `${itemPath}.sellAt`, "must be null or text up to 400 characters");
+    }
+    if (!(item.cooldown === null || (typeof item.cooldown === "string" && item.cooldown.length <= 200))) {
+      push(errors, `${itemPath}.cooldown`, "must be null or text up to 200 characters");
+    }
+    if (typeof item.notes !== "string" || item.notes.length > 800) {
+      push(errors, `${itemPath}.notes`, "must be text up to 800 characters");
+    }
+    checkCarImage(item, itemPath, errors);
+    if (!Array.isArray(item.locations)) {
+      push(errors, `${itemPath}.locations`, "must be an array");
+      return;
+    }
+    item.locations.forEach((spot, spotIndex) => {
+      const spotPath = `${itemPath}.locations[${spotIndex}]`;
+      if (!exactKeys(spot, ["id", "name", "area", "mapX", "mapY", "precision"], spotPath, errors)) return;
+      checkId(spot.id, `${spotPath}.id`, errors, ids);
+      if (typeof spot.name !== "string" || spot.name.length > 120) push(errors, `${spotPath}.name`, "must be text up to 120 characters");
+      if (typeof spot.area !== "string" || spot.area.length > 160) push(errors, `${spotPath}.area`, "must be text up to 160 characters");
+      checkPercent(spot.mapX, `${spotPath}.mapX`, errors);
+      checkPercent(spot.mapY, `${spotPath}.mapY`, errors);
+      if (spot.mapX === null || spot.mapY === null) push(errors, spotPath, "map point must be a number");
+      if (!["exact", "street", "area"].includes(spot.precision)) {
+        push(errors, `${spotPath}.precision`, "must be exact, street, or area");
+      }
+    });
+  });
+}
+
 function checkChapterReferences(data, chapterOrders, errors) {
   const refs = [];
   for (const entry of data.money?.earners || []) refs.push(["money earner", entry.chapterOrder]);
@@ -670,6 +747,7 @@ function checkChapterReferences(data, chapterOrders, errors) {
   for (const entry of data.gear?.weapons || []) refs.push(["weapon", entry.chapterOrder]);
   for (const entry of data.cars?.cars || []) refs.push(["car", entry.chapterOrder]);
   for (const entry of data.weapons?.weapons || []) refs.push(["map weapon", entry.chapterOrder]);
+  for (const entry of data.steal?.items || []) refs.push(["steal item", entry.chapterOrder]);
   for (const [label, order] of refs) {
     if (order === 0) continue;
     if (Number.isInteger(order) && !chapterOrders.has(order)) {
@@ -703,6 +781,7 @@ export function validateAll(data) {
   checkGear(data.gear, errors, ids);
   checkMapSection(data.cars, "cars", errors, ids);
   checkMapSection(data.weapons, "weapons", errors, ids, { allowChapterZero: true, uncertain: true });
+  checkSteal(data.steal, errors, ids);
   checkOnline(data.online, errors, ids);
   checkChapterReferences(data, chapterOrders, errors);
   return errors;

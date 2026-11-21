@@ -681,6 +681,67 @@ body.map-open .map-close {
   margin: 0 0 8px;
 }
 
+.filter-row-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+
+.map-pin.is-small {
+  width: 32px;
+  height: 32px;
+  margin-left: -16px;
+  margin-top: -16px;
+}
+
+.map-pin.is-small .map-dot { width: 14px; height: 14px; font-size: 9px; }
+
+.spot-count, .spot-count-line {
+  flex: none;
+  color: var(--amber-2);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.payout-line { margin: 8px 0 0; font-weight: 800; color: var(--amber-2); }
+
+.heat-low { background: #143226; color: #b8ffd8; }
+.heat-medium { background: #3a2a10; color: #ffd7a3; }
+.heat-high { background: #4a1824; color: #ffd0dc; }
+
+.spot-line {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 6px;
+}
+
+.spot-open {
+  flex: 1;
+  min-height: 44px;
+  text-align: left;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  padding: 6px 10px;
+}
+
+.spot-tick {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  display: grid;
+  place-items: center;
+}
+
+.spot-tick .tick-box {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #d9cbb8;
+  border-radius: 6px;
+}
+
+.spot-tick[aria-pressed="true"] .tick-box { background: var(--teal); border-color: var(--teal); }
+
 .filter-area { margin: 0 0 12px; }
 
 .filter {

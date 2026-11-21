@@ -25,7 +25,7 @@ import {
   visibleThroughChapter,
 } from "../js/progress.js";
 import { ENABLED_TABS, MAP_LISTS, WEAPONS_FOUND_KEY, filterStorageKey, isTabEnabled, readFilters, readIdList, writeFilters, writeIdList } from "../js/config.js";
-import { illustrationCredits, mapViewForCar, parseRoute, renderCard, renderMain } from "../js/render.js";
+import { clusterLocations, illustrationCredits, mapViewForCar, mapViewForPoints, parseRoute, payoutLine, renderCard, renderMain, stealTotals } from "../js/render.js";
 import { validateAll } from "../scripts/schema.js";
 import { loadData } from "../scripts/validate.js";
 
@@ -64,7 +64,7 @@ test("recorded brief stays factual and placeholders stay unverified", () => {
   walk(data);
   assert.ok(unverified.length > 10);
   for (const entry of unverified) {
-    if (entry.precision) continue;
+    if (entry.precision || entry.locations || String(entry.id || "").startsWith("steal-")) continue;
     assert.equal(entry.source, null);
     assert.match(entry.title, /^PLACEHOLDER:/);
   }
@@ -438,6 +438,86 @@ test("a selected car is the only pin, and zoom follows precision", () => {
   assert.ok(Math.abs(streetView.y + py - frame.stageH / 2) < 0.01);
 });
 
+test("steal jobs keep many spots, payouts, and a light map", () => {
+  assert.equal(data.steal.items.length, 22);
+  assert.equal(data.steal.items.reduce((sum, item) => sum + item.locations.length, 0), 424);
+  assert.equal(data.steal.map.image, "images/cars/leonida-map.jpg");
+  const atms = data.steal.items.find((item) => item.id === "steal-towable-atms");
+  assert.equal(atms.locations.length, 99);
+  assert.ok(clusterLocations(atms.locations, 6).length < 40);
+  assert.equal(clusterLocations(atms.locations, 0).length, 99);
+  const frame = { stageW: 360, stageH: 500, ratio: 1920 / 1402 };
+  const fitted = mapViewForPoints([
+    { mapX: 10, mapY: 20, precision: "exact" },
+    { mapX: 90, mapY: 80, precision: "exact" },
+  ], frame);
+  const one = mapViewForCar({ mapX: 50, mapY: 50, precision: "exact" }, frame);
+  assert.ok(fitted.scale < one.scale);
+
+  const progress = emptyProgress(NOW);
+  const page = renderMain({ ...model(progress, { section: "steal" }), stealFound: [] });
+  assert.match(page, /data-filter="category"/);
+  assert.match(page, /data-filter="payout"/);
+  assert.match(page, /data-filter="found"/);
+  assert.match(page, /data-filter="sort"/);
+  assert.match(page, /Store stick-ups/);
+  assert.match(page, /No map pin/);
+  assert.match(page, /Jobs in chapter 3/);
+  assert.ok((page.match(/data-cluster="/g) || []).length > 0);
+  assert.ok((page.match(/data-cluster="/g) || []).length < 80);
+
+  const shownSpoilers = setSpoilersHidden(progress, false, NOW);
+  const selected = renderMain({
+    ...model(shownSpoilers, { section: "steal" }),
+    stealFound: ["towable-atms-a3jfv8b6"],
+    listUi: { category: "all", payout: "all", found: "all", sort: "default", selected: "steal-towable-atms", spot: null },
+  });
+  assert.match(selected, /1 of 99 spots done/);
+  assert.match(selected, /These figures come from guides/);
+  assert.match(selected, /\$7,200|Varies/);
+  assert.match(selected, /Unverified image/);
+  assert.match(selected, /data-spot="/);
+
+  const spot = renderMain({
+    ...model(shownSpoilers, { section: "steal" }),
+    stealFound: [],
+    listUi: { category: "all", payout: "all", found: "all", sort: "default", selected: "steal-towable-atms", spot: "towable-atms-a3jfv8b6" },
+  });
+  assert.equal((spot.match(/data-map-x="/g) || []).length, 1);
+  assert.match(spot, /data-spot="towable-atms-a3jfv8b6"/);
+
+  const empty = renderMain({
+    ...model(shownSpoilers, { section: "steal" }),
+    stealFound: [],
+    listUi: { category: "all", payout: "all", found: "all", sort: "default", selected: "steal-armored-trucks", spot: null },
+  });
+  assert.match(empty, /No map pin/);
+  assert.match(empty, /Mark done/);
+  assert.doesNotMatch(empty, /class="probable"/);
+
+  const unsure = renderMain({
+    ...model(shownSpoilers, { section: "steal" }),
+    stealFound: [],
+    listUi: { category: "all", payout: "all", found: "all", sort: "default", selected: "steal-vans-of-stolen-goods", spot: null },
+  });
+  assert.match(unsure, /Not fully confirmed/);
+  assert.match(unsure, /Image coming soon/);
+  assert.match(unsure, /Varies|\$1,440/);
+
+  const banks = data.steal.items.find((item) => item.id === "steal-small-banks");
+  assert.match(payoutLine(banks), /\$5,000 to \$45,000/);
+  assert.deepEqual(stealTotals(data.steal.items, []), { done: 0, total: 428 });
+  assert.equal(stealTotals(data.steal.items, ["towable-atms-a3jfv8b6"]).done, 1);
+
+  const high = renderMain({
+    ...model(shownSpoilers, { section: "steal" }),
+    stealFound: [],
+    listUi: { category: "all", payout: "high", found: "all", sort: "payout", selected: null, spot: null },
+  });
+  assert.match(high, /Bank vaults|vault/i);
+  assert.doesNotMatch(high, /Towable ATMs/);
+});
+
 test("weapons reuse the map list, skip empty pins, and filter by type", () => {
   assert.equal(data.weapons.weapons.length, 85);
   assert.equal(data.weapons.map.image, "images/cars/leonida-map.jpg");
@@ -550,9 +630,10 @@ test("dropdown choices are remembered and the map button stays in the dock", () 
   assert.equal(html.includes("chrome-toggle"), false);
   assert.match(html, /data-tab="weapons"/);
   assert.equal(isTabEnabled("weapons"), true);
+  assert.equal(isTabEnabled("steal"), true);
   assert.equal(MAP_LISTS.weapons.primary, "category");
   assert.equal(MAP_LISTS.weapons.progressList, "weaponPins");
-  assert.deepEqual(ENABLED_TABS, ["cars", "weapons"]);
+  assert.deepEqual(ENABLED_TABS, ["cars", "weapons", "steal"]);
   assert.match(css, /body\.map-open \.map-stage/);
   assert.match(css, /\.tabs\[hidden\]/);
   assert.match(css, /main \{[^}]*var\(--dock\)/);
@@ -625,15 +706,17 @@ test("money, map, skills, gear, and online render the right rows", () => {
 });
 
 test("routes and the home dashboard stay inside the spoiler boundary", () => {
-  assert.deepEqual(ENABLED_TABS, ["cars", "weapons"]);
+  assert.deepEqual(ENABLED_TABS, ["cars", "weapons", "steal"]);
   assert.equal(isTabEnabled("cars"), true);
   assert.equal(isTabEnabled("weapons"), true);
+  assert.equal(isTabEnabled("steal"), true);
   assert.equal(isTabEnabled("story"), false);
   assert.equal(isTabEnabled("home"), false);
   assert.deepEqual(parseRoute(""), { section: "cars", sub: null });
   assert.deepEqual(parseRoute("#/story"), { section: "cars", sub: null });
   assert.deepEqual(parseRoute("#/cars"), { section: "cars", sub: null });
   assert.deepEqual(parseRoute("#/weapons"), { section: "weapons", sub: null });
+  assert.deepEqual(parseRoute("#/steal"), { section: "steal", sub: null });
   assert.deepEqual(parseRoute("#/map/secrets"), { section: "cars", sub: null });
   assert.deepEqual(parseRoute("#/nope"), { section: "cars", sub: null });
   assert.equal(parseRoute("#/skills/drills").section, "cars");

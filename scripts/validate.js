@@ -43,6 +43,7 @@ if (invokedDirectly) {
     weapons: data.gear.weapons.length,
     cars: data.cars.cars.length,
     mapWeapons: data.weapons.weapons.length,
+    steal: data.steal.items.length,
     news: data.online.news.length,
     checklist: data.online.checklist.length,
   };

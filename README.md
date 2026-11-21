@@ -268,6 +268,8 @@ The shipped file uses Rockstar's Leonida map poster (`images/cars/leonida-map.jp
 
 `data/weapons.json` is the same shape. The Weapons tab is on with Cars. `chapterOrder` `0` means no chapter gate. A null `mapX` or `mapY` means the row has no pin. Pictures live under `images/weapons/`. `verified: false` marks a probable spot (one source, or the guides conflict), and the card says so. Found weapons are stored separately from car ticks.
 
+`data/steal.json` is the Steal tab: jobs with many map spots, payout bands, and optional heat. An empty `locations` list means no pin. Spot ticks are stored apart from car and weapon ticks. Payout numbers come from the named guides.
+
 ```json
 {
   "id": "car-placeholder-1",

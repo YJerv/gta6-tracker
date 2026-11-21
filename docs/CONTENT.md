@@ -39,6 +39,8 @@ Change those numbers in `scripts/schema.js` (`STAGE_CHAPTER`) and in the data to
 
 `data/weapons.json` uses the same shape. `chapterOrder` `0` means no chapter gate. A null `mapX` or `mapY` means there is no pin. Pictures live under `images/weapons/`. `verified: false` means the spot is only probable (one source, or the guides conflict), not that the row is a placeholder.
 
+`data/steal.json` lists ways to take or earn cash. Each item can have many `locations`. An empty `locations` array means no pin. Payout figures come from the named guides. Pictures live under `images/steal/`.
+
 ## Add or remove rows
 
 - Keep `id` values kebab-case and unique across every data file. Old ids stay ticked in saved progress, so do not recycle an id for a different row.

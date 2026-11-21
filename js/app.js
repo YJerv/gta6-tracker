@@ -1,5 +1,5 @@
-import { MAP_LISTS, WEAPONS_FOUND_KEY, isTabEnabled, readFilters, readIdList, writeFilters, writeIdList } from "./config.js";
-import { illustrationCredits, mapViewForCar, renderMain, parseRoute, ROUTES } from "./render.js";
+import { MAP_LISTS, STEAL_FOUND_KEY, WEAPONS_FOUND_KEY, isTabEnabled, readFilters, readIdList, writeFilters, writeIdList } from "./config.js";
+import { illustrationCredits, mapViewForCar, mapViewForPoints, renderMain, parseRoute, ROUTES, stealTotals } from "./render.js";
 import {
   STORAGE_KEY,
   buildCatalog,
@@ -98,7 +98,16 @@ function syncChrome(route) {
   const report = completionReport(state.catalog, viewProgress());
   document.getElementById("view-title").textContent = ROUTES[route.section].title;
   document.title = `${ROUTES[route.section].title} · GTA VI Tracker`;
-  document.getElementById("header-percent").textContent = `${report.percent}%`;
+  const percent = document.getElementById("header-percent");
+  const unit = document.getElementById("header-unit");
+  if (route.section === "steal" && state.data.steal) {
+    const count = stealTotals(state.data.steal.items, state.stealFound);
+    percent.textContent = `${count.done}/${count.total}`;
+    if (unit) unit.textContent = "spots";
+  } else {
+    percent.textContent = `${report.percent}%`;
+    if (unit) unit.textContent = "done";
+  }
   document.querySelectorAll("[data-tab]").forEach((button) => {
     const on = button.dataset.tab === route.section;
     button.classList.toggle("is-active", on);
@@ -135,7 +144,9 @@ function listSpec(section) {
 
 function listRows(spec) {
   const file = state.data[spec.id];
-  return file && Array.isArray(file[spec.id]) ? file[spec.id] : [];
+  if (!file) return [];
+  if (spec.id === "steal") return file.items || [];
+  return Array.isArray(file[spec.id]) ? file[spec.id] : [];
 }
 
 function render() {
@@ -162,7 +173,8 @@ function render() {
     storageWarning: state.storageWarning,
     canInstall: Boolean(deferredPrompt),
     cashError: state.cashError,
-    listUi: filters ? { ...filters, selected: state.picked[spec.id] } : null,
+    listUi: filters ? { ...filters, selected: state.picked[spec.id], spot: state.spot?.[spec.id] || null } : null,
+    stealFound: state.stealFound,
     carsUi: route.section === "cars" && filters ? { ...filters, selected: state.picked.cars } : null,
   });
   if (spec && state.picked[spec.id]) {
@@ -330,6 +342,16 @@ function onClick(event) {
     showAllPins();
     return;
   }
+  const cluster = target.closest("[data-cluster]");
+  if (cluster) {
+    zoomStealCluster(cluster.dataset.cluster.split(",").filter(Boolean));
+    return;
+  }
+  const spot = target.closest("[data-spot]");
+  if (spot) {
+    focusSteal(spot.dataset.item, spot.dataset.spot);
+    return;
+  }
   if (target.closest("[data-map-open]")) {
     setMapOpen(true);
     return;
@@ -349,7 +371,9 @@ function onClick(event) {
   }
   const pinOpen = target.closest("[data-pin], [data-open]");
   if (pinOpen && !(pinOpen instanceof HTMLSelectElement)) {
-    focusPin(pinOpen.dataset.pin || pinOpen.dataset.open);
+    const spec = listSpec(currentRoute().section);
+    if (spec?.id === "steal") focusSteal(pinOpen.dataset.open || pinOpen.dataset.pin, null);
+    else focusPin(pinOpen.dataset.pin || pinOpen.dataset.open);
     return;
   }
   const zoom = target.closest("[data-map-zoom]");
@@ -375,6 +399,14 @@ function onClick(event) {
   const tick = target.closest("[data-tick]");
   if (tick) {
     const [list, id] = splitTick(tick.dataset.tick);
+    if (list === "steal") {
+      const has = state.stealFound.includes(id);
+      state.stealFound = has ? state.stealFound.filter((item) => item !== id) : state.stealFound.concat(id);
+      writeIdList(localStorage, STEAL_FOUND_KEY, state.stealFound);
+      render();
+      announce(has ? "Cleared." : "Ticked.");
+      return;
+    }
     if (list === "weaponPins") {
       const has = state.weaponFound.includes(id);
       state.weaponFound = has ? state.weaponFound.filter((item) => item !== id) : state.weaponFound.concat(id);
@@ -492,6 +524,46 @@ function mapFrame() {
   };
 }
 
+function stealItems() {
+  return state.data.steal?.items || [];
+}
+
+function stealSpot(id) {
+  for (const item of stealItems()) {
+    const spot = item.locations.find((place) => place.id === id);
+    if (spot) return spot;
+  }
+  return null;
+}
+
+function focusSteal(itemId, spotId, { animate = true } = {}) {
+  const from = { ...state.mapView };
+  state.picked.steal = itemId;
+  state.spot.steal = spotId || null;
+  render();
+  const item = stealItems().find((entry) => entry.id === itemId);
+  const points = !item ? [] : (spotId ? item.locations.filter((place) => place.id === spotId) : item.locations);
+  const frame = mapFrame();
+  if (!points.length || !frame || state.picked.steal !== itemId) return;
+  const to = points.length === 1 ? mapViewForCar(points[0], frame) : mapViewForPoints(points, frame);
+  if (animate) {
+    glideMap(from, to);
+    document.querySelector("[data-map-stage]")?.scrollIntoView({ block: "start", behavior: "smooth" });
+  } else {
+    state.mapView = to;
+    applyMapTransform(to, { instant: true });
+  }
+}
+
+function zoomStealCluster(ids) {
+  const points = ids.map((id) => stealSpot(id)).filter(Boolean);
+  const frame = mapFrame();
+  if (!points.length || !frame) return;
+  const from = { ...state.mapView };
+  const to = points.length === 1 ? mapViewForCar(points[0], frame) : mapViewForPoints(points, frame);
+  glideMap(from, to);
+}
+
 function focusPin(id, { animate = true } = {}) {
   const spec = listSpec(currentRoute().section);
   if (!spec) return;
@@ -514,7 +586,10 @@ function focusPin(id, { animate = true } = {}) {
 function showAllPins({ animate = true } = {}) {
   const spec = listSpec(currentRoute().section);
   const from = { ...state.mapView };
-  if (spec) state.picked[spec.id] = null;
+  if (spec) {
+    state.picked[spec.id] = null;
+    if (state.spot) state.spot[spec.id] = null;
+  }
   const to = { x: 0, y: 0, scale: 1 };
   render();
   if (animate) glideMap(from, to);
@@ -525,9 +600,28 @@ function showAllPins({ animate = true } = {}) {
   }
 }
 
+function stealView() {
+  const item = stealItems().find((entry) => entry.id === state.picked.steal);
+  const frame = mapFrame();
+  if (!item || !frame) return null;
+  const points = state.spot.steal
+    ? item.locations.filter((place) => place.id === state.spot.steal)
+    : item.locations;
+  if (!points.length) return { x: 0, y: 0, scale: 1 };
+  return points.length === 1 ? mapViewForCar(points[0], frame) : mapViewForPoints(points, frame);
+}
+
 function refitMap() {
   if (!state) return;
   const spec = listSpec(currentRoute().section);
+  if (spec?.id === "steal" && state.picked.steal) {
+    const view = stealView();
+    if (view) {
+      state.mapView = view;
+      applyMapTransform(view, { instant: true });
+      return;
+    }
+  }
   const picked = spec ? state.picked[spec.id] : null;
   const car = picked ? listRows(spec).find((item) => item.id === picked) : null;
   const frame = mapFrame();
@@ -577,7 +671,7 @@ function applyMapTransform(view, options) {
   const stage = document.querySelector("[data-map-stage]");
   const current = view || state?.mapView;
   if (!layer || !stage || !current) return;
-  const pins = [...document.querySelectorAll("[data-pin]")];
+  const pins = [...document.querySelectorAll("button[data-map-x]")];
   if (options?.instant) {
     layer.style.transition = "none";
     for (const pin of pins) pin.style.transition = "none";
@@ -699,11 +793,14 @@ async function boot() {
       areaId: "all",
       filters: readFilters(localStorage),
       weaponFound: readIdList(localStorage, WEAPONS_FOUND_KEY),
-      picked: { cars: null, weapons: null },
-      scroll: { cars: 0, weapons: 0 },
+      stealFound: readIdList(localStorage, STEAL_FOUND_KEY),
+      picked: { cars: null, weapons: null, steal: null },
+      spot: { steal: null },
+      scroll: { cars: 0, weapons: 0, steal: 0 },
       mapViews: {
         cars: { x: 0, y: 0, scale: 1 },
         weapons: { x: 0, y: 0, scale: 1 },
+        steal: { x: 0, y: 0, scale: 1 },
       },
       mapView: { x: 0, y: 0, scale: 1 },
       mapOpen: false,

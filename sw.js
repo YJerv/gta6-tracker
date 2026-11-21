@@ -1,5 +1,5 @@
 /* Bump CACHE when shipped files change so old caches are dropped. */
-const CACHE = "gta6-tracker-v10";
+const CACHE = "gta6-tracker-v11";
 
 const RELATIVE_ASSETS = [
   "./index.html",
@@ -23,6 +23,7 @@ const RELATIVE_ASSETS = [
   "./data/gear.json",
   "./data/cars.json",
   "./data/weapons.json",
+  "./data/steal.json",
   "./data/online.json",
   "./images/chapter-1-mission-1.jpg",
   "./images/chapter-1-mission-2.jpg",
@@ -144,6 +145,24 @@ const RELATIVE_ASSETS = [
   "./images/weapons/weapon-twins-laird-350.jpg",
   "./images/weapons/weapon-unpacked-comshot-12.jpg",
   "./images/weapons/weapon-zodiac-nipper-38.jpg",
+  "./images/steal/steal-armored-trucks.jpg",
+  "./images/steal/steal-bank-vaults.jpg",
+  "./images/steal/steal-collectible-cards.jpg",
+  "./images/steal/steal-demolition-derby.jpg",
+  "./images/steal/steal-exotic-animals-front.jpg",
+  "./images/steal/steal-hidden-cash.jpg",
+  "./images/steal/steal-hunting.jpg",
+  "./images/steal/steal-illegal-operations.jpg",
+  "./images/steal/steal-jewelry-stores.jpg",
+  "./images/steal/steal-pawn-shops.jpg",
+  "./images/steal/steal-payday-loan-stores.jpg",
+  "./images/steal/steal-pool-wagers.jpg",
+  "./images/steal/steal-safes.jpg",
+  "./images/steal/steal-small-banks.jpg",
+  "./images/steal/steal-stealing-cars.jpg",
+  "./images/steal/steal-store-stick-ups.jpg",
+  "./images/steal/steal-sunken-treasure.jpg",
+  "./images/steal/steal-towable-atms.jpg",
 ];
 
 const ASSETS = RELATIVE_ASSETS.map((asset) => new URL(asset, self.location).href);
