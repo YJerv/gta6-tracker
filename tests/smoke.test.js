@@ -24,7 +24,7 @@ import {
   toggleId,
   visibleThroughChapter,
 } from "../js/progress.js";
-import { ENABLED_TABS, FILTER_KEY, MAP_LISTS, isTabEnabled, readFilters, writeFilters } from "../js/config.js";
+import { ENABLED_TABS, MAP_LISTS, WEAPONS_FOUND_KEY, filterStorageKey, isTabEnabled, readFilters, readIdList, writeFilters, writeIdList } from "../js/config.js";
 import { illustrationCredits, mapViewForCar, parseRoute, renderCard, renderMain } from "../js/render.js";
 import { validateAll } from "../scripts/schema.js";
 import { loadData } from "../scripts/validate.js";
@@ -64,6 +64,7 @@ test("recorded brief stays factual and placeholders stay unverified", () => {
   walk(data);
   assert.ok(unverified.length > 10);
   for (const entry of unverified) {
+    if (entry.precision) continue;
     assert.equal(entry.source, null);
     assert.match(entry.title, /^PLACEHOLDER:/);
   }
@@ -112,7 +113,7 @@ test("ticking a mission moves completion, the boundary, and the suggestion", () 
   assert.equal(once.on, true);
   const report = completionReport(catalog, once.progress);
   assert.equal(report.sections.find((section) => section.id === "story").done, 1);
-  assert.ok(report.percent > 0);
+  assert.equal(report.done, 1);
   assert.equal(visibleThroughChapter(catalog.chapters, once.progress.missions), 1);
   const again = toggleId(once.progress, "missions", "chapter-1-mission-1", NOW);
   assert.equal(again.on, false);
@@ -437,6 +438,60 @@ test("a selected car is the only pin, and zoom follows precision", () => {
   assert.ok(Math.abs(streetView.y + py - frame.stageH / 2) < 0.01);
 });
 
+test("weapons reuse the map list, skip empty pins, and filter by type", () => {
+  assert.equal(data.weapons.weapons.length, 85);
+  assert.equal(data.weapons.map.image, "images/cars/leonida-map.jpg");
+  const progress = emptyProgress(NOW);
+  const page = renderMain(model(progress, { section: "weapons" }));
+  assert.match(page, /data-filter="category"/);
+  assert.match(page, /data-filter="precision"/);
+  assert.match(page, /data-filter="found"/);
+  assert.doesNotMatch(page, /data-filter="chapter"/);
+  assert.match(page, /data-pin="weapon-kingfishers-w-22"/);
+  assert.match(page, /No map pin/);
+  assert.equal(page.includes('data-pin="weapon-hellspawn-comshot-12"'), false);
+  assert.match(page, /Kingfishers W-22/);
+  assert.match(page, /Hellspawn Comshot 12/);
+  assert.doesNotMatch(page, /Bae-Luxe/);
+
+  const rifle = renderMain({
+    ...model(progress, { section: "weapons" }),
+    listUi: { area: "all", found: "all", chapter: "all", precision: "all", category: "Rifle", selected: null },
+  });
+  assert.match(rifle, /Kingfishers W-22/);
+  assert.doesNotMatch(rifle, /Kingfishers Akulus/);
+
+  const card = renderMain({
+    ...model(progress, { section: "weapons" }),
+    listUi: { area: "all", found: "all", chapter: "all", precision: "all", category: "all", selected: "weapon-kingfishers-w-22" },
+  });
+  assert.match(card, /src="images\/weapons\/weapon-kingfishers-w-22\.jpg"/);
+  assert.match(card, /Unverified image/);
+  assert.match(card, /data-clear/);
+  assert.deepEqual(
+    [...card.matchAll(/data-pin="([^"]+)"/g)].map((match) => match[1]),
+    ["weapon-kingfishers-w-22"],
+  );
+
+  const probable = renderMain({
+    ...model(progress, { section: "weapons" }),
+    listUi: { area: "all", found: "all", chapter: "all", precision: "all", category: "all", selected: "weapon-hellspawn-comshot-12" },
+  });
+  assert.match(probable, /Probable location/);
+  assert.match(probable, /No map pin/);
+  assert.equal([...probable.matchAll(/data-pin="/g)].length, 0);
+
+  const blank = renderMain({
+    ...model(progress, { section: "weapons" }),
+    listUi: { area: "all", found: "all", chapter: "all", precision: "all", category: "all", selected: "weapon-eris-fresh-dsg" },
+  });
+  assert.match(blank, /Image coming soon/);
+
+  const broken = structuredClone(data);
+  broken.weapons.weapons[0].image = "images/weapons/missing-weapon.jpg";
+  assert.ok(validateAll(broken).some((error) => error.includes("file not found")));
+});
+
 test("each cars dropdown filters the list and the pins", () => {
   const progress = emptyProgress(NOW);
   const base = { area: "all", found: "all", chapter: "all", precision: "all", selected: null };
@@ -481,10 +536,12 @@ test("dropdown choices are remembered and the map button stays in the dock", () 
   };
   const fresh = readFilters(storage);
   assert.equal(fresh.cars.precision, "all");
-  writeFilters(storage, { cars: { chapter: "1", precision: "street", found: "open", area: "all" } });
-  assert.match(storage.getItem(FILTER_KEY), /"precision":"street"/);
+  writeFilters(storage, { cars: { chapter: "1", precision: "street", found: "open", area: "all", category: "all" } });
+  assert.match(storage.getItem(filterStorageKey("cars")), /"precision":"street"/);
   assert.equal(readFilters(storage).cars.found, "open");
   assert.equal(readFilters(storage).weapons.chapter, "all");
+  writeIdList(storage, WEAPONS_FOUND_KEY, ["weapon-kingfishers-w-22"]);
+  assert.deepEqual(readIdList(storage, WEAPONS_FOUND_KEY), ["weapon-kingfishers-w-22"]);
   assert.equal(readFilters({ getItem() { throw new Error("blocked"); } }).cars.precision, "all");
 
   const html = readFileSync(path.join(root, "index.html"), "utf8");
@@ -492,9 +549,10 @@ test("dropdown choices are remembered and the map button stays in the dock", () 
   assert.equal(html.includes("More map"), false);
   assert.equal(html.includes("chrome-toggle"), false);
   assert.match(html, /data-tab="weapons"/);
-  assert.equal(isTabEnabled("weapons"), false);
+  assert.equal(isTabEnabled("weapons"), true);
+  assert.equal(MAP_LISTS.weapons.primary, "category");
   assert.equal(MAP_LISTS.weapons.progressList, "weaponPins");
-  assert.equal(ENABLED_TABS.includes("weapons"), false);
+  assert.deepEqual(ENABLED_TABS, ["cars", "weapons"]);
   assert.match(css, /body\.map-open \.map-stage/);
   assert.match(css, /\.tabs\[hidden\]/);
   assert.match(css, /main \{[^}]*var\(--dock\)/);
@@ -567,13 +625,15 @@ test("money, map, skills, gear, and online render the right rows", () => {
 });
 
 test("routes and the home dashboard stay inside the spoiler boundary", () => {
-  assert.deepEqual(ENABLED_TABS, ["cars"]);
+  assert.deepEqual(ENABLED_TABS, ["cars", "weapons"]);
   assert.equal(isTabEnabled("cars"), true);
+  assert.equal(isTabEnabled("weapons"), true);
   assert.equal(isTabEnabled("story"), false);
   assert.equal(isTabEnabled("home"), false);
   assert.deepEqual(parseRoute(""), { section: "cars", sub: null });
   assert.deepEqual(parseRoute("#/story"), { section: "cars", sub: null });
   assert.deepEqual(parseRoute("#/cars"), { section: "cars", sub: null });
+  assert.deepEqual(parseRoute("#/weapons"), { section: "weapons", sub: null });
   assert.deepEqual(parseRoute("#/map/secrets"), { section: "cars", sub: null });
   assert.deepEqual(parseRoute("#/nope"), { section: "cars", sub: null });
   assert.equal(parseRoute("#/skills/drills").section, "cars");

@@ -42,6 +42,7 @@ if (invokedDirectly) {
     vehicles: data.gear.vehicles.length,
     weapons: data.gear.weapons.length,
     cars: data.cars.cars.length,
+    mapWeapons: data.weapons.weapons.length,
     news: data.online.news.length,
     checklist: data.online.checklist.length,
   };

@@ -37,6 +37,8 @@ Change those numbers in `scripts/schema.js` (`STAGE_CHAPTER`) and in the data to
 
 `data/cars.json` is the secret-car list. Do not invent a car, an area, or a map coordinate. `mapX` and `mapY` are percentages from the top-left of `map.image`. Every car needs `precision`: `exact` (right block, about 1-2% of the map width), `street` (street level), or `area` (general area only). `chapterOrder` is `null` when the car is available from the start, or a story chapter `order` when naming it would spoil a later chapter. Steps can be long, including where two guides disagree. A car picture lives under `images/cars/`. Set `image`, `imageCredit`, `imageAlt`, and `imageSource` together, or leave all four `null`. `imageSource` is the URL the picture came from. `imageVerified` is `true` only when that picture is cleared to show; otherwise it is `false` and the card adds an Unverified image note. The file named by `image` must exist. Add every new picture, including the map, to `sw.js` and bump `CACHE`. Swap a picture by replacing the file and those fields. The card already tells the player the pin is only approximate.
 
+`data/weapons.json` uses the same shape. `chapterOrder` `0` means no chapter gate. A null `mapX` or `mapY` means there is no pin. Pictures live under `images/weapons/`. `verified: false` means the spot is only probable (one source, or the guides conflict), not that the row is a placeholder.
+
 ## Add or remove rows
 
 - Keep `id` values kebab-case and unique across every data file. Old ids stay ticked in saved progress, so do not recycle an id for a different row.

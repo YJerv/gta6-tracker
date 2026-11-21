@@ -18,6 +18,7 @@ export const DATA_FILES = [
   "skills",
   "gear",
   "cars",
+  "weapons",
   "online",
 ];
 
@@ -60,7 +61,7 @@ function exactKeys(obj, keys, path, errors, optional = []) {
   return true;
 }
 
-const IMAGE_PATH = /^images\/(?:cars\/)?[a-z0-9.-]+$/;
+const IMAGE_PATH = /^images\/(?:(?:cars|weapons)\/)?[a-z0-9.-]+$/;
 
 function imageValueSet(value) {
   return value !== null && value !== undefined;
@@ -150,6 +151,7 @@ function envelopeKeys(section) {
     skills: ["xboxSettings", "drills", "stats"],
     gear: ["vehicles", "weapons"],
     cars: ["map", "cars"],
+    weapons: ["map", "weapons"],
     online: ["news", "checklist"],
   };
   return common.concat(extra[section]);
@@ -178,7 +180,7 @@ function contentStrings(entry, fields) {
   return found;
 }
 
-function checkVerifiedPair(entry, path, errors, textFields) {
+function checkVerifiedPair(entry, path, errors, textFields, options = {}) {
   if (typeof entry.verified !== "boolean") push(errors, `${path}.verified`, "must be boolean");
   if (typeof entry.generic !== "boolean") push(errors, `${path}.generic`, "must be boolean");
   if (!(entry.source === null || typeof entry.source === "string")) {
@@ -186,6 +188,13 @@ function checkVerifiedPair(entry, path, errors, textFields) {
   }
   if (typeof entry.title !== "string" || entry.title.trim().length === 0 || entry.title.length > 180) {
     push(errors, `${path}.title`, "must be non-empty text up to 180 characters");
+  }
+
+  if (entry.verified === false && options.uncertain) {
+    if (typeof entry.source !== "string" || entry.source.trim().length < 8) {
+      push(errors, `${path}.source`, "must name a source even when the location is only probable");
+    }
+    return;
   }
 
   if (entry.verified === false) {
@@ -219,12 +228,13 @@ function checkVerifiedPair(entry, path, errors, textFields) {
   }
 }
 
-function checkChapterOrder(value, path, errors, { allowNull, generic }) {
+function checkChapterOrder(value, path, errors, { allowNull, allowZero, generic }) {
   if (generic === true) {
     if (value !== null) push(errors, path, "must be null on generic entries");
     return;
   }
   if (value === null && allowNull) return;
+  if (value === 0 && allowZero) return;
   if (!Number.isInteger(value) || value < 1) {
     push(errors, path, allowNull ? "must be a positive integer or null" : "must be a positive integer");
   }
@@ -584,10 +594,10 @@ function checkPositiveOrNull(value, label, errors) {
   if (!Number.isInteger(value) || value < 1) push(errors, label, "must be null or a positive integer");
 }
 
-function checkCars(data, errors, ids) {
-  checkEnvelope(data, "cars", errors);
+function checkMapSection(data, section, errors, ids, options = {}) {
+  checkEnvelope(data, section, errors);
   const map = data.map;
-  const mapPath = "cars.map";
+  const mapPath = `${section}.map`;
   if (!exactKeys(map, ["image", "imageCredit", "imageAlt", "source", "width", "height"], mapPath, errors)) return;
   const imageSet = typeof map.image === "string";
   if (!(map.image === null || imageSet)) push(errors, `${mapPath}.image`, "must be null or a path under images/");
@@ -611,17 +621,22 @@ function checkCars(data, errors, ids) {
   if (!(map.source === null || (typeof map.source === "string" && map.source.trim().length > 0))) {
     push(errors, `${mapPath}.source`, "must be a string or null");
   }
-  if (!Array.isArray(data.cars) || data.cars.length < 1) {
-    push(errors, "cars.cars", "must be a non-empty array");
+  const rows = data[section];
+  if (!Array.isArray(rows) || rows.length < 1) {
+    push(errors, `${section}.${section}`, "must be a non-empty array");
     return;
   }
-  data.cars.forEach((car, index) => {
-    const carPath = `cars.cars[${index}]`;
+  rows.forEach((car, index) => {
+    const carPath = `${section}.${section}[${index}]`;
     if (!exactKeys(car, ["id", "verified", "source", "generic", "chapterOrder", "title", "category", "area", "mapX", "mapY", "precision", "steps", "notes", "image", "imageCredit", "imageAlt", "imageSource", "imageVerified"], carPath, errors)) return;
     checkId(car.id, `${carPath}.id`, errors, ids);
     if (car.generic !== false) push(errors, `${carPath}.generic`, "must be false");
-    checkVerifiedPair(car, carPath, errors, ["title", "category", "area", "notes", "steps"]);
-    checkChapterOrder(car.chapterOrder, `${carPath}.chapterOrder`, errors, { allowNull: true, generic: false });
+    checkVerifiedPair(car, carPath, errors, ["title", "category", "area", "notes", "steps"], options);
+    checkChapterOrder(car.chapterOrder, `${carPath}.chapterOrder`, errors, {
+      allowNull: true,
+      allowZero: Boolean(options.allowChapterZero),
+      generic: false,
+    });
     checkPercent(car.mapX, `${carPath}.mapX`, errors);
     checkPercent(car.mapY, `${carPath}.mapY`, errors);
     if (!["exact", "street", "area"].includes(car.precision)) {
@@ -654,7 +669,9 @@ function checkChapterReferences(data, chapterOrders, errors) {
   for (const entry of data.gear?.vehicles || []) refs.push(["vehicle", entry.chapterOrder]);
   for (const entry of data.gear?.weapons || []) refs.push(["weapon", entry.chapterOrder]);
   for (const entry of data.cars?.cars || []) refs.push(["car", entry.chapterOrder]);
+  for (const entry of data.weapons?.weapons || []) refs.push(["map weapon", entry.chapterOrder]);
   for (const [label, order] of refs) {
+    if (order === 0) continue;
     if (Number.isInteger(order) && !chapterOrders.has(order)) {
       push(errors, label, `chapterOrder ${order} does not match a story chapter`);
     }
@@ -684,7 +701,8 @@ export function validateAll(data) {
   checkSecrets(data.secrets, errors, ids, areaIds);
   checkSkills(data.skills, errors, ids);
   checkGear(data.gear, errors, ids);
-  checkCars(data.cars, errors, ids);
+  checkMapSection(data.cars, "cars", errors, ids);
+  checkMapSection(data.weapons, "weapons", errors, ids, { allowChapterZero: true, uncertain: true });
   checkOnline(data.online, errors, ids);
   checkChapterReferences(data, chapterOrders, errors);
   return errors;

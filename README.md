@@ -266,6 +266,8 @@ Each car: `id`, `verified`, `source`, `generic` (must be `false`), `chapterOrder
 
 The shipped file uses Rockstar's Leonida map poster (`images/cars/leonida-map.jpg`, 1402×1920). The credit under the map is the file's `imageCredit` and `source` text, including GTADB, GTA6Map.io, and GTA6 GPS.
 
+`data/weapons.json` is the same shape. The Weapons tab is on with Cars. `chapterOrder` `0` means no chapter gate. A null `mapX` or `mapY` means the row has no pin. Pictures live under `images/weapons/`. `verified: false` marks a probable spot (one source, or the guides conflict), and the card says so. Found weapons are stored separately from car ticks.
+
 ```json
 {
   "id": "car-placeholder-1",

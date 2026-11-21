@@ -14,7 +14,7 @@
   --teal: #7dffc3;
   --teal-ink: #06281a;
   --danger: #ffb4c8;
-  --dock: 76px;
+  --dock: 148px;
   --font: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --display: "Arial Narrow", "Roboto Condensed", "Segoe UI", sans-serif;
   color-scheme: dark;
@@ -819,6 +819,24 @@ body.map-open .map-close {
   font-weight: 800;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+}
+
+.no-pin {
+  flex: none;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #3a2048;
+  color: #ffe4f2;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.probable {
+  margin: 8px 0 0;
+  color: #ffd0e4;
+  font-size: 0.85rem;
 }
 
 .car-found {

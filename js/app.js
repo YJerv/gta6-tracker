@@ -1,4 +1,4 @@
-import { MAP_LISTS, isTabEnabled, readFilters, writeFilters } from "./config.js";
+import { MAP_LISTS, WEAPONS_FOUND_KEY, isTabEnabled, readFilters, readIdList, writeFilters, writeIdList } from "./config.js";
 import { illustrationCredits, mapViewForCar, renderMain, parseRoute, ROUTES } from "./render.js";
 import {
   STORAGE_KEY,
@@ -90,8 +90,12 @@ function openEnabledRoute() {
   if (location.hash !== hash) location.replace(hash);
 }
 
+function viewProgress() {
+  return { ...state.progress, weaponPins: state.weaponFound || [] };
+}
+
 function syncChrome(route) {
-  const report = completionReport(state.catalog, state.progress);
+  const report = completionReport(state.catalog, viewProgress());
   document.getElementById("view-title").textContent = ROUTES[route.section].title;
   document.title = `${ROUTES[route.section].title} · GTA VI Tracker`;
   document.getElementById("header-percent").textContent = `${report.percent}%`;
@@ -137,13 +141,23 @@ function listRows(spec) {
 function render() {
   glideToken += 1;
   const route = currentRoute();
+  const switched = Boolean(state.lastSection) && state.lastSection !== route.section;
+  if (switched && MAP_LISTS[state.lastSection]) {
+    state.scroll[state.lastSection] = window.scrollY;
+    state.mapViews[state.lastSection] = { ...state.mapView };
+    state.mapOpen = false;
+  }
+  if (switched && MAP_LISTS[route.section]) {
+    state.mapView = { ...(state.mapViews[route.section] || { x: 0, y: 0, scale: 1 }) };
+    state.pendingScroll = state.scroll[route.section] || 0;
+  }
   const spec = listSpec(route.section);
   const filters = spec ? state.filters[spec.id] : null;
   const main = document.getElementById("main");
   main.innerHTML = renderMain({
     data: state.data,
     catalog: state.catalog,
-    progress: state.progress,
+    progress: viewProgress(),
     route,
     storageWarning: state.storageWarning,
     canInstall: Boolean(deferredPrompt),
@@ -153,7 +167,10 @@ function render() {
   });
   if (spec && state.picked[spec.id]) {
     const pins = [...main.querySelectorAll("[data-pin]")];
-    const kept = pins.length === 1 && pins[0].dataset.pin === state.picked[spec.id];
+    const row = main.querySelector(`[data-open="${CSS.escape(state.picked[spec.id])}"]`);
+    const onlyPin = pins.length === 1 && pins[0].dataset.pin === state.picked[spec.id];
+    const noPin = pins.length === 0 && row;
+    const kept = Boolean(row) && (onlyPin || noPin);
     if (!kept) {
       state.picked[spec.id] = null;
       state.mapView = { x: 0, y: 0, scale: 1 };
@@ -172,6 +189,11 @@ function render() {
   document.body.classList.toggle("map-open", Boolean(state.mapOpen));
   syncDockHeight();
   if (about) about.textContent = illustrationCredits(state.data.story).join("\n\n");
+  if (state.pendingScroll != null) {
+    const top = state.pendingScroll;
+    state.pendingScroll = null;
+    requestAnimationFrame(() => window.scrollTo(0, top));
+  }
   if (state.restoreFocus) {
     const selector = state.restoreFocus;
     state.restoreFocus = null;
@@ -353,6 +375,14 @@ function onClick(event) {
   const tick = target.closest("[data-tick]");
   if (tick) {
     const [list, id] = splitTick(tick.dataset.tick);
+    if (list === "weaponPins") {
+      const has = state.weaponFound.includes(id);
+      state.weaponFound = has ? state.weaponFound.filter((item) => item !== id) : state.weaponFound.concat(id);
+      writeIdList(localStorage, WEAPONS_FOUND_KEY, state.weaponFound);
+      render();
+      announce(has ? "Cleared." : "Ticked.");
+      return;
+    }
     const result = toggleId(state.progress, list, id);
     if (result.ok) {
       state.cashError = null;
@@ -668,7 +698,13 @@ async function boot() {
       storageWarning: loaded.warning,
       areaId: "all",
       filters: readFilters(localStorage),
+      weaponFound: readIdList(localStorage, WEAPONS_FOUND_KEY),
       picked: { cars: null, weapons: null },
+      scroll: { cars: 0, weapons: 0 },
+      mapViews: {
+        cars: { x: 0, y: 0, scale: 1 },
+        weapons: { x: 0, y: 0, scale: 1 },
+      },
       mapView: { x: 0, y: 0, scale: 1 },
       mapOpen: false,
       cashError: null,

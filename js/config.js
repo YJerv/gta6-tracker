@@ -3,7 +3,7 @@
  * Put a name back in this list to switch that section on again.
  * Names match the data-tab buttons in index.html: home, story, money, map, skills, cars, gear, online.
  */
-export const ENABLED_TABS = ["cars"];
+export const ENABLED_TABS = ["cars", "weapons"];
 
 /** First name in ENABLED_TABS is the page the app opens on. */
 export const DEFAULT_TAB = ENABLED_TABS[0];
@@ -13,9 +13,8 @@ export function isTabEnabled(name) {
 }
 
 /**
- * Screens that share the Cars layout: a map, precision pins, three dropdowns, and a details card.
- * Weapons is ready but switched off. Add "weapons" to ENABLED_TABS once data/weapons.json
- * is beside cars.json in the same shape. The app loads that file on its own.
+ * Screens that share the Cars layout: a map, precision pins, dropdowns, and a details card.
+ * Each enabled name is loaded from data/<id>.json.
  */
 export const MAP_LISTS = {
   cars: {
@@ -24,6 +23,7 @@ export const MAP_LISTS = {
     noun: "car",
     plural: "cars",
     progressList: "cars",
+    primary: "chapter",
     prompt: "Tap a pin or a car in the list.",
   },
   weapons: {
@@ -32,15 +32,39 @@ export const MAP_LISTS = {
     noun: "weapon",
     plural: "weapons",
     progressList: "weaponPins",
+    primary: "category",
     prompt: "Tap a pin or a weapon in the list.",
   },
 };
 
-export const FILTER_KEY = "gta6-tracker-filters-v1";
-export const FILTER_FIELDS = ["chapter", "precision", "found", "area"];
+export const WEAPONS_FOUND_KEY = "gta6-tracker-weapons-found-v1";
+
+export function filterStorageKey(id) {
+  return `gta6-tracker-filters-${id}-v1`;
+}
+
+export const FILTER_FIELDS = ["chapter", "precision", "found", "area", "category"];
 
 export function emptyListFilters() {
-  return { chapter: "all", precision: "all", found: "all", area: "all" };
+  return { chapter: "all", precision: "all", found: "all", area: "all", category: "all" };
+}
+
+export function readIdList(storage, key) {
+  try {
+    const raw = JSON.parse(storage.getItem(key) || "[]");
+    if (!Array.isArray(raw)) return [];
+    return raw.filter((id) => typeof id === "string" && id.length > 0 && id.length < 80);
+  } catch {
+    return [];
+  }
+}
+
+export function writeIdList(storage, key, ids) {
+  try {
+    storage.setItem(key, JSON.stringify(ids));
+  } catch {
+    /* The tick still shows for this visit. */
+  }
 }
 
 function cleanFilters(value) {
@@ -56,24 +80,23 @@ function cleanFilters(value) {
 
 export function readFilters(storage) {
   const result = {};
-  for (const id of Object.keys(MAP_LISTS)) result[id] = emptyListFilters();
-  try {
-    const raw = JSON.parse(storage.getItem(FILTER_KEY) || "null");
-    if (!raw || typeof raw !== "object") return result;
-    for (const id of Object.keys(MAP_LISTS)) result[id] = cleanFilters(raw[id]);
-  } catch {
-    /* A blocked store just starts from All. */
+  for (const id of Object.keys(MAP_LISTS)) {
+    try {
+      result[id] = cleanFilters(JSON.parse(storage.getItem(filterStorageKey(id)) || "null"));
+    } catch {
+      result[id] = emptyListFilters();
+    }
   }
   return result;
 }
 
 export function writeFilters(storage, filters) {
-  try {
-    const payload = {};
-    for (const id of Object.keys(MAP_LISTS)) payload[id] = cleanFilters(filters[id]);
-    storage.setItem(FILTER_KEY, JSON.stringify(payload));
-  } catch {
-    /* The choice still applies for this visit. */
+  for (const id of Object.keys(MAP_LISTS)) {
+    try {
+      storage.setItem(filterStorageKey(id), JSON.stringify(cleanFilters(filters[id])));
+    } catch {
+      /* The choice still applies for this visit. */
+    }
   }
 }
 
