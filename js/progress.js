@@ -1,3 +1,5 @@
+import { MAP_LISTS } from "./config.js";
+
 export const PROGRESS_VERSION = 1;
 export const APP_ID = "gta6-tracker";
 export const STORAGE_KEY = "gta6-tracker-progress-v1";
@@ -14,6 +16,7 @@ export const LIST_KEYS = [
   "money",
   "online",
   "cars",
+  "weaponPins",
 ];
 
 export const SECTION_DEFS = [
@@ -23,6 +26,7 @@ export const SECTION_DEFS = [
   { id: "secrets", label: "Secrets", hash: "#/map/secrets", lists: ["secrets"] },
   { id: "skills", label: "Skills", hash: "#/skills", lists: ["settings", "drills", "stats"] },
   { id: "cars", label: "Cars", hash: "#/cars", lists: ["cars"] },
+  { id: "weapons", label: "Weapons", hash: "#/weapons", lists: ["weaponPins"] },
   { id: "gear", label: "Gear", hash: "#/gear", lists: ["vehicles", "weapons"] },
   { id: "online", label: "Online prep", hash: "#/online", lists: ["online"] },
 ];
@@ -64,6 +68,7 @@ export function emptyProgress(now = new Date().toISOString()) {
     money: [],
     online: [],
     cars: [],
+    weaponPins: [],
     cash: null,
     cashNote: "",
     spoilersHidden: true,
@@ -595,30 +600,34 @@ export function buildCatalog(data) {
     }));
   });
 
-  data.cars.cars.forEach((entry, index) => {
-    add({
-      id: entry.id,
-      list: "cars",
-      section: "cars",
-      title: entry.title,
-      chapterOrder: entry.chapterOrder,
-      groupId: null,
-      sort: index,
-      stage: null,
-      areaId: null,
-      sub: null,
-    }, detailFor(entry, {
-      kicker: entry.area,
-      summary: entry.notes,
-      image: entry.image || null,
-      imageCredit: entry.imageCredit || null,
-      imageAlt: entry.imageAlt || null,
-      blocks: [
-        { heading: "Class", lines: [entry.category] },
-        { heading: "How to find it", lines: entry.steps },
-      ],
-    }));
-  });
+  for (const spec of Object.values(MAP_LISTS)) {
+    const file = data[spec.id];
+    const rows = file && Array.isArray(file[spec.id]) ? file[spec.id] : [];
+    rows.forEach((entry, index) => {
+      add({
+        id: entry.id,
+        list: spec.progressList,
+        section: spec.id,
+        title: entry.title,
+        chapterOrder: entry.chapterOrder,
+        groupId: null,
+        sort: index,
+        stage: null,
+        areaId: null,
+        sub: null,
+      }, detailFor(entry, {
+        kicker: entry.area,
+        summary: entry.notes,
+        image: entry.image || null,
+        imageCredit: entry.imageCredit || null,
+        imageAlt: entry.imageAlt || null,
+        blocks: [
+          { heading: "Class", lines: [entry.category] },
+          { heading: "How to find it", lines: entry.steps },
+        ],
+      }));
+    });
+  }
 
   const notes = data.online.news.map((entry, index) => {
     details.set(entry.id, detailFor(entry, {

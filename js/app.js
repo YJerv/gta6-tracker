@@ -1,4 +1,4 @@
-import { isTabEnabled, readChromeCollapsed, writeChromeCollapsed } from "./config.js";
+import { MAP_LISTS, isTabEnabled, readFilters, writeFilters } from "./config.js";
 import { illustrationCredits, mapViewForCar, renderMain, parseRoute, ROUTES } from "./render.js";
 import {
   STORAGE_KEY,
@@ -16,7 +16,10 @@ import {
   toggleId,
 } from "./progress.js";
 
-const DATA_FILES = ["meta", "story", "money", "collectibles", "secrets", "skills", "gear", "cars", "online"];
+const DATA_FILES = [
+  "meta", "story", "money", "collectibles", "secrets", "skills", "gear", "online",
+  ...Object.keys(MAP_LISTS).filter((name) => isTabEnabled(name)),
+];
 
 let state = null;
 let deferredPrompt = null;
@@ -87,15 +90,6 @@ function openEnabledRoute() {
   if (location.hash !== hash) location.replace(hash);
 }
 
-function applyChromeCollapsed() {
-  const collapsed = Boolean(state?.chromeCollapsed);
-  document.body.classList.toggle("chrome-collapsed", collapsed);
-  const button = document.getElementById("chrome-toggle");
-  if (!button) return;
-  button.setAttribute("aria-pressed", collapsed ? "true" : "false");
-  button.textContent = collapsed ? "Show header" : "More map";
-}
-
 function syncChrome(route) {
   const report = completionReport(state.catalog, state.progress);
   document.getElementById("view-title").textContent = ROUTES[route.section].title;
@@ -129,10 +123,22 @@ function fillExport() {
 }
 
 let glideToken = 0;
+let ignoreClicksUntil = 0;
+
+function listSpec(section) {
+  return MAP_LISTS[section] || null;
+}
+
+function listRows(spec) {
+  const file = state.data[spec.id];
+  return file && Array.isArray(file[spec.id]) ? file[spec.id] : [];
+}
 
 function render() {
   glideToken += 1;
   const route = currentRoute();
+  const spec = listSpec(route.section);
+  const filters = spec ? state.filters[spec.id] : null;
   const main = document.getElementById("main");
   main.innerHTML = renderMain({
     data: state.data,
@@ -142,19 +148,14 @@ function render() {
     storageWarning: state.storageWarning,
     canInstall: Boolean(deferredPrompt),
     cashError: state.cashError,
-    carsUi: {
-      area: state.carArea,
-      found: state.carFound,
-      chapter: state.carChapter,
-      precision: state.carPrecision,
-      selected: state.selectedCar,
-    },
+    listUi: filters ? { ...filters, selected: state.picked[spec.id] } : null,
+    carsUi: route.section === "cars" && filters ? { ...filters, selected: state.picked.cars } : null,
   });
-  if (route.section === "cars" && state.selectedCar) {
-    const pins = [...main.querySelectorAll("[data-car-pin]")];
-    const kept = pins.length === 1 && pins[0].dataset.carPin === state.selectedCar;
+  if (spec && state.picked[spec.id]) {
+    const pins = [...main.querySelectorAll("[data-pin]")];
+    const kept = pins.length === 1 && pins[0].dataset.pin === state.picked[spec.id];
     if (!kept) {
-      state.selectedCar = null;
+      state.picked[spec.id] = null;
       state.mapView = { x: 0, y: 0, scale: 1 };
       render();
       return;
@@ -168,7 +169,6 @@ function render() {
   syncChrome(route);
   if (state.sheetOpen) fillExport();
   const about = document.getElementById("about-credits");
-  applyChromeCollapsed();
   document.body.classList.toggle("map-open", Boolean(state.mapOpen));
   syncDockHeight();
   if (about) about.textContent = illustrationCredits(state.data.story).join("\n\n");
@@ -287,6 +287,7 @@ async function installApp() {
 function onClick(event) {
   const target = event.target;
   if (!(target instanceof Element) || !state) return;
+  if (Date.now() < ignoreClicksUntil) return;
 
   if (target.closest("[data-close-sheet], #close-sheet")) {
     closeSheet();
@@ -303,8 +304,8 @@ function onClick(event) {
     location.hash = `#/${route.section}/${sub.dataset.sub}`;
     return;
   }
-  if (target.closest("[data-car-clear]")) {
-    showAllCars();
+  if (target.closest("[data-clear]")) {
+    showAllPins();
     return;
   }
   if (target.closest("[data-map-open]")) {
@@ -324,37 +325,9 @@ function onClick(event) {
     if (body) body.hidden = !open;
     return;
   }
-  if (target.closest("#chrome-toggle")) {
-    toggleChrome();
-    return;
-  }
-  const carOpen = target.closest("[data-car-pin], [data-car-open]");
-  if (carOpen) {
-    focusSelectedCar(carOpen.dataset.carPin || carOpen.dataset.carOpen);
-    return;
-  }
-  const carArea = target.closest("[data-car-area]");
-  if (carArea) {
-    state.carArea = carArea.dataset.carArea;
-    render();
-    return;
-  }
-  const carFound = target.closest("[data-car-found]");
-  if (carFound) {
-    state.carFound = carFound.dataset.carFound;
-    render();
-    return;
-  }
-  const carChapter = target.closest("[data-car-chapter]");
-  if (carChapter) {
-    state.carChapter = carChapter.dataset.carChapter;
-    render();
-    return;
-  }
-  const carPrecision = target.closest("[data-car-precision]");
-  if (carPrecision) {
-    state.carPrecision = carPrecision.dataset.carPrecision;
-    render();
+  const pinOpen = target.closest("[data-pin], [data-open]");
+  if (pinOpen && !(pinOpen instanceof HTMLSelectElement)) {
+    focusPin(pinOpen.dataset.pin || pinOpen.dataset.open);
     return;
   }
   const zoom = target.closest("[data-map-zoom]");
@@ -444,14 +417,18 @@ function onClick(event) {
   }
 }
 
-function onChange(event) {
-  const target = event.target;
-  if (!(target instanceof HTMLSelectElement) || !state) return;
-  if (target.matches("[data-car-area]")) state.carArea = target.value;
-  else if (target.matches("[data-car-found]")) state.carFound = target.value;
-  else if (target.matches("[data-car-chapter]")) state.carChapter = target.value;
-  else if (target.matches("[data-car-precision]")) state.carPrecision = target.value;
-  else return;
+function onFilter(event) {
+  const node = event.target;
+  if (!(node instanceof Element) || !state) return;
+  const select = node instanceof HTMLSelectElement ? node : node.closest("select");
+  const kind = select && select.dataset.filter;
+  if (!kind) return;
+  const spec = listSpec(currentRoute().section) || MAP_LISTS.cars;
+  const filters = state.filters[spec.id];
+  if (!filters || filters[kind] === select.value) return;
+  filters[kind] = select.value;
+  writeFilters(localStorage, state.filters);
+  ignoreClicksUntil = Date.now() + 500;
   render();
 }
 
@@ -485,13 +462,15 @@ function mapFrame() {
   };
 }
 
-function focusSelectedCar(id, { animate = true } = {}) {
+function focusPin(id, { animate = true } = {}) {
+  const spec = listSpec(currentRoute().section);
+  if (!spec) return;
   const from = { ...state.mapView };
-  state.selectedCar = id;
+  state.picked[spec.id] = id;
   render();
-  const car = state.data.cars?.cars?.find((item) => item.id === id);
+  const car = listRows(spec).find((item) => item.id === id);
   const frame = mapFrame();
-  if (!car || car.mapX == null || car.mapY == null || !frame || state.selectedCar !== id) return;
+  if (!car || car.mapX == null || car.mapY == null || !frame || state.picked[spec.id] !== id) return;
   const to = mapViewForCar(car, frame);
   if (animate) {
     glideMap(from, to);
@@ -502,9 +481,10 @@ function focusSelectedCar(id, { animate = true } = {}) {
   }
 }
 
-function showAllCars({ animate = true } = {}) {
+function showAllPins({ animate = true } = {}) {
+  const spec = listSpec(currentRoute().section);
   const from = { ...state.mapView };
-  state.selectedCar = null;
+  if (spec) state.picked[spec.id] = null;
   const to = { x: 0, y: 0, scale: 1 };
   render();
   if (animate) glideMap(from, to);
@@ -517,9 +497,9 @@ function showAllCars({ animate = true } = {}) {
 
 function refitMap() {
   if (!state) return;
-  const car = state.selectedCar
-    ? state.data.cars?.cars?.find((item) => item.id === state.selectedCar)
-    : null;
+  const spec = listSpec(currentRoute().section);
+  const picked = spec ? state.picked[spec.id] : null;
+  const car = picked ? listRows(spec).find((item) => item.id === picked) : null;
   const frame = mapFrame();
   if (car && car.mapX != null && car.mapY != null && frame) {
     state.mapView = mapViewForCar(car, frame);
@@ -534,16 +514,6 @@ function setMapOpen(open) {
   state.mapOpen = open;
   document.body.classList.toggle("map-open", open);
   requestAnimationFrame(() => refitMap());
-}
-
-function toggleChrome() {
-  state.chromeCollapsed = !state.chromeCollapsed;
-  writeChromeCollapsed(localStorage, state.chromeCollapsed);
-  applyChromeCollapsed();
-  requestAnimationFrame(() => {
-    syncDockHeight();
-    refitMap();
-  });
 }
 
 function glideMap(from, to) {
@@ -577,7 +547,7 @@ function applyMapTransform(view, options) {
   const stage = document.querySelector("[data-map-stage]");
   const current = view || state?.mapView;
   if (!layer || !stage || !current) return;
-  const pins = [...document.querySelectorAll("[data-car-pin]")];
+  const pins = [...document.querySelectorAll("[data-pin]")];
   if (options?.instant) {
     layer.style.transition = "none";
     for (const pin of pins) pin.style.transition = "none";
@@ -603,7 +573,7 @@ function applyMapTransform(view, options) {
 function onMapPointerDown(event) {
   const stage = event.target.closest("[data-map-stage]");
   if (!stage || !state) return;
-  if (event.target.closest("[data-map-zoom], [data-car-pin], [data-car-clear], [data-map-open], [data-map-close]")) return;
+  if (event.target.closest("[data-map-zoom], [data-pin], [data-clear], [data-map-open], [data-map-close]")) return;
   stage.classList.add("is-panning");
   stage.setPointerCapture(event.pointerId);
   mapPointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
@@ -656,7 +626,8 @@ function bind() {
     if (state) render();
   });
   document.body.addEventListener("click", onClick);
-  document.body.addEventListener("change", onChange);
+  document.body.addEventListener("change", onFilter);
+  document.body.addEventListener("input", onFilter);
   document.body.addEventListener("submit", onSubmit);
   window.addEventListener("resize", () => syncDockHeight());
   document.addEventListener("keydown", (event) => {
@@ -696,14 +667,10 @@ async function boot() {
       progress: loaded.progress,
       storageWarning: loaded.warning,
       areaId: "all",
-      carArea: "all",
-      carFound: "all",
-      carChapter: "all",
-      carPrecision: "all",
-      selectedCar: null,
+      filters: readFilters(localStorage),
+      picked: { cars: null, weapons: null },
       mapView: { x: 0, y: 0, scale: 1 },
       mapOpen: false,
-      chromeCollapsed: readChromeCollapsed(localStorage),
       cashError: null,
       sheetOpen: false,
       resetArmed: false,

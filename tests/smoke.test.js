@@ -24,7 +24,7 @@ import {
   toggleId,
   visibleThroughChapter,
 } from "../js/progress.js";
-import { CHROME_KEY, ENABLED_TABS, isTabEnabled, readChromeCollapsed, writeChromeCollapsed } from "../js/config.js";
+import { ENABLED_TABS, FILTER_KEY, MAP_LISTS, isTabEnabled, readFilters, writeFilters } from "../js/config.js";
 import { illustrationCredits, mapViewForCar, parseRoute, renderCard, renderMain } from "../js/render.js";
 import { validateAll } from "../scripts/schema.js";
 import { loadData } from "../scripts/validate.js";
@@ -310,12 +310,12 @@ test("sourced cars use the Leonida map and hide later chapters", () => {
   const progress = emptyProgress(NOW);
   const page = renderMain(model(progress, { section: "cars" }));
   assert.match(page, /src="images\/cars\/leonida-map\.jpg"/);
-  assert.match(page, /data-car-pin="car-dinka-enduro"/);
+  assert.match(page, /data-pin="car-dinka-enduro"/);
   assert.match(page, /data-map-x="58.6"/);
   assert.match(page, /precision-exact/);
   assert.match(page, /class="filter-row"/);
-  assert.match(page, /data-car-precision/);
-  assert.match(page, /data-car-found/);
+  assert.match(page, /data-filter="precision"/);
+  assert.match(page, /data-filter="found"/);
   assert.match(page, /value="street"/);
   assert.match(page, /Still to find/);
   assert.doesNotMatch(page, /All precision/);
@@ -327,7 +327,7 @@ test("sourced cars use the Leonida map and hide later chapters", () => {
   assert.match(page, /Driveshaft Hustler/);
   assert.doesNotMatch(page, /Twinstripe Vigero/);
   assert.match(page, /Cars in chapter 3/);
-  assert.match(page, /data-car-chapter/);
+  assert.match(page, /data-filter="chapter"/);
   assert.match(page, /value="1"/);
   assert.match(page, /Map: Rockstar Games/);
   assert.ok(page.indexOf('class="car-list"') < page.indexOf('class="map-credits"'));
@@ -389,7 +389,7 @@ test("a selected car is the only pin, and zoom follows precision", () => {
   const progress = emptyProgress(NOW);
   const carsUi = { area: "all", found: "all", chapter: "all", precision: "all", selected: null };
   const all = renderMain({ ...model(progress, { section: "cars" }), carsUi });
-  const allPins = [...all.matchAll(/data-car-pin="([^"]+)"/g)].map((match) => match[1]);
+  const allPins = [...all.matchAll(/data-pin="([^"]+)"/g)].map((match) => match[1]);
   assert.ok(allPins.length > 1);
   assert.equal(all.includes("Show all cars"), false);
   assert.ok(allPins.includes("car-dinka-enduro"));
@@ -400,17 +400,17 @@ test("a selected car is the only pin, and zoom follows precision", () => {
     carsUi: { ...carsUi, selected: "car-dinka-enduro" },
   });
   assert.deepEqual(
-    [...one.matchAll(/data-car-pin="([^"]+)"/g)].map((match) => match[1]),
+    [...one.matchAll(/data-pin="([^"]+)"/g)].map((match) => match[1]),
     ["car-dinka-enduro"],
   );
-  assert.match(one, /data-car-clear/);
+  assert.match(one, /data-clear/);
   assert.match(one, /Show all cars/);
 
   const street = renderMain({
     ...model(progress, { section: "cars" }),
     carsUi: { ...carsUi, precision: "street" },
   });
-  const streetPins = [...street.matchAll(/data-car-pin="([^"]+)"/g)].map((match) => match[1]);
+  const streetPins = [...street.matchAll(/data-pin="([^"]+)"/g)].map((match) => match[1]);
   assert.ok(streetPins.includes("car-driveshaft-hustler"));
   assert.equal(streetPins.includes("car-dinka-enduro"), false);
 
@@ -418,7 +418,7 @@ test("a selected car is the only pin, and zoom follows precision", () => {
     ...model(progress, { section: "cars" }),
     carsUi: { ...carsUi, precision: "street", selected: "car-dinka-enduro" },
   });
-  assert.equal([...dropped.matchAll(/data-car-pin="([^"]+)"/g)].some((match) => match[1] === "car-dinka-enduro"), false);
+  assert.equal([...dropped.matchAll(/data-pin="([^"]+)"/g)].some((match) => match[1] === "car-dinka-enduro"), false);
   assert.equal(dropped.includes("Show all cars"), false);
 
   const frame = { stageW: 360, stageH: 640, ratio: 1920 / 1402 };
@@ -437,27 +437,64 @@ test("a selected car is the only pin, and zoom follows precision", () => {
   assert.ok(Math.abs(streetView.y + py - frame.stageH / 2) < 0.01);
 });
 
-test("the map header stays collapsed when that choice was saved", () => {
+test("each cars dropdown filters the list and the pins", () => {
+  const progress = emptyProgress(NOW);
+  const base = { area: "all", found: "all", chapter: "all", precision: "all", selected: null };
+  const page = (ui) => renderMain({ ...model(progress, { section: "cars" }), carsUi: { ...base, ...ui } });
+  const pins = (html) => [...html.matchAll(/data-pin="([^"]+)"/g)].map((match) => match[1]);
+  const names = (html) => [...html.matchAll(/class="car-row-name">([^<]+)/g)].map((match) => match[1]);
+
+  const chapter = page({ chapter: "1" });
+  assert.ok(pins(chapter).includes("car-dinka-enduro"));
+  assert.equal(pins(chapter).includes("car-twinstripe-vigero"), false);
+  assert.match(chapter, /data-filter="chapter"/);
+  const later = page({ chapter: "5" });
+  assert.equal(pins(later).length, 0);
+  assert.match(later, /No cars in this filter/);
+
+  const exact = page({ precision: "exact" });
+  assert.ok(pins(exact).includes("car-dinka-enduro"));
+  assert.equal(names(exact).includes("Driveshaft Hustler"), false);
+  assert.match(exact, /data-filter="precision"/);
+
+  const street = page({ precision: "street" });
+  assert.ok(names(street).includes("Driveshaft Hustler"));
+  assert.equal(pins(street).includes("car-dinka-enduro"), false);
+
+  const still = page({ found: "open" });
+  assert.ok(names(still).includes("Driveshaft Hustler"));
+  assert.match(still, /data-filter="found"/);
+  const found = page({ found: "found" });
+  assert.equal(pins(found).length, 0);
+  assert.match(found, /No cars in this filter/);
+
+  const area = page({ area: "Key Lento, driveway of Jason's House" });
+  assert.deepEqual(names(area), ["Dinka Enduro"]);
+  assert.match(area, /data-filter="area"/);
+});
+
+test("dropdown choices are remembered and the map button stays in the dock", () => {
   const storage = {
     values: new Map(),
     getItem(key) { return this.values.has(key) ? this.values.get(key) : null; },
     setItem(key, value) { this.values.set(key, String(value)); },
   };
-  assert.equal(readChromeCollapsed(storage), false);
-  writeChromeCollapsed(storage, true);
-  assert.equal(storage.getItem(CHROME_KEY), "1");
-  assert.equal(readChromeCollapsed(storage), true);
-  writeChromeCollapsed(storage, false);
-  assert.equal(readChromeCollapsed(storage), false);
-  assert.equal(readChromeCollapsed({ getItem() { throw new Error("blocked"); } }), false);
+  const fresh = readFilters(storage);
+  assert.equal(fresh.cars.precision, "all");
+  writeFilters(storage, { cars: { chapter: "1", precision: "street", found: "open", area: "all" } });
+  assert.match(storage.getItem(FILTER_KEY), /"precision":"street"/);
+  assert.equal(readFilters(storage).cars.found, "open");
+  assert.equal(readFilters(storage).weapons.chapter, "all");
+  assert.equal(readFilters({ getItem() { throw new Error("blocked"); } }).cars.precision, "all");
 
   const html = readFileSync(path.join(root, "index.html"), "utf8");
   const css = readFileSync(path.join(root, "css/styles.css"), "utf8");
-  assert.match(html, /id="chrome-toggle"/);
-  assert.match(css, /body\.chrome-collapsed \.topbar/);
-  assert.match(css, /body\.chrome-collapsed \.tabs/);
-  assert.match(css, /body\.chrome-collapsed \.cars-chrome/);
-  assert.match(css, /body\.chrome-collapsed \.map-stage/);
+  assert.equal(html.includes("More map"), false);
+  assert.equal(html.includes("chrome-toggle"), false);
+  assert.match(html, /data-tab="weapons"/);
+  assert.equal(isTabEnabled("weapons"), false);
+  assert.equal(MAP_LISTS.weapons.progressList, "weaponPins");
+  assert.equal(ENABLED_TABS.includes("weapons"), false);
   assert.match(css, /body\.map-open \.map-stage/);
   assert.match(css, /\.tabs\[hidden\]/);
   assert.match(css, /main \{[^}]*var\(--dock\)/);

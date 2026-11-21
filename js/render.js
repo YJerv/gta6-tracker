@@ -1,4 +1,4 @@
-import { DEFAULT_TAB, isTabEnabled, tabForHash } from "./config.js";
+import { DEFAULT_TAB, MAP_LISTS, isTabEnabled, tabForHash } from "./config.js";
 import { escapeHtml as e } from "./html.js";
 import {
   completionReport,
@@ -36,6 +36,7 @@ export const ROUTES = {
     ],
   },
   cars: { title: "Cars", subs: [] },
+  weapons: { title: "Weapons", subs: [] },
   gear: {
     title: "Gear",
     subs: [
@@ -86,6 +87,7 @@ export function hashFor(item) {
   if (item.list === "weapons") return "#/gear/weapons";
   if (item.list === "vehicles") return "#/gear";
   if (item.list === "cars") return "#/cars";
+  if (item.list === "weaponPins") return "#/weapons";
   if (item.list === "online") return "#/online/checklist";
   return "#/home";
 }
@@ -577,10 +579,11 @@ function carSections(car, detail) {
   return `${blocks}${notes}${sources}`;
 }
 
-function renderCarCard(entry, number, model) {
+function renderCarCard(entry, number, model, spec) {
   const car = entry.car;
   const detail = model.catalog.details.get(car.id);
-  const found = model.progress.cars.includes(car.id);
+  const found = (model.progress[spec.progressList] || []).includes(car.id);
+  const name = spec.noun.charAt(0).toUpperCase() + spec.noun.slice(1);
   const chapter = car.chapterOrder == null ? "From the start" : `Chapter ${car.chapterOrder}`;
   const precisionCopy = {
     exact: ["Exact", "On the right block, roughly 1-2% of map width error."],
@@ -593,13 +596,13 @@ function renderCarCard(entry, number, model) {
     : `${precisionText} The poster has no street names.`;
   return `<article class="card car-card">
     ${carFigure(car)}
-    <p class="kicker">Car ${number} · ${e(chapter)}</p>
+    <p class="kicker">${e(name)} ${number} · ${e(chapter)}</p>
     <h3>${e(car.title)}</h3>
     <p class="badge-row">${badges(car)} <span class="badge badge-precision precision-${e(car.precision)}">${e(precisionLabel)}</span></p>
     <p class="summary">${e(car.area)}</p>
     <p class="pin-note">${e(posterNote)}</p>
     ${carSections(car, detail)}
-    <button type="button" class="car-found" data-tick="cars:${e(car.id)}" aria-pressed="${found ? "true" : "false"}" aria-label="${found ? "Clear" : "Found it"} ${e(car.title)}">
+    <button type="button" class="car-found" data-tick="${e(spec.progressList)}:${e(car.id)}" aria-pressed="${found ? "true" : "false"}" aria-label="${found ? "Clear" : "Found it"} ${e(car.title)}">
       <span class="tick-box"></span>
       <span>${found ? "Found" : "Found it"}</span>
     </button>
@@ -610,17 +613,18 @@ function filterSelect(name, label, value, options) {
   const choices = options.map(([id, text]) => (
     `<option value="${e(String(id))}"${String(value) === String(id) ? " selected" : ""}>${e(text)}</option>`
   )).join("");
-  return `<label class="filter"><span>${e(label)}</span><select data-car-${name} aria-label="${e(label)}">${choices}</select></label>`;
+  return `<label class="filter"><span>${e(label)}</span><select data-filter="${e(name)}" aria-label="${e(label)}">${choices}</select></label>`;
 }
 
-function renderCars(model) {
+function renderMapList(model, spec) {
+  const file = model.data[spec.id];
   const through = visibleThroughChapter(model.catalog.chapters, model.progress.missions);
-  const ui = model.carsUi || { area: "all", found: "all", chapter: "all", precision: "all", selected: null };
-  const rows = model.data.cars.cars.map((car) => ({ car }));
+  const ui = model.listUi || (spec.id === "cars" ? model.carsUi : null) || { area: "all", found: "all", chapter: "all", precision: "all", selected: null };
+  const rows = (file && Array.isArray(file[spec.id]) ? file[spec.id] : []).map((car) => ({ car }));
   const visible = [];
   const hidden = [];
   for (const entry of rows) {
-    const groupId = entry.car.chapterOrder == null ? "cars-chapter-start" : `cars-chapter-${entry.car.chapterOrder}`;
+    const groupId = entry.car.chapterOrder == null ? `${spec.id}-chapter-start` : `${spec.id}-chapter-${entry.car.chapterOrder}`;
     const subject = { id: entry.car.id, chapterOrder: entry.car.chapterOrder, groupId };
     if (isHidden(subject, model.progress, through)) hidden.push(entry);
     else visible.push(entry);
@@ -635,12 +639,13 @@ function renderCars(model) {
   const areas = [...new Set(pool.map((entry) => entry.car.area))];
   let shown = pool;
   if (ui.area !== "all") shown = shown.filter((entry) => entry.car.area === ui.area);
-  if (ui.found === "found") shown = shown.filter((entry) => model.progress.cars.includes(entry.car.id));
-  if (ui.found === "open") shown = shown.filter((entry) => !model.progress.cars.includes(entry.car.id));
+  const foundIds = model.progress[spec.progressList] || [];
+  if (ui.found === "found") shown = shown.filter((entry) => foundIds.includes(entry.car.id));
+  if (ui.found === "open") shown = shown.filter((entry) => !foundIds.includes(entry.car.id));
   const precision = ui.precision || "all";
   if (precision !== "all") shown = shown.filter((entry) => entry.car.precision === precision);
   const numberOf = (entry) => visible.indexOf(entry) + 1;
-  const map = model.data.cars.map;
+  const map = (file && file.map) || {};
   const ratio = map.image && map.width && map.height ? `${map.width} / ${map.height}` : "1 / 1";
   const ratioValue = map.image && map.width && map.height ? map.height / map.width : 1;
   const picture = map.image
@@ -658,13 +663,13 @@ function renderCars(model) {
     const chapter = entry.car.chapterOrder == null ? "0" : String(entry.car.chapterOrder);
     const pinPrecision = entry.car.precision || "area";
     const selectedClass = selected ? " is-selected" : "";
-    return `<button type="button" class="map-pin precision-${e(pinPrecision)}${selectedClass}" data-car-pin="${e(entry.car.id)}" data-map-x="${entry.car.mapX}" data-map-y="${entry.car.mapY}" data-chapter="${e(chapter)}" aria-label="Show car ${number}, chapter ${e(chapter)}, ${e(pinPrecision)}"><span class="map-dot">${number}</span></button>`;
+    return `<button type="button" class="map-pin precision-${e(pinPrecision)}${selectedClass}" data-pin="${e(entry.car.id)}" data-map-x="${entry.car.mapX}" data-map-y="${entry.car.mapY}" data-chapter="${e(chapter)}" aria-label="Show ${e(spec.noun)} ${number}, chapter ${e(chapter)}, ${e(pinPrecision)}"><span class="map-dot">${number}</span></button>`;
   }).join("");
   const card = selected
-    ? renderCarCard(selected, numberOf(selected), model)
-    : `<p class="fine">Tap a pin or a car in the list.</p>`;
+    ? renderCarCard(selected, numberOf(selected), model, spec)
+    : `<p class="fine">${e(spec.prompt)}</p>`;
   const showAll = selected
-    ? `<button type="button" class="map-clear" data-car-clear>Show all cars</button>`
+    ? `<button type="button" class="map-clear" data-clear>Show all ${e(spec.plural)}</button>`
     : "";
   const chapterOptions = [["all", "All"]].concat(chapters.map((order) => [String(order), `Ch ${order}`]));
   const filters = [
@@ -676,15 +681,15 @@ function renderCars(model) {
   const areaSelect = filterSelect("area", "Area", ui.area, areaOptions);
   const list = shown.map((entry) => {
     const on = ui.selected === entry.car.id ? " is-selected" : "";
-    return `<button type="button" class="car-row${on}" data-car-open="${e(entry.car.id)}">
+    return `<button type="button" class="car-row${on}" data-open="${e(entry.car.id)}">
       <span class="map-pin-num">${numberOf(entry)}</span>
       <span class="car-row-name">${e(entry.car.title)}</span>
     </button>`;
-  }).join("") || `<p class="fine">No cars in this filter.</p>`;
+  }).join("") || `<p class="fine">No ${e(spec.plural)} in this filter.</p>`;
   const hiddenHtml = [...new Set(hiddenPool.map((entry) => entry.car.chapterOrder))].map((order) => shield(
-    order == null ? "Hidden cars" : `Cars in chapter ${order}`,
+    order == null ? `Hidden ${spec.plural}` : `${spec.plural.charAt(0).toUpperCase()}${spec.plural.slice(1)} in chapter ${order}`,
     "Names and steps stay covered until you show this chapter or turn spoilers off.",
-    order == null ? "cars-chapter-start" : `cars-chapter-${order}`,
+    order == null ? `${spec.id}-chapter-start` : `${spec.id}-chapter-${order}`,
   )).join("");
   const credit = `${map.imageCredit ? `<p class="map-credit">${e(map.imageCredit)}</p>` : ""}${map.source ? `<p class="map-credit">${e(map.source)}</p>` : ""}`;
   return `<div class="map-stage" data-map-stage>
@@ -700,7 +705,7 @@ function renderCars(model) {
         <button type="button" data-map-zoom="in" aria-label="Zoom in">+</button>
       </div>
     </div>
-    ${legend ? `<p class="map-legend cars-chrome">${legend}</p>` : ""}
+    ${legend ? `<p class="map-legend">${legend}</p>` : ""}
     <div class="filter-row">${filters}</div>
     <div class="filter-area">${areaSelect}</div>
     <div id="car-card">${card}</div>
@@ -716,7 +721,8 @@ export function renderMain(model) {
     case "map": return renderMap(model);
     case "skills": return renderSkills(model);
     case "gear": return renderGear(model);
-    case "cars": return renderCars(model);
+    case "cars": return renderMapList(model, MAP_LISTS.cars);
+    case "weapons": return renderMapList(model, MAP_LISTS.weapons);
     case "online": return renderOnline(model);
     default: return renderHome(model);
   }
