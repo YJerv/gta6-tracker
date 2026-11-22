@@ -62,7 +62,7 @@ function exactKeys(obj, keys, path, errors, optional = []) {
   return true;
 }
 
-const IMAGE_PATH = /^images\/(?:(?:cars|weapons|steal)\/)?[a-z0-9.-]+$/;
+const IMAGE_PATH = /^images\/(?:(?:cars|weapons|steal|skills)\/)?[a-z0-9.-]+$/;
 
 function imageValueSet(value) {
   return value !== null && value !== undefined;
@@ -149,7 +149,7 @@ function envelopeKeys(section) {
     money: ["earners", "purchases"],
     collectibles: ["areas"],
     secrets: ["entries"],
-    skills: ["xboxSettings", "drills", "stats"],
+    skills: ["map", "items"],
     gear: ["vehicles", "weapons"],
     cars: ["map", "cars"],
     weapons: ["map", "weapons"],
@@ -221,7 +221,7 @@ function checkVerifiedPair(entry, path, errors, textFields, options = {}) {
         push(errors, `${path}.${field}`, "must not say PLACEHOLDER when verified is true");
       }
     }
-    if (entry.generic === true && (typeof entry.source !== "string" || !/generic/i.test(entry.source))) {
+    if (!options.genericWordOptional && entry.generic === true && (typeof entry.source !== "string" || !/generic/i.test(entry.source))) {
       push(errors, `${path}.source`, 'must say "generic" when generic is true');
     }
     if (entry.generic === false && typeof entry.source === "string" && /^\s*generic\b/i.test(entry.source)) {
@@ -459,11 +459,114 @@ function checkSecrets(data, errors, ids, areaIds) {
   });
 }
 
+const SKILL_CATEGORIES = [
+  "Settings",
+  "Driving",
+  "Combat",
+  "Movement & Stealth",
+  "Air & Sea",
+  "Money & Progression",
+  "Online Prep",
+];
+
 function checkSkills(data, errors, ids) {
   checkEnvelope(data, "skills", errors);
-  checkSettings(data.xboxSettings, errors, ids);
-  checkDrills(data.drills, errors, ids);
-  checkStats(data.stats, errors, ids);
+  const map = data.map;
+  const mapPath = "skills.map";
+  if (!map || !exactKeys(map, ["image", "imageCredit", "imageAlt", "source", "width", "height"], mapPath, errors)) return;
+  if (typeof map.image !== "string" || !IMAGE_PATH.test(map.image)) {
+    push(errors, `${mapPath}.image`, "must be a relative path under images/");
+  } else if (!existsSync(path.join(root, map.image))) {
+    push(errors, `${mapPath}.image`, `file not found (${map.image})`);
+  }
+  if (!Array.isArray(data.items) || data.items.length < 1) {
+    push(errors, "skills.items", "must be a non-empty array");
+    return;
+  }
+  data.items.forEach((item, index) => {
+    const itemPath = `skills.items[${index}]`;
+    const keys = [
+      "id", "title", "category", "verified", "source", "generic", "chapterOrder",
+      "summary", "instructions", "drills", "goal", "recommendedSettings", "notes",
+      "image", "imageCredit", "imageAlt", "imageSource", "imageVerified", "locations",
+    ];
+    if (!exactKeys(item, keys, itemPath, errors)) return;
+    checkId(item.id, `${itemPath}.id`, errors, ids);
+    if (!SKILL_CATEGORIES.includes(item.category)) {
+      push(errors, `${itemPath}.category`, `must be one of ${SKILL_CATEGORIES.join(", ")}`);
+    }
+    checkVerifiedPair(item, itemPath, errors, ["title", "category", "summary", "instructions", "goal", "notes"], { genericWordOptional: true });
+    checkChapterOrder(item.chapterOrder, `${itemPath}.chapterOrder`, errors, { allowNull: false, allowZero: true, generic: false });
+    if (typeof item.summary !== "string" || item.summary.length > 400) {
+      push(errors, `${itemPath}.summary`, "must be text up to 400 characters");
+    }
+    checkStringList(item.instructions, `${itemPath}.instructions`, errors, { max: 12, itemMax: 400 });
+    if (!Array.isArray(item.instructions) || item.instructions.length < 1) {
+      push(errors, `${itemPath}.instructions`, "must list at least one step");
+    }
+    if (typeof item.goal !== "string" || item.goal.length < 8 || item.goal.length > 300) {
+      push(errors, `${itemPath}.goal`, "must be text up to 300 characters");
+    }
+    if (typeof item.notes !== "string" || item.notes.length > 800) {
+      push(errors, `${itemPath}.notes`, "must be text up to 800 characters");
+    }
+    if (!Array.isArray(item.drills) || item.drills.length < 1 || item.drills.length > 6) {
+      push(errors, `${itemPath}.drills`, "must be 1 to 6 drills");
+    } else {
+      item.drills.forEach((drill, drillIndex) => {
+        const drillPath = `${itemPath}.drills[${drillIndex}]`;
+        if (!exactKeys(drill, ["name", "setup", "howTo", "reps", "duration"], drillPath, errors)) return;
+        for (const field of ["name", "setup", "howTo"]) {
+          if (typeof drill[field] !== "string" || drill[field].length < 1 || drill[field].length > 400) {
+            push(errors, `${drillPath}.${field}`, "must be text up to 400 characters");
+          }
+        }
+        const repsSet = typeof drill.reps === "string" && drill.reps.length > 0;
+        const durationSet = typeof drill.duration === "string" && drill.duration.length > 0;
+        if (repsSet === durationSet) {
+          push(errors, drillPath, "set exactly one of reps or duration; the other must be null");
+        }
+        if (drill.reps !== null && !repsSet) push(errors, `${drillPath}.reps`, "must be text or null");
+        if (drill.duration !== null && !durationSet) push(errors, `${drillPath}.duration`, "must be text or null");
+        if (repsSet && drill.reps.length > 80) push(errors, `${drillPath}.reps`, "must be text up to 80 characters");
+        if (durationSet && drill.duration.length > 80) push(errors, `${drillPath}.duration`, "must be text up to 80 characters");
+      });
+    }
+    if (item.recommendedSettings !== null && !Array.isArray(item.recommendedSettings)) {
+      push(errors, `${itemPath}.recommendedSettings`, "must be null or an array");
+    } else if (Array.isArray(item.recommendedSettings)) {
+      if (item.recommendedSettings.length < 1) {
+        push(errors, `${itemPath}.recommendedSettings`, "must be null or a non-empty array");
+      }
+      item.recommendedSettings.forEach((row, rowIndex) => {
+        const rowPath = `${itemPath}.recommendedSettings[${rowIndex}]`;
+        if (!exactKeys(row, ["setting", "value", "why"], rowPath, errors)) return;
+        for (const field of ["setting", "value", "why"]) {
+          if (typeof row[field] !== "string" || row[field].length < 1 || row[field].length > 200) {
+            push(errors, `${rowPath}.${field}`, "must be text up to 200 characters");
+          }
+        }
+      });
+    }
+    checkCarImage(item, itemPath, errors);
+    if (!Array.isArray(item.locations)) {
+      push(errors, `${itemPath}.locations`, "must be an array");
+      return;
+    }
+    item.locations.forEach((spot, spotIndex) => {
+      const spotPath = `${itemPath}.locations[${spotIndex}]`;
+      if (!exactKeys(spot, ["id", "name", "area", "mapX", "mapY", "precision"], spotPath, errors)) return;
+      checkId(spot.id, `${spotPath}.id`, errors, ids);
+      if (typeof spot.name !== "string" || spot.name.length > 120) push(errors, `${spotPath}.name`, "must be text up to 120 characters");
+      if (typeof spot.area !== "string" || spot.area.length > 160) push(errors, `${spotPath}.area`, "must be text up to 160 characters");
+      checkPercent(spot.mapX, `${spotPath}.mapX`, errors);
+      checkPercent(spot.mapY, `${spotPath}.mapY`, errors);
+      if (spot.mapX === null || spot.mapY === null) push(errors, spotPath, "map point must be a number");
+      if (!["exact", "street", "area"].includes(spot.precision)) {
+        push(errors, `${spotPath}.precision`, "must be exact, street, or area");
+      }
+    });
+  });
 }
 
 function checkSettings(list, errors, ids) {
@@ -743,6 +846,7 @@ function checkChapterReferences(data, chapterOrders, errors) {
   }
   for (const entry of data.secrets?.entries || []) refs.push(["secret", entry.chapterOrder]);
   for (const entry of data.skills?.stats || []) refs.push(["stat", entry.chapterOrder]);
+  for (const entry of data.skills?.items || []) refs.push(["skill", entry.chapterOrder]);
   for (const entry of data.gear?.vehicles || []) refs.push(["vehicle", entry.chapterOrder]);
   for (const entry of data.gear?.weapons || []) refs.push(["weapon", entry.chapterOrder]);
   for (const entry of data.cars?.cars || []) refs.push(["car", entry.chapterOrder]);

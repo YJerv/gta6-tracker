@@ -27,14 +27,7 @@ export const ROUTES = {
       { id: "secrets", label: "Secrets" },
     ],
   },
-  skills: {
-    title: "Skills",
-    subs: [
-      { id: "settings", label: "Xbox settings" },
-      { id: "drills", label: "Drills" },
-      { id: "stats", label: "Stats" },
-    ],
-  },
+  skills: { title: "Skills", subs: [] },
   cars: { title: "Cars", subs: [] },
   weapons: { title: "Weapons", subs: [] },
   steal: { title: "Steal", subs: [] },
@@ -58,7 +51,7 @@ const INTRO = {
   story: "Tap a chapter to show its missions, and a mission to show steps. The one you are on starts open. Later chapters stay covered while spoilers are hidden.",
   money: "Earners and purchases are grouped into early, mid, and late stages. Those stages are editorial, not official chapter names. No prices are filled in.",
   map: "Filter the checklist by area. Secrets are on their own tab. Area names are placeholders, not verified locations.",
-  skills: "Xbox settings and drills are generic controller practice. They are not GTA VI instructions. Stat rows are placeholders.",
+  skills: "Drills and goals are coaching suggestions built on sourced mechanics. Notes say when a guide gives the target.",
   gear: "Vehicles and weapons to look for, by story stage, once a verified guide fills them in.",
   online: "Readiness items are generic preparation. They are not a description of an online mode.",
 };
@@ -82,9 +75,10 @@ export function hashFor(item) {
   if (item.list === "money") return "#/money";
   if (item.list === "collectibles") return "#/map";
   if (item.list === "secrets") return "#/map/secrets";
-  if (item.list === "drills") return "#/skills/drills";
-  if (item.list === "stats") return "#/skills/stats";
+  if (item.list === "drills") return "#/skills";
+  if (item.list === "stats") return "#/skills";
   if (item.list === "settings") return "#/skills";
+  if (item.list === "skillGoals") return "#/skills";
   if (item.list === "weapons") return "#/gear/weapons";
   if (item.list === "vehicles") return "#/gear";
   if (item.list === "cars") return "#/cars";
@@ -443,9 +437,193 @@ function renderMap(model) {
   return `${banner(INTRO.map)}${subnav(model.route)}<div class="chips" role="group" aria-label="Filter by area">${chips.join("")}</div>${body}`;
 }
 
+const SKILL_CATEGORY_ORDER = [
+  "Settings",
+  "Driving",
+  "Combat",
+  "Movement & Stealth",
+  "Air & Sea",
+  "Money & Progression",
+  "Online Prep",
+];
+
+export function skillTotals(items, foundIds) {
+  const found = new Set(foundIds || []);
+  const goals = items || [];
+  return {
+    done: goals.filter((item) => found.has(item.id)).length,
+    total: goals.length,
+  };
+}
+
+function skillFoundSet(model) {
+  if (Array.isArray(model.skillsFound)) return new Set(model.skillsFound);
+  return new Set(model.progress.skillGoals || []);
+}
+
+function drillMeasure(drill) {
+  if (typeof drill.reps === "string" && drill.reps) return drill.reps;
+  if (typeof drill.duration === "string" && drill.duration) return drill.duration;
+  return "";
+}
+
 function renderSkills(model) {
-  const items = model.catalog.items.filter((item) => item.sub === model.route.sub).sort((a, b) => a.sort - b.sort);
-  return `${banner(INTRO.skills)}${subnav(model.route)}${renderItems(items, model)}`;
+  const file = model.data.skills;
+  const items = file && Array.isArray(file.items) ? file.items : [];
+  const ui = model.listUi || { category: "all", found: "all", selected: null, spot: null };
+  const found = skillFoundSet(model);
+  const through = visibleThroughChapter(model.catalog.chapters, model.progress.missions);
+  const visible = [];
+  const hidden = [];
+  items.forEach((item, index) => {
+    const subject = {
+      id: item.id,
+      chapterOrder: item.chapterOrder,
+      groupId: `skills-chapter-${item.chapterOrder}`,
+    };
+    const row = { item, index };
+    if (isHidden(subject, model.progress, through)) hidden.push(row);
+    else visible.push(row);
+  });
+  let shown = visible.slice();
+  if (ui.category && ui.category !== "all") shown = shown.filter((row) => row.item.category === ui.category);
+  if (ui.found === "found") shown = shown.filter((row) => found.has(row.item.id));
+  if (ui.found === "open") shown = shown.filter((row) => !found.has(row.item.id));
+  shown.sort((a, b) => {
+    const category = SKILL_CATEGORY_ORDER.indexOf(a.item.category) - SKILL_CATEGORY_ORDER.indexOf(b.item.category);
+    if (category) return category;
+    if (a.item.chapterOrder !== b.item.chapterOrder) return a.item.chapterOrder - b.item.chapterOrder;
+    return a.index - b.index;
+  });
+  const selected = shown.find((row) => row.item.id === ui.selected) || null;
+  const spot = selected && ui.spot ? selected.item.locations.find((place) => place.id === ui.spot) : null;
+  const categories = SKILL_CATEGORY_ORDER.filter((name) => items.some((item) => item.category === name));
+  const filters = [
+    filterSelect("category", "Type", ui.category || "all", [["all", "All"]].concat(categories.map((name) => [name, name]))),
+    filterSelect("found", "Goal", ui.found || "all", [["all", "All"], ["open", "To do"], ["found", "Done"]]),
+  ].join("");
+  const map = (file && file.map) || {};
+  const ratio = map.width && map.height ? `${map.width} / ${map.height}` : "1 / 1";
+  const ratioValue = map.width && map.height ? map.height / map.width : 1;
+  const picture = map.image
+    ? `<img class="map-photo" src="${e(map.image)}" alt="${e(map.imageAlt || "")}" width="${Number(map.width)}" height="${Number(map.height)}" draggable="false">`
+    : "";
+  const pinSource = selected
+    ? (selected.item.locations.length ? [selected] : [])
+    : shown;
+  const pinHtml = pinSource.flatMap((row) => row.item.locations.map((place) => {
+    const on = spot && place.id === spot.id ? " is-selected" : "";
+    return `<button type="button" class="map-pin is-small precision-${e(place.precision)}${on}" data-spot="${e(place.id)}" data-item="${e(row.item.id)}" data-map-x="${place.mapX}" data-map-y="${place.mapY}" aria-label="${e(row.item.title)}: ${e(place.name)}"><span class="map-dot"></span></button>`;
+  })).join("");
+  const showAll = selected ? `<button type="button" class="map-clear" data-clear>Show all</button>` : "";
+  const groups = [];
+  for (const row of shown) {
+    const last = groups.at(-1);
+    if (!last || last.category !== row.item.category) groups.push({ category: row.item.category, rows: [row] });
+    else last.rows.push(row);
+  }
+  const list = groups.map((group) => {
+    const rows = group.rows.map((row) => {
+      const item = row.item;
+      const done = found.has(item.id);
+      return `<button type="button" class="skill-row${item.id === ui.selected ? " is-selected" : ""}" data-open="${e(item.id)}">
+        <img class="skill-thumb" src="${e(item.image)}" alt="">
+        <span class="skill-row-copy">
+          <span class="skill-row-title">${e(item.title)}</span>
+          ${item.generic ? `<span class="badge badge-advice">General advice</span>` : ""}
+          <span class="skill-row-summary">${e(item.summary)}</span>
+        </span>
+        <span class="goal-pill${done ? " is-done" : ""}">${done ? "Done" : "To do"}</span>
+      </button>`;
+    }).join("");
+    return `<section class="skill-group"><h2 class="group-title">${e(group.category)}</h2>${rows}</section>`;
+  }).join("") || `<p class="fine">No skills in this filter.</p>`;
+  const card = selected ? renderSkillCard(selected.item, found, spot) : `<p class="fine">${e(MAP_LISTS.skills.prompt)}</p>`;
+  const hiddenHtml = [...new Set(hidden.map((row) => row.item.chapterOrder))].map((order) => shield(
+    order === 0 ? "Open skills" : `Skills in chapter ${order}`,
+    "Names stay covered until you show this chapter or turn spoilers off.",
+    `skills-chapter-${order}`,
+  )).join("");
+  const credit = `${map.imageCredit ? `<p class="map-credit">${e(map.imageCredit)}</p>` : ""}${map.source ? `<p class="map-credit">${e(map.source)}</p>` : ""}`;
+  const note = "Drills and goals are coaching suggestions built on sourced mechanics. Notes say when a guide gives the target. Xbox Series X|S, Default control scheme.";
+  return `<p class="coach-note">${e(note)}</p>
+    <div class="map-stage" data-map-stage>
+      <div class="map-layer" data-map-layer data-map-ratio="${ratioValue}" style="aspect-ratio:${ratio}">${picture}</div>
+      ${pinHtml}
+      ${showAll}
+      <button type="button" class="map-open" data-map-open>Map</button>
+      <button type="button" class="map-close" data-map-close>Close</button>
+      <div class="map-zoom">
+        <button type="button" data-map-zoom="out" aria-label="Zoom out">−</button>
+        <button type="button" data-map-zoom="in" aria-label="Zoom in">+</button>
+      </div>
+    </div>
+    <div class="filter-row">${filters}</div>
+    <div id="car-card">${card}</div>
+    <div class="car-list">${list}</div>
+    ${hiddenHtml}
+    <div class="map-credits">${credit}</div>`;
+}
+
+function renderSkillCard(item, found, spot) {
+  const goalOn = found.has(item.id);
+  const advice = item.generic ? `<span class="badge badge-advice">General advice</span>` : "";
+  const chapter = item.chapterOrder === 0 ? "Open world" : `Chapter ${item.chapterOrder}`;
+  const settings = Array.isArray(item.recommendedSettings)
+    ? `<table class="settings-table">
+        <caption>Recommended settings</caption>
+        <thead><tr><th scope="col">Setting</th><th scope="col">Value</th><th scope="col">Why</th></tr></thead>
+        <tbody>${item.recommendedSettings.map((row) => `<tr>
+          <th scope="row">${e(row.setting)}</th>
+          <td>${e(row.value)}</td>
+          <td>${e(row.why)}</td>
+        </tr>`).join("")}</tbody>
+      </table>`
+    : "";
+  const steps = `<ol class="steps">${item.instructions.map((line) => `<li>${e(line)}</li>`).join("")}</ol>`;
+  const drills = item.drills.map((drill, index) => {
+    const id = `${item.id}#${index}`;
+    const on = found.has(id);
+    const measure = drillMeasure(drill);
+    return `<article class="drill">
+      <div class="drill-head">
+        <h4>${e(drill.name)}</h4>
+        <button type="button" class="spot-tick" data-tick="skills:${e(id)}" aria-pressed="${on ? "true" : "false"}" aria-label="${on ? "Clear drill" : "Tick drill"} ${e(drill.name)}"><span class="tick-box"></span></button>
+      </div>
+      <p><strong>Setup.</strong> ${e(drill.setup)}</p>
+      <p>${e(drill.howTo)}</p>
+      ${measure ? `<p class="drill-measure">${e(measure)}</p>` : ""}
+    </article>`;
+  }).join("");
+  const spots = item.locations.length
+    ? `<ul class="spot-list">${item.locations.map((place) => {
+      const on = spot && place.id === spot.id ? " is-selected" : "";
+      return `<li><button type="button" class="spot-open${on}" data-spot="${e(place.id)}" data-item="${e(item.id)}">${e(place.name)}<span class="fine"> ${e(place.area)}</span></button></li>`;
+    }).join("")}</ul>`
+    : "";
+  return `<article class="card car-card">
+    ${carFigure(item)}
+    <p class="kicker">${e(chapter)} · ${e(item.category)}</p>
+    <h3>${e(item.title)}</h3>
+    ${advice ? `<p class="badge-row">${advice}</p>` : ""}
+    <div class="goal-banner">
+      <p class="goal-kicker">Goal</p>
+      <p class="goal-text">${e(item.goal)}</p>
+      <button type="button" class="car-found goal-tick" data-tick="skills:${e(item.id)}" aria-pressed="${goalOn ? "true" : "false"}" aria-label="${goalOn ? "Clear goal" : "Tick goal"} ${e(item.title)}">
+        <span class="tick-box"></span>
+        <span>${goalOn ? "Goal done" : "Tick this goal"}</span>
+      </button>
+    </div>
+    <p class="summary">${e(item.summary)}</p>
+    <h4 class="skill-heading">How to do it</h4>
+    ${steps}
+    ${settings}
+    <h4 class="skill-heading">Drills</h4>
+    ${drills}
+    ${spots ? `<h4 class="skill-heading">Drill spots</h4>${spots}` : ""}
+    ${item.notes ? `<h4 class="skill-heading">Notes</h4><p class="summary">${e(item.notes)}</p>` : ""}
+    ${foldSection("Sources", `<p class="source">${linkify(item.source || "No source yet.")}</p>`)}
+  </article>`;
 }
 
 function renderGear(model) {

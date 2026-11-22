@@ -17,6 +17,7 @@ export const LIST_KEYS = [
   "online",
   "cars",
   "weaponPins",
+  "skillGoals",
 ];
 
 export const SECTION_DEFS = [
@@ -24,7 +25,7 @@ export const SECTION_DEFS = [
   { id: "money", label: "Money", hash: "#/money", lists: ["money"] },
   { id: "collectibles", label: "Collectibles", hash: "#/map", lists: ["collectibles"] },
   { id: "secrets", label: "Secrets", hash: "#/map/secrets", lists: ["secrets"] },
-  { id: "skills", label: "Skills", hash: "#/skills", lists: ["settings", "drills", "stats"] },
+  { id: "skills", label: "Skills", hash: "#/skills", lists: ["skillGoals"] },
   { id: "cars", label: "Cars", hash: "#/cars", lists: ["cars"] },
   { id: "weapons", label: "Weapons", hash: "#/weapons", lists: ["weaponPins"] },
   { id: "gear", label: "Gear", hash: "#/gear", lists: ["vehicles", "weapons"] },
@@ -69,6 +70,7 @@ export function emptyProgress(now = new Date().toISOString()) {
     online: [],
     cars: [],
     weaponPins: [],
+    skillGoals: [],
     cash: null,
     cashNote: "",
     spoilersHidden: true,
@@ -499,7 +501,31 @@ export function buildCatalog(data) {
   data.money.earners.forEach((entry, index) => addMoney(entry, index, "earners"));
   data.money.purchases.forEach((entry, index) => addMoney(entry, index, "buying"));
 
-  data.skills.xboxSettings.forEach((entry, index) => {
+  if (Array.isArray(data.skills.items)) {
+    data.skills.items.forEach((entry, index) => {
+      add({
+        id: entry.id,
+        list: "skillGoals",
+        section: "skills",
+        title: entry.title,
+        chapterOrder: entry.chapterOrder,
+        groupId: entry.chapterOrder == null ? null : `skills-chapter-${entry.chapterOrder}`,
+        sort: (entry.chapterOrder || 0) * 100 + index,
+        stage: null,
+        areaId: null,
+        sub: null,
+      }, detailFor(entry, {
+        kicker: entry.category,
+        summary: entry.summary,
+        image: entry.image || null,
+        imageCredit: entry.imageCredit || null,
+        imageAlt: entry.imageAlt || null,
+        blocks: [],
+      }));
+    });
+  }
+
+  if (Array.isArray(data.skills.xboxSettings)) data.skills.xboxSettings.forEach((entry, index) => {
     add({
       id: entry.id,
       list: "settings",
@@ -519,7 +545,7 @@ export function buildCatalog(data) {
   });
 
   const disciplineLabel = { driving: "Generic · Driving", aiming: "Generic · Aiming" };
-  data.skills.drills.forEach((entry, index) => {
+  if (Array.isArray(data.skills.drills)) data.skills.drills.forEach((entry, index) => {
     add({
       id: entry.id,
       list: "drills",
@@ -538,7 +564,7 @@ export function buildCatalog(data) {
     }));
   });
 
-  data.skills.stats.forEach((entry, index) => {
+  if (Array.isArray(data.skills.stats)) data.skills.stats.forEach((entry, index) => {
     add({
       id: entry.id,
       list: "stats",

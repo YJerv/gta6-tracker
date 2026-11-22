@@ -25,7 +25,7 @@ import {
   visibleThroughChapter,
 } from "../js/progress.js";
 import { ENABLED_TABS, MAP_LISTS, WEAPONS_FOUND_KEY, filterStorageKey, isTabEnabled, readFilters, readIdList, writeFilters, writeIdList } from "../js/config.js";
-import { clusterLocations, illustrationCredits, mapViewForCar, mapViewForPoints, parseRoute, payoutLine, renderCard, renderMain, stealTotals } from "../js/render.js";
+import { clusterLocations, illustrationCredits, mapViewForCar, mapViewForPoints, parseRoute, payoutLine, renderCard, renderMain, skillTotals, stealTotals } from "../js/render.js";
 import { validateAll } from "../scripts/schema.js";
 import { loadData } from "../scripts/validate.js";
 
@@ -76,7 +76,7 @@ test("schema rejects invented titles, missing sources, bad dates, and duplicate 
   assert.ok(validateAll(invented).some((error) => error.includes("PLACEHOLDER")));
 
   const unsourced = structuredClone(data);
-  unsourced.skills.drills[0].source = "";
+  unsourced.skills.items[0].source = "";
   assert.ok(validateAll(unsourced).some((error) => error.includes("source")));
 
   const priced = structuredClone(data);
@@ -144,7 +144,7 @@ test("spoilers cover later chapters until revealed or switched off", () => {
   const caughtUp = nextUp(catalog, doneChapterOne);
   assert.equal(caughtUp.story.id, "chapter-2-mission-1");
   assert.equal(caughtUp.story.hidden, true);
-  assert.equal(caughtUp.side.list, "drills");
+  assert.equal(caughtUp.side.list, "collectibles");
 });
 
 test("export and import round-trip, and rubbish is rejected", () => {
@@ -633,7 +633,7 @@ test("dropdown choices are remembered and the map button stays in the dock", () 
   assert.equal(isTabEnabled("steal"), true);
   assert.equal(MAP_LISTS.weapons.primary, "category");
   assert.equal(MAP_LISTS.weapons.progressList, "weaponPins");
-  assert.deepEqual(ENABLED_TABS, ["cars", "weapons", "steal"]);
+  assert.deepEqual(ENABLED_TABS, ["cars", "weapons", "steal", "skills"]);
   assert.match(css, /body\.map-open \.map-stage/);
   assert.match(css, /\.tabs\[hidden\]/);
   assert.match(css, /main \{[^}]*var\(--dock\)/);
@@ -687,14 +687,12 @@ test("money, map, skills, gear, and online render the right rows", () => {
   assert.match(secrets, /Secret 1/);
   assert.doesNotMatch(secrets, /Secret 3/);
 
-  const skills = renderMain(model(progress, { section: "skills", sub: "settings" }));
-  assert.match(skills, /Look and move dead zones/);
-  assert.match(skills, /Generic/);
-  assert.match(skills, /Not a GTA VI setting/);
-
-  const stats = renderMain(model(progress, { section: "skills", sub: "stats" }));
-  assert.match(stats, /Stat 1/);
-  assert.doesNotMatch(stats, /Stat 3/);
+  const skills = renderMain(model(progress, { section: "skills" }));
+  assert.match(skills, /coaching suggestions/);
+  assert.match(skills, /General advice/);
+  assert.match(skills, /Display and performance/);
+  assert.doesNotMatch(skills, /No map pin/);
+  assert.doesNotMatch(skills, /Jason vs Lucia/);
 
   const gear = renderMain(model(progress, { section: "gear", sub: "vehicles" }));
   assert.match(gear, /Early-story vehicle 1/);
@@ -706,10 +704,11 @@ test("money, map, skills, gear, and online render the right rows", () => {
 });
 
 test("routes and the home dashboard stay inside the spoiler boundary", () => {
-  assert.deepEqual(ENABLED_TABS, ["cars", "weapons", "steal"]);
+  assert.deepEqual(ENABLED_TABS, ["cars", "weapons", "steal", "skills"]);
   assert.equal(isTabEnabled("cars"), true);
   assert.equal(isTabEnabled("weapons"), true);
   assert.equal(isTabEnabled("steal"), true);
+  assert.equal(isTabEnabled("skills"), true);
   assert.equal(isTabEnabled("story"), false);
   assert.equal(isTabEnabled("home"), false);
   assert.deepEqual(parseRoute(""), { section: "cars", sub: null });
@@ -719,7 +718,8 @@ test("routes and the home dashboard stay inside the spoiler boundary", () => {
   assert.deepEqual(parseRoute("#/steal"), { section: "steal", sub: null });
   assert.deepEqual(parseRoute("#/map/secrets"), { section: "cars", sub: null });
   assert.deepEqual(parseRoute("#/nope"), { section: "cars", sub: null });
-  assert.equal(parseRoute("#/skills/drills").section, "cars");
+  assert.deepEqual(parseRoute("#/skills"), { section: "skills", sub: null });
+  assert.deepEqual(parseRoute("#/skills/drills"), { section: "skills", sub: null });
 
   const home = renderMain(model(emptyProgress(NOW), { section: "home" }));
   assert.match(home, /Next up/);
@@ -728,7 +728,7 @@ test("routes and the home dashboard stay inside the spoiler boundary", () => {
   assert.match(home, /data-goto="#\/cars"/);
   assert.doesNotMatch(home, /data-goto="#\/money"/);
   assert.doesNotMatch(home, /data-goto="#\/map/);
-  assert.doesNotMatch(home, /data-goto="#\/skills/);
+  assert.match(home, /data-goto="#\/skills"/);
   assert.doesNotMatch(home, /data-goto="#\/gear/);
   assert.doesNotMatch(home, /data-goto="#\/online/);
   assert.match(home, /named guides/);
@@ -740,12 +740,57 @@ test("routes and the home dashboard stay inside the spoiler boundary", () => {
     .reduce((current, id) => toggleId(current, "missions", id, NOW).progress, emptyProgress(NOW));
   const laterHome = renderMain(model(caughtUp, { section: "home" }));
   assert.doesNotMatch(laterHome, /data-goto="#\/story"/);
-  assert.doesNotMatch(laterHome, /data-goto="#\/skills/);
+  assert.match(laterHome, /data-goto="#\/skills"/);
   const withCash = setCash(emptyProgress(NOW), { cash: "40", note: "<b>note</b>" }, NOW).progress;
   const cashed = renderMain(model(withCash, { section: "home" }));
   assert.match(cashed, />40</);
   assert.equal(cashed.includes("<b>"), false);
   assert.match(cashed, /&lt;b&gt;note/);
+});
+
+test("skills list goals, settings, and drill spots", () => {
+  assert.equal(data.skills.items.length, 27);
+  assert.equal(data.skills.section, "skills");
+  assert.equal(skillTotals(data.skills.items, []).total, 27);
+  assert.equal(skillTotals(data.skills.items, ["skill-driving", "skill-driving#0"]).done, 1);
+  const progress = emptyProgress(NOW);
+  const list = renderMain(model(progress, { section: "skills" }));
+  assert.match(list, /coaching suggestions/);
+  assert.match(list, /General advice/);
+  assert.match(list, /<h2 class="group-title">Settings<\/h2>[\s\S]*<h2 class="group-title">Driving<\/h2>/);
+  assert.doesNotMatch(list, /Jason vs Lucia/);
+  const display = renderMain({
+    ...model(progress, { section: "skills" }),
+    listUi: { category: "all", found: "all", selected: "skill-display-performance", spot: null },
+    skillsFound: [],
+  });
+  assert.match(display, /no Performance mode/);
+  assert.match(display, /30fps/);
+  assert.match(display, /120Hz/);
+  assert.match(display, /settings-table/);
+  assert.match(display, /Tick this goal/);
+  assert.doesNotMatch(display, /data-map-x/);
+  const scheme = renderMain({
+    ...model(progress, { section: "skills" }),
+    listUi: { category: "all", found: "all", selected: "skill-control-scheme", spot: null },
+    skillsFound: ["skill-control-scheme"],
+  });
+  assert.match(scheme, /Default/);
+  assert.match(scheme, /3 full passes/);
+  assert.match(scheme, /Goal done/);
+  assert.match(scheme, /<ol class="steps">/);
+  const driving = renderMain({
+    ...model(progress, { section: "skills" }),
+    listUi: { category: "Driving", found: "all", selected: "skill-driving", spot: null },
+    skillsFound: ["skill-driving#0"],
+  });
+  assert.match(driving, /data-map-x/);
+  assert.match(driving, /Gellhorn/);
+  assert.match(driving, /aria-pressed="true"/);
+  assert.doesNotMatch(driving, /Display and performance/);
+  const broken = structuredClone(data);
+  broken.skills.items[0].drills[0].duration = "10 minutes";
+  assert.ok(validateAll(broken).some((error) => error.includes("reps or duration")));
 });
 
 test("the page, manifest, and service worker are static and relative", () => {

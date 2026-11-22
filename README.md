@@ -12,7 +12,7 @@ Open `index.html` over HTTP (not as a bare file, or the JSON will not load). The
 - **Story** is chapters and missions, with steps, bonus or gold objectives, and missables inside each card.
 - **Money** lists earners and purchases by an editorial early / mid / late stage.
 - **Map** is a collectible checklist you can filter by area. Secrets are the other tab.
-- **Skills** has generic Xbox settings, generic driving and aiming drills, and placeholder stat rows.
+- **Skills** is settings, driving, combat, and the other practice lists. Each card has a goal you can tick. Drills and goals are coaching built on the sourced mechanics.
 - **Gear** is vehicles and weapons by the same stages, including where to find them once that text is real.
 - **Online** is news plus a readiness checklist. It is not a description of a live mode.
 
@@ -216,26 +216,7 @@ Easter eggs, separate from the map checklist. `entries`: `id`, `title`, `verifie
 
 ### `data/skills.json`
 
-Three arrays:
-
-- `xboxSettings`: the shared fields plus `topic` (`dead-zone`, `aim-assist`, `sensitivity`, `feedback`, `display`, `layout`) and `detail` (up to 800 characters).
-- `drills`: shared fields plus `discipline` (`driving` or `aiming`) and `detail`.
-- `stats`: shared fields plus `detail`. These are the game-stat placeholders.
-
-Generic rows must say they are not GTA VI instructions.
-
-```json
-{
-  "id": "setting-dead-zone",
-  "title": "Look and move dead zones",
-  "verified": true,
-  "source": "Generic Xbox Series controller guidance. Not a GTA VI setting, and not a recommended number.",
-  "generic": true,
-  "chapterOrder": null,
-  "topic": "dead-zone",
-  "detail": "If the camera creeps while your thumb is off the stick, the dead zone is too small."
-}
-```
+`map` plus `items`. Each item has `category`, `summary`, `instructions`, `drills` (exactly one of `reps` or `duration`), `goal`, optional `recommendedSettings`, `notes`, an official picture under `images/skills/`, and `locations` (empty when there is no drill-spot pin). `generic: true` is general advice, such as deadzones or online prep. `chapterOrder` `0` means no chapter gate. Goal ticks are stored apart from the other lists, under `gta6-tracker-skills-goals-v1`.
 
 ### `data/gear.json`
 

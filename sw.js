@@ -1,5 +1,5 @@
 /* Bump CACHE when shipped files change so old caches are dropped. */
-const CACHE = "gta6-tracker-v12";
+const CACHE = "gta6-tracker-v13";
 
 const RELATIVE_ASSETS = [
   "./index.html",
@@ -164,6 +164,33 @@ const RELATIVE_ASSETS = [
   "./images/steal/steal-store-stick-ups.jpg",
   "./images/steal/steal-sunken-treasure.jpg",
   "./images/steal/steal-towable-atms.jpg",
+  "./images/skills/skill-aiming-gunplay.jpg",
+  "./images/skills/skill-audio-settings.jpg",
+  "./images/skills/skill-boating.jpg",
+  "./images/skills/skill-camera-settings.jpg",
+  "./images/skills/skill-character-stats.jpg",
+  "./images/skills/skill-combat-focus.jpg",
+  "./images/skills/skill-control-scheme.jpg",
+  "./images/skills/skill-cover-combat.jpg",
+  "./images/skills/skill-deadzones-tuning-method.jpg",
+  "./images/skills/skill-display-performance.jpg",
+  "./images/skills/skill-drive-by.jpg",
+  "./images/skills/skill-driving.jpg",
+  "./images/skills/skill-flying.jpg",
+  "./images/skills/skill-hud-minimap-ui.jpg",
+  "./images/skills/skill-jason-vs-lucia.jpg",
+  "./images/skills/skill-loadout-weapon-wheel.jpg",
+  "./images/skills/skill-melee.jpg",
+  "./images/skills/skill-money-efficiency.jpg",
+  "./images/skills/skill-motorcycles-bikes.jpg",
+  "./images/skills/skill-movement-accessibility.jpg",
+  "./images/skills/skill-online-prep.jpg",
+  "./images/skills/skill-phone-navigation.jpg",
+  "./images/skills/skill-sensitivity-response-curve.jpg",
+  "./images/skills/skill-stealth.jpg",
+  "./images/skills/skill-swimming-diving.jpg",
+  "./images/skills/skill-targeting-aim-assist.jpg",
+  "./images/skills/skill-wanted-level-evasion.jpg",
 ];
 
 const ASSETS = RELATIVE_ASSETS.map((asset) => new URL(asset, self.location).href);

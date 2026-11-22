@@ -3,7 +3,7 @@
  * Put a name back in this list to switch that section on again.
  * Names match the data-tab buttons in index.html: home, story, money, map, skills, cars, gear, online.
  */
-export const ENABLED_TABS = ["cars", "weapons", "steal"];
+export const ENABLED_TABS = ["cars", "weapons", "steal", "skills"];
 
 /** First name in ENABLED_TABS is the page the app opens on. */
 export const DEFAULT_TAB = ENABLED_TABS[0];
@@ -44,10 +44,20 @@ export const MAP_LISTS = {
     primary: "category",
     prompt: "Tap a job to see its spots on the map.",
   },
+  skills: {
+    id: "skills",
+    title: "Skills",
+    noun: "skill",
+    plural: "skills",
+    progressList: "skillGoals",
+    primary: "category",
+    prompt: "Tap a skill to open the steps, drills, and goal.",
+  },
 };
 
 export const WEAPONS_FOUND_KEY = "gta6-tracker-weapons-found-v1";
 export const STEAL_FOUND_KEY = "gta6-tracker-steal-found-v1";
+export const SKILLS_FOUND_KEY = "gta6-tracker-skills-goals-v1";
 
 export function filterStorageKey(id) {
   return `gta6-tracker-filters-${id}-v1`;

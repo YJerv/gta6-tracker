@@ -1,5 +1,5 @@
-import { MAP_LISTS, STEAL_FOUND_KEY, WEAPONS_FOUND_KEY, isTabEnabled, readFilters, readIdList, writeFilters, writeIdList } from "./config.js";
-import { illustrationCredits, mapViewForCar, mapViewForPoints, renderMain, parseRoute, ROUTES, stealTotals } from "./render.js";
+import { MAP_LISTS, SKILLS_FOUND_KEY, STEAL_FOUND_KEY, WEAPONS_FOUND_KEY, isTabEnabled, readFilters, readIdList, writeFilters, writeIdList } from "./config.js";
+import { illustrationCredits, mapViewForCar, mapViewForPoints, renderMain, parseRoute, ROUTES, skillTotals, stealTotals } from "./render.js";
 import {
   STORAGE_KEY,
   buildCatalog,
@@ -16,10 +16,10 @@ import {
   toggleId,
 } from "./progress.js";
 
-const DATA_FILES = [
+const DATA_FILES = [...new Set([
   "meta", "story", "money", "collectibles", "secrets", "skills", "gear", "online",
   ...Object.keys(MAP_LISTS).filter((name) => isTabEnabled(name)),
-];
+])];
 
 let state = null;
 let deferredPrompt = null;
@@ -91,7 +91,8 @@ function openEnabledRoute() {
 }
 
 function viewProgress() {
-  return { ...state.progress, weaponPins: state.weaponFound || [] };
+  const goals = (state.skillsFound || []).filter((id) => !id.includes("#"));
+  return { ...state.progress, weaponPins: state.weaponFound || [], skillGoals: goals };
 }
 
 function syncChrome(route) {
@@ -104,6 +105,10 @@ function syncChrome(route) {
     const count = stealTotals(state.data.steal.items, state.stealFound);
     percent.textContent = `${count.done}/${count.total}`;
     if (unit) unit.textContent = "spots";
+  } else if (route.section === "skills" && state.data.skills) {
+    const count = skillTotals(state.data.skills.items, state.skillsFound);
+    percent.textContent = `${count.done}/${count.total}`;
+    if (unit) unit.textContent = "goals";
   } else {
     percent.textContent = `${report.percent}%`;
     if (unit) unit.textContent = "done";
@@ -145,7 +150,7 @@ function listSpec(section) {
 function listRows(spec) {
   const file = state.data[spec.id];
   if (!file) return [];
-  if (spec.id === "steal") return file.items || [];
+  if (spec.id === "steal" || spec.id === "skills") return file.items || [];
   return Array.isArray(file[spec.id]) ? file[spec.id] : [];
 }
 
@@ -175,6 +180,7 @@ function render() {
     cashError: state.cashError,
     listUi: filters ? { ...filters, selected: state.picked[spec.id], spot: state.spot?.[spec.id] || null } : null,
     stealFound: state.stealFound,
+    skillsFound: state.skillsFound,
     carsUi: route.section === "cars" && filters ? { ...filters, selected: state.picked.cars } : null,
   });
   if (spec && state.picked[spec.id]) {
@@ -349,7 +355,8 @@ function onClick(event) {
   }
   const spot = target.closest("[data-spot]");
   if (spot) {
-    focusSteal(spot.dataset.item, spot.dataset.spot);
+    const section = currentRoute().section === "skills" ? "skills" : "steal";
+    focusBoard(section, spot.dataset.item, spot.dataset.spot);
     return;
   }
   if (target.closest("[data-map-open]")) {
@@ -372,7 +379,7 @@ function onClick(event) {
   const pinOpen = target.closest("[data-pin], [data-open]");
   if (pinOpen && !(pinOpen instanceof HTMLSelectElement)) {
     const spec = listSpec(currentRoute().section);
-    if (spec?.id === "steal") focusSteal(pinOpen.dataset.open || pinOpen.dataset.pin, null);
+    if (spec?.id === "steal" || spec?.id === "skills") focusBoard(spec.id, pinOpen.dataset.open || pinOpen.dataset.pin, null);
     else focusPin(pinOpen.dataset.pin || pinOpen.dataset.open);
     return;
   }
@@ -403,6 +410,14 @@ function onClick(event) {
       const has = state.stealFound.includes(id);
       state.stealFound = has ? state.stealFound.filter((item) => item !== id) : state.stealFound.concat(id);
       writeIdList(localStorage, STEAL_FOUND_KEY, state.stealFound);
+      render();
+      announce(has ? "Cleared." : "Ticked.");
+      return;
+    }
+    if (list === "skills") {
+      const has = state.skillsFound.includes(id);
+      state.skillsFound = has ? state.skillsFound.filter((item) => item !== id) : state.skillsFound.concat(id);
+      writeIdList(localStorage, SKILLS_FOUND_KEY, state.skillsFound);
       render();
       announce(has ? "Cleared." : "Ticked.");
       return;
@@ -536,15 +551,26 @@ function stealSpot(id) {
   return null;
 }
 
-function focusSteal(itemId, spotId, { animate = true } = {}) {
+function focusBoard(section, itemId, spotId, { animate = true } = {}) {
   const from = { ...state.mapView };
-  state.picked.steal = itemId;
-  state.spot.steal = spotId || null;
+  state.picked[section] = itemId;
+  if (!state.spot) state.spot = {};
+  state.spot[section] = spotId || null;
   render();
-  const item = stealItems().find((entry) => entry.id === itemId);
+  const item = (state.data[section]?.items || []).find((entry) => entry.id === itemId);
   const points = !item ? [] : (spotId ? item.locations.filter((place) => place.id === spotId) : item.locations);
   const frame = mapFrame();
-  if (!points.length || !frame || state.picked.steal !== itemId) return;
+  if (!points.length || !frame || state.picked[section] !== itemId) {
+    if (!points.length) {
+      const home = { x: 0, y: 0, scale: 1 };
+      if (animate) glideMap(from, home);
+      else {
+        state.mapView = home;
+        applyMapTransform(home, { instant: true });
+      }
+    }
+    return;
+  }
   const to = points.length === 1 ? mapViewForCar(points[0], frame) : mapViewForPoints(points, frame);
   if (animate) {
     glideMap(from, to);
@@ -553,6 +579,10 @@ function focusSteal(itemId, spotId, { animate = true } = {}) {
     state.mapView = to;
     applyMapTransform(to, { instant: true });
   }
+}
+
+function focusSteal(itemId, spotId, options) {
+  focusBoard("steal", itemId, spotId, options);
 }
 
 function zoomStealCluster(ids) {
@@ -600,13 +630,12 @@ function showAllPins({ animate = true } = {}) {
   }
 }
 
-function stealView() {
-  const item = stealItems().find((entry) => entry.id === state.picked.steal);
+function boardView(section) {
+  const item = (state.data[section]?.items || []).find((entry) => entry.id === state.picked[section]);
   const frame = mapFrame();
   if (!item || !frame) return null;
-  const points = state.spot.steal
-    ? item.locations.filter((place) => place.id === state.spot.steal)
-    : item.locations;
+  const spotId = state.spot?.[section];
+  const points = spotId ? item.locations.filter((place) => place.id === spotId) : item.locations;
   if (!points.length) return { x: 0, y: 0, scale: 1 };
   return points.length === 1 ? mapViewForCar(points[0], frame) : mapViewForPoints(points, frame);
 }
@@ -614,8 +643,8 @@ function stealView() {
 function refitMap() {
   if (!state) return;
   const spec = listSpec(currentRoute().section);
-  if (spec?.id === "steal" && state.picked.steal) {
-    const view = stealView();
+  if ((spec?.id === "steal" || spec?.id === "skills") && state.picked[spec.id]) {
+    const view = boardView(spec.id);
     if (view) {
       state.mapView = view;
       applyMapTransform(view, { instant: true });
@@ -794,13 +823,15 @@ async function boot() {
       filters: readFilters(localStorage),
       weaponFound: readIdList(localStorage, WEAPONS_FOUND_KEY),
       stealFound: readIdList(localStorage, STEAL_FOUND_KEY),
-      picked: { cars: null, weapons: null, steal: null },
-      spot: { steal: null },
-      scroll: { cars: 0, weapons: 0, steal: 0 },
+      skillsFound: readIdList(localStorage, SKILLS_FOUND_KEY),
+      picked: { cars: null, weapons: null, steal: null, skills: null },
+      spot: { steal: null, skills: null },
+      scroll: { cars: 0, weapons: 0, steal: 0, skills: 0 },
       mapViews: {
         cars: { x: 0, y: 0, scale: 1 },
         weapons: { x: 0, y: 0, scale: 1 },
         steal: { x: 0, y: 0, scale: 1 },
+        skills: { x: 0, y: 0, scale: 1 },
       },
       mapView: { x: 0, y: 0, scale: 1 },
       mapOpen: false,
