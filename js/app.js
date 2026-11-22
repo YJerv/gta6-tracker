@@ -1,4 +1,4 @@
-import { MAP_LISTS, SKILLS_FOUND_KEY, STEAL_FOUND_KEY, WEAPONS_FOUND_KEY, isTabEnabled, readFilters, readIdList, writeFilters, writeIdList } from "./config.js";
+import { MAP_LISTS, SKILLS_FOUND_KEY, SKILLS_GROUPS_KEY, STEAL_FOUND_KEY, WEAPONS_FOUND_KEY, isTabEnabled, readFilters, readIdList, writeFilters, writeIdList } from "./config.js";
 import { illustrationCredits, mapViewForCar, mapViewForPoints, renderMain, parseRoute, ROUTES, skillTotals, stealTotals } from "./render.js";
 import {
   STORAGE_KEY,
@@ -181,6 +181,7 @@ function render() {
     listUi: filters ? { ...filters, selected: state.picked[spec.id], spot: state.spot?.[spec.id] || null } : null,
     stealFound: state.stealFound,
     skillsFound: state.skillsFound,
+    skillGroups: state.skillGroups,
     carsUi: route.section === "cars" && filters ? { ...filters, selected: state.picked.cars } : null,
   });
   if (spec && state.picked[spec.id]) {
@@ -365,6 +366,19 @@ function onClick(event) {
   }
   if (target.closest("[data-map-close]")) {
     setMapOpen(false);
+    return;
+  }
+  const skillGroup = target.closest("[data-skill-group]");
+  if (skillGroup) {
+    const name = skillGroup.dataset.skillGroup;
+    const closed = state.skillGroups.includes(name);
+    state.skillGroups = closed
+      ? state.skillGroups.filter((item) => item !== name)
+      : state.skillGroups.concat(name);
+    writeIdList(localStorage, SKILLS_GROUPS_KEY, state.skillGroups);
+    state.restoreFocus = `[data-skill-group="${CSS.escape(name)}"]`;
+    render();
+    announce(closed ? "Shown." : "Hidden.");
     return;
   }
   const blockToggle = target.closest("[data-block-toggle]");
@@ -824,6 +838,7 @@ async function boot() {
       weaponFound: readIdList(localStorage, WEAPONS_FOUND_KEY),
       stealFound: readIdList(localStorage, STEAL_FOUND_KEY),
       skillsFound: readIdList(localStorage, SKILLS_FOUND_KEY),
+      skillGroups: readIdList(localStorage, SKILLS_GROUPS_KEY),
       picked: { cars: null, weapons: null, steal: null, skills: null },
       spot: { steal: null, skills: null },
       scroll: { cars: 0, weapons: 0, steal: 0, skills: 0 },

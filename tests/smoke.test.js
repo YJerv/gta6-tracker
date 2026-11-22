@@ -757,7 +757,17 @@ test("skills list goals, settings, and drill spots", () => {
   const list = renderMain(model(progress, { section: "skills" }));
   assert.match(list, /coaching suggestions/);
   assert.match(list, /General advice/);
-  assert.match(list, /<h2 class="group-title">Settings<\/h2>[\s\S]*<h2 class="group-title">Driving<\/h2>/);
+  assert.match(list, /data-skill-group="Settings"[^>]*aria-expanded="true"/);
+  assert.match(list, /data-skill-group="Driving"[\s\S]{0,240}>0\/2</);
+  const folded = renderMain({
+    ...model(progress, { section: "skills" }),
+    skillsFound: ["skill-driving"],
+    skillGroups: ["Driving"],
+  });
+  assert.match(folded, /data-skill-group="Driving"[^>]*aria-expanded="false"/);
+  assert.match(folded, /skill-group-body" hidden/);
+  assert.match(folded, />1\/2</);
+  assert.match(folded, /data-skill-group="Settings"[^>]*aria-expanded="true"/);
   assert.doesNotMatch(list, /Jason vs Lucia/);
   const display = renderMain({
     ...model(progress, { section: "skills" }),

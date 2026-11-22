@@ -522,6 +522,14 @@ function renderSkills(model) {
     if (!last || last.category !== row.item.category) groups.push({ category: row.item.category, rows: [row] });
     else last.rows.push(row);
   }
+  const categoryTotals = new Map();
+  for (const row of visible) {
+    const stat = categoryTotals.get(row.item.category) || { done: 0, total: 0 };
+    stat.total += 1;
+    if (found.has(row.item.id)) stat.done += 1;
+    categoryTotals.set(row.item.category, stat);
+  }
+  const collapsed = new Set(model.skillGroups || []);
   const list = groups.map((group) => {
     const rows = group.rows.map((row) => {
       const item = row.item;
@@ -536,7 +544,18 @@ function renderSkills(model) {
         <span class="goal-pill${done ? " is-done" : ""}">${done ? "Done" : "To do"}</span>
       </button>`;
     }).join("");
-    return `<section class="skill-group"><h2 class="group-title">${e(group.category)}</h2>${rows}</section>`;
+    const open = !collapsed.has(group.category);
+    const count = categoryTotals.get(group.category) || { done: 0, total: group.rows.length };
+    return `<section class="skill-group">
+      <h2 class="group-title">
+        <button type="button" class="chapter-toggle" data-skill-group="${e(group.category)}" aria-expanded="${open ? "true" : "false"}" aria-label="${open ? "Hide" : "Show"} ${e(group.category)}. ${count.done} of ${count.total} goals done.">
+          ${chevron(open)}
+          <span class="chapter-name">${e(group.category)}</span>
+          <span class="count">${count.done}/${count.total}</span>
+        </button>
+      </h2>
+      <div class="skill-group-body"${open ? "" : " hidden"}>${rows}</div>
+    </section>`;
   }).join("") || `<p class="fine">No skills in this filter.</p>`;
   const card = selected ? renderSkillCard(selected.item, found, spot) : `<p class="fine">${e(MAP_LISTS.skills.prompt)}</p>`;
   const hiddenHtml = [...new Set(hidden.map((row) => row.item.chapterOrder))].map((order) => shield(

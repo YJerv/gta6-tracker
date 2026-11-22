@@ -947,6 +947,18 @@ body.map-open .map-close {
 
 .group-title { margin-top: 18px; }
 
+.skill-group { margin-top: 12px; }
+
+.skill-group h2.group-title {
+  margin: 0 0 8px;
+  font-size: inherit;
+  letter-spacing: 0;
+}
+
+.skill-group .chapter-toggle { margin: 0; }
+
+.skill-group-body[hidden] { display: none; }
+
 .count { margin: 6px 0 0; color: var(--faint); font-size: 0.85rem; }
 
 .shield-bars { margin-bottom: 10px; }
@@ -1444,12 +1456,12 @@ textarea { min-height: 140px; resize: vertical; }
 
 @media (prefers-contrast: more) and (prefers-color-scheme: dark) {
   :root { --ink: #fff; --muted: #fff; --faint: #fff; --line: #fff; }
-  .goal-banner, .skill-row, .car-found, .tabs button, .drill { border-width: 2px; }
+  .goal-banner, .skill-row, .car-found, .tabs button, .drill, .chapter-toggle { border-width: 2px; }
 }
 
 @media (prefers-contrast: more) and (prefers-color-scheme: light) {
   :root { --ink: #000; --muted: #1a0a12; --faint: #1a0a12; --line: #000; --bg: #fff; --bg-2: #fff; }
-  .goal-banner, .skill-row, .car-found, .tabs button, .drill { border: 2px solid #000; color: #000; }
+  .goal-banner, .skill-row, .car-found, .tabs button, .drill, .chapter-toggle { border: 2px solid #000; color: #000; }
 }
 
 @media (prefers-reduced-motion: reduce) {

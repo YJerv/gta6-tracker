@@ -58,6 +58,7 @@ export const MAP_LISTS = {
 export const WEAPONS_FOUND_KEY = "gta6-tracker-weapons-found-v1";
 export const STEAL_FOUND_KEY = "gta6-tracker-steal-found-v1";
 export const SKILLS_FOUND_KEY = "gta6-tracker-skills-goals-v1";
+export const SKILLS_GROUPS_KEY = "gta6-tracker-skills-groups-v1";
 
 export function filterStorageKey(id) {
   return `gta6-tracker-filters-${id}-v1`;
