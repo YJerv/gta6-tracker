@@ -1,0 +1,33 @@
+{
+  "name": "GTA VI Tracker",
+  "short_name": "VI Tracker",
+  "description": "Offline walkthrough and progress tracker for GTA VI on Xbox Series X|S.",
+  "lang": "en-GB",
+  "dir": "ltr",
+  "id": "./",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#120816",
+  "theme_color": "#120816",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

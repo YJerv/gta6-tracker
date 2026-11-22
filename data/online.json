@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-11-20",
+  "section": "online",
+  "description": "Online news plus a readiness checklist. News must cite a source. Do not speculate about a mode that has not been announced. Checklist rows are generic preparation, not GTA VI online facts.",
+  "news": [
+    {
+      "id": "online-news-launch-status",
+      "title": "No online mode announced",
+      "verified": true,
+      "source": "Project brief for this tracker, recorded 20 November 2026. Not a publisher statement copied from the web.",
+      "generic": false,
+      "chapterOrder": null,
+      "date": "2026-11-20",
+      "detail": "As of 20 November 2026 this tracker has no verified announcement of a GTA VI online mode. Launch is recorded as single-player on 19 November 2026. Replace this note when a primary source says otherwise."
+    },
+    {
+      "id": "online-news-placeholder-1",
+      "title": "PLACEHOLDER: Online news item - to be filled from a verified source",
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "chapterOrder": null,
+      "date": null,
+      "detail": "PLACEHOLDER: Dated announcement to be filled from a verified source. Do not speculate."
+    }
+  ],
+  "checklist": [
+    {
+      "id": "online-ready-aim",
+      "title": "Settle the aim setup you will actually keep",
+      "verified": true,
+      "source": "Generic readiness idea for a future competitive mode. Not a GTA VI online fact.",
+      "generic": true,
+      "chapterOrder": null,
+      "detail": "Pick one sensitivity and one aim-assist category and leave them alone while you play the story. Muscle memory is the point. This does not describe an announced online mode."
+    },
+    {
+      "id": "online-ready-driving",
+      "title": "Practise calm recoveries in a car",
+      "verified": true,
+      "source": "Generic readiness idea for a future competitive mode. Not a GTA VI online fact.",
+      "generic": true,
+      "chapterOrder": null,
+      "detail": "Use the driving drills until a slide is something you steer out of, rather than something you panic through. There is no verified online handling model to copy."
+    },
+    {
+      "id": "online-ready-story",
+      "title": "Learn the controls in the story first",
+      "verified": true,
+      "source": "Generic readiness idea for a future competitive mode. Not a GTA VI online fact.",
+      "generic": true,
+      "chapterOrder": null,
+      "detail": "Finish the story missions you care about before any future online mode, so you are not learning the pad under pressure. This is preparation only."
+    },
+    {
+      "id": "online-ready-loadout",
+      "title": "Note what you like once the lists are verified",
+      "verified": true,
+      "source": "Generic readiness idea for a future competitive mode. Not a GTA VI online fact.",
+      "generic": true,
+      "chapterOrder": null,
+      "detail": "When the vehicle and weapon entries stop being placeholders, tick the ones you actually enjoy. Do not plan a loadout from unverified rows."
+    },
+    {
+      "id": "online-ready-rules",
+      "title": "Agree house rules with your friend",
+      "verified": true,
+      "source": "Generic readiness idea for a future competitive mode. Not a GTA VI online fact.",
+      "generic": true,
+      "chapterOrder": null,
+      "detail": "Before a competitive mode exists, agree how you will play: no story spoilers, and whether you are there to win or to mess about. The tracker cannot settle that for you."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "gta6-tracker",
+  "private": true,
+  "type": "module",
+  "description": "Offline GTA VI walkthrough tracker. Static files, no build step.",
+  "scripts": {
+    "test": "node --test tests/smoke.test.js",
+    "validate": "node scripts/validate.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

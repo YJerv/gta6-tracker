@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-11-20",
+  "section": "money",
+  "description": "Money tips split into editorial stages (early, mid, late). Stages are not official chapter names. early maps to chapterOrder 1, mid to 3, late to 5. No prices are included until a verified source provides them.",
+  "earners": [
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "money-earner-early-1",
+      "title": "PLACEHOLDER: Early-story earner 1 - to be filled from a verified guide",
+      "stage": "early",
+      "chapterOrder": 1,
+      "detail": "PLACEHOLDER: Why this is a strong way to make money at this stage, and what it requires. No payout is verified."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "money-earner-early-2",
+      "title": "PLACEHOLDER: Early-story earner 2 - to be filled from a verified guide",
+      "stage": "early",
+      "chapterOrder": 1,
+      "detail": "PLACEHOLDER: Why this is a strong way to make money at this stage, and what it requires. No payout is verified."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "money-earner-mid-1",
+      "title": "PLACEHOLDER: Mid-story earner 1 - to be filled from a verified guide",
+      "stage": "mid",
+      "chapterOrder": 3,
+      "detail": "PLACEHOLDER: Why this is a strong way to make money at this stage, and what it requires. No payout is verified."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "money-earner-mid-2",
+      "title": "PLACEHOLDER: Mid-story earner 2 - to be filled from a verified guide",
+      "stage": "mid",
+      "chapterOrder": 3,
+      "detail": "PLACEHOLDER: Why this is a strong way to make money at this stage, and what it requires. No payout is verified."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "money-earner-late-1",
+      "title": "PLACEHOLDER: Late-story earner 1 - to be filled from a verified guide",
+      "stage": "late",
+      "chapterOrder": 5,
+      "detail": "PLACEHOLDER: Why this is a strong way to make money at this stage, and what it requires. No payout is verified."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "money-earner-late-2",
+      "title": "PLACEHOLDER: Late-story earner 2 - to be filled from a verified guide",
+      "stage": "late",
+      "chapterOrder": 5,
+      "detail": "PLACEHOLDER: Why this is a strong way to make money at this stage, and what it requires. No payout is verified."
+    }
+  ],
+  "purchases": [
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "money-buy-early-1",
+      "title": "PLACEHOLDER: Early-story purchase 1 - to be filled from a verified guide",
+      "stage": "early",
+      "chapterOrder": 1,
+      "detail": "PLACEHOLDER: What is worth buying at this stage, and why. No price is verified."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "money-buy-early-2",
+      "title": "PLACEHOLDER: Early-story purchase 2 - to be filled from a verified guide",
+      "stage": "early",
+      "chapterOrder": 1,
+      "detail": "PLACEHOLDER: What is worth buying at this stage, and why. No price is verified."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "money-buy-mid-1",
+      "title": "PLACEHOLDER: Mid-story purchase 1 - to be filled from a verified guide",
+      "stage": "mid",
+      "chapterOrder": 3,
+      "detail": "PLACEHOLDER: What is worth buying at this stage, and why. No price is verified."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "money-buy-mid-2",
+      "title": "PLACEHOLDER: Mid-story purchase 2 - to be filled from a verified guide",
+      "stage": "mid",
+      "chapterOrder": 3,
+      "detail": "PLACEHOLDER: What is worth buying at this stage, and why. No price is verified."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "money-buy-late-1",
+      "title": "PLACEHOLDER: Late-story purchase 1 - to be filled from a verified guide",
+      "stage": "late",
+      "chapterOrder": 5,
+      "detail": "PLACEHOLDER: What is worth buying at this stage, and why. No price is verified."
+    },
+    {
+      "verified": false,
+      "source": null,
+      "generic": false,
+      "id": "money-buy-late-2",
+      "title": "PLACEHOLDER: Late-story purchase 2 - to be filled from a verified guide",
+      "stage": "late",
+      "chapterOrder": 5,
+      "detail": "PLACEHOLDER: What is worth buying at this stage, and why. No price is verified."
+    }
+  ]
+}

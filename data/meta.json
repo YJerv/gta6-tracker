@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-11-20",
+  "section": "meta",
+  "description": "Framing for this tracker. Do not add mission, character, location, or price facts here. Record a source on every verified fact.",
+  "gameTitle": "GTA VI",
+  "platform": "Xbox Series X|S",
+  "releaseDate": "2026-11-19",
+  "singlePlayerOnly": true,
+  "onlineAnnounced": false,
+  "statusNote": "Single-player only. No online mode announced as of 20 November 2026.",
+  "facts": [
+    {
+      "id": "fact-release-date",
+      "title": "Launched 19 November 2026",
+      "verified": true,
+      "source": "Project brief for this tracker, recorded 20 November 2026.",
+      "generic": false,
+      "detail": "Launch date recorded for this tracker. This file does not list missions, characters, locations, or prices."
+    },
+    {
+      "id": "fact-single-player",
+      "title": "Single-player only, no online mode announced",
+      "verified": true,
+      "source": "Project brief for this tracker, recorded 20 November 2026.",
+      "generic": false,
+      "detail": "Recorded as single-player at launch. No online mode was announced as of 20 November 2026."
+    }
+  ]
+}
