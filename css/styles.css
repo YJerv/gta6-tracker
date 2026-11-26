@@ -17,6 +17,10 @@
   --dock: 148px;
   --font: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --display: "Arial Narrow", "Roboto Condensed", "Segoe UI", sans-serif;
+  --header-bg: #120816;
+  --header-ink: #fffef8;
+  --header-faint: #ffd6ea;
+  --header-stat: #ffc57a;
   color-scheme: dark;
 }
 
@@ -82,9 +86,23 @@ summary:focus-visible {
   justify-content: space-between;
   gap: 12px;
   padding: calc(10px + env(safe-area-inset-top)) 16px 10px;
-  background: rgba(18, 8, 22, 0.92);
+  background: var(--header-bg);
+  color: var(--header-ink);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 79, 154, 0.4);
+}
+
+.topbar h1 {
+  color: var(--header-ink);
+}
+
+.topbar .eyebrow,
+.topbar .header-stat span {
+  color: var(--header-faint);
+}
+
+.topbar .header-stat strong {
+  color: var(--header-stat);
 }
 
 .brand { display: flex; gap: 10px; align-items: center; min-width: 0; }
@@ -477,6 +495,22 @@ main {
   width: 100%;
   transform-origin: 0 0;
   transition: transform 0.35s ease;
+  overflow: hidden;
+}
+
+.map-tiles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.map-tiles img {
+  position: absolute;
+  display: block;
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
 }
 
 body.map-open .map-stage {
@@ -1466,6 +1500,11 @@ textarea { min-height: 140px; resize: vertical; }
 @media (prefers-contrast: more) and (prefers-color-scheme: light) {
   :root { --ink: #000; --muted: #1a0a12; --faint: #1a0a12; --line: #000; --bg: #fff; --bg-2: #fff; }
   .goal-banner, .skill-row, .car-found, .tabs button, .drill, .chapter-toggle { border: 2px solid #000; color: #000; }
+  .topbar { background: #000; color: #fff; }
+  .topbar h1 { color: #fff; }
+  .topbar .eyebrow,
+  .topbar .header-stat span { color: #fff; }
+  .topbar .header-stat strong { color: #ffe08a; }
 }
 
 @media (prefers-reduced-motion: reduce) {

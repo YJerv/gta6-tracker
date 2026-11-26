@@ -1,5 +1,5 @@
 /* Bump CACHE when shipped files change so old caches are dropped. */
-const CACHE = "leonida-guide-v1";
+const CACHE = "leonida-guide-v2";
 
 const RELATIVE_ASSETS = [
   "./index.html",
@@ -11,6 +11,7 @@ const RELATIVE_ASSETS = [
   "./js/progress.js",
   "./js/render.js",
   "./js/html.js",
+  "./js/map-tiles.js",
   "./manifest.webmanifest",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
@@ -28,6 +29,7 @@ const RELATIVE_ASSETS = [
   "./data/steal.json",
   "./data/online.json",
   "./images/cars/leonida-map.jpg",
+  "./images/map-tiles/manifest.json",
   "./images/cars/car-annis-hellion.jpg",
   "./images/cars/car-ascot-paragon.jpg",
   "./images/cars/car-bf-bandito.jpg",

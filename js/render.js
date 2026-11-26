@@ -88,6 +88,19 @@ export function hashFor(item) {
 }
 
 const FOCUS_SCALE = { exact: 2.8, street: 1.9, area: 1.2 };
+export const MAX_MAP_SCALE = 5;
+
+/** Build the pannable map layer, including an empty tile holder for hi-res zoom. */
+export function mapLayerHtml(map, { emptyFallback = false } = {}) {
+  const hasSize = map && map.width && map.height;
+  const ratio = hasSize ? `${map.width} / ${map.height}` : "1 / 1";
+  const ratioValue = hasSize ? map.height / map.width : 1;
+  const picture = map && map.image
+    ? `<img class="map-photo" src="${e(map.image)}" alt="${e(map.imageAlt || "")}" width="${Number(map.width)}" height="${Number(map.height)}" draggable="false">`
+    : (emptyFallback ? `<div class="map-grid" aria-hidden="true"></div><p class="map-empty">Map image to come</p>` : "");
+  const layer = `<div class="map-layer" data-map-layer data-map-ratio="${ratioValue}" style="aspect-ratio:${ratio}">${picture}<div class="map-tiles" data-map-tiles aria-hidden="true"></div></div>`;
+  return { ratio, ratioValue, picture, layer };
+}
 
 /** Centre a car pin in the map window. Exact is closer than street, and area is wider. */
 export function mapViewForCar(car, frame, requestedScale) {
@@ -95,7 +108,7 @@ export function mapViewForCar(car, frame, requestedScale) {
   const baseW = frame.stageW;
   const baseH = baseW * frame.ratio;
   const fit = Math.min(1, frame.stageH / baseH);
-  const scale = Math.min(4, Math.max(fit, requested));
+  const scale = Math.min(MAX_MAP_SCALE, Math.max(fit, requested));
   const px = (Number(car.mapX) / 100) * baseW * scale;
   const py = (Number(car.mapY) / 100) * baseH * scale;
   const minX = Math.min(0, frame.stageW - baseW * scale);
@@ -125,7 +138,7 @@ export function mapViewForPoints(points, frame) {
   const spanH = Math.max(1, ((maxPY - minPY) / 100) * baseH);
   const fit = Math.min(1, frame.stageH / baseH);
   const cover = Math.max(fit, frame.stageH / baseH);
-  const scale = Math.min(4, Math.max(cover, Math.min(frame.stageW / spanW, frame.stageH / spanH)));
+  const scale = Math.min(MAX_MAP_SCALE, Math.max(cover, Math.min(frame.stageW / spanW, frame.stageH / spanH)));
   return mapViewForCar({
     mapX: (minPX + maxPX) / 2,
     mapY: (minPY + maxPY) / 2,
@@ -503,11 +516,7 @@ function renderSkills(model) {
     filterSelect("found", "Goal", ui.found || "all", [["all", "All"], ["open", "To do"], ["found", "Done"]]),
   ].join("");
   const map = (file && file.map) || {};
-  const ratio = map.width && map.height ? `${map.width} / ${map.height}` : "1 / 1";
-  const ratioValue = map.width && map.height ? map.height / map.width : 1;
-  const picture = map.image
-    ? `<img class="map-photo" src="${e(map.image)}" alt="${e(map.imageAlt || "")}" width="${Number(map.width)}" height="${Number(map.height)}" draggable="false">`
-    : "";
+  const { ratio, ratioValue, picture, layer: mapLayer } = mapLayerHtml(map);
   const pinSource = selected
     ? (selected.item.locations.length ? [selected] : [])
     : shown;
@@ -567,7 +576,7 @@ function renderSkills(model) {
   const note = "Drills and goals are coaching suggestions built on sourced mechanics. Notes say when a guide gives the target. Xbox Series X|S, Default control scheme.";
   return `<p class="coach-note">${e(note)}</p>
     <div class="map-stage" data-map-stage>
-      <div class="map-layer" data-map-layer data-map-ratio="${ratioValue}" style="aspect-ratio:${ratio}">${picture}</div>
+      ${mapLayer}
       ${pinHtml}
       ${showAll}
       <button type="button" class="map-open" data-map-open>Map</button>
@@ -896,11 +905,7 @@ function renderMapList(model, spec) {
   }
   const numberOf = (entry) => visible.indexOf(entry) + 1;
   const map = (file && file.map) || {};
-  const ratio = map.image && map.width && map.height ? `${map.width} / ${map.height}` : "1 / 1";
-  const ratioValue = map.image && map.width && map.height ? map.height / map.width : 1;
-  const picture = map.image
-    ? `<img class="map-photo" src="${e(map.image)}" alt="${e(map.imageAlt || "")}" width="${Number(map.width)}" height="${Number(map.height)}" draggable="false">`
-    : `<div class="map-grid" aria-hidden="true"></div><p class="map-empty">Map image to come</p>`;
+  const { ratio, ratioValue, picture, layer: mapLayer } = mapLayerHtml(map, { emptyFallback: true });
   const legend = [...new Set(shown.map((entry) => entry.car.chapterOrder).filter((order) => order != null))]
     .sort((a, b) => a - b)
     .map((order) => `<span class="legend-item"><i class="map-dot" data-chapter="${order}"></i>${order === 0 ? "Open" : `Ch ${order}`}</span>`)
@@ -949,9 +954,7 @@ function renderMapList(model, spec) {
   )).join("");
   const credit = `${map.imageCredit ? `<p class="map-credit">${e(map.imageCredit)}</p>` : ""}${map.source ? `<p class="map-credit">${e(map.source)}</p>` : ""}`;
   return `<div class="map-stage" data-map-stage>
-      <div class="map-layer" data-map-layer data-map-ratio="${ratioValue}" style="aspect-ratio:${ratio}">
-        ${picture}
-      </div>
+      ${mapLayer}
       ${pinHtml}
       ${showAll}
       <button type="button" class="map-open" data-map-open>Map</button>
@@ -1044,11 +1047,7 @@ function renderSteal(model) {
     filterSelect("sort", "Sort", ui.sort || "default", [["default", "Default"], ["payout", "Best pay"]]),
   ].join("");
   const map = file.map || {};
-  const ratio = map.width && map.height ? `${map.width} / ${map.height}` : "1 / 1";
-  const ratioValue = map.width && map.height ? map.height / map.width : 1;
-  const picture = map.image
-    ? `<img class="map-photo" src="${e(map.image)}" alt="${e(map.imageAlt || "")}" width="${Number(map.width)}" height="${Number(map.height)}" draggable="false">`
-    : "";
+  const { ratio, ratioValue, picture, layer: mapLayer } = mapLayerHtml(map);
   let pinHtml = "";
   if (spot) {
     pinHtml = `<button type="button" class="map-pin is-small precision-${e(spot.precision)} is-selected" data-spot="${e(spot.id)}" data-item="${e(selected.id)}" data-map-x="${spot.mapX}" data-map-y="${spot.mapY}" aria-label="${e(spot.name)}"><span class="map-dot"></span></button>`;
@@ -1089,7 +1088,7 @@ function renderSteal(model) {
   )).join("");
   const credit = `${map.imageCredit ? `<p class="map-credit">${e(map.imageCredit)}</p>` : ""}${map.source ? `<p class="map-credit">${e(map.source)}</p>` : ""}`;
   return `<div class="map-stage" data-map-stage>
-      <div class="map-layer" data-map-layer data-map-ratio="${ratioValue}" style="aspect-ratio:${ratio}">${picture}</div>
+      ${mapLayer}
       ${pinHtml}
       ${showAll}
       <button type="button" class="map-open" data-map-open>Map</button>

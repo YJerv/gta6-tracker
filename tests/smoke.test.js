@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
@@ -25,7 +25,8 @@ import {
   visibleThroughChapter,
 } from "../js/progress.js";
 import { ENABLED_TABS, MAP_LISTS, WEAPONS_FOUND_KEY, filterStorageKey, isTabEnabled, readFilters, readIdList, writeFilters, writeIdList } from "../js/config.js";
-import { clusterLocations, illustrationCredits, mapViewForCar, mapViewForPoints, parseRoute, payoutLine, renderCard, renderMain, skillTotals, stealTotals } from "../js/render.js";
+import { clusterLocations, illustrationCredits, mapLayerHtml, mapViewForCar, mapViewForPoints, MAX_MAP_SCALE, parseRoute, payoutLine, renderCard, renderMain, skillTotals, stealTotals } from "../js/render.js";
+import { pickTileLevel } from "../js/map-tiles.js";
 import { validateAll } from "../scripts/schema.js";
 import { loadData } from "../scripts/validate.js";
 
@@ -812,4 +813,55 @@ test("the page, manifest, and service worker are static and relative", () => {
   for (const icon of manifest.icons) {
     readFileSync(path.join(root, icon.src.replace(/^\.\//, "")));
   }
+});
+
+test("header text stays high-contrast on the dark top bar in light mode", () => {
+  const css = readFileSync(path.join(root, "css/styles.css"), "utf8");
+  assert.match(css, /--header-ink:\s*#fffef8/);
+  assert.match(css, /--header-faint:\s*#ffd6ea/);
+  assert.match(css, /--header-stat:\s*#ffc57a/);
+  assert.match(css, /--header-bg:\s*#120816/);
+  assert.match(css, /\.topbar h1\s*\{[^}]*var\(--header-ink\)/s);
+  assert.match(css, /\.topbar \.eyebrow[\s\S]*?var\(--header-faint\)/);
+  assert.doesNotMatch(css, /@media \(prefers-color-scheme: light\) \{[\s\S]*?--header-ink:\s*#000/);
+  const page = renderMain(model(emptyProgress(NOW), { section: "cars" }));
+  assert.match(page, /data-map-tiles/);
+});
+
+test("the tiled map pyramid is local, high-res, and keeps pin math at 1402×1920", () => {
+  assert.equal(MAX_MAP_SCALE, 5);
+  assert.equal(data.cars.map.width, 1402);
+  assert.equal(data.cars.map.height, 1920);
+  const tiles = JSON.parse(readFileSync(path.join(root, "images/map-tiles/manifest.json"), "utf8"));
+  assert.equal(tiles.tileSize, 512);
+  assert.equal(tiles.minZoom, 0);
+  assert.equal(tiles.maxZoom, 3);
+  assert.equal(tiles.sourceWidth, 5610);
+  assert.equal(tiles.sourceHeight, 7680);
+  assert.equal(tiles.path, "images/map-tiles/{z}/{x}_{y}.jpg");
+  assert.equal(tiles.overview, "images/cars/leonida-map.jpg");
+  const expected = { 0: [1402, 1920, 3, 4], 1: [2805, 3840, 6, 8], 2: [4208, 5760, 9, 12], 3: [5610, 7680, 11, 15] };
+  let total = 0;
+  for (const level of tiles.levels) {
+    const [width, height, cols, rows] = expected[level.z];
+    assert.equal(level.width, width);
+    assert.equal(level.height, height);
+    assert.equal(level.cols, cols);
+    assert.equal(level.rows, rows);
+    const names = readdirSync(path.join(root, "images/map-tiles", String(level.z))).filter((name) => name.endsWith(".jpg"));
+    assert.equal(names.length, cols * rows);
+    total += names.length;
+    assert.ok(names.includes("0_0.jpg"));
+  }
+  assert.equal(total, 333);
+  const z0 = pickTileLevel(tiles.levels, 480, 1);
+  assert.equal(z0.z, 0);
+  const z3 = pickTileLevel(tiles.levels, 480 * 5, 2);
+  assert.equal(z3.z, 3);
+  const frame = { stageW: 360, stageH: 640, ratio: 1920 / 1402 };
+  const close = mapViewForCar({ mapX: 50, mapY: 40, precision: "exact" }, frame, 5);
+  assert.equal(close.scale, 5);
+  const markup = mapLayerHtml(data.cars.map);
+  assert.match(markup.layer, /data-map-tiles/);
+  assert.match(markup.layer, /leonida-map\.jpg/);
 });

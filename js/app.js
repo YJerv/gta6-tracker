@@ -1,5 +1,6 @@
 import { MAP_LISTS, SKILLS_FOUND_KEY, SKILLS_GROUPS_KEY, STEAL_FOUND_KEY, WEAPONS_FOUND_KEY, isTabEnabled, readFilters, readIdList, writeFilters, writeIdList } from "./config.js";
-import { illustrationCredits, mapViewForCar, mapViewForPoints, renderMain, parseRoute, ROUTES, skillTotals, stealTotals } from "./render.js";
+import { illustrationCredits, mapViewForCar, mapViewForPoints, MAX_MAP_SCALE, renderMain, parseRoute, ROUTES, skillTotals, stealTotals } from "./render.js";
+import { loadMapTiles, updateMapTiles } from "./map-tiles.js";
 import {
   STORAGE_KEY,
   buildCatalog,
@@ -705,7 +706,7 @@ function clampMap() {
   const ratio = Number(layer.dataset.mapRatio) || 1;
   const baseH = baseW * ratio;
   const fit = Math.min(1, stage.clientHeight / baseH);
-  view.scale = Math.min(4, Math.max(fit, view.scale));
+  view.scale = Math.min(MAX_MAP_SCALE, Math.max(fit, view.scale));
   const minX = Math.min(0, stage.clientWidth - baseW * view.scale);
   const minY = Math.min(0, stage.clientHeight - baseH * view.scale);
   view.x = Math.min(0, Math.max(minX, view.x));
@@ -724,6 +725,7 @@ function applyMapTransform(view, options) {
   }
   const { x, y, scale } = current;
   layer.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+  updateMapTiles(stage, layer, current);
   const baseW = stage.clientWidth;
   const ratio = Number(layer.dataset.mapRatio) || 1;
   const baseH = baseW * ratio;
@@ -859,6 +861,9 @@ async function boot() {
       lastSection: null,
     };
     render();
+    loadMapTiles().then(() => {
+      if (state) applyMapTransform(state.mapView, { instant: true });
+    });
     registerSw();
   } catch {
     const main = document.getElementById("main");
