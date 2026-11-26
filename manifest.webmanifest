@@ -1,0 +1,33 @@
+{
+  "name": "Leonida Map & Guide",
+  "short_name": "Leonida Guide",
+  "description": "Unofficial fan companion for cars, weapons, jobs and skills. Not affiliated with or endorsed by Rockstar Games or Take-Two Interactive.",
+  "lang": "en-GB",
+  "dir": "ltr",
+  "id": "./",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#120816",
+  "theme_color": "#120816",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

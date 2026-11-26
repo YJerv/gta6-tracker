@@ -1,0 +1,1683 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-11-26",
+  "section": "skills",
+  "description": "Skills and settings to master in GTA VI, for Xbox Series X|S on the Default control scheme. Each item has instructions, drills and one measurable goal. Mechanics and setting names come from the guides named in each item's source; drills and goals are coaching suggestions unless the notes say a guide gives them. verified is true only when two or more independent guides agree. generic is true for general practice or controller advice that is not specific to GTA VI. Pins use the same Leonida poster transform as steal.json.",
+  "map": {
+    "image": "images/cars/leonida-map.jpg",
+    "imageCredit": "Original companion artwork & illustrated map",
+    "imageAlt": "Illustrated unofficial companion map of Leonida, showing Vice City on the east coast, the Keys to the south, inland counties, and the road network.",
+    "source": "Pin positions use game coordinates from GTADB landmarks data (CC BY 4.0, https://map.gtadb.org), GTA6Map.io and GTA6 GPS, fitted to this illustrated companion map.",
+    "width": 1402,
+    "height": 1920
+  },
+  "items": [
+    {
+      "id": "skill-control-scheme",
+      "title": "Control scheme: pick your layout first",
+      "category": "Settings",
+      "verified": true,
+      "source": "G2A News, \"GTA 6 controls guide: PS5 and Xbox\" (https://www.g2a.com/news/gta-6-news/gta-6-controls-guide-ps5-and-xbox/), 19 Nov 2026; Rockstar Support, Grand Theft Auto VI controls articles (support.rockstargames.com); The Games Wiki, \"How to Drive Cars\" (https://thegameswiki.com/gta6/wiki/how-to-drive-cars), updated 22 Nov 2026; AllThingsHow, \"GTA 6 Accessibility Options on PS5: Where Each Setting Lives\" (https://allthings.how/gta-6-accessibility-options/), updated 19 Nov 2026. All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "Choose Default or Classic in Settings > Control Scheme and learn the Xbox buttons that matter most before anything else.",
+      "instructions": [
+        "Pause, choose Settings. Tabs run Control Scheme, Controller, Gameplay, Display, UI, Camera, Audio; switch tabs with LB/RB.",
+        "On Control Scheme pick Default, Classic or Left-Handed. Left-Handed swaps the sticks and shoulder buttons.",
+        "Default (on foot): click Left Stick to run, click again to sprint; A jump/climb; B crouch; X melee.",
+        "Classic moves these: A run, X jump, click Left Stick crouch, B melee. As a GTA V veteran you may prefer it.",
+        "Core Xbox Default buttons: LT aim (hold), RT shoot, RB cover, LB tap = holster / hold = loadout wheel, Y interact, View = map.",
+        "D-pad: Up = phone (hold = WAiNK), Left = radio, Right = explosives / partner menu, Down = objective, minimap, quick navigation.",
+        "In vehicles: RT accelerate, LT brake/reverse, A handbrake, click Left Stick = horn/nitrous.",
+        "Read the diagrams on the Control Scheme tab (On Foot, Aiming, Melee, Land/Water Vehicles, Aircraft, Bicycle, Swimming, Parachute).",
+        "Backing out of Settings asks SAVE SETTINGS?; confirm or your change is lost."
+      ],
+      "drills": [
+        {
+          "name": "Button walk-through",
+          "setup": "Any quiet street near Jason's house, on foot.",
+          "howTo": "Run, sprint, jump, crouch, take cover, open the loadout wheel, the phone and the map, saying each button out loud.",
+          "reps": "3 full passes",
+          "duration": null
+        },
+        {
+          "name": "Scheme A/B test",
+          "setup": "Try Default for one session and Classic for the next.",
+          "howTo": "Note which one you mis-press less during a short police chase. Keep it and stop switching.",
+          "reps": null,
+          "duration": "2 sessions of 20 minutes"
+        }
+      ],
+      "goal": "Do every core action (sprint, jump, crouch, cover, holster, loadout, phone, map, handbrake) without looking at the controller, 10 out of 10 times.",
+      "recommendedSettings": [
+        {
+          "setting": "Control Scheme",
+          "value": "Default (or Classic if GTA V muscle memory keeps fighting you)",
+          "why": "Classic puts run on A and crouch on the stick click, like older GTA layouts; Default is what every guide's button list uses."
+        }
+      ],
+      "notes": "Button names are from G2A's Xbox Default list and The Games Wiki. PS5 guides map LT=L2, RT=R2, LB=L1, RB=R1, A=Cross, B=Circle, X=Square, Y=Triangle, View=touchpad. Adaptive triggers and the Adaptive Speed Limiter are PS5-only. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-control-scheme.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "A low-angle shot of Jason and Lucia standing side by side.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-control-scheme.jpg",
+      "imageVerified": true,
+      "locations": []
+    },
+    {
+      "id": "skill-targeting-aim-assist",
+      "title": "Targeting and aim assist",
+      "category": "Settings",
+      "verified": true,
+      "source": "NerdsChalk, \"All gameplay settings in Grand Theft Auto VI\" (https://nerdschalk.com/all-gameplay-settings-grand-theft-auto-vi/); AllThingsHow, \"GTA 6 Accessibility Options on PS5: Where Each Setting Lives\" (https://allthings.how/gta-6-accessibility-options/), updated 19 Nov 2026; GTA6Map.net wiki, \"GTA 6 Accessibility Options\" (https://www.gta6map.net/wiki/gta-6/guides/gta-6-accessibility-options), 18 Nov 2026; AskNPC, \"GTA 6 combat basics\" (https://asknpc.com/gta6/en/combat-basics), reviewed 21 Nov 2026; Beebom, \"GTA 6 best controller settings\" (https://beebom.com/gta-6-best-controller-settings/); games.gg, \"GTA 6 best controller settings\" (https://games.gg/grand-theft-auto-vi/guides/gta-6-best-controller-settings/); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "Set Targeting, Aim Assist Strength and the combat assists in Settings > Gameplay > Combat before you tune sensitivity.",
+      "instructions": [
+        "Open Settings > Gameplay. The Combat group holds Targeting, Aim Assist Strength, Shooting Assist, Drive-By Assist, Quick Draw, Cover Selection and Holster in Vehicle.",
+        "Targeting: Lock-On (always tries to lock the nearest target), Partial (default: aim moves toward a nearby target but does not lock) or Free Aim.",
+        "Aim Assist Strength (0-5, default 4) slows the reticle as it passes over a target.",
+        "Shooting Assist helps track close targets on foot; Drive-By Assist aims at nearby targets when you shoot from a vehicle.",
+        "Quick Draw re-equips your last gun (the off-hand longarm if you carry two).",
+        "Holster in Vehicle: Automatic stows a drawn gun after a calm spell in a car; Manual leaves it to you.",
+        "games.gg's advice: choose Targeting first, then tune sensitivity around it."
+      ],
+      "drills": [
+        {
+          "name": "Partial vs Free Aim range test",
+          "setup": "Rodgers Ranch Market Range, Beginner class (free, pistol).",
+          "howTo": "Run the class 5 times on Partial, then 5 on Free Aim; write down your best time for each.",
+          "reps": "5 runs per setting",
+          "duration": null
+        },
+        {
+          "name": "Assist step-down",
+          "setup": "Same range, once Market Range Beginner Gold is easy.",
+          "howTo": "Drop Aim Assist Strength one step (4 to 3) and re-run until you are back to Gold.",
+          "reps": "Until 3 Golds in a row",
+          "duration": null
+        }
+      ],
+      "goal": "Gold (3 seconds or less) on Market Range Beginner with Targeting on Partial, 3 runs in a row.",
+      "recommendedSettings": [
+        {
+          "setting": "Targeting",
+          "value": "Partial",
+          "why": "Default, and what Beebom and G2A recommend: it pulls toward targets without taking control away like Lock-On."
+        },
+        {
+          "setting": "Aim Assist Strength",
+          "value": "4 (default)",
+          "why": "Beebom keeps 4; lower it only once your aim is consistent."
+        },
+        {
+          "setting": "Shooting Assist",
+          "value": "On",
+          "why": "Helps close-range tracking on foot."
+        },
+        {
+          "setting": "Drive-By Assist",
+          "value": "On",
+          "why": "Makes car shooting much easier while learning."
+        },
+        {
+          "setting": "Quick Draw",
+          "value": "On",
+          "why": "Faster to get back to your last gun."
+        },
+        {
+          "setting": "Holster in Vehicle",
+          "value": "Automatic",
+          "why": "One less thing in chases; switch to Manual if it stows your gun at bad moments."
+        }
+      ],
+      "notes": "The Games Wiki says there is no lock-on, but the Targeting setting lists a Lock-On option (NerdsChalk, AllThingsHow, GTA6Map.net), so treat Lock-On as an assist mode, not a GTA V hard lock. Lock-On Time (Beebom: 4) appears only in Beebom. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-targeting-aim-assist.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Jason, in a Leonida tank top, leans on a car window holding a pistol while Lucia waits behind him.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-targeting-aim-assist.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "targeting-aim-assist-qnc9v6ps",
+          "name": "Rodgers Ranch Market Range",
+          "area": "Port Gellhorn",
+          "mapX": 34.9,
+          "mapY": 32.0,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "skill-sensitivity-response-curve",
+      "title": "Look and aim sensitivity, acceleration and response curve",
+      "category": "Settings",
+      "verified": true,
+      "source": "Beebom, \"GTA 6 best controller settings\" (https://beebom.com/gta-6-best-controller-settings/); Destructoid, \"Best settings for GTA 6 on PS5 and Xbox Series X|S\" (https://www.destructoid.com/best-settings-for-gta-6-on-ps5-and-xbox-series-xs/); Dexerto, \"GTA 6 best controller settings\" (https://www.dexerto.com/wikis/gta-6/best-controller-settings/); games.gg, \"GTA 6 best controller settings\" (https://games.gg/grand-theft-auto-vi/guides/gta-6-best-controller-settings/); G2A News, \"GTA 6 controls guide: PS5 and Xbox\" (https://www.g2a.com/news/gta-6-news/gta-6-controls-guide-ps5-and-xbox/), 19 Nov 2026; AllThingsHow, \"GTA 6 Accessibility Options on PS5: Where Each Setting Lives\" (https://allthings.how/gta-6-accessibility-options/), updated 19 Nov 2026; Vice Manual, \"GTA 6 settings: every menu option\" (https://vicemanual.com/gta-6-settings); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "Tune the four sensitivities, the two accelerations and the Aim Response Curve in Settings > Controller, one change at a time.",
+      "instructions": [
+        "Open Settings > Controller. All four sensitivities (Horizontal/Vertical Look, Horizontal/Vertical Aim) and Look/Aim Acceleration start at 7 (Vice Manual reads Horizontal Look as 6; check yours).",
+        "Look Sensitivity = how fast the camera turns with the right stick. Aim Sensitivity = the same while holding LT.",
+        "Set Look first: raise Horizontal Look until a 180-degree turn feels quick but you do not overshoot doors.",
+        "Set Aim a little below Look (G2A), so fine aiming is calmer than general looking.",
+        "Leave both accelerations and the curve at default on the first pass (games.gg); then try lower Aim Acceleration if the reticle 'jumps'.",
+        "Aim Response Curve options: Standard, Linear, Precision, Aggressive. Linear or Precision give the most predictable small adjustments.",
+        "After every change, test on the same range drill before changing anything else."
+      ],
+      "drills": [
+        {
+          "name": "Overshoot test",
+          "setup": "Rodgers Ranch Market Range, Beginner class.",
+          "howTo": "Flick between the outermost targets; if you overshoot, drop Horizontal Aim by 1; if you are slow, raise it by 1.",
+          "reps": "10 flicks per value",
+          "duration": null
+        },
+        {
+          "name": "Tracking test",
+          "setup": "Hunting Range Beginner (free, pistol) at Rodgers Ranch.",
+          "howTo": "Track moving animals and go for heads; keep the value that gives the higher score.",
+          "reps": "3 runs per value",
+          "duration": null
+        }
+      ],
+      "goal": "Settle on values that get you Gold (2,500 points) on Hunting Range Beginner, then do not change them for a week.",
+      "recommendedSettings": [
+        {
+          "setting": "Horizontal Look Sensitivity",
+          "value": "8 (Beebom 8-9, Dexerto 8, Destructoid 7)",
+          "why": "A bit faster than default for turning; games.gg suggests trying 9."
+        },
+        {
+          "setting": "Vertical Look Sensitivity",
+          "value": "7 (Beebom 7-8, Dexerto 7, Destructoid 7)",
+          "why": "All three guides land on about 7."
+        },
+        {
+          "setting": "Horizontal Aim Sensitivity",
+          "value": "5-7, start at 6 (Beebom 7-8, Dexerto 5, Destructoid 5)",
+          "why": "Guides split; start in the middle and adjust with the overshoot test."
+        },
+        {
+          "setting": "Vertical Aim Sensitivity",
+          "value": "5-6 (Beebom 6-7, Dexerto 5, Destructoid 6)",
+          "why": "Lower vertical aim keeps headshots steady."
+        },
+        {
+          "setting": "Look Acceleration",
+          "value": "6-7 (Beebom 6-7, Dexerto 6; default 7)",
+          "why": "Leave at default first."
+        },
+        {
+          "setting": "Aim Acceleration",
+          "value": "4-6 (Beebom 5-6, Dexerto 4; default 7)",
+          "why": "Lower acceleration ramps the reticle up less suddenly."
+        },
+        {
+          "setting": "Aim Response Curve",
+          "value": "Linear (Beebom, Destructoid) or Standard (Dexerto)",
+          "why": "Linear gives a 1:1 feel; try Precision if small corrections feel too fast."
+        }
+      ],
+      "notes": "The three guides disagree on exact numbers, so these are starting ranges, not one correct setting. Middle-of-range starting values (e.g. Horizontal Aim 6) are a coaching choice. Aircraft inversion is a separate setting (Inverted Controls > Aircraft Movement). Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-sensitivity-response-curve.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Jason aims a rifle over a rooftop ledge at night, with Vice City towers behind him.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-sensitivity-response-curve.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "sensitivity-response-curve-qnc9v6ps",
+          "name": "Rodgers Ranch Market Range",
+          "area": "Port Gellhorn",
+          "mapX": 34.9,
+          "mapY": 32.0,
+          "precision": "exact"
+        },
+        {
+          "id": "sensitivity-response-curve-q5dg586p",
+          "name": "Rodgers Ranch Hunting Range",
+          "area": "Port Gellhorn",
+          "mapX": 35.1,
+          "mapY": 32.3,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "skill-deadzones-tuning-method",
+      "title": "Stick deadzones and how to tune settings",
+      "category": "Settings",
+      "verified": true,
+      "source": "Beebom, \"GTA 6 best controller settings\" (https://beebom.com/gta-6-best-controller-settings/); G2A News, \"GTA 6 controls guide: PS5 and Xbox\" (https://www.g2a.com/news/gta-6-news/gta-6-controls-guide-ps5-and-xbox/), 19 Nov 2026; games.gg, \"GTA 6 best controller settings\" (https://games.gg/grand-theft-auto-vi/guides/gta-6-best-controller-settings/); AllThingsHow, \"GTA 6 Accessibility Options on PS5: Where Each Setting Lives\" (https://allthings.how/gta-6-accessibility-options/), updated 19 Nov 2026. All read 22 November 2026.",
+      "generic": true,
+      "chapterOrder": 0,
+      "summary": "Lower the stick deadzones until just before drift, and change only one setting at a time.",
+      "instructions": [
+        "Open Settings > Controller and find the left and right stick deadzone rows; Beebom gives the default as 4.",
+        "Drift test: lower a deadzone by one step, let go of the stick and watch the camera or character for 10 seconds.",
+        "If anything moves on its own, go back up one step. That is your lowest safe value (G2A: lowest value with no drift).",
+        "Change one setting at a time, then test it on the same drill (G2A).",
+        "Give a new value at least one full session before judging it; your hands need time to adapt.",
+        "Write your final values down so you can restore them after RESTORE DEFAULT or on a new console."
+      ],
+      "drills": [
+        {
+          "name": "Drift test",
+          "setup": "Stand still in an open area, then sit still in a parked car.",
+          "howTo": "Lower the right-stick deadzone one step at a time and watch for drift with hands off; repeat for the left stick.",
+          "reps": "1 pass per stick",
+          "duration": null
+        },
+        {
+          "name": "One-change log",
+          "setup": "A notes app on your real phone.",
+          "howTo": "Each session, change one setting, run the same range drill and note your result.",
+          "reps": null,
+          "duration": "1 week"
+        }
+      ],
+      "goal": "Both deadzones at the lowest value with zero drift over a 10-second hands-off test, and a written list of your final settings.",
+      "recommendedSettings": [
+        {
+          "setting": "Left stick deadzone",
+          "value": "2-3 (Beebom; default 4), or lowest with no drift",
+          "why": "Smaller deadzone = quicker response to small stick movements."
+        },
+        {
+          "setting": "Right stick deadzone",
+          "value": "2-3 (Beebom; default 4), or lowest with no drift",
+          "why": "Finer aim adjustments; worn sticks may need more."
+        }
+      ],
+      "notes": "generic is true: the drift test and change-one-thing method are general controller advice, though the deadzone rows are GTA VI settings. Exact row names vary between guides (AllThingsHow just says 'stick deadzones'). Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-deadzones-tuning-method.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Jason drives with a pistol in his hand while Lucia sits behind him in the car.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-deadzones-tuning-method.jpg",
+      "imageVerified": true,
+      "locations": []
+    },
+    {
+      "id": "skill-camera-settings",
+      "title": "Camera tab: height, follow speed and comfort",
+      "category": "Settings",
+      "verified": true,
+      "source": "Vice Manual, \"GTA 6 settings: every menu option\" (https://vicemanual.com/gta-6-settings); GTA6Map.net wiki, \"GTA 6 Camera Settings\" (https://www.gta6map.net/wiki/gta-6/guides/gta-6-camera-settings); Output Lag, \"GTA 6 Best Settings and Controls for PS5 and Xbox\" (https://outputlag.com/guides/gta-6-best-settings-controls/); GTA6Map.net wiki, \"GTA 6 Accessibility Options\" (https://www.gta6map.net/wiki/gta-6/guides/gta-6-accessibility-options), 18 Nov 2026; GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "Raise camera height for a wider view, slow the driver camera's snap-back, and turn off Weapon Sway for steadier aim.",
+      "instructions": [
+        "Open Settings > Camera.",
+        "There is no field-of-view slider and no first-person mode; Height (On Foot) and Height (All Vehicles) (Low/Medium/High) are the closest thing. High shows more.",
+        "Horizontal/Vertical Follow Speed (default 10) set how fast the camera swings back behind you; Follow Delay (Driver) sets how long it waits.",
+        "Hold D-pad Down for camera options, including three camera distances and the Cinematic camera.",
+        "Comfort: Weapon Sway (On by default) sways your gun while aiming; Off holds aim steady. Camera Shake and Camera Bob cut shake on runs and crashes.",
+        "Cinematic Kill Shot Frequency and Cinematic Vehicle Crash Frequency (default 3) control slow-motion cut-aways; lower them to keep control.",
+        "Aircraft: Follow Roll rolls the camera with the plane; Off keeps the horizon steadier.",
+        "Phone Display: Default or First Person (the only first-person view in the game)."
+      ],
+      "drills": [
+        {
+          "name": "Height comparison lap",
+          "setup": "Gellhorn Raceway, Introduction race, or your own block.",
+          "howTo": "One lap at Medium, one at High camera height; keep the one where you clip fewer corners.",
+          "reps": "2 laps per height",
+          "duration": null
+        },
+        {
+          "name": "Sway on/off range test",
+          "setup": "Rodgers Ranch Market Range.",
+          "howTo": "Five runs with Weapon Sway On, five Off; compare best times.",
+          "reps": "5 runs per setting",
+          "duration": null
+        }
+      ],
+      "goal": "Finish 3 clean laps of a Gellhorn Raceway loop with your chosen camera, never losing sight of the road after a corner.",
+      "recommendedSettings": [
+        {
+          "setting": "Height (On Foot)",
+          "value": "High",
+          "why": "Widest view available, since there is no FOV slider (Vice Manual, Output Lag)."
+        },
+        {
+          "setting": "Height (All Vehicles)",
+          "value": "High",
+          "why": "See more traffic ahead; applies to aircraft too."
+        },
+        {
+          "setting": "Weapon Sway",
+          "value": "Off",
+          "why": "Holds your aim steady (GTA6Map.net)."
+        },
+        {
+          "setting": "Camera Shake",
+          "value": "Off",
+          "why": "Less shake in chases and crashes."
+        },
+        {
+          "setting": "Follow Delay (Driver)",
+          "value": "Raise from 0 if the camera snaps back too soon after you look around",
+          "why": "Per GTA6Map.net."
+        },
+        {
+          "setting": "Cinematic Kill Shot Frequency / Cinematic Vehicle Crash Frequency",
+          "value": "0-1",
+          "why": "Fewer cut-aways in fights and chases."
+        },
+        {
+          "setting": "Follow Roll",
+          "value": "Off",
+          "why": "Steadier horizon while flying."
+        }
+      ],
+      "notes": "The High/Off picks are coaching choices based on what the guides say each option does; no guide gives one best camera preset. A launch glitch can force first person (Output Lag), but it is not a setting. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-camera-settings.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Inside a moving car, a driver in a red cap grips the wheel while passengers ride along.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-camera-settings.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "camera-settings-d2wq04we",
+          "name": "Gellhorn Raceway - Introduction",
+          "area": "Port Gellhorn",
+          "mapX": 30.4,
+          "mapY": 42.6,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "skill-hud-minimap-ui",
+      "title": "HUD, minimap and reticle (UI tab)",
+      "category": "Settings",
+      "verified": true,
+      "source": "Leonida Notebook, \"GTA 6 UI and HUD settings\" (https://leonidanotebook.com/guides/gta-6-ui-hud-settings/), first-hand on Xbox Series S; Vice Manual, \"GTA 6 settings: every menu option\" (https://vicemanual.com/gta-6-settings); AllThingsHow, \"GTA 6 Accessibility Options on PS5: Where Each Setting Lives\" (https://allthings.how/gta-6-accessibility-options/), updated 19 Nov 2026; GTA6Map.net wiki, \"GTA 6 Accessibility Options\" (https://www.gta6map.net/wiki/gta-6/guides/gta-6-accessibility-options), 18 Nov 2026. All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "Make the minimap and compass always visible and keep the combat indicators on so you never miss a threat.",
+      "instructions": [
+        "Open Settings > UI (70 rows in 11 groups).",
+        "Navigation: Minimap = On / Dynamic (default) / Off; Minimap Size = Default / Large; Compass = On / Dynamic / Off (default Off).",
+        "GPS Route (On) draws your route; GPS Turn Indicators = On / Highways / Off shows upcoming turns on the HUD.",
+        "Reticle: Persistent Center Dot keeps a dot in the middle of the screen; Reticle Size and Reticle Shape make the crosshair bigger or simpler.",
+        "Combat: keep Threat Indicators (markers for nearby threats) and Damage Region Highlights On.",
+        "HUD Notifications: Reminder Tips give help after you fail, get busted or are wanted.",
+        "Map Blip Size, Minimap Blip Size and In-World Marker Size can be set to large."
+      ],
+      "drills": [
+        {
+          "name": "Minimap glance habit",
+          "setup": "Free roam; start a 1-star chase on purpose.",
+          "howTo": "Glance at the minimap/compass every few seconds to read the police search area, then break away.",
+          "reps": "5 chases",
+          "duration": null
+        },
+        {
+          "name": "Turn-indicator drive",
+          "setup": "Set a waypoint across Vice City.",
+          "howTo": "Drive there using only GPS Turn Indicators and the minimap; no stopping to open the map.",
+          "reps": "3 trips",
+          "duration": null
+        }
+      ],
+      "goal": "Reach 3 waypoints across Vice City in a row without opening the pause map.",
+      "recommendedSettings": [
+        {
+          "setting": "Minimap",
+          "value": "On",
+          "why": "Always visible instead of only on demand (Dynamic)."
+        },
+        {
+          "setting": "Compass",
+          "value": "On or Dynamic",
+          "why": "Dynamic shows it while driving, wanted or on a D-pad press."
+        },
+        {
+          "setting": "Minimap Size",
+          "value": "Large",
+          "why": "Easier to read the route and search area at a glance."
+        },
+        {
+          "setting": "GPS Turn Indicators",
+          "value": "On",
+          "why": "Directions on all roads while driving."
+        },
+        {
+          "setting": "Threat Indicators",
+          "value": "On (default)",
+          "why": "Shows threats nearby or in combat with you."
+        },
+        {
+          "setting": "Persistent Center Dot",
+          "value": "On if you feel motion sick, otherwise optional",
+          "why": "The game says it may help with motion sickness."
+        }
+      ],
+      "notes": "Leonida Notebook captured these rows first-hand on an Xbox Series S. Cops no longer appear on the radar automatically (Red Bull), so use Focus to spot them. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-hud-minimap-ui.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Lucia leans on a car window and smiles while Jason drives through Vice City.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-hud-minimap-ui.jpg",
+      "imageVerified": true,
+      "locations": []
+    },
+    {
+      "id": "skill-display-performance",
+      "title": "Display and performance on Xbox Series X|S",
+      "category": "Settings",
+      "verified": true,
+      "source": "Digital Foundry, \"GTA 6: PS5 vs PS5 Pro vs Xbox Series X and Series S\" (https://www.digitalfoundry.net/features/gta-6-ps5-vs-ps5-pro-xbox-series-x-and-series-s-which-console-plays-best); TechRadar, report quoting Rockstar's Jonathon Ashcroft on the 30fps target (techradar.com); games.gg, GTA 6 graphics/display settings guide (games.gg/grand-theft-auto-vi/guides); AllThingsHow, \"GTA 6 Accessibility Options on PS5: Where Each Setting Lives\" (https://allthings.how/gta-6-accessibility-options/), updated 19 Nov 2026. All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "There is no Performance mode: the game targets 30fps on every console, so calibrate brightness, cut motion blur and use VRR if your TV has it.",
+      "instructions": [
+        "Know the limit: there is no Performance/Quality toggle; GTA VI targets 30fps on Series X, Series S, PS5 and PS5 Pro.",
+        "Digital Foundry: Series X can dip into the 20s in heavy chaos; Series S drops more.",
+        "Xbox can output a 120Hz signal with VRR at system level, which smooths dropped frames. Turn it on in the Xbox's TV & display options if your TV supports it.",
+        "In Settings > Display, run Brightness Calibration and set it so the symbol is barely visible.",
+        "Lower Motion Blur Strength (default 3) to Off or 1 for a clearer image when turning.",
+        "Set Flashbang to Dark and turn on Brightness Reduction if bright flashes bother you.",
+        "Player Status, Hit and Awareness Effects Intensity (default 5) control screen-edge effects; Awareness Effects warn of cops and off-screen threats, so keep that one up.",
+        "Safe Zone fits the HUD to your TV's edges."
+      ],
+      "drills": [
+        {
+          "name": "Calibration check",
+          "setup": "Display tab, then a night drive in Vice City.",
+          "howTo": "Calibrate brightness, then drive at night; if you cannot see into shadowed alleys, raise it one step.",
+          "reps": "1 pass",
+          "duration": null
+        },
+        {
+          "name": "Blur A/B",
+          "setup": "Any fast drive.",
+          "howTo": "One lap with Motion Blur Strength 3, one with 0-1; keep whichever lets you read traffic better.",
+          "reps": "2 laps",
+          "duration": null
+        }
+      ],
+      "goal": "Brightness calibrated (symbol barely visible), Motion Blur Strength at 1 or Off, and VRR/120Hz on at console level if your TV supports it.",
+      "recommendedSettings": [
+        {
+          "setting": "Brightness Calibration",
+          "value": "Symbol barely visible",
+          "why": "games.gg's guidance for correct shadow detail."
+        },
+        {
+          "setting": "Motion Blur Strength",
+          "value": "Off or 1",
+          "why": "Clearer image when panning at 30fps (games.gg)."
+        },
+        {
+          "setting": "Awareness Effects Intensity",
+          "value": "5 (default) or higher",
+          "why": "These screen-edge effects warn of cops and off-screen threats."
+        },
+        {
+          "setting": "Xbox console: 120Hz refresh + variable refresh rate",
+          "value": "On, if your TV supports it",
+          "why": "Digital Foundry: VRR in a 120Hz container smooths frame drops on Xbox."
+        }
+      ],
+      "notes": "The Xbox menu settings are console settings, not GTA VI settings. Frame-rate figures are from Digital Foundry's launch testing and may change with patches. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-display-performance.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "A lone tree on a grassy rise against an orange sunset, with a city skyline in the haze.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-display-performance.jpg",
+      "imageVerified": true,
+      "locations": []
+    },
+    {
+      "id": "skill-audio-settings",
+      "title": "Audio: hear the threats, the dialogue and the GPS",
+      "category": "Settings",
+      "verified": true,
+      "source": "AllThingsHow, \"GTA 6 Accessibility Options on PS5: Where Each Setting Lives\" (https://allthings.how/gta-6-accessibility-options/), updated 19 Nov 2026; GTA6Map.net wiki, \"GTA 6 Accessibility Options\" (https://www.gta6map.net/wiki/gta-6/guides/gta-6-accessibility-options), 18 Nov 2026; Polygon, \"12 GTA 6 beginner's tips\" (https://www.polygon.com/gta-6-grand-theft-auto-beginners-tips-tricks/), 19 Nov 2026. All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "Turn dialogue up, decide on GPS Voice, and use Mono Audio or Tinnitus Reduction if needed.",
+      "instructions": [
+        "Open Settings > Audio.",
+        "Separate sliders: Master Volume, Dialogue, Music, SFX, UI and Media.",
+        "GPS Voice gives spoken directions (default Off).",
+        "Mono Audio puts the same sound in both channels; Tinnitus Reduction cuts the ringing after explosions.",
+        "Screen Narration and Audio Descriptions (English only) read menus and describe cutscenes.",
+        "Radio: hold D-pad Left to scroll stations; headphones from electronics stores let you listen on foot."
+      ],
+      "drills": [
+        {
+          "name": "Siren direction check",
+          "setup": "Headset on, quiet street at night.",
+          "howTo": "Close your eyes as a police car passes and point to where it is; adjust SFX vs Music until you can.",
+          "reps": "5 passes",
+          "duration": null
+        },
+        {
+          "name": "GPS voice run",
+          "setup": "Set a far waypoint.",
+          "howTo": "Drive there with GPS Voice on and the minimap set to Dynamic to learn to navigate by ear.",
+          "reps": "1 trip",
+          "duration": null
+        }
+      ],
+      "goal": "With your settings, name the direction of an approaching siren correctly 4 times out of 5 without looking.",
+      "recommendedSettings": [
+        {
+          "setting": "Dialogue",
+          "value": "Higher than Music",
+          "why": "Mission instructions and partner calls are easier to hear."
+        },
+        {
+          "setting": "Music",
+          "value": "Lower during missions",
+          "why": "Leaves room for siren and gunfire cues."
+        },
+        {
+          "setting": "Tinnitus Reduction",
+          "value": "On if explosions are unpleasant",
+          "why": "Less ringing after blasts."
+        },
+        {
+          "setting": "GPS Voice",
+          "value": "On while learning the map",
+          "why": "Spoken directions let you keep your eyes on the road."
+        }
+      ],
+      "notes": "AllThingsHow also lists Controller Speaker and Controller Cop Scanner, but those come from the PS5 version (DualSense speaker) and may not appear on Xbox. The radio tip is from Polygon. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-audio-settings.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "A crowded, neon-lit bar with people drinking, toasting and dancing.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-audio-settings.jpg",
+      "imageVerified": true,
+      "locations": []
+    },
+    {
+      "id": "skill-movement-accessibility",
+      "title": "Movement and accessibility helpers worth knowing",
+      "category": "Settings",
+      "verified": true,
+      "source": "NerdsChalk, \"All gameplay settings in Grand Theft Auto VI\" (https://nerdschalk.com/all-gameplay-settings-grand-theft-auto-vi/); GTA6Map.net wiki, \"GTA 6 Accessibility Options\" (https://www.gta6map.net/wiki/gta-6/guides/gta-6-accessibility-options), 18 Nov 2026; AllThingsHow, \"GTA 6 Accessibility Options on PS5: Where Each Setting Lives\" (https://allthings.how/gta-6-accessibility-options/), updated 19 Nov 2026; Polygon, \"12 GTA 6 beginner's tips\" (https://www.polygon.com/gta-6-grand-theft-auto-beginners-tips-tricks/), 19 Nov 2026; G2A News, \"GTA 6 controls guide: PS5 and Xbox\" (https://www.g2a.com/news/gta-6-news/gta-6-controls-guide-ps5-and-xbox/), 19 Nov 2026; Output Lag, \"GTA 6 How to Fly Planes\" (https://outputlag.com/guides/gta-6-how-to-fly-planes/), checked 20 Nov 2026. All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "Set movement speed and helpers like Auto Equip Helmet and Tap Assist; leave the difficulty-lowering options off if you want to get good.",
+      "instructions": [
+        "Settings > Gameplay > Movement: Movement Speed (default Walk), Combat Movement Speed (default Fast Walk) and Stand & Sprint (Off/On).",
+        "Accessibility group: Tap Assist (one press counts as 2x, 3x, 4x, or becomes a hold), Hold Delay, Hold Assist.",
+        "Aiming and Interact can be Hold (default) or Press; Loadout and Directional Button Actions can be Hold or Hold & Release.",
+        "Nitrous can be Hold or Press (click Left Stick once instead of holding).",
+        "Auto Equip Helmet puts a helmet on for you on motorcycles and bikes; helmets cut crash damage (Polygon).",
+        "Simplified Mini Games simplifies exercising, hotwiring and basketball inputs.",
+        "Accessible Combat (lower enemy health and damage taken) and Reduced Vehicle Damage both 'significantly change the balance'; there is no difficulty setting otherwise.",
+        "Auto Drive (Restricted/Unrestricted) drives you to a waypoint in the Cinematic camera."
+      ],
+      "drills": [
+        {
+          "name": "Movement speed feel test",
+          "setup": "A busy street.",
+          "howTo": "Try Movement Speed Walk vs Jog (G2A) and keep the one that gets you around without bumping NPCs.",
+          "reps": null,
+          "duration": "10 minutes"
+        },
+        {
+          "name": "Helmet check",
+          "setup": "Any motorcycle.",
+          "howTo": "Turn on Auto Equip Helmet and confirm the helmet goes on and off as you mount and leave the bike.",
+          "reps": "3 mounts",
+          "duration": null
+        }
+      ],
+      "goal": "Settings saved with Auto Equip Helmet On, Accessible Combat Off and Reduced Vehicle Damage Off before you start Chapter 2.",
+      "recommendedSettings": [
+        {
+          "setting": "Movement Speed",
+          "value": "Walk or Jog",
+          "why": "G2A's suggestion; Jog gets you around faster without a full sprint."
+        },
+        {
+          "setting": "Auto Equip Helmet",
+          "value": "On",
+          "why": "Helmets reduce crash damage and you will forget to put one on."
+        },
+        {
+          "setting": "Tap Assist",
+          "value": "2x if workout button-mashing hurts",
+          "why": "Helps with repeated presses such as exercising."
+        },
+        {
+          "setting": "Accessible Combat",
+          "value": "Off",
+          "why": "Lowers enemy health and your damage taken; leave it off to build skill."
+        },
+        {
+          "setting": "Reduced Vehicle Damage",
+          "value": "Off once you can drive (On while learning to fly)",
+          "why": "Output Lag: with it on, planes can bounce off terrain instead of exploding."
+        }
+      ],
+      "notes": "These accessibility options are real and useful; 'leave off to get good' is coaching advice for Yuan's goal, not a judgment on anyone who needs them. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-movement-accessibility.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Lucia walks past a check-cashing store carrying a pink bag.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-movement-accessibility.jpg",
+      "imageVerified": true,
+      "locations": []
+    },
+    {
+      "id": "skill-driving",
+      "title": "Driving: brake first, then turn",
+      "category": "Driving",
+      "verified": true,
+      "source": "The Games Wiki, \"How to Drive Cars\" (https://thegameswiki.com/gta6/wiki/how-to-drive-cars), updated 22 Nov 2026; Polygon, \"12 GTA 6 beginner's tips\" (https://www.polygon.com/gta-6-grand-theft-auto-beginners-tips-tricks/), 19 Nov 2026; G2A News, \"GTA 6 controls guide: PS5 and Xbox\" (https://www.g2a.com/news/gta-6-news/gta-6-controls-guide-ps5-and-xbox/), 19 Nov 2026; The Games Wiki, \"Racing\" (https://thegameswiki.com/gta6/wiki/racing); FullBoosts, GTA 6 stats explainer (fullboosts.com), citing Insider Gaming; GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "Cars are heavy: brake in a straight line before corners, use LT-drift and the A handbrake for tight turns, and Focus for traffic.",
+      "instructions": [
+        "RT accelerates, LT brakes/reverses, A is the handbrake, click Left Stick for horn/nitrous.",
+        "Brake before you turn, wheels straight. Braking mid-turn makes the front tyres lose grip and the car slides wide.",
+        "Drift: start turning, hold LT, and as the back swings out, steer the other way and get on the gas.",
+        "Sharp turn: at high speed hold A while steering to whip round a tight corner or make a fast U-turn.",
+        "Click both sticks (Focus) to slow time; it makes heavy traffic or a 90-degree turn at speed far easier.",
+        "Duck with B while being shot at in a car.",
+        "Some bridges rise for boats: stop and wait for the road to come down.",
+        "Dying in a crash keeps banked cash and owned weapons but loses pocket cash."
+      ],
+      "drills": [
+        {
+          "name": "Brake-point laps",
+          "setup": "Gellhorn Raceway, Introduction or Basic Loop race.",
+          "howTo": "Pick a sign or cone as your brake point for each corner, brake fully before it, then turn. Move the point later each lap.",
+          "reps": "5 laps",
+          "duration": null
+        },
+        {
+          "name": "Figure 8 drift",
+          "setup": "Ambrosia Raceway, Figure 8.",
+          "howTo": "Hold LT into each half of the 8 and counter-steer; link both halves without touching the walls.",
+          "reps": "10 loops",
+          "duration": null
+        },
+        {
+          "name": "Handbrake U-turn",
+          "setup": "Empty car park or a wide road.",
+          "howTo": "At speed, hold A and steer to spin 180 degrees, then drive off the other way.",
+          "reps": "10 turns, 5 each side",
+          "duration": null
+        }
+      ],
+      "goal": "Gold in 5 different races (100% needs 30 Gold wins out of 40 races, per The Games Wiki).",
+      "recommendedSettings": null,
+      "notes": "The race counts are from The Games Wiki Racing page. GTA VI has no separate driving or flying skill stat (FullBoosts), so you improve only by practising. Brake, drift and sharp-turn steps are from The Games Wiki; the handbrake U-turn and duck are from Polygon. Drill rep counts are coaching suggestions.",
+      "image": "images/skills/skill-driving.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Jason, holding a pistol, drives a convertible with Lucia beside him on a sunny day.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-driving.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "driving-d2wq04we",
+          "name": "Gellhorn Raceway - Introduction",
+          "area": "Port Gellhorn",
+          "mapX": 30.4,
+          "mapY": 42.6,
+          "precision": "exact"
+        },
+        {
+          "id": "driving-gb1c0zzk",
+          "name": "Gellhorn Raceway - Basic Loop",
+          "area": "Port Gellhorn",
+          "mapX": 30.1,
+          "mapY": 42.6,
+          "precision": "exact"
+        },
+        {
+          "id": "driving-vqwqpeb1",
+          "name": "Ambrosia Raceway - Figure 8",
+          "area": "Ambrosia",
+          "mapX": 55.1,
+          "mapY": 30.8,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "skill-motorcycles-bikes",
+      "title": "Motorcycles, dirt bikes and bicycles",
+      "category": "Driving",
+      "verified": true,
+      "source": "Polygon, \"12 GTA 6 beginner's tips\" (https://www.polygon.com/gta-6-grand-theft-auto-beginners-tips-tricks/), 19 Nov 2026; GTA6Map.net wiki, \"GTA 6 Accessibility Options\" (https://www.gta6map.net/wiki/gta-6/guides/gta-6-accessibility-options), 18 Nov 2026; NerdsChalk, \"All gameplay settings in Grand Theft Auto VI\" (https://nerdschalk.com/all-gameplay-settings-grand-theft-auto-vi/); G2A News, \"GTA 6 controls guide: PS5 and Xbox\" (https://www.g2a.com/news/gta-6-news/gta-6-controls-guide-ps5-and-xbox/), 19 Nov 2026; GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "Wear a helmet, use the same triggers as cars, and press X to kick sideways at riders and cars.",
+      "instructions": [
+        "Turn on Auto Equip Helmet (Settings > Gameplay > Accessibility), or open the loadout on the bike and pick the helmet.",
+        "Crashing with a helmet does significantly less damage (Polygon).",
+        "Bikes use the car triggers: RT accelerate, LT brake.",
+        "Press X on a bike to kick sideways at someone beside you.",
+        "Brake before corners just like in a car.",
+        "There is a separate Bicycle layout on the Control Scheme tab; check it before cycling for Cardio."
+      ],
+      "drills": [
+        {
+          "name": "Dirt track runs",
+          "setup": "Thrillbilly Mud Club, Dirt Track Trial.",
+          "howTo": "Ride the trial with a helmet on; brake before jumps and land straight.",
+          "reps": "5 runs",
+          "duration": null
+        },
+        {
+          "name": "Kick timing",
+          "setup": "A quiet road with slow traffic.",
+          "howTo": "Ride beside slow cars and practise X kicks without crashing.",
+          "reps": "10 kicks",
+          "duration": null
+        }
+      ],
+      "goal": "Finish 3 dirt-track runs in a row without coming off the bike.",
+      "recommendedSettings": null,
+      "notes": "Helmet and kick facts are from Polygon; Auto Equip Helmet is from GTA6Map.net and NerdsChalk. Race positions are GTA6Map.io markers. Cycling, swimming and running also train Cardio (see Character stats). Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-motorcycles-bikes.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Riders on dirt bikes tear across a muddy track beside old industrial silos in Mount Kalaga National Park.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-motorcycles-bikes.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "motorcycles-bikes-ys3znjs0",
+          "name": "Thrillbilly Mud Club - Dirt Track Trial",
+          "area": "Ambrosia",
+          "mapX": 46.3,
+          "mapY": 33.0,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "skill-aiming-gunplay",
+      "title": "Aiming and gunplay",
+      "category": "Combat",
+      "verified": true,
+      "source": "The Games Wiki, \"Weapons and Combat\" (https://thegameswiki.com/gta6/wiki/weapons-and-combat), updated 22 Nov 2026; The Games Wiki, \"Shooting Ranges\" (https://thegameswiki.com/gta6/wiki/shooting-ranges), updated 20 Nov 2026; PowerPyx, \"GTA 6 how to increase character stats\" (https://www.powerpyx.com/gta-6-how-to-increase-character-stats-health-cardio-focus/); Red Bull, \"GTA 6: Jason and Lucia's unique abilities explained\" (https://www.redbull.com/us-en/gta-6-jason-lucia-abilities-teamwork), 21 Nov 2026; NerdsChalk, \"All gameplay settings in Grand Theft Auto VI\" (https://nerdschalk.com/all-gameplay-settings-grand-theft-auto-vi/); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "Free aim with Partial assist: hold LT, shoot with RT, read the hit marker colour, and train at the Rodgers Ranch ranges.",
+      "instructions": [
+        "Hold LT to aim and RT to shoot. Aiming is free; assist only nudges and slows the reticle.",
+        "Hit markers: white = hit but still fighting, yellow = incapacitated, red = killed.",
+        "Limb shots (legs, shoulders) give a yellow, non-lethal result; head and torso kill.",
+        "Each gun has damage, accuracy, handling and range ratings; check them before you pick a favourite.",
+        "Pay the $5 Waiver Pass at Rodgers Ranch & Shooting Range (north-east Port Gellhorn) or Griffin Shooting Range (Balsero). Three ranges are open at first; playing one unlocks a linked range.",
+        "On points ranges, hit a target's body once or twice before the head to build the multiplier; a miss lowers it.",
+        "Every time you finish or quit a range class, your Focus stat goes up permanently.",
+        "Range medals unlock cheats: 25 Bronze = Max Ammo, 25 Silver = Infinite Ammo, 25 Gold = No Reload."
+      ],
+      "drills": [
+        {
+          "name": "Market Range speed reps",
+          "setup": "Rodgers Ranch Market Range, Beginner (free, pistol).",
+          "howTo": "Shoot every target as fast as you can; accuracy barely matters here. Quit and restart freely.",
+          "reps": "20 runs",
+          "duration": null
+        },
+        {
+          "name": "Multiplier discipline",
+          "setup": "Rodgers Ranch Saloon Range, Beginner (revolver; $10 or bring your own).",
+          "howTo": "Shoot each early enemy once in each arm, then hat and head on the rest, with zero misses.",
+          "reps": "5 runs",
+          "duration": null
+        },
+        {
+          "name": "Sniper headshots",
+          "setup": "Rodgers Ranch Cops & Robbers Range, Beginner (sniper rifle).",
+          "howTo": "Headshot every target.",
+          "reps": "5 runs",
+          "duration": null
+        }
+      ],
+      "goal": "Gold on all four Market Range classes (Beginner 3 s, Intermediate 8 s, Advanced 12 s, Master 15 s).",
+      "recommendedSettings": null,
+      "notes": "Medal targets and range tips are from The Games Wiki Shooting Ranges page; all 42 Golds are needed for 100% and The Shootist trophy, and rented weapons are good enough for every Gold. Market Range Beginner is also the fastest Focus farm (PowerPyx, Red Bull). Drill rep counts are coaching suggestions.",
+      "image": "images/skills/skill-aiming-gunplay.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Lucia aims a pistol straight ahead, with a hazy city skyline behind her.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-aiming-gunplay.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "aiming-gunplay-dqt6v7jf",
+          "name": "Rodgers Ranch & Shooting Range",
+          "area": "Port Gellhorn",
+          "mapX": 35.1,
+          "mapY": 32.1,
+          "precision": "exact"
+        },
+        {
+          "id": "aiming-gunplay-qnc9v6ps",
+          "name": "Rodgers Ranch Market Range",
+          "area": "Port Gellhorn",
+          "mapX": 34.9,
+          "mapY": 32.0,
+          "precision": "exact"
+        },
+        {
+          "id": "aiming-gunplay-w8csp4kp",
+          "name": "Rodgers Ranch Saloon Range",
+          "area": "Port Gellhorn",
+          "mapX": 35.0,
+          "mapY": 32.4,
+          "precision": "exact"
+        },
+        {
+          "id": "aiming-gunplay-wv1acr7k",
+          "name": "Rodgers Ranch Cops & Robbers Range",
+          "area": "Port Gellhorn",
+          "mapX": 35.3,
+          "mapY": 32.0,
+          "precision": "exact"
+        },
+        {
+          "id": "aiming-gunplay-rb5fr4vp",
+          "name": "Griffin Shooting Range",
+          "area": "Balsero",
+          "mapX": 58.8,
+          "mapY": 47.8,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "skill-cover-combat",
+      "title": "Cover, suppression and staying alive",
+      "category": "Combat",
+      "verified": true,
+      "source": "AskNPC, \"GTA 6 combat basics\" (https://asknpc.com/gta6/en/combat-basics), reviewed 21 Nov 2026; The Games Wiki, \"Weapons and Combat\" (https://thegameswiki.com/gta6/wiki/weapons-and-combat), updated 22 Nov 2026; GameMeta, \"How to Fight in GTA 6\" (https://gameta.gg/gta6/guides/combat/), search summary only; NerdsChalk, \"All gameplay settings in Grand Theft Auto VI\" (https://nerdschalk.com/all-gameplay-settings-grand-theft-auto-vi/); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 1,
+      "summary": "Snap to cover with RB, peek and shoot, suppress with near misses, and heal with Zombix from the loadout.",
+      "instructions": [
+        "Press RB beside solid cover to enter it; press RB again to leave.",
+        "At a corner, press A to move round it. Aim with LT to pop out, RT to shoot.",
+        "Switch Shoulder swaps the camera side while aiming (GameMeta lists D-pad Left; check the Aiming diagram on the Control Scheme tab).",
+        "Near-miss fire suppresses some enemies, including police, buying time to move.",
+        "Cover Selection (Gameplay > Combat) decides whether camera facing or movement picks the cover.",
+        "Heal: hold LB (loadout) and press X to use Zombix. Carry up to 5; $15 a bottle at convenience stores. It heals more the lower your health is.",
+        "Body Armor from Ammu-Nation absorbs damage until it breaks.",
+        "Health regenerates slowly only up to a threshold; food, drinks and sleep also heal."
+      ],
+      "drills": [
+        {
+          "name": "Cover-to-cover run",
+          "setup": "Griffin Shooting Range, Compound Range (Intermediate), once unlocked.",
+          "howTo": "Move through the compound using cover at every stop; follow the pink dot to the next weapon and watch red dots for spawns.",
+          "reps": "5 runs",
+          "duration": null
+        },
+        {
+          "name": "Zombix muscle memory",
+          "setup": "Any safe spot.",
+          "howTo": "Hold LB and press X to take Zombix within one second of deciding to heal.",
+          "reps": "10 times",
+          "duration": null
+        }
+      ],
+      "goal": "Gold on Griffin Compound Range Intermediate (60 seconds or less).",
+      "recommendedSettings": null,
+      "notes": "The loadout unlocks in Chapter 1 (Gear Up), hence chapterOrder 1. No launch control list describes blind-fire (The Games Wiki). The Compound Range Gold time is from The Games Wiki, which notes Lucia's better handling helps there. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-cover-combat.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Jason fires a rifle in a dark room as sparks and bullets fly around him.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-cover-combat.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "cover-combat-skrpgccx",
+          "name": "Griffin Compound Range",
+          "area": "Balsero",
+          "mapX": 58.1,
+          "mapY": 47.1,
+          "precision": "exact"
+        },
+        {
+          "id": "cover-combat-rb5fr4vp",
+          "name": "Griffin Shooting Range",
+          "area": "Balsero",
+          "mapX": 58.8,
+          "mapY": 47.8,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "skill-combat-focus",
+      "title": "Combat Focus: slow time and weak points",
+      "category": "Combat",
+      "verified": true,
+      "source": "Red Bull, \"GTA 6: Jason and Lucia's unique abilities explained\" (https://www.redbull.com/us-en/gta-6-jason-lucia-abilities-teamwork), 21 Nov 2026; AskNPC, \"GTA 6 combat basics\" (https://asknpc.com/gta6/en/combat-basics), reviewed 21 Nov 2026; The Games Wiki, \"Weapons and Combat\" (https://thegameswiki.com/gta6/wiki/weapons-and-combat), updated 22 Nov 2026; Polygon, \"12 GTA 6 beginner's tips\" (https://www.polygon.com/gta-6-grand-theft-auto-beginners-tips-tricks/), 19 Nov 2026; GTA6Map.net wiki, \"GTA 6 Accessibility Options\" (https://www.gta6map.net/wiki/gta-6/guides/gta-6-accessibility-options), 18 Nov 2026. All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 1,
+      "summary": "Click both sticks while aiming to slow time and show red (lethal) and yellow (non-lethal) weak points on people and vehicles.",
+      "instructions": [
+        "While aiming a firearm, click both sticks (LS + RS) to enter Combat Focus.",
+        "Time slows; people show red (lethal) and yellow (non-lethal) weak points.",
+        "Vehicles show weak parts too: engine, fuel tank, tyres; a helicopter's tail rotor is the guides' example.",
+        "Focus drains the purple bar (top left) in combat. It refills over time; a cigarette refills it out of combat.",
+        "Your Criminal Profile decides how it refills in a fight: non-lethal takedowns for Professional/Hardened, headshots for Violent/Psycho.",
+        "Out of combat, Focus does not drain and highlights loot (cash, Zombix), interactables, events and police positions.",
+        "Focus-marked food and drinks, and washing your face, give a temporary boost.",
+        "The Focus stat (how long slow-motion lasts) rises at shooting ranges and other activities; see Character stats."
+      ],
+      "drills": [
+        {
+          "name": "Tyre shots",
+          "setup": "A road; start a 1-star chase or pick parked cars.",
+          "howTo": "Enter Focus and put rounds into the highlighted tyres before Focus runs out.",
+          "reps": "10 cars",
+          "duration": null
+        },
+        {
+          "name": "Yellow-only round",
+          "setup": "A gang hideout or a range.",
+          "howTo": "Use Focus and shoot only yellow points, to learn the non-lethal spots.",
+          "reps": "1 full fight",
+          "duration": null
+        }
+      ],
+      "goal": "In one Focus window, stop a chasing car by its tyres or engine before the bar empties, 3 chases in a row.",
+      "recommendedSettings": null,
+      "notes": "Combat Focus unlocks in Chapter 1. Focus can be moved off LS + RS in Gameplay > Accessibility (Focus setting). Red Bull says cops no longer show on the radar automatically, so Focus is how you see them. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-combat-focus.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Lucia fires a pistol from a car during a street shootout, with an armored cash truck and police cars behind her.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-combat-focus.jpg",
+      "imageVerified": true,
+      "locations": []
+    },
+    {
+      "id": "skill-drive-by",
+      "title": "Drive-by shooting and partner chases",
+      "category": "Combat",
+      "verified": true,
+      "source": "The Games Wiki, \"Weapons and Combat\" (https://thegameswiki.com/gta6/wiki/weapons-and-combat), updated 22 Nov 2026; NerdsChalk, \"All gameplay settings in Grand Theft Auto VI\" (https://nerdschalk.com/all-gameplay-settings-grand-theft-auto-vi/); Polygon, \"12 GTA 6 beginner's tips\" (https://www.polygon.com/gta-6-grand-theft-auto-beginners-tips-tricks/), 19 Nov 2026; Red Bull, \"GTA 6: Jason and Lucia's unique abilities explained\" (https://www.redbull.com/us-en/gta-6-jason-lucia-abilities-teamwork), 21 Nov 2026. All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "With Drive-By Assist on, shoot from cars; better still, let your partner drive while you shoot.",
+      "instructions": [
+        "Keep Drive-By Assist On (Gameplay > Combat); it aims at nearby targets for you.",
+        "Shoot from the car window while driving or riding (Polygon gives 'hold LB and press RB' for shooting back while driving; check the Land/Water Vehicles diagram).",
+        "Press B to duck when you are being shot at.",
+        "Ride as passenger and your AI partner keeps driving while you shoot.",
+        "Use Combat Focus from the car to hit tyres and engines.",
+        "The Drive-Bys challenge asks for 5 drive-by kills in under 1 minute without leaving the vehicle."
+      ],
+      "drills": [
+        {
+          "name": "Passenger gunner",
+          "setup": "Partner driving; a gang fight or a chase.",
+          "howTo": "Stay in the passenger seat and aim for tyres and drivers.",
+          "reps": "3 chases",
+          "duration": null
+        },
+        {
+          "name": "Window shots",
+          "setup": "Drive slowly past targets.",
+          "howTo": "Practise shooting out of the window at walking pace, then speed up.",
+          "reps": "20 shots",
+          "duration": null
+        }
+      ],
+      "goal": "Complete the Drive-Bys challenge: 5 drive-by kills in under 1 minute without leaving the vehicle.",
+      "recommendedSettings": null,
+      "notes": "The challenge is from The Games Wiki. Polygon's in-car button line is as written in its tips and differs from the on-foot LT/RT layout, so confirm it in Settings > Control Scheme. Partner driving is from Red Bull. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-drive-by.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Lucia leans out of a car window aiming a pistol, with Jason in the driver's seat.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-drive-by.jpg",
+      "imageVerified": true,
+      "locations": []
+    },
+    {
+      "id": "skill-loadout-weapon-wheel",
+      "title": "Loadout wheel, carry limits and storage",
+      "category": "Combat",
+      "verified": true,
+      "source": "The Games Wiki, \"Weapons and Combat\" (https://thegameswiki.com/gta6/wiki/weapons-and-combat), updated 22 Nov 2026; Polygon, \"12 GTA 6 beginner's tips\" (https://www.polygon.com/gta-6-grand-theft-auto-beginners-tips-tricks/), 19 Nov 2026; G2A News, \"GTA 6 controls guide: PS5 and Xbox\" (https://www.g2a.com/news/gta-6-news/gta-6-controls-guide-ps5-and-xbox/), 19 Nov 2026; AskNPC, \"GTA 6 combat basics\" (https://asknpc.com/gta6/en/combat-basics), reviewed 21 Nov 2026. All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 1,
+      "summary": "Tap LB to holster, hold LB for the loadout wheel; carry two sidearms and two longarms and store the rest in your trunk or an Ammu-Nation locker.",
+      "instructions": [
+        "Tap LB to holster; hold LB to open the loadout wheel (sidearm slots top right, longarm slot bottom left, plus melee, explosives and items).",
+        "Carry up to two sidearms and two longarms. Sidearms hide; one longarm goes on your back, the other in your off hand.",
+        "Longarms stay visible and can get you reported; store them before walking into crowds.",
+        "Store extras in your personal vehicle's trunk or an Ammu-Nation weapon locker (shared storage). Not every Ammu-Nation has a locker.",
+        "To swap: open the trunk or locker, hold LB, highlight a slot and cycle with LT/RT.",
+        "Dropped guns are grey (unowned) and lost when you leave them; unique variants (yellow) are added permanently for both characters.",
+        "Stand over a dropped gun and hold LB to compare stats (green/red arrows).",
+        "Zombix and the Metal Detector live on the wheel too; it flips to a clothing/items wheel (e.g. masks)."
+      ],
+      "drills": [
+        {
+          "name": "Wheel speed",
+          "setup": "Somewhere safe with 2 sidearms and 2 longarms.",
+          "howTo": "Call out a weapon and select it from the wheel as fast as possible.",
+          "reps": "20 swaps",
+          "duration": null
+        },
+        {
+          "name": "Trunk swap",
+          "setup": "Your personal car's trunk.",
+          "howTo": "Swap your longarm for a stored one and back.",
+          "reps": "5 swaps",
+          "duration": null
+        }
+      ],
+      "goal": "Select any named weapon from the loadout wheel in under 1 second, 10 times in a row.",
+      "recommendedSettings": null,
+      "notes": "The loadout, trunks and lockers unlock in Chapter 1's Gear Up. Sticky Bombs: max 4 per character (The Games Wiki). Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-loadout-weapon-wheel.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Jason braces a rifle on a car as police helicopters fly overhead.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-loadout-weapon-wheel.jpg",
+      "imageVerified": true,
+      "locations": []
+    },
+    {
+      "id": "skill-stealth",
+      "title": "Stealth: crouch, tag, take down",
+      "category": "Movement & Stealth",
+      "verified": true,
+      "source": "Leonida Guide, \"Can you do stealth in GTA 6?\" (https://leonidaguide.com/guides/gta-6-stealth), 20 Nov 2026, which compiles GTABase, Kotaku, Push Square, GameSpot, Outputlag, GameRant and GamesRadar; GTABase, \"GTA 6 Combat & Stealth Guide\" (https://www.gtabase.com/gta-6/articles/gta-6-combat-stealth-guide); AskNPC, \"GTA 6 combat basics\" (https://asknpc.com/gta6/en/combat-basics), reviewed 21 Nov 2026; The Games Wiki, \"Weapons and Combat\" (https://thegameswiki.com/gta6/wiki/weapons-and-combat), updated 22 Nov 2026; Polygon, \"How to lower your wanted and heat level in GTA 6\" (https://www.polygon.com/gta-6-wanted-level-heat-how-to-lower-grand-theft-auto/), 19 Nov 2026; GTA6Cut, \"GTA 6 Combat and Stealth Tips\" (https://gta6cut.com/guides/gta-6-combat-stealth-tips), search summary only. All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "Crouch with B, tag guards with D-pad Right while aiming, grab from behind with RT and tap X to knock them out.",
+      "instructions": [
+        "Crouch with B to cut visibility and noise; move slowly.",
+        "Scout first: click both sticks for Focus to highlight enemies, show where a noise came from and colour doors (white = usable, red = alarmed).",
+        "Tag: aim at a guard (gun or binoculars) and press D-pad Right; the tag stays on them and on the minimap.",
+        "Takedown: get behind an unaware guard, hold RT to grab, tap X to knock them out. It fails if they turn or see you.",
+        "Knocked-out guards can wake up; don't leave one next to a dropped gun, and move bodies out of sight.",
+        "There are no vision cones; a yellow bar over an enemy and yellow screen-edge flashes mean you are about to be spotted.",
+        "Distract: pick up a bottle and throw it with RT; the guard goes to check the noise.",
+        "Buy suppressors at Ammu-Nation for guns you own (not unique weapons). The Assassin Nipper .38 has a built-in silencer."
+      ],
+      "drills": [
+        {
+          "name": "Tag and plan",
+          "setup": "A gang hideout or guarded area.",
+          "howTo": "Tag every visible guard before moving, then plan a route that never crosses their view.",
+          "reps": "3 areas",
+          "duration": null
+        },
+        {
+          "name": "Silent clear",
+          "setup": "Same area, after tagging.",
+          "howTo": "Take guards down one at a time from behind; restart if anyone raises the alarm.",
+          "reps": "Until 1 clean clear",
+          "duration": null
+        }
+      ],
+      "goal": "Clear 1 guarded area of at least 4 guards using only stealth takedowns, with 0 alarms raised.",
+      "recommendedSettings": null,
+      "notes": "Whistle input is disputed: Leonida Guide says Y while aiming, GTABase says hold LT while looking at the enemy; treat it as unconfirmed. The yellow-bar warning comes from a gta6cut search summary. Non-lethal takedowns push you toward a Professional profile. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-stealth.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Jason, in a dark hoodie and cap, holds a rifle in a dim industrial space.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-stealth.jpg",
+      "imageVerified": true,
+      "locations": []
+    },
+    {
+      "id": "skill-melee",
+      "title": "Melee: slap, punch, grab, throw",
+      "category": "Combat",
+      "verified": true,
+      "source": "The Games Wiki, \"Weapons and Combat\" (https://thegameswiki.com/gta6/wiki/weapons-and-combat), updated 22 Nov 2026; Red Bull, \"GTA 6: Jason and Lucia's unique abilities explained\" (https://www.redbull.com/us-en/gta-6-jason-lucia-abilities-teamwork), 21 Nov 2026; AskNPC, \"GTA 6 combat basics\" (https://asknpc.com/gta6/en/combat-basics), reviewed 21 Nov 2026; G2A News, \"GTA 6 controls guide: PS5 and Xbox\" (https://www.g2a.com/news/gta-6-news/gta-6-controls-guide-ps5-and-xbox/), 19 Nov 2026. All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "X starts with a slap or shove and escalates to punches and kicks; RT grabs and throws; Jason brawls, Lucia kickboxes.",
+      "instructions": [
+        "Out of combat, X makes an aggressive but non-lethal move such as a slap or shove.",
+        "Pressing X again, or facing an aggressive target, switches to punches and kicks.",
+        "During melee, RT grabs an enemy; keep hitting, or press RT again to throw them.",
+        "You can block, and taunt with LT + A to start a fight.",
+        "From behind, a grab plus X is a quiet stealth takedown.",
+        "Jason fights as a street brawler with heavy hits; Lucia uses technical, agile kickboxing and MMA.",
+        "Incapacitated or killed people can be looted for ammo, cash and consumables.",
+        "Strength raises max health, so gym work helps you survive fist fights."
+      ],
+      "drills": [
+        {
+          "name": "Grab-throw chain",
+          "setup": "A fight you start with a taunt (LT + A).",
+          "howTo": "Open with a grab (RT), land hits, then throw (RT).",
+          "reps": "5 fights",
+          "duration": null
+        },
+        {
+          "name": "Both styles",
+          "setup": "The same kind of fight as Jason, then as Lucia.",
+          "howTo": "Feel the difference and pick who you use for fist fights.",
+          "reps": "2 fights each",
+          "duration": null
+        }
+      ],
+      "goal": "Win 5 one-on-one fist fights in a row without being knocked down.",
+      "recommendedSettings": null,
+      "notes": "Cage fighting is not one of the sports in the released game (The Games Wiki). A melee drive-by earns the Ten Pin trophy. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-melee.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Lucia, in fingerless gloves, throws a punch in a dim gym.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-melee.jpg",
+      "imageVerified": true,
+      "locations": []
+    },
+    {
+      "id": "skill-wanted-level-evasion",
+      "title": "Wanted level and heat: escaping the police",
+      "category": "Movement & Stealth",
+      "verified": true,
+      "source": "Polygon, \"How to lower your wanted and heat level in GTA 6\" (https://www.polygon.com/gta-6-wanted-level-heat-how-to-lower-grand-theft-auto/), 19 Nov 2026; The Games Wiki, \"Interaction System\" (https://thegameswiki.com/gta6/wiki/interaction-system); Red Bull, \"GTA 6: Jason and Lucia's unique abilities explained\" (https://www.redbull.com/us-en/gta-6-jason-lucia-abilities-teamwork), 21 Nov 2026; Polygon, \"12 GTA 6 beginner's tips\" (https://www.polygon.com/gta-6-grand-theft-auto-beginners-tips-tricks/), 19 Nov 2026; Output Lag, \"GTA 6 How to Fly Planes\" (https://outputlag.com/guides/gta-6-how-to-fly-planes/), checked 20 Nov 2026; GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "Break line of sight, leave the red search zone, then clear each heat icon (face, outfit, car, gun, partner, CCTV).",
+      "instructions": [
+        "Stars (top right) show how hard police search: 1 star = one car, 2 = several, 3 adds an armed helicopter, up to 6 stars.",
+        "Star colours: transparent = crime reported, suspect unknown; white = you are seen; flashing = they are losing you; grey = lost sight; red = wanted in the search zone.",
+        "Open the map for the red search area. Lose sight first: fast car, then off-road, swap cars, dive underwater, or enter a building or forest.",
+        "Avoid killing cops or civilians; that raises stars and widens the zone. Limb shots incapacitate without killing.",
+        "Then clear heat icons: head = cap/sunglasses or haircut; hanger = change clothes; car = Pay 'n' Spray or swap; gun = holster or stow longarms; two heads = split up; camera = destroy the CCTV recorder (not possible if it shows a cloud).",
+        "Leave the search zone; the stars fade with time.",
+        "Better still: no witnesses, no report. Put a mask on before a crime; witnesses can be slapped to stop a call.",
+        "In aircraft, fly low: the ceiling is lower than in GTA V and flying low lowers your chance of being spotted."
+      ],
+      "drills": [
+        {
+          "name": "1-star escapes",
+          "setup": "Steal a car in a quiet area to get 1 star.",
+          "howTo": "Break line of sight and leave the zone without firing a shot.",
+          "reps": "10 escapes",
+          "duration": null
+        },
+        {
+          "name": "Heat-clear routine",
+          "setup": "After a small store robbery in Key Lento.",
+          "howTo": "Escape, then clear the icons: cap and sunglasses, change outfit, respray at Pay 'n' Spray Key Lento.",
+          "reps": "3 runs",
+          "duration": null
+        }
+      ],
+      "goal": "Lose a 3-star wanted level (with the helicopter) and clear all heat icons without killing anyone, 3 times.",
+      "recommendedSettings": null,
+      "notes": "Stars, colours and icons are from Polygon; slapping witnesses is from The Games Wiki's Interaction System page. Splitting up: Red Bull. Flying low: Output Lag. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-wanted-level-evasion.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "A motorcycle chase with a police car and a helicopter in pursuit.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-wanted-level-evasion.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "wanted-level-evasion-k1qdecaj",
+          "name": "Pay 'n' Spray – Key Lento",
+          "area": "Route 1, Key Lento",
+          "mapX": 57.7,
+          "mapY": 82.7,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "skill-flying",
+      "title": "Flying planes and helicopters",
+      "category": "Air & Sea",
+      "verified": true,
+      "source": "Output Lag, \"GTA 6 How to Fly Planes\" (https://outputlag.com/guides/gta-6-how-to-fly-planes/), checked 20 Nov 2026; G2A News, \"GTA 6 controls guide: PS5 and Xbox\" (https://www.g2a.com/news/gta-6-news/gta-6-controls-guide-ps5-and-xbox/), 19 Nov 2026; GTA6Map.net wiki, \"GTA 6 Accessibility Options\" (https://www.gta6map.net/wiki/gta-6/guides/gta-6-accessibility-options), 18 Nov 2026; GTA6DATA, \"GTA 6 Controls, Settings and In-Game Help Guide\" (https://gta6data.com/gta-6-controls-settings-and-in-game-help-guide/), search summary only; GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "RT for throttle, pull the left stick back to climb (inverted by default), X/B for the rudder, LT to slow for landing.",
+      "instructions": [
+        "No flight school or licence: get in and fly. Helicopters take a few seconds to spin up.",
+        "Planes: hold RT for throttle, then pull the left stick back to lift off. Pitch is inverted by default.",
+        "Rudder (yaw) is X and B on Xbox, not the bumpers as in GTA V.",
+        "Helicopters: RT climbs, LT descends, same yaw buttons.",
+        "Landing: line up early, use the rudder for small corrections, let off the throttle and hold LT, come in shallow. Click Left Stick for the landing gear.",
+        "Turn Aircraft Movement off (Controller > Inverted Controls) if you want up to climb; turn Follow Roll off (Camera) for a steadier horizon.",
+        "Map-marked airfields and helipads spawn free aircraft with no wanted level; the airport and Mile Zero Air Station give you stars.",
+        "The flight ceiling is low; an alarm sounds and a red line appears when you hit it."
+      ],
+      "drills": [
+        {
+          "name": "Circuit landings",
+          "setup": "Kelly County Airfield or Ambrosia Airfield.",
+          "howTo": "Take off, fly a rectangle round the field, land, stop, repeat.",
+          "reps": "10 landings",
+          "duration": null
+        },
+        {
+          "name": "Helicopter hover",
+          "setup": "Same airfield.",
+          "howTo": "Lift off, hover at rooftop height for 10 seconds, turn with X/B, land on the same spot.",
+          "reps": "10 hovers",
+          "duration": null
+        }
+      ],
+      "goal": "Land a plane on a runway 5 times in a row without damage, with Reduced Vehicle Damage off.",
+      "recommendedSettings": [
+        {
+          "setting": "Aircraft Movement (Inverted Controls)",
+          "value": "Your choice: On = pull back to climb (default), Off = push up to climb",
+          "why": "Flight-sim style vs 'up is up'."
+        },
+        {
+          "setting": "Follow Roll",
+          "value": "Off while learning",
+          "why": "Keeps the horizon steady when you bank."
+        },
+        {
+          "setting": "Reduced Vehicle Damage",
+          "value": "On while learning, then Off",
+          "why": "Output Lag: with it on, aircraft can survive bumps."
+        }
+      ],
+      "notes": "The yaw buttons cannot be moved back to the bumpers at launch (Output Lag). Military jets have trackers and fighters chase you. Helicopter climb/descend on the triggers is from a GTA6DATA search summary and G2A's aircraft layout. Free aircraft at airfields is Output Lag only. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-flying.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "A seaplane flies low over green islands and turquoise water in the Leonida Keys.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-flying.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "flying-ywfd8097",
+          "name": "Kelly County Airfield",
+          "area": "Kelly County",
+          "mapX": 46.2,
+          "mapY": 27.3,
+          "precision": "exact"
+        },
+        {
+          "id": "flying-nb5cbsa5",
+          "name": "Ambrosia Airfield",
+          "area": "Ambrosia",
+          "mapX": 46.3,
+          "mapY": 34.4,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "skill-boating",
+      "title": "Boats and jet skis",
+      "category": "Air & Sea",
+      "verified": true,
+      "source": "Output Lag, \"GTA 6 Boats and Jet Skis\" (https://outputlag.com/guides/gta-6-boats-jet-skis/), checked 20 Nov 2026; G2A News, \"GTA 6 controls guide: PS5 and Xbox\" (https://www.g2a.com/news/gta-6-news/gta-6-controls-guide-ps5-and-xbox/), 19 Nov 2026; LeonidaInsights, \"GTA 6 controls basics\" (https://leonidainsights.com/en/tips/steuerung-grundlagen/), search summary only; GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "Boats use the car triggers; hold A while steering for a sharp turn and double-tap Y to leave the wheel with the engine running.",
+      "instructions": [
+        "Free boats: Jason's own boat at the dock behind his house in the Keys, and Kenton's boat beside Island Dreams Boat Charters in Key Lento.",
+        "RT throttle, LT slow/reverse, hold A while steering for a sharper turn.",
+        "Double-tap Y to leave the wheel; the engine keeps running and the boat holds its course.",
+        "Click both sticks (Focus) to find floating packages.",
+        "Boats burn fuel and no boat pump has been found; docking may top it up. Jason's boat returns to his dock if abandoned.",
+        "Yachts drop anchor from the vehicle wheel (Vehicle tab > anchor > Lower); small boats just stop.",
+        "Near the map edge the engine fails and you drown, so turn back.",
+        "Take jet skis from riders around the Keys."
+      ],
+      "drills": [
+        {
+          "name": "Sharp-turn slalom",
+          "setup": "Open water off Jason's dock.",
+          "howTo": "Pick buoys or moored boats and slalom between them with hold-A sharp turns.",
+          "reps": "5 runs",
+          "duration": null
+        },
+        {
+          "name": "Stop on a spot",
+          "setup": "Same area.",
+          "howTo": "Stop the boat inside a small circle (e.g. a dive site) using LT only.",
+          "reps": "10 stops",
+          "duration": null
+        }
+      ],
+      "goal": "Stop Jason's boat inside a dive-site circle on the first try, 5 times in a row.",
+      "recommendedSettings": null,
+      "notes": "Most boat details are from Output Lag (in-game tutorial prompts from launch playthroughs); the hold-A sharp turn is also in a LeonidaInsights search summary, and G2A gives the shared land/water vehicle triggers. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-boating.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Airboats cross the Grassrivers swamp while a helicopter flies overhead.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-boating.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "boating-dyd5cwwe",
+          "name": "Jason's House and dock",
+          "area": "Key Lento",
+          "mapX": 58.6,
+          "mapY": 80.2,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "skill-swimming-diving",
+      "title": "Swimming and scuba diving",
+      "category": "Air & Sea",
+      "verified": true,
+      "source": "GTA 6 DB, \"How to dive underwater in GTA 6\" (https://gta6db.io/how-to/dive), checked 19 Nov 2026, from the in-game Swimming control screen; ALLGTA World, \"GTA 6 Swimming and Diving: Controls, Scuba Gear, Tips\" (https://allgtaworld.com/guides/gta-6-swimming-diving), 20 Nov 2026, citing Insider Gaming, Shacknews, PowerPyx and VGC; GTA EXP, \"GTA 6 Swimming: Dive, Surface and Move Underwater\" (https://gtaexp.com/guides/guides/gta-6-swim-dive-controls), citing GTA Base, 20 Nov 2026; LeonidaInsights, \"GTA 6 controls basics\" (https://leonidainsights.com/en/tips/steuerung-grundlagen/), search summary only; Output Lag, \"GTA 6 Boats and Jet Skis\" (https://outputlag.com/guides/gta-6-boats-jet-skis/), checked 20 Nov 2026; Red Bull, \"GTA 6: Jason and Lucia's unique abilities explained\" (https://www.redbull.com/us-en/gta-6-jason-lucia-abilities-teamwork), 21 Nov 2026; GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 1,
+      "summary": "Click Left Stick to swim faster, hold RB to dive, A to surface, LT to strafe; scuba gear unlocks after Island Dreams.",
+      "instructions": [
+        "At the water's edge press A to dive in; hold A for a trick dive.",
+        "Click or hold Left Stick to swim faster.",
+        "Hold RB to go deeper; press A to surface.",
+        "Hold LT to strafe or swim backwards underwater.",
+        "Scuba gear: after Island Dreams and Kenton's follow-up call it is at the front of Jason's boat by the rods; Kenton's boat has it too. Press Y at the gear to put it on.",
+        "Put the metal detector away if you cannot swim fast.",
+        "Surface before your oxygen runs out; you can grab a fresh tank from the boat.",
+        "Swimming also trains Cardio."
+      ],
+      "drills": [
+        {
+          "name": "Breath laps",
+          "setup": "Off Jason's dock, no scuba.",
+          "howTo": "Dive with RB, swim along the bottom, surface with A before you run out of air.",
+          "reps": "10 dives",
+          "duration": null
+        },
+        {
+          "name": "Wreck run",
+          "setup": "A dive site near Key Lento, with scuba.",
+          "howTo": "Park the boat over the wreck, dive, explore, swim back to the boat.",
+          "reps": "3 dives",
+          "duration": null
+        }
+      ],
+      "goal": "Complete 3 scuba dives from Jason's boat and swim back to it each time without running out of air or losing the boat.",
+      "recommendedSettings": null,
+      "notes": "Dive RB / surface A / swim faster Left Stick are confirmed by GTA 6 DB (in-game control screen), ALLGTA World (citing Insider Gaming, Shacknews, PowerPyx) and GTA EXP. The trick dive is GTA EXP only. Guides disagree on where the scuba kit sits: front of the boat by the rods (GTA EXP) vs the yellow kit at the back (PowerPyx via ALLGTA World). No guide has measured oxygen time. Island Dreams is a Chapter 1 mission, hence chapterOrder 1. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-swimming-diving.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Divers swim over a coral reef with a sea turtle underwater in the Leonida Keys.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-swimming-diving.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "swimming-diving-dyd5cwwe",
+          "name": "Jason's House and dock",
+          "area": "Key Lento",
+          "mapX": 58.6,
+          "mapY": 80.2,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "skill-character-stats",
+      "title": "Character stats: Strength, Cardio and Focus",
+      "category": "Money & Progression",
+      "verified": true,
+      "source": "Dexerto, \"GTA 6 workout guide\" (https://www.dexerto.com/wikis/gta-6/workout-guide/); Polygon, \"GTA 6 fitness app, gym, health, Focus and stamina\" (https://www.polygon.com/gta-6-fitness-app-gym-health-focus-stamina/); PowerPyx, \"GTA 6 how to increase character stats\" (https://www.powerpyx.com/gta-6-how-to-increase-character-stats-health-cardio-focus/); Red Bull, \"GTA 6: Jason and Lucia's unique abilities explained\" (https://www.redbull.com/us-en/gta-6-jason-lucia-abilities-teamwork), 21 Nov 2026; FullBoosts, GTA 6 stats explainer (fullboosts.com), citing Insider Gaming; The Games Wiki, \"Shooting Ranges\" (https://thegameswiki.com/gta6/wiki/shooting-ranges), updated 20 Nov 2026; GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 1,
+      "summary": "Each character has Strength (health), Cardio (stamina) and Focus (slow-time), max Level 4; train both characters, ideally together.",
+      "instructions": [
+        "Strength raises max health. Train with the weights on Jason's terrace (from Chapter 1) or buy a gym membership (a few hundred dollars).",
+        "Cardio raises max stamina: treadmill and exercise bike are quickest; running, cycling, swimming and kayaking count.",
+        "Workout Windows: each exercise gives about 11%, up to 33% a day, so about 3 windows per level. A window reopens after about a day (half a day with a protein bar or shake).",
+        "Finish the workout to keep the gains; a set ends early if stamina runs out. Strength and Cardio drop if you stop training.",
+        "Focus has no windows: shooting ranges (every finished or quit class), fishing, pool, mini-golf, golf putting and meditation raise it.",
+        "Stats are per character. If your partner is with you at the gym, they work out too.",
+        "Check stats in the pause menu under Jason & Lucia, or in the phone's Fitness app.",
+        "Insider Gaming (via FullBoosts): Jason starts with decent Strength but weak Cardio and Focus."
+      ],
+      "drills": [
+        {
+          "name": "Daily gym window",
+          "setup": "Jason's terrace or a gym, with your partner.",
+          "howTo": "Do 3 exercises each in-game day, then have a protein shake.",
+          "reps": null,
+          "duration": "Every in-game day"
+        },
+        {
+          "name": "Focus farm",
+          "setup": "Rodgers Ranch Market Range, Beginner (free).",
+          "howTo": "Start and finish or quit the 5-second class over and over.",
+          "reps": "20 runs",
+          "duration": null
+        }
+      ],
+      "goal": "Strength, Cardio and Focus at Level 4 on both Jason and Lucia (there is a trophy for maxing both gym stats on both characters).",
+      "recommendedSettings": null,
+      "notes": "Percentages and windows are from Dexerto and Polygon; the guides agree on 3 stats and 4 levels. There are no separate driving, shooting or flying stats. Simplified Mini Games and Tap Assist make workouts easier. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-character-stats.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "A shirtless Jason lifts a barbell on his shoulders in a gym.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-character-stats.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "character-stats-dyd5cwwe",
+          "name": "Jason's House (terrace weights)",
+          "area": "Key Lento",
+          "mapX": 58.6,
+          "mapY": 80.2,
+          "precision": "exact"
+        },
+        {
+          "id": "character-stats-qnc9v6ps",
+          "name": "Rodgers Ranch Market Range",
+          "area": "Port Gellhorn",
+          "mapX": 34.9,
+          "mapY": 32.0,
+          "precision": "exact"
+        },
+        {
+          "id": "character-stats-wa2h70pd",
+          "name": "Ajax Gym",
+          "area": "SW 4th St, Vice Beach",
+          "mapX": 83.0,
+          "mapY": 45.4,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "skill-jason-vs-lucia",
+      "title": "Jason vs Lucia: switching and teamwork",
+      "category": "Money & Progression",
+      "verified": true,
+      "source": "Red Bull, \"GTA 6: Jason and Lucia's unique abilities explained\" (https://www.redbull.com/us-en/gta-6-jason-lucia-abilities-teamwork), 21 Nov 2026; Polygon, \"How to change between Jason and Lucia in GTA 6\" (https://www.polygon.com/gta-6-how-to-change-character-swap-jason-lucia-grand-theft-auto/), 19 Nov 2026; Polygon, \"How to change between Jason and Lucia in GTA 6\" (https://www.polygon.com/gta-6-how-to-change-character-swap-jason-lucia-grand-theft-auto/), search summary only; The Games Wiki, \"Shooting Ranges\" (https://thegameswiki.com/gta6/wiki/shooting-ranges), updated 20 Nov 2026; Polygon, \"How to lower your wanted and heat level in GTA 6\" (https://www.polygon.com/gta-6-wanted-level-heat-how-to-lower-grand-theft-auto/), 19 Nov 2026. All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 2,
+      "summary": "Both share Focus and the same stats; they differ in melee style. Switch with D-pad Right then RB once Chapter 2 unlocks it.",
+      "instructions": [
+        "Both have Focus and the same three stats, tracked separately per character.",
+        "Melee differs: Jason is a heavy-hitting street brawler; Lucia is a technical, agile kickboxer.",
+        "Free switching unlocks mid-Chapter 2 (Polygon: after Breakfast Run; Red Bull: Coffee Break): hold D-pad Right, then pick the other portrait (RB). Some missions lock you to one character.",
+        "The same partner menu (D-pad Right) lets you summon your partner or split up.",
+        "Together you carry two loot bags in robberies, and one can drive while the other shoots.",
+        "Split up after a crime to clear the partner heat icon.",
+        "When together, activity and Criminal Profile gains are shared, and gym sessions train both.",
+        "The relationship has four levels (Running on Empty, Partners in Crime, Crazy in Love, Hot Together), raised by kind acts and shared activities."
+      ],
+      "drills": [
+        {
+          "name": "Switch drill",
+          "setup": "Free roam, both characters together in a car.",
+          "howTo": "Switch with hold D-pad Right + RB mid-drive and take over as the shooter.",
+          "reps": "10 switches",
+          "duration": null
+        },
+        {
+          "name": "Split-up escape",
+          "setup": "After a two-person robbery.",
+          "howTo": "Split up from the partner menu and escape separately to clear the partner icon.",
+          "reps": "3 escapes",
+          "duration": null
+        }
+      ],
+      "goal": "Switch character mid-chase and land a hit within 3 seconds, 5 times in a row.",
+      "recommendedSettings": null,
+      "notes": "Guides disagree on the unlock mission: Polygon says Breakfast Run, Red Bull says Coffee Break; both put it in Chapter 2. Polygon: switching also works as a teleport, and stats are per character. The Games Wiki notes Lucia's better handling helps on the Compound Range. In Chapter 1, optional tasks (fix Jason's house and Ganado, haircut, gifts for Lucia) give the relationship a head start and vanish once Lucia joins. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-jason-vs-lucia.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Jason and Lucia sit in a convertible at night under neon light.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-jason-vs-lucia.jpg",
+      "imageVerified": true,
+      "locations": []
+    },
+    {
+      "id": "skill-phone-navigation",
+      "title": "Phone, apps and quick navigation",
+      "category": "Money & Progression",
+      "verified": true,
+      "source": "Beebom, \"GTA 6 Phone Apps: Every App and What They Do\" (https://beebom.com/all-gta-6-phone-apps/), updated 22 Nov 2026; Polygon, \"12 GTA 6 beginner's tips\" (https://www.polygon.com/gta-6-grand-theft-auto-beginners-tips-tricks/), 19 Nov 2026; G2A News, \"GTA 6 controls guide: PS5 and Xbox\" (https://www.g2a.com/news/gta-6-news/gta-6-controls-guide-ps5-and-xbox/), 19 Nov 2026; 6starhq, \"GTA 6 phone: D-pad Up, BuckMe, RydeMe, WAiNK and cheats\" (https://6starhq.com/guides/gta-6-phone/), search summary only. All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "D-pad Up opens the phone (hold for WAiNK); BuckMe is your bank; hold D-pad Down for quick navigation.",
+      "instructions": [
+        "Press D-pad Up for the phone; hold D-pad Up to jump straight to WAiNK.",
+        "WAiNK scans parked cars: lock, alarm, tracker, value, registration cost.",
+        "BuckMe (after the Buck Me! mission) is your bank: balance, transactions and the ATM Finder. You can pay for most services with it.",
+        "Scooter Bros (Chapter 2, Moses) delivers your personal vehicle, trunk weapons included, for a fee; it can also return impounded cars.",
+        "RydeMe books taxis and fast travel; Vice City Real Estate buys garages.",
+        "Fitness shows Strength, Cardio, Focus and nutrition; WhatUp holds mission messages; Weather helps plan flights.",
+        "Hold D-pad Down for objective, minimap and quick navigation to a nearby place without opening the map.",
+        "View opens the map."
+      ],
+      "drills": [
+        {
+          "name": "Phone speed",
+          "setup": "Free roam.",
+          "howTo": "Open WAiNK and scan a car, then open BuckMe's ATM Finder, as fast as possible.",
+          "reps": "10 times",
+          "duration": null
+        },
+        {
+          "name": "No-map navigation",
+          "setup": "Free roam.",
+          "howTo": "Use quick navigation (hold D-pad Down) instead of the pause map to reach places.",
+          "reps": "5 trips",
+          "duration": null
+        }
+      ],
+      "goal": "Find and reach the nearest ATM using only the phone and quick navigation, in under 2 minutes, 3 times.",
+      "recommendedSettings": null,
+      "notes": "The app list and unlocks are from Beebom; the ATM Finder and Scooter Bros impound use are from Polygon. The 'hold D-pad Down then LB/RB' quick-navigation detail is from a 6starhq search summary only. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-phone-navigation.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Jason and Lucia embrace at sunset by the water as police boats and a helicopter close in.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-phone-navigation.jpg",
+      "imageVerified": true,
+      "locations": []
+    },
+    {
+      "id": "skill-money-efficiency",
+      "title": "Money efficiency: bank it, don't lose it",
+      "category": "Money & Progression",
+      "verified": true,
+      "source": "Polygon, \"12 GTA 6 beginner's tips\" (https://www.polygon.com/gta-6-grand-theft-auto-beginners-tips-tricks/), 19 Nov 2026; The Games Wiki, \"How to Drive Cars\" (https://thegameswiki.com/gta6/wiki/how-to-drive-cars), updated 22 Nov 2026; GTA6.house, \"GTA 6 money guide\" (https://gta6.house/guides/gta-6-money-guide-make-money-fast), which says it draws on outlets such as PC Gamer; The Games Wiki, \"Weapons and Combat\" (https://thegameswiki.com/gta6/wiki/weapons-and-combat), updated 22 Nov 2026; GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 22 November 2026.",
+      "generic": false,
+      "chapterOrder": 0,
+      "summary": "Bank cash often (pocket cash is lost on death and at risk on arrest), go straight for the register and safe, and leave before the cops arrive.",
+      "instructions": [
+        "Pocket cash is lost when you die (Wasted) and at risk when Busted; banked cash and owned weapons are kept.",
+        "Stash cash under Jason's bedroom floorboard early, then deposit at ATMs once unlocked (BuckMe ATM Finder).",
+        "GTA6.house gives a $20,000 pocket-cash cap and a $15,000 BuckMe checking limit.",
+        "Robbing civilians pays a few dollars; in stores, go straight for the register, then the safe (the cashier may give you the code).",
+        "Speed matters: when you hear sirens, stop looting and escape. Losing everything is worse than leaving loot.",
+        "Rob with your partner to carry two bags.",
+        "Use Scooter Bros instead of stealing back an impounded car (a few hundred dollars).",
+        "See the Steal tab for payouts by activity."
+      ],
+      "drills": [
+        {
+          "name": "Bank-run habit",
+          "setup": "After every job.",
+          "howTo": "Drive to the nearest ATM and deposit before doing anything else.",
+          "reps": "Every job for a week",
+          "duration": null
+        },
+        {
+          "name": "Clean store job",
+          "setup": "A shop with one clerk and no customers.",
+          "howTo": "Mask on, register, safe, CCTV recorder, leave before police arrive.",
+          "reps": "3 jobs",
+          "duration": null
+        }
+      ],
+      "goal": "Never lose more than $1,000 of pocket cash to a death or arrest for a whole week of play.",
+      "recommendedSettings": null,
+      "notes": "The cash cap and checking limit are from GTA6.house only, which says it draws on PC Gamer. The floorboard stash, register/safe advice and Scooter Bros tip are from Polygon; death/arrest rules from The Games Wiki. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-money-efficiency.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Masked Jason and Lucia rob a Fleeca bank branch with a duffel bag as staff raise their hands.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-money-efficiency.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "money-efficiency-dyd5cwwe",
+          "name": "Jason's House (floorboard stash)",
+          "area": "Key Lento",
+          "mapX": 58.6,
+          "mapY": 80.2,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "skill-online-prep",
+      "title": "Online prep: what to practise before multiplayer exists",
+      "category": "Online Prep",
+      "verified": true,
+      "source": "HeistIntel, \"GTA 6 Online and PC status at launch: nothing announced\" (https://heistintel.com/news/gta-6-online-pc-status/), 20 Nov 2026; Juked, \"GTA 6 Online release date\" (https://juked.gg/grand-theft-auto/news/gta-6-online-release-date/), 22 Nov 2026; GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 22 November 2026.",
+      "generic": true,
+      "chapterOrder": 0,
+      "summary": "GTA 6 Online has not been announced; practise the transferable skills now so you are ready to beat your friend when it arrives.",
+      "instructions": [
+        "Status (22 Nov 2026): GTA VI launched single-player only. Rockstar has not named, dated or announced an online mode.",
+        "Store pages list 'single player'. The only 2027 claim came from Twitch's CEO and is unconfirmed.",
+        "Lock in your settings now (sensitivity, deadzones, camera) so your aim is consistent when online arrives.",
+        "Use the shooting-range Golds as aim benchmarks to compare with your friend.",
+        "Compare race Golds and best laps with your friend.",
+        "Learn the map: airfields, Pay 'n' Spray spots, gyms and marinas.",
+        "Keep both characters' stats maxed in case online uses similar systems (unknown)."
+      ],
+      "drills": [
+        {
+          "name": "Range benchmark",
+          "setup": "Rodgers Ranch Market Range, all classes.",
+          "howTo": "Record your best times and compare with your friend's each week.",
+          "reps": null,
+          "duration": "Weekly"
+        },
+        {
+          "name": "Mixed-skills circuit",
+          "setup": "Free roam.",
+          "howTo": "Fly a plane to an airfield, drive a race, then do a range class, in one session.",
+          "reps": null,
+          "duration": "45 minutes"
+        }
+      ],
+      "goal": "Beat your friend's best Market Range Master time and race-Gold count before GTA 6 Online launches.",
+      "recommendedSettings": null,
+      "notes": "generic is true: the practice advice is general and relies on no online mechanic, since none has been announced. Online status is from HeistIntel and Juked; recheck when Rockstar posts news. GTA+ perks for GTA 6 apply to single-player only. Drills and goal are coaching suggestions built on the sourced mechanics, not taken from a guide.",
+      "image": "images/skills/skill-online-prep.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Lucia and Jason stand close together, Jason holding a pistol, with the Vice City skyline and a helicopter behind them.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/skills/skill-online-prep.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "online-prep-qnc9v6ps",
+          "name": "Rodgers Ranch Market Range",
+          "area": "Port Gellhorn",
+          "mapX": 34.9,
+          "mapY": 32.0,
+          "precision": "exact"
+        }
+      ]
+    }
+  ]
+}

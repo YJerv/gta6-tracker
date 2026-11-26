@@ -1,0 +1,4164 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-11-26",
+  "section": "steal",
+  "description": "Things to steal and ways to make money in GTA VI, grouped by category. Every payout, heat level, cooldown and unlock chapter comes from the guides named in each item's source; null means no guide gives it. Pins use the same Leonida poster percentage transform as weapons.json. verified is true only when two or more independent guides agree; many guides repeat PowerPyx, IGN or PC Gamer, so agreement is weaker than it looks.",
+  "map": {
+    "image": "images/cars/leonida-map.jpg",
+    "imageCredit": "Original companion artwork & illustrated map",
+    "imageAlt": "Illustrated unofficial companion map of Leonida, showing Vice City on the east coast, the Keys to the south, inland counties, and the road network.",
+    "source": "Pin positions use game coordinates from GTADB landmarks data (CC BY 4.0, https://map.gtadb.org), GTA6Map.io and GTA6 GPS, fitted to this illustrated companion map.",
+    "width": 1402,
+    "height": 1920
+  },
+  "items": [
+    {
+      "id": "steal-towable-atms",
+      "title": "Towable ATMs (rip one off the wall)",
+      "category": "Cash & Smash-and-Grab",
+      "verified": true,
+      "source": "GTA6Heists, \"GTA 6 Towable ATMs: How to Rip an ATM Off the Wall\" (https://www.gta6heists.com/money/towable-atm), author played it in-game; GTA6 Motors, \"How to Rob an ATM\" (https://gta6motors.com/guides/how-to-rob-an-atm/); The Games Wiki, \"Robberies and Heists\" (https://thegameswiki.com/gta6/wiki/robberies-and-heists); Tech4Gamers, \"Rob ATMs and Security Trucks\" (https://gta.tech4gamers.com/gta-6/guides/rob-atms-and-security-trucks/); Informant, \"ATM Withdrawals\" (https://informant.gg/walkthrough/atm-withdrawals); PC Gamer, \"GTA 6: The fastest ways to make money\" (https://www.pcgamer.com/games/grand-theft-auto/gta-6-how-to-make-money/); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Winch an outdoor wall ATM off its mount with a tow truck, then shoot it open for marked bills.",
+      "howTo": [
+        "Get a tow truck or another vehicle with a winch. One tow truck (blue bed, 'ASSISTANCE') was seen behind a used auto-parts yard with an Atomic sign in Hamlet, south-east of Boone Speedway (GTA6Heists).",
+        "Pick an outdoor wall ATM. The pause map lists them as Towable ATMs under Robberies > Targets; indoor ATMs cannot be towed.",
+        "Back the truck up to the ATM and use the MOVE ARM prompt to swing the hook onto it.",
+        "Drive forward hard, reverse, then forward again; finish the pull on foot with the cable interaction until the ATM comes off the wall.",
+        "Drive off and pick up the cash bundles that fall out on the road ($720, $1,800 and $3,600 bundles were seen).",
+        "Unhook the ATM somewhere quiet and shoot it open to get marked bills.",
+        "Fence the marked bills (needs the Dye Pack Jammer); a Fleeca ATM can hold a dye pack that ruins the take."
+      ],
+      "toolsNeeded": [
+        "Tow truck or winch-fitted vehicle",
+        "Gun to open the ATM",
+        "Dye Pack Jammer (Chapter 3, Credit Check) to fence the bills"
+      ],
+      "payoutMin": null,
+      "payoutMax": 7200,
+      "payoutBand": "medium",
+      "heat": null,
+      "sellAt": "Yasmani, Little Cuba (marked bills: High); Tyrone, La Perle (Medium); Brian, Donnie, Dunk pay Very Low. Needs the Dye Pack Jammer.",
+      "cooldown": null,
+      "chapterOrder": 3,
+      "notes": "Best haul seen: $7,200 of marked bills in one run (GTA6Heists, GTA6 Motors). Disagreements: The Games Wiki and Tech4Gamers open ATM jobs through Yasmani (Chapter 3); GTA6Heists and GTA6 Motors give no chapter; PC Gamer and GTA6.house say buy a winch at a Mod Shop (Chapter 2) and warn the ATM must be smashed, which is noisy and draws cops; GTAVIMaps says it is unknown where a winch comes from. Informant lists Yasmani's 'ATM Withdrawals' side job with timed tips. Pins are every GTA6Map.io 'ATM (Towable)' marker.",
+      "image": "images/steal/steal-towable-atms.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "In-game night capture of a blue tow truck with its hook arm raised beside a Fleeca ATM on a building wall, with a 'Move Arm' prompt on screen.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-towable-atms.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "towable-atms-a3jfv8b6",
+          "name": "Towable ATM (Port Gellhorn)",
+          "area": "Port Gellhorn",
+          "mapX": 32.4,
+          "mapY": 35.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-kbrfxrfj",
+          "name": "Towable ATM (Port Gellhorn)",
+          "area": "Port Gellhorn",
+          "mapX": 32.6,
+          "mapY": 37.0,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-v320v3ts",
+          "name": "Towable ATM (Belville)",
+          "area": "Belville",
+          "mapX": 68.6,
+          "mapY": 40.2,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-nz97jjdr",
+          "name": "Towable ATM (Port Gellhorn)",
+          "area": "Port Gellhorn",
+          "mapX": 32.7,
+          "mapY": 40.7,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-vfkhnheg",
+          "name": "Towable ATM (Washington Beach)",
+          "area": "Washington Beach, Vice Beach",
+          "mapX": 82.8,
+          "mapY": 42.0,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-smcw086p",
+          "name": "Towable ATM (Vice Decor District)",
+          "area": "Vice Decor District, Vice City",
+          "mapX": 73.2,
+          "mapY": 42.6,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-kz7r1hsx",
+          "name": "Towable ATM (Decor District)",
+          "area": "Decor District, Vice City",
+          "mapX": 71.8,
+          "mapY": 42.7,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-zr3d6w2g",
+          "name": "Towable ATM (Vice Decor District)",
+          "area": "Vice Decor District, Vice City",
+          "mapX": 72.8,
+          "mapY": 42.8,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-ckvrrrfk",
+          "name": "Towable ATM (Vice Beach)",
+          "area": "Vice Beach",
+          "mapX": 83.6,
+          "mapY": 43.4,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-mcscyda1",
+          "name": "Towable ATM (Vice Beach)",
+          "area": "Vice Beach",
+          "mapX": 79.9,
+          "mapY": 43.9,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-hq28nvkh",
+          "name": "Towable ATM (Vice Decor District)",
+          "area": "Vice Decor District, Vice City",
+          "mapX": 72.7,
+          "mapY": 43.9,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-x1kk0xq2",
+          "name": "Towable ATM (Stockyard)",
+          "area": "Stockyard, Vice City",
+          "mapX": 73.4,
+          "mapY": 44.6,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-sfj8g7ys",
+          "name": "Towable ATM (SW 4th St)",
+          "area": "SW 4th St, Vice Beach",
+          "mapX": 83.6,
+          "mapY": 45.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-bv65k84m",
+          "name": "Towable ATM (SW 4th St)",
+          "area": "SW 4th St, Vice Beach",
+          "mapX": 84.2,
+          "mapY": 45.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-qev0kjhs",
+          "name": "Towable ATM (SW 4th St)",
+          "area": "SW 4th St, Vice Beach",
+          "mapX": 83.7,
+          "mapY": 45.2,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-h7fkjkag",
+          "name": "Towable ATM (SW 4th St)",
+          "area": "SW 4th St, Vice Beach",
+          "mapX": 83.4,
+          "mapY": 45.4,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-dhg3g2nd",
+          "name": "Towable ATM (La Perle)",
+          "area": "La Perle, Vice City",
+          "mapX": 69.8,
+          "mapY": 45.9,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-t2w99ky3",
+          "name": "Towable ATM (Crosstown)",
+          "area": "Crosstown, Vice City",
+          "mapX": 71.0,
+          "mapY": 46.0,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-v3fvy8b5",
+          "name": "Towable ATM (Crosstown)",
+          "area": "Crosstown, Vice City",
+          "mapX": 71.6,
+          "mapY": 46.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-fatjs5x1",
+          "name": "Towable ATM (Crosstown)",
+          "area": "Crosstown, Vice City",
+          "mapX": 71.6,
+          "mapY": 46.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-anq6nfby",
+          "name": "Towable ATM (La Perle)",
+          "area": "La Perle, Vice City",
+          "mapX": 67.5,
+          "mapY": 46.2,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-hkswpjv7",
+          "name": "Towable ATM (Crosstown)",
+          "area": "Crosstown, Vice City",
+          "mapX": 70.6,
+          "mapY": 46.6,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-dzcgbqed",
+          "name": "Towable ATM (Emerald Springs)",
+          "area": "Emerald Springs",
+          "mapX": 52.9,
+          "mapY": 46.9,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-bvybjn07",
+          "name": "Towable ATM (Ocean Beach)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 86.2,
+          "mapY": 47.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-bxtnq1ey",
+          "name": "Towable ATM (Ocean Beach)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 85.0,
+          "mapY": 47.4,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-dnczwans",
+          "name": "Towable ATM (Ocean Beach)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 85.1,
+          "mapY": 48.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-n52mmfy0",
+          "name": "Towable ATM (Crosstown)",
+          "area": "Crosstown, Vice City",
+          "mapX": 69.2,
+          "mapY": 48.3,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-ahvsm3qn",
+          "name": "Towable ATM (Leonard County)",
+          "area": "Leonard County",
+          "mapX": 60.6,
+          "mapY": 48.3,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-qezvg5nc",
+          "name": "Towable ATM (Thompson Ave)",
+          "area": "Thompson Ave, Ocean Beach, Vice Beach",
+          "mapX": 84.9,
+          "mapY": 48.6,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-dt895xzm",
+          "name": "Towable ATM (Rockridge)",
+          "area": "Rockridge, Vice City",
+          "mapX": 66.3,
+          "mapY": 48.9,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-njsvfmh2",
+          "name": "Towable ATM (Rockridge)",
+          "area": "Rockridge, Vice City",
+          "mapX": 65.0,
+          "mapY": 49.0,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-xa4az84a",
+          "name": "Towable ATM (Ocean Beach)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 87.0,
+          "mapY": 49.3,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-qedxk316",
+          "name": "Towable ATM (Bayside)",
+          "area": "Bayside, Vice City",
+          "mapX": 71.2,
+          "mapY": 49.6,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-gab00921",
+          "name": "Towable ATM (Rockridge)",
+          "area": "Rockridge, Vice City",
+          "mapX": 65.0,
+          "mapY": 50.0,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-ttgf8vbr",
+          "name": "Towable ATM (Ocean Beach)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 84.6,
+          "mapY": 50.0,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-t5e6bs7g",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 70.1,
+          "mapY": 50.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-kw4jvsjr",
+          "name": "Towable ATM (Crosstown)",
+          "area": "Crosstown, Vice City",
+          "mapX": 69.2,
+          "mapY": 50.3,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-b2qthb6j",
+          "name": "Towable ATM (Ocean Beach)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 84.1,
+          "mapY": 50.8,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-e3356mdv",
+          "name": "Towable ATM (Ocean Beach)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 82.7,
+          "mapY": 51.4,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-y16v2qw6",
+          "name": "Towable ATM (Balsero)",
+          "area": "Balsero, Vice City",
+          "mapX": 58.2,
+          "mapY": 51.6,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-tgd094nb",
+          "name": "Towable ATM (Shorefront Ave)",
+          "area": "Shorefront Ave, Ocean Beach, Vice Beach",
+          "mapX": 84.2,
+          "mapY": 51.8,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-q60bca23",
+          "name": "Towable ATM (Ocean Beach)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 83.0,
+          "mapY": 52.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-zmq2zg5f",
+          "name": "Towable ATM (Ocean Beach)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 83.0,
+          "mapY": 52.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-tzwgpg9j",
+          "name": "Towable ATM (Catalan Blvd)",
+          "area": "Catalan Blvd, Downtown, Vice City",
+          "mapX": 70.6,
+          "mapY": 52.2,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-k2e1gdhg",
+          "name": "Towable ATM (Ocean Beach)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 85.6,
+          "mapY": 52.3,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-ahnpk8gg",
+          "name": "Towable ATM (Shoreline)",
+          "area": "Shoreline, Vice City",
+          "mapX": 71.7,
+          "mapY": 52.6,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-rks2heh7",
+          "name": "Towable ATM (Ocean Beach)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 84.3,
+          "mapY": 52.9,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-tv9rddes",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 70.3,
+          "mapY": 52.9,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-qk8stm3m",
+          "name": "Towable ATM (Salton)",
+          "area": "Salton, Vice City",
+          "mapX": 61.0,
+          "mapY": 52.9,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-a7eenm8c",
+          "name": "Towable ATM (Ocean Beach)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 85.7,
+          "mapY": 53.0,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-ff798fd3",
+          "name": "Towable ATM (Little Cuba)",
+          "area": "Little Cuba, Vice City",
+          "mapX": 66.0,
+          "mapY": 53.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-xvz0edb6",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 68.4,
+          "mapY": 53.5,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-tcetzz10",
+          "name": "Towable ATM (Ocean Beach)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 85.1,
+          "mapY": 53.5,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-pahndve0",
+          "name": "Towable ATM (Ocean Beach)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 85.1,
+          "mapY": 53.6,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-px995b5z",
+          "name": "Towable ATM (Ocean Beach)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 84.6,
+          "mapY": 53.6,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-nzna4y8b",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 70.2,
+          "mapY": 53.7,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-n9g5h892",
+          "name": "Towable ATM (Shoreline)",
+          "area": "Shoreline, Vice City",
+          "mapX": 73.4,
+          "mapY": 53.9,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-r012hw8f",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 70.4,
+          "mapY": 54.3,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-jnjfcqh4",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 68.0,
+          "mapY": 54.3,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-ctd5s5yp",
+          "name": "Towable ATM (Vice City)",
+          "area": "Vice City",
+          "mapX": 72.6,
+          "mapY": 54.3,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-pd4jw0n1",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 68.0,
+          "mapY": 54.5,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-ymx9f0fm",
+          "name": "Towable ATM (Salton)",
+          "area": "Salton, Vice City",
+          "mapX": 64.2,
+          "mapY": 54.6,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-rtaggb45",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 69.0,
+          "mapY": 54.7,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-pr6sds2y",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 69.4,
+          "mapY": 55.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-bpqrb5hm",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 70.3,
+          "mapY": 55.4,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-tteqdxn5",
+          "name": "Towable ATM (Port Vice City)",
+          "area": "Port Vice City",
+          "mapX": 75.7,
+          "mapY": 55.5,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-n60de7h7",
+          "name": "Towable ATM (Port Vice City)",
+          "area": "Port Vice City",
+          "mapX": 76.6,
+          "mapY": 55.7,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-q8sx45s2",
+          "name": "Towable ATM (Port Vice City)",
+          "area": "Port Vice City",
+          "mapX": 78.3,
+          "mapY": 56.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-tpry3p4e",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 70.2,
+          "mapY": 56.2,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-kzrg5v8e",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 68.2,
+          "mapY": 56.3,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-g5mrgz3z",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 71.0,
+          "mapY": 56.3,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-s3k25xd5",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 68.6,
+          "mapY": 56.4,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-y1ypjghs",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 71.0,
+          "mapY": 56.7,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-nwa8xyyg",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 69.3,
+          "mapY": 56.7,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-agnsskrz",
+          "name": "Towable ATM (Downtown)",
+          "area": "Downtown, Vice City",
+          "mapX": 68.6,
+          "mapY": 56.9,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-cn9fbvjg",
+          "name": "Towable ATM (Salton)",
+          "area": "Salton, Vice City",
+          "mapX": 65.6,
+          "mapY": 57.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-ytkjwggf",
+          "name": "Towable ATM (Tequesta)",
+          "area": "Tequesta, Vice City",
+          "mapX": 69.6,
+          "mapY": 57.6,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-d2wvs9r3",
+          "name": "Towable ATM (Salton)",
+          "area": "Salton, Vice City",
+          "mapX": 65.3,
+          "mapY": 58.0,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-jrqkzscg",
+          "name": "Towable ATM (Tequesta)",
+          "area": "Tequesta, Vice City",
+          "mapX": 68.5,
+          "mapY": 58.5,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-q6wrc11c",
+          "name": "Towable ATM (Tequesta)",
+          "area": "Tequesta, Vice City",
+          "mapX": 68.3,
+          "mapY": 58.5,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-vm3ncnvx",
+          "name": "Towable ATM (Tequesta Retreat)",
+          "area": "Tequesta Retreat, Vice City",
+          "mapX": 71.8,
+          "mapY": 58.7,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-nkt4ayx5",
+          "name": "Towable ATM (SW 4th Ave)",
+          "area": "SW 4th Ave, Tequesta, Vice City",
+          "mapX": 67.7,
+          "mapY": 59.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-qk993rp2",
+          "name": "Towable ATM (Tequesta)",
+          "area": "Tequesta, Vice City",
+          "mapX": 68.6,
+          "mapY": 59.8,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-rnpwrg5a",
+          "name": "Towable ATM (Catalan Blvd)",
+          "area": "Catalan Blvd, Tequesta, Vice City",
+          "mapX": 68.3,
+          "mapY": 60.2,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-garzkm37",
+          "name": "Towable ATM (Tequesta)",
+          "area": "Tequesta, Vice City",
+          "mapX": 67.0,
+          "mapY": 60.9,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-yscydq0s",
+          "name": "Towable ATM (Tequesta)",
+          "area": "Tequesta, Vice City",
+          "mapX": 66.9,
+          "mapY": 60.9,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-vc2vcs54",
+          "name": "Towable ATM (Southside)",
+          "area": "Southside, Vice City",
+          "mapX": 62.8,
+          "mapY": 62.3,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-f00n9nvp",
+          "name": "Towable ATM (Peacock Bay)",
+          "area": "Peacock Bay, Vice City",
+          "mapX": 65.3,
+          "mapY": 62.4,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-m3y8za6f",
+          "name": "Towable ATM (Peacock Bay)",
+          "area": "Peacock Bay, Vice City",
+          "mapX": 65.8,
+          "mapY": 62.8,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-efe4a51d",
+          "name": "Towable ATM (El Joven Blvd)",
+          "area": "El Joven Blvd, Southside, Vice City",
+          "mapX": 63.0,
+          "mapY": 63.7,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-k01hpy6y",
+          "name": "Towable ATM (Southside)",
+          "area": "Southside, Vice City",
+          "mapX": 62.4,
+          "mapY": 64.3,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-vz2b19py",
+          "name": "Towable ATM (Southside)",
+          "area": "Southside, Vice City",
+          "mapX": 61.2,
+          "mapY": 65.6,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-nv95fzep",
+          "name": "Towable ATM (Hamlet)",
+          "area": "Hamlet",
+          "mapX": 57.0,
+          "mapY": 69.1,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-e6wgg272",
+          "name": "Towable ATM (Hamlet)",
+          "area": "Hamlet",
+          "mapX": 59.4,
+          "mapY": 69.3,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-w09megw9",
+          "name": "Towable ATM (Hamlet)",
+          "area": "Hamlet",
+          "mapX": 57.3,
+          "mapY": 69.7,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-sc07qxww",
+          "name": "Towable ATM (Key Lento)",
+          "area": "Key Lento",
+          "mapX": 60.2,
+          "mapY": 80.0,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-j5r773sx",
+          "name": "Towable ATM (Key Lento)",
+          "area": "Key Lento",
+          "mapX": 60.0,
+          "mapY": 80.2,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-mkgt1f3c",
+          "name": "Towable ATM (Key Lento)",
+          "area": "Key Lento",
+          "mapX": 56.3,
+          "mapY": 83.2,
+          "precision": "exact"
+        },
+        {
+          "id": "towable-atms-mxy7nz45",
+          "name": "Towable ATM (Southwind)",
+          "area": "Southwind",
+          "mapX": 32.4,
+          "mapY": 84.4,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-store-stick-ups",
+      "title": "Store stick-ups (cash registers and back-room cash)",
+      "category": "Cash & Smash-and-Grab",
+      "verified": true,
+      "source": "GTA6Heists, \"GTA 6 Local Store Robbery\" (https://www.gta6heists.com/robberies/local-store), launch-stream and own captures; GTA6Heists, \"How to Rob a Liquor Store in GTA 6\" (https://www.gta6heists.com/robberies/liquor-store-robbery); GTA6 Activities, \"GTA 6 Store Robbery: Payouts, Safes and 91 Stick Ups\" (https://www.gta6activities.com/activities/store-robbery); The Games Wiki, \"Interaction System\" (https://thegameswiki.com/gta6/wiki/interaction-system); PC Gamer, \"GTA 6: The fastest ways to make money\" (https://www.pcgamer.com/games/grand-theft-auto/gta-6-how-to-make-money/); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Hold up a clerk at any store for register cash, and often a back-room safe; no fence needed for the cash.",
+      "howTo": [
+        "Put on a mask first (face wrap from the items or clothing menu) so cameras and the cashier cannot identify you.",
+        "Walk in with a gun out, hold L2/LT on the clerk and press THREATEN, then ROB the register (a clerk may surrender, fight or draw a gun).",
+        "Check the back: force the staff-only door (BREAK OPEN), destroy the CCTV footage on the office laptop and disarm the alarm.",
+        "Open the safe with its code (ask 'Safe code?', find it on a note or computer, or use Focus with L3+R3 to see who knows it).",
+        "Without the code, a Sticky Bomb opens it but destroys part of the take.",
+        "Leave before police arrive; a robbed store closes for a few in-game days."
+      ],
+      "toolsNeeded": [
+        "Gun",
+        "Mask",
+        "Sticky Bomb or safe code (optional)"
+      ],
+      "payoutMin": 100,
+      "payoutMax": 3000,
+      "payoutBand": "medium",
+      "heat": null,
+      "sellAt": "None for cash (goes straight to your wallet); weed and cigarettes taken from some back rooms go to a fence",
+      "cooldown": "A robbed store closes for a few in-game days (The Games Wiki)",
+      "chapterOrder": 0,
+      "notes": "Map cards read $100-$1,000 up to $1,000-$3,000 (Xero Food Mart, Rockridge). Observed runs: $21 (The Bean) to $1,748 (Pearl House Hair Salon, Port Gellhorn); $3,100 from a run of Vice City clothing stores. Heat varies by store (none to 4 stars). Disagreement: GTA6Heists reports about $2,160 at the Southwind Ammu-Nation, but The Games Wiki says Ammu-Nation can't be threatened or robbed. No guide mentions tip jars; none are listed. Pins are GTA6Map.io convenience and liquor store markers; any store can be tried.",
+      "image": "images/steal/steal-store-stick-ups.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "A store hold-up: Jason aims a rifle while Lucia aims a pistol at customers with their hands up, as a glass display case shatters in the foreground.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-store-stick-ups.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "store-stick-ups-zdkd14vw",
+          "name": "Jeudy's Food Depot",
+          "area": "La Perle, Vice City",
+          "mapX": 67.9,
+          "mapY": 46.5,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-tjdd4j3h",
+          "name": "24/7 Supermarket",
+          "area": "Key Lento",
+          "mapX": 60.8,
+          "mapY": 79.4,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-d6sv0m18",
+          "name": "Mami's Grocery Market",
+          "area": "Southside, Vice City",
+          "mapX": 63.0,
+          "mapY": 64.3,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-k99evv6y",
+          "name": "Uncle Jack’s Liquor – Port Gellhorn",
+          "area": "Port Gellhorn",
+          "mapX": 32.5,
+          "mapY": 35.3,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-dnzpk5ge",
+          "name": "Vetiver Minimarket",
+          "area": "La Perle, Vice City",
+          "mapX": 67.3,
+          "mapY": 46.5,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-xd95vk5r",
+          "name": "Port Gellhorn Convenience Store",
+          "area": "Port Gellhorn",
+          "mapX": 31.3,
+          "mapY": 39.0,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-tdk63vw9",
+          "name": "Key Lento Convenience Store",
+          "area": "Key Lento",
+          "mapX": 55.7,
+          "mapY": 83.9,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-kjex8zj3",
+          "name": "Hamlet Convenience Store",
+          "area": "Hamlet",
+          "mapX": 56.0,
+          "mapY": 69.8,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-dpkarc0w",
+          "name": "Trotman's Super Market",
+          "area": "Millport",
+          "mapX": 66.6,
+          "mapY": 22.9,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-trkkjbfv",
+          "name": "Waning Sands Grocery Store",
+          "area": "Waning Sands",
+          "mapX": 71.9,
+          "mapY": 33.6,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-h98zx5e1",
+          "name": "Ron’s Stop’N’Snack",
+          "area": "Stockyard, Vice City",
+          "mapX": 73.4,
+          "mapY": 44.6,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-k185qr13",
+          "name": "One Stop Liquor – Key Lento",
+          "area": "Key Lento",
+          "mapX": 53.8,
+          "mapY": 85.0,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-qemj37ev",
+          "name": "Three Sheets Liquor",
+          "area": "Key Lento",
+          "mapX": 57.8,
+          "mapY": 82.4,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-y2v44twr",
+          "name": "Discount Liquors",
+          "area": "Calderone Ave, Southside, Vice City",
+          "mapX": 61.0,
+          "mapY": 64.1,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-t0hmhp50",
+          "name": "Uncle Jack’s Liquor – Tequesta",
+          "area": "Tequesta, Vice City",
+          "mapX": 68.5,
+          "mapY": 58.4,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-v149tpf0",
+          "name": "Liquor Store",
+          "area": "Salton, Vice City",
+          "mapX": 65.4,
+          "mapY": 55.7,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-rs2ebf1x",
+          "name": "Palmis Liquor",
+          "area": "La Perle, Vice City",
+          "mapX": 66.9,
+          "mapY": 47.7,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-bcnp89p9",
+          "name": "Dutch Courage",
+          "area": "Miramar Dr, Crosstown, Vice City",
+          "mapX": 69.6,
+          "mapY": 48.0,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-dx5c7cc9",
+          "name": "Uncle Jack’s Liquor – Bayside",
+          "area": "Bayside, Vice City",
+          "mapX": 71.3,
+          "mapY": 47.8,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-s77raxmc",
+          "name": "Zak’s Liquor",
+          "area": "La Perle",
+          "mapX": 69.0,
+          "mapY": 45.3,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-eeknwbpv",
+          "name": "One Stop Liquor – Ocean Beach",
+          "area": "Mid, Ocean Beach, Vice Beach",
+          "mapX": 85.4,
+          "mapY": 47.1,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-e67sp30y",
+          "name": "Corked Wine Bank",
+          "area": "Thompson Ave, Ocean Beach, Vice Beach",
+          "mapX": 85.1,
+          "mapY": 49.0,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-dkd0nkq2",
+          "name": "Ocean Beach Liquor",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 84.8,
+          "mapY": 51.9,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-ts543190",
+          "name": "Ambrosia Liquors",
+          "area": "Ambrosia",
+          "mapX": 52.9,
+          "mapY": 33.5,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-j3qap95k",
+          "name": "RON Stop'N'Snack - Southside",
+          "area": "Southside, Vice City",
+          "mapX": 62.8,
+          "mapY": 62.3,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-nwxe46s1",
+          "name": "Wells Rosa",
+          "area": "Peacock Bay",
+          "mapX": 65.6,
+          "mapY": 62.3,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-bawz5b3x",
+          "name": "Xero Food Mart - Grassrivers",
+          "area": "Mariana County",
+          "mapX": 47.2,
+          "mapY": 65.1,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-xp0tyh2g",
+          "name": "Leonida Truck Stop",
+          "area": "Hamlet",
+          "mapX": 52.6,
+          "mapY": 67.9,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-qpkkg8fv",
+          "name": "LTD Food Mart - Hamlet",
+          "area": "Hamlet",
+          "mapX": 57.1,
+          "mapY": 68.4,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-t4wy7mvs",
+          "name": "Jim's Mini Mart",
+          "area": "Watson Bay",
+          "mapX": 40.5,
+          "mapY": 69.0,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-thaha3fy",
+          "name": "247 - Hamlet",
+          "area": "Hamlet",
+          "mapX": 59.4,
+          "mapY": 69.0,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-db56d979",
+          "name": "Ramon's Groceries",
+          "area": "Hamlet",
+          "mapX": 57.1,
+          "mapY": 69.5,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-kfemcpfs",
+          "name": "Globe Oil Food Center - Hamlet",
+          "area": "Hamlet",
+          "mapX": 55.6,
+          "mapY": 70.2,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-bk9jd0hp",
+          "name": "Poppers Convenience Store",
+          "area": "Watson Bay",
+          "mapX": 41.9,
+          "mapY": 70.2,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-jzpevaxa",
+          "name": "Randy's Big Gas Mart",
+          "area": "Watson Bay",
+          "mapX": 42.4,
+          "mapY": 70.0,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-by02k3p7",
+          "name": "Xero Food Mart - Southwind",
+          "area": "Southwind",
+          "mapX": 32.4,
+          "mapY": 84.4,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-xcvq4rdt",
+          "name": "247 - Bayside",
+          "area": "Crosstown, Vice City",
+          "mapX": 71.1,
+          "mapY": 46.0,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-x5x8csm7",
+          "name": "RON Stop'N'Snack - Balsero",
+          "area": "Leonard County",
+          "mapX": 60.4,
+          "mapY": 48.3,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-cc1shayp",
+          "name": "Xero Food Mart - South Kelly County",
+          "area": "Kelly County",
+          "mapX": 39.3,
+          "mapY": 48.5,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-p0z3g6gn",
+          "name": "RON Stop'N'Snack - Balsero",
+          "area": "Tisha-Wocka, Vice City",
+          "mapX": 56.0,
+          "mapY": 49.4,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-ppzb62es",
+          "name": "Xero Food Mart - Buckskin Swamp",
+          "area": "Kelly County",
+          "mapX": 50.3,
+          "mapY": 50.3,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-skasx2wt",
+          "name": "LTD Food Mart - Capri",
+          "area": "Capri",
+          "mapX": 29.4,
+          "mapY": 51.2,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-stb1hwhd",
+          "name": "Delgado & Sons",
+          "area": "Balsero, Vice City",
+          "mapX": 62.0,
+          "mapY": 52.0,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-bx578c3f",
+          "name": "247 - West Vice-Dale County",
+          "area": "Mariana County",
+          "mapX": 44.7,
+          "mapY": 52.7,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-vq2hprf9",
+          "name": "247 - Downtown",
+          "area": "Downtown, Vice City",
+          "mapX": 68.0,
+          "mapY": 53.3,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-ac5krr7j",
+          "name": "RON Stop'N'Snack - Little Cuba",
+          "area": "Little Cuba, Vice City",
+          "mapX": 67.0,
+          "mapY": 52.8,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-jsvywek2",
+          "name": "RON Stop'N'Snack - Salton",
+          "area": "Salton, Vice City",
+          "mapX": 61.0,
+          "mapY": 53.0,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-j06aetrb",
+          "name": "Xero Food Mart - Salton",
+          "area": "Salton, Vice City",
+          "mapX": 63.7,
+          "mapY": 54.2,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-m0p9wd0c",
+          "name": "Xero Food Mart - Capri",
+          "area": "Capri",
+          "mapX": 31.4,
+          "mapY": 54.7,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-y4szvjmp",
+          "name": "Quick Picks Mini Mart",
+          "area": "Downtown, Vice City",
+          "mapX": 68.7,
+          "mapY": 55.1,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-bk6xz6k5",
+          "name": "Convenience Store",
+          "area": "Capri",
+          "mapX": 34.4,
+          "mapY": 56.6,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-e3smfwev",
+          "name": "Xero Food Mart - Grassrivers",
+          "area": "Capri",
+          "mapX": 33.4,
+          "mapY": 57.5,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-mb43ewht",
+          "name": "Xero Food Mart - Tequesta",
+          "area": "Tequesta, Vice City",
+          "mapX": 66.7,
+          "mapY": 58.1,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-qvejvpd1",
+          "name": "Xero Food Mart - La Perle",
+          "area": "La Perle, Vice City",
+          "mapX": 69.8,
+          "mapY": 44.7,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-gdhh36k1",
+          "name": "RON Stop'N'Snack - Washington Beach",
+          "area": "Vice Beach",
+          "mapX": 84.6,
+          "mapY": 45.5,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-ywhtj9tn",
+          "name": "A&L Surf Mart",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 86.5,
+          "mapY": 47.5,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-c54cwtgf",
+          "name": "Hugo's Quick-Mart",
+          "area": "Crosstown, Vice City",
+          "mapX": 68.1,
+          "mapY": 49.5,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-j5hqjeqv",
+          "name": "XYZ Market",
+          "area": "Crosstown, Vice City",
+          "mapX": 68.8,
+          "mapY": 49.1,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-zxrzkzpr",
+          "name": "Xero Food Mart - Rockridge",
+          "area": "Rockridge, Vice City",
+          "mapX": 65.5,
+          "mapY": 49.0,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-tajv1vcc",
+          "name": "Rico's Convenience Store",
+          "area": "Rockridge, Vice City",
+          "mapX": 65.5,
+          "mapY": 49.9,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-sv32pa34",
+          "name": "Emilio's Auto Center Food Store",
+          "area": "Rockridge, Vice City",
+          "mapX": 66.8,
+          "mapY": 50.3,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-z08cmgz6",
+          "name": "Globe Oil Food Center - Crosstown",
+          "area": "Crosstown, Vice City",
+          "mapX": 68.9,
+          "mapY": 50.7,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-yvpdb7x3",
+          "name": "247 - Ocean Beach",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 85.6,
+          "mapY": 52.3,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-hpjxj0qm",
+          "name": "LTD Food Mart - Ocean Beach",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 84.4,
+          "mapY": 53.2,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-v5v97e95",
+          "name": "¡Superprecios! Market",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 85.5,
+          "mapY": 53.6,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-ad404zt4",
+          "name": "Xero Food Mart - Waning Sands",
+          "area": "Waning Sands",
+          "mapX": 74.9,
+          "mapY": 34.5,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-gh65p3x6",
+          "name": "Alpha Convenience Store - Belville",
+          "area": "Belville",
+          "mapX": 68.7,
+          "mapY": 39.8,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-bx771634",
+          "name": "247 - Washington Beach",
+          "area": "Catalan Bay",
+          "mapX": 80.0,
+          "mapY": 39.9,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-c76a6t8k",
+          "name": "247 - Belville",
+          "area": "Belville",
+          "mapX": 62.2,
+          "mapY": 40.9,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-pkak12nk",
+          "name": "Xero Food Mart - Belville",
+          "area": "Belville",
+          "mapX": 64.6,
+          "mapY": 41.8,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-am672zv2",
+          "name": "247 - Millport",
+          "area": "Millport",
+          "mapX": 64.6,
+          "mapY": 23.4,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-zt48cvr1",
+          "name": "Xero Food Mart - Millport",
+          "area": "Millport",
+          "mapX": 65.6,
+          "mapY": 23.5,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-fzsaepnj",
+          "name": "Cane Grocery",
+          "area": "Ambrosia",
+          "mapX": 55.7,
+          "mapY": 32.9,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-ye0zhnya",
+          "name": "Xero Food Mart - Ambrosia",
+          "area": "Ambrosia",
+          "mapX": 56.6,
+          "mapY": 33.9,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-r3takwnt",
+          "name": "247 - Emerald Springs",
+          "area": "Kelly County",
+          "mapX": 52.0,
+          "mapY": 40.4,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-fpat20w7",
+          "name": "Bunch Farms Country Store",
+          "area": "Kelly County",
+          "mapX": 47.9,
+          "mapY": 26.5,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-ad98s947",
+          "name": "Alpha Convenience Store - Gellhorn",
+          "area": "Historic Route 628, Kelly County",
+          "mapX": 39.6,
+          "mapY": 36.7,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-gwsrx3ck",
+          "name": "Sarena's Bargain Store",
+          "area": "Port Gellhorn",
+          "mapX": 31.4,
+          "mapY": 36.6,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-sg28npw0",
+          "name": "247 - Port Gellhorn",
+          "area": "Port Gellhorn",
+          "mapX": 32.6,
+          "mapY": 36.9,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-wvzwhv7r",
+          "name": "Dale's Shopwell",
+          "area": "Port Gellhorn",
+          "mapX": 32.8,
+          "mapY": 38.0,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-e6bnep0a",
+          "name": "Tucker's Citrus Farms",
+          "area": "Kelly County",
+          "mapX": 49.5,
+          "mapY": 39.7,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-w1he7z3g",
+          "name": "Eager Beaver Express",
+          "area": "Port Gellhorn",
+          "mapX": 32.7,
+          "mapY": 40.7,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-y7szxfx9",
+          "name": "Redshaw's General Store",
+          "area": "Lummox County",
+          "mapX": 53.4,
+          "mapY": 20.5,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-svqzf3a6",
+          "name": "Huck's Pump N Go",
+          "area": "Lummox County",
+          "mapX": 36.5,
+          "mapY": 22.2,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-chyfnf8r",
+          "name": "247 - West Kalaga",
+          "area": "Lummox County",
+          "mapX": 47.6,
+          "mapY": 19.5,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-w8phgnq3",
+          "name": "Emerald Springs Country Store",
+          "area": "Emerald Springs",
+          "mapX": 47.9,
+          "mapY": 43.7,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-cbcx6vye",
+          "name": "Blessed Food Market",
+          "area": "La Perle, Vice City",
+          "mapX": 66.8,
+          "mapY": 48.1,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-m3qk9j74",
+          "name": "Xero Food Mart - Crosstown",
+          "area": "Crosstown, Vice City",
+          "mapX": 69.3,
+          "mapY": 48.3,
+          "precision": "exact"
+        },
+        {
+          "id": "store-stick-ups-pwc02bbb",
+          "name": "Xero Food Mart - Buckskin Swamp",
+          "area": "Kelly County",
+          "mapX": 50.7,
+          "mapY": 49.8,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-safes",
+      "title": "Safes (wall, floor and back-room)",
+      "category": "Cash & Smash-and-Grab",
+      "verified": true,
+      "source": "PC Gamer, \"GTA 6 safe codes and where to find them\" (https://www.pcgamer.com/games/grand-theft-auto/gta-6-safe-codes-combinations/); The Games Wiki, \"How to Open Safes and Doors with Sticky Bombs\" (https://thegameswiki.com/gta6/wiki/how-to-open-safes-and-doors-with-sticky-bombs); GTA6.fr, \"GTA 6 : operations illegales, coffres et codes\" (https://www.gta6.fr/guide/operations-illegales.html), updated 19 Nov 2026; GTA6Heists, \"GTA 6 Local Store Robbery\" (https://www.gta6heists.com/robberies/local-store), launch-stream and own captures; VicePulse, \"GTA 6 hidden money locations\" (https://vicepulse.org/gta-6/money/hidden-cash); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Cash and valuables behind a four-digit code; found in stores, banks and gang hideouts.",
+      "howTo": [
+        "Find the code: look for a note, board, computer screen or an incapacitated guard; press L3+R3 for Focus to highlight clues.",
+        "Or aim at an employee and use THREATEN / 'Safe code?' to make them give it up.",
+        "Small safes with no code can be forced with a screwdriver (hold Triangle/Y and turn the right stick to the sweet spot) or lock-picked.",
+        "Enter the four-digit code at the safe to keep the full value.",
+        "No code? Choose the Plant Sticky Bomb prompt on the safe, step back and press D-pad Right; throwing a bomb at it does nothing.",
+        "Expect the blast to damage part of the contents and alert nearby enemies."
+      ],
+      "toolsNeeded": [
+        "Safe code, or Sticky Bomb ($185 at Ammu-Nation after Chapter 3 Credit Check; free crate in Yasmani's garage)",
+        "Screwdriver / lockpick for small safes"
+      ],
+      "payoutMin": null,
+      "payoutMax": null,
+      "payoutBand": null,
+      "heat": null,
+      "sellAt": null,
+      "cooldown": null,
+      "chapterOrder": 0,
+      "notes": "Take varies by safe; examples: $968 (Three Sheets Liquor), $1,489 (Stash House), $2,313 (Nova Auto Junkyard), $3,000-$4,000 plus a luxury watch (Watson Bay safehouse, code 1819 per VicePulse). Disagreement on codes: PC Gamer says many are fixed and some random; GTA6Heists and VicePulse say store codes are random per player or robbery. Bank safes and the vault are covered in their own items. Pins are the GTA6Map.io 'Safe' markers (mostly gang hideouts).",
+      "image": "images/steal/steal-safes.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "In-game capture of a character standing in a cluttered back room in front of shelves of old TVs and a desk, with an 'Enter code' prompt for the safe.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-safes.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "safes-jcjv2gvz",
+          "name": "Locked Safe - Carter Mining Boathouse",
+          "area": "Lummox County",
+          "mapX": 48.6,
+          "mapY": 12.8,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-vne6sd4k",
+          "name": "RV Safe - Weed Grow",
+          "area": "Lummox County",
+          "mapX": 64.6,
+          "mapY": 19.6,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-cz12qd96",
+          "name": "Safe - Weed Grow",
+          "area": "Lummox County",
+          "mapX": 65.0,
+          "mapY": 19.8,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-edxbd2sy",
+          "name": "Warehouse Safe - Brooks Boatworks",
+          "area": "Port Gellhorn",
+          "mapX": 31.2,
+          "mapY": 33.2,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-ba267bpc",
+          "name": "Safe - Stash House",
+          "area": "Port Gellhorn",
+          "mapX": 32.6,
+          "mapY": 33.2,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-gk0q6rkn",
+          "name": "Office Safe - Brooks Boatworks",
+          "area": "Port Gellhorn",
+          "mapX": 31.1,
+          "mapY": 33.3,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-mtnvv1gv",
+          "name": "Locked Safe - Walker Farm",
+          "area": "Ambrosia",
+          "mapX": 43.2,
+          "mapY": 33.9,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-jm1ny56b",
+          "name": "Office Safe - Hog Stars Garage",
+          "area": "Allied Crystal, Ambrosia",
+          "mapX": 55.8,
+          "mapY": 34.4,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-z8pnkg9b",
+          "name": "Lieutenant Room Safe - La Cascara Motel",
+          "area": "Port Gellhorn",
+          "mapX": 29.3,
+          "mapY": 34.8,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-skt6r0ek",
+          "name": "Safe - Irons Building Supply",
+          "area": "Allied Crystal, Ambrosia",
+          "mapX": 54.2,
+          "mapY": 34.9,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-tz51epvj",
+          "name": "Safe - Biker Hideout",
+          "area": "Ambrosia",
+          "mapX": 60.7,
+          "mapY": 35.1,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-nc3fg4q7",
+          "name": "Safe - Farm Fix Meth Lab",
+          "area": "Leonard County",
+          "mapX": 66.2,
+          "mapY": 35.9,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-wya8h4qj",
+          "name": "Safe - June Warehouse",
+          "area": "Port Gellhorn",
+          "mapX": 31.6,
+          "mapY": 36.8,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-r84ydgge",
+          "name": "Locked Safe - Backroom Weed Front",
+          "area": "Port Gellhorn",
+          "mapX": 32.7,
+          "mapY": 38.1,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-yz1e17yb",
+          "name": "Office Safe - Kingpin Bowling",
+          "area": "Port Gellhorn",
+          "mapX": 32.5,
+          "mapY": 38.4,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-szg4pa77",
+          "name": "Safe",
+          "area": "Kelly County",
+          "mapX": 51.9,
+          "mapY": 40.3,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-nde0zz9t",
+          "name": "Safe - Sound4Sound Studio",
+          "area": "Stockyard, Vice City",
+          "mapX": 71.3,
+          "mapY": 44.7,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-p13t7fnf",
+          "name": "Safe - Illegal Sneaker Trade",
+          "area": "La Perle, Vice City",
+          "mapX": 67.4,
+          "mapY": 46.7,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-t392w5tz",
+          "name": "Safe - Cigar Import Front",
+          "area": "La Perle, Vice City",
+          "mapX": 66.8,
+          "mapY": 47.8,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-h7v94vj9",
+          "name": "Armory Safe - Vespucci Mansion",
+          "area": "Rialto Islands",
+          "mapX": 77.0,
+          "mapY": 48.0,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-ah2wxe17",
+          "name": "Armory Safe 2 - Vespucci Mansion",
+          "area": "Rialto Islands",
+          "mapX": 77.0,
+          "mapY": 48.0,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-dkpb5238",
+          "name": "Safe -Janjak's Garage",
+          "area": "La Perle, Vice City",
+          "mapX": 65.7,
+          "mapY": 48.1,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-tvaeqqck",
+          "name": "Safe - Leonida Carrier Warehouse",
+          "area": "Balsero, Vice City",
+          "mapX": 58.9,
+          "mapY": 50.4,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-ycva5bka",
+          "name": "Safe - Parlor Apartments",
+          "area": "Rockridge, Vice City",
+          "mapX": 65.2,
+          "mapY": 50.5,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-g4qtvwvn",
+          "name": "Safe - Ocean Beach Lab",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 85.6,
+          "mapY": 51.0,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-x9cjaqs3",
+          "name": "Safe - Saber Shipping Facility",
+          "area": "Westbrook Dr, Balsero, Vice City",
+          "mapX": 63.7,
+          "mapY": 51.0,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-bz9ztkt9",
+          "name": "Safe - Casa Guardia",
+          "area": "Little Cuba, Vice City",
+          "mapX": 66.5,
+          "mapY": 52.0,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-hwkajh0z",
+          "name": "Office Safe - Chatfield Storage & Logistics",
+          "area": "Vice-Dale County",
+          "mapX": 74.6,
+          "mapY": 52.1,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-bc7nw3dc",
+          "name": "Office Safe - Saber Shipping Facility",
+          "area": "Vice City",
+          "mapX": 64.5,
+          "mapY": 53.0,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-rqzwrv8t",
+          "name": "Safe - Industrial Weed Grow",
+          "area": "Mariana County",
+          "mapX": 38.6,
+          "mapY": 59.1,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-e0g2e00n",
+          "name": "Safe - Slator Towing Inc",
+          "area": "Salton, Vice City",
+          "mapX": 64.5,
+          "mapY": 60.2,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-y6d13z6k",
+          "name": "Safe - Illegal Goods Store",
+          "area": "Southside, Vice City",
+          "mapX": 62.9,
+          "mapY": 62.5,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-j5zanxd1",
+          "name": "Locked Safe - Mill Station Radar Base",
+          "area": "Mariana County",
+          "mapX": 41.6,
+          "mapY": 66.0,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-xwk72183",
+          "name": "Safe - Watson Bay Safe House",
+          "area": "Watson Bay",
+          "mapX": 44.1,
+          "mapY": 67.8,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-wgasx43s",
+          "name": "Safe - Palmer Fishing Warehouse",
+          "area": "Watson Bay",
+          "mapX": 38.9,
+          "mapY": 68.7,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-hdagaws2",
+          "name": "Garage Safe - Nova Auto Junkyard",
+          "area": "Hamlet",
+          "mapX": 57.7,
+          "mapY": 70.1,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-cjg0jvyv",
+          "name": "Safe - Manatee Motel",
+          "area": "Grassrivers",
+          "mapX": 54.3,
+          "mapY": 73.5,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-ctp1r9r9",
+          "name": "Office Safe - Sunrise RV Park",
+          "area": "Mariana County",
+          "mapX": 51.4,
+          "mapY": 75.2,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-y0aq56x4",
+          "name": "Dock Warehouse Safe - Sunset RV Park",
+          "area": "Mariana County",
+          "mapX": 51.3,
+          "mapY": 75.6,
+          "precision": "exact"
+        },
+        {
+          "id": "safes-m998w9jp",
+          "name": "Safe - Exotic Animal Front",
+          "area": "Key Lento",
+          "mapX": 57.8,
+          "mapY": 82.4,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-armored-trucks",
+      "title": "Armored (Gruppe Sechs) security trucks",
+      "category": "Cash & Smash-and-Grab",
+      "verified": true,
+      "source": "The Games Wiki, \"Robberies and Heists\" (https://thegameswiki.com/gta6/wiki/robberies-and-heists); Tech4Gamers, \"Rob ATMs and Security Trucks\" (https://gta.tech4gamers.com/gta-6/guides/rob-atms-and-security-trucks/); GTAVIMaps, \"Armored Trucks\" (https://gtavimaps.com/guides/armored-trucks/); RetroBroker, \"Rob Armored Security Vans\" (https://retrobroker.com/en-US/us/blog/rob-armored-security-vans-gta-6-guide); GTA6Heists, \"GTA 6 Van Robbery\" (https://www.gta6heists.com/robberies/van); PC Gamer, \"GTA 6: The fastest ways to make money\" (https://www.pcgamer.com/games/grand-theft-auto/gta-6-how-to-make-money/). All read 20 November 2026.",
+      "summary": "Block a Gruppe Sechs cash truck, blow the rear doors with sticky bombs, and take the cash cases.",
+      "howTo": [
+        "Get the work through Yasmani's jobs (Chapter 3); a purple icon marks a van when you buy one of his $10,000 tips (Tech4Gamers).",
+        "Get sticky bombs: Ammu-Nation or the crate behind Yasmani's shop.",
+        "Stop or block the truck (the story job shoots out its tyres from dirt bikes).",
+        "Plant a sticky bomb on the rear doors and detonate it.",
+        "Shoot the guard or threaten him, then shoot open the cash cases or take the bags.",
+        "Leave the red heat zone before the police close in; the take is marked bills to fence."
+      ],
+      "toolsNeeded": [
+        "Sticky bombs",
+        "Weapon",
+        "Getaway vehicle"
+      ],
+      "payoutMin": null,
+      "payoutMax": null,
+      "payoutBand": null,
+      "heat": "medium",
+      "sellAt": "Yasmani, Little Cuba (marked bills: High); Tyrone, La Perle (Medium); Brian, Donnie, Dunk pay Very Low. Needs the Dye Pack Jammer.",
+      "cooldown": null,
+      "chapterOrder": 3,
+      "notes": "No free-roam payout range has been published (Tech4Gamers and GTAVIMaps say it is not confirmed). The only figure is Billy's scripted Chapter 2 job Twist Wrist, Smash, Grab: a $3,000 bag, $2,000 your cut, 3 stars (RetroBroker, GTA6Heists). Disagreement: GTA6Heists says it is not known whether free-roam vans can be hit the same way. Trophy: A Classic Blitz Play. Rockstar's Extended Look shows the Gruppe 6 truck being hit. No fixed spots, so no pins.",
+      "image": "images/steal/steal-armored-trucks.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "A street shootout: Lucia fires a pistol from a car while a green-and-white armored cash truck, police cars and motorcycles are behind her.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-armored-trucks.jpg",
+      "imageVerified": true,
+      "locations": []
+    },
+    {
+      "id": "steal-vans-of-stolen-goods",
+      "title": "Vans of stolen goods (cash boxes)",
+      "category": "Cash & Smash-and-Grab",
+      "verified": false,
+      "source": "GTA6Heists, \"GTA 6 Van Robbery\" (https://www.gta6heists.com/robberies/van). All read 20 November 2026.",
+      "summary": "Find a parked van where a crew is unloading, knock them out and empty the cash boxes.",
+      "howTo": [
+        "Use Focus (L3+R3) to pick up suspicious noises; they lead to people standing at a van in a parking lot.",
+        "Knock out the crew (a baseball bat worked).",
+        "Empty the boxes in the back of the van: they hold cash, not goods.",
+        "Walk away; no wanted level was seen in the one run."
+      ],
+      "toolsNeeded": [
+        "Melee weapon or gun"
+      ],
+      "payoutMin": null,
+      "payoutMax": 1440,
+      "payoutBand": "low",
+      "heat": "low",
+      "sellAt": null,
+      "cooldown": null,
+      "chapterOrder": 0,
+      "notes": "Single source: one launch-stream run paid $1,440 in cash ($337, $431, $672) in about 50 seconds with no wanted level (GTA6Heists). No map icon and no list of van spots is known, so no pins.",
+      "image": null,
+      "imageCredit": null,
+      "imageAlt": null,
+      "imageSource": null,
+      "imageVerified": false,
+      "locations": []
+    },
+    {
+      "id": "steal-payday-loan-stores",
+      "title": "Payday Loan stores",
+      "category": "Heists & Banks",
+      "verified": true,
+      "source": "The Games Wiki, \"Robberies and Heists\" (https://thegameswiki.com/gta6/wiki/robberies-and-heists); GTA6Heists, \"GTA 6 Payday Loan Robbery\" (https://www.gta6heists.com/robberies/payday-loan-robbery); The Games Wiki, \"How to Open Safes and Doors with Sticky Bombs\" (https://thegameswiki.com/gta6/wiki/how-to-open-safes-and-doors-with-sticky-bombs); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Seven loan counters you can rob for marked bills after the Chapter 3 mission Credit Check.",
+      "howTo": [
+        "Finish the Chapter 3 mission Credit Check (Raul's crew); it unlocks bank and Payday Loan jobs and gives the Dye Pack Jammer.",
+        "Pick a store from Map > Robberies > Payday Loans; the card shows take and security.",
+        "Wear a mask, threaten the teller and take the cash; check the back office for a safe or marked bills.",
+        "Plant a Sticky Bomb on a locked door (alarmed doors set the alarm off).",
+        "Fence the marked bills (Dye Pack Jammer needed)."
+      ],
+      "toolsNeeded": [
+        "Mask",
+        "Gun",
+        "Dye Pack Jammer",
+        "Sticky Bombs for locked doors"
+      ],
+      "payoutMin": 2000,
+      "payoutMax": 25000,
+      "payoutBand": "high",
+      "heat": null,
+      "sellAt": "Yasmani, Little Cuba (marked bills: High); Tyrone, La Perle (Medium); Brian, Donnie, Dunk pay Very Low. Needs the Dye Pack Jammer.",
+      "cooldown": null,
+      "chapterOrder": 3,
+      "notes": "GTA6Map.io cards: Little Cuba $15,000-$25,000; Cash Flow (Port Gellhorn) $2,000-$10,000; the other five $5,000-$15,000. The Games Wiki says usually $5,000-$15,000 and up to $25,000. Two Payday Loan jobs for Yasmani also unlock garage pick-up of stolen goods (for a fee). The Prologue's Money Shift counter is a scripted version of the same robbery.",
+      "image": "images/steal/steal-payday-loan-stores.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "In-game capture of Lucia and another character at the barred teller window of a payday-loan counter, with a 'Threaten the teller' prompt on screen.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-payday-loan-stores.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "payday-loan-stores-pqsr3r7h",
+          "name": "Quick Buck – Hamlet ($5,000–$15,000)",
+          "area": "Hamlet",
+          "mapX": 57.3,
+          "mapY": 71.2,
+          "precision": "exact"
+        },
+        {
+          "id": "payday-loan-stores-v3w4pnd0",
+          "name": "Payline Loans 247 ($5,000–$15,000)",
+          "area": "Hamlet",
+          "mapX": 59.3,
+          "mapY": 69.4,
+          "precision": "exact"
+        },
+        {
+          "id": "payday-loan-stores-ty1dqq89",
+          "name": "Payday Loans Store – Southside ($5,000–$15,000)",
+          "area": "El Joven Blvd, Southside, Vice City",
+          "mapX": 63.1,
+          "mapY": 63.6,
+          "precision": "exact"
+        },
+        {
+          "id": "payday-loan-stores-d2cppge0",
+          "name": "Payday Loans Store – Little Cuba ($15,000–$25,000)",
+          "area": "Little Cuba, Vice City",
+          "mapX": 65.4,
+          "mapY": 51.7,
+          "precision": "exact"
+        },
+        {
+          "id": "payday-loan-stores-y7jwehg0",
+          "name": "Payday Loans Store – Rockridge ($5,000–$15,000)",
+          "area": "Rockridge, Vice City",
+          "mapX": 66.4,
+          "mapY": 49.0,
+          "precision": "exact"
+        },
+        {
+          "id": "payday-loan-stores-wbpwx0hk",
+          "name": "Quick Buck – La Perle ($5,000–$15,000)",
+          "area": "La Perle, Vice City",
+          "mapX": 69.9,
+          "mapY": 45.9,
+          "precision": "exact"
+        },
+        {
+          "id": "payday-loan-stores-ethxcqbz",
+          "name": "Cash Flow ($2,000–$10,000)",
+          "area": "Port Gellhorn",
+          "mapX": 32.2,
+          "mapY": 35.1,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-small-banks",
+      "title": "Small banks (14 branches)",
+      "category": "Heists & Banks",
+      "verified": true,
+      "source": "The Games Wiki, \"Robberies and Heists\" (https://thegameswiki.com/gta6/wiki/robberies-and-heists); GTA6Heists, \"GTA 6 Bank Robbery\" (https://www.gta6heists.com/robberies/bank); Sixthstar, \"GTA 6 Robberies\" (https://sixthstar.net/guides/gta-6-robberies/); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Fleeca, Lombank, Shorefront and other branches: teller cash plus a safe, marked bills.",
+      "howTo": [
+        "Finish the Chapter 3 mission Credit Check to unlock the 14 small banks.",
+        "Choose a branch on the map (card shows take and security).",
+        "Mask up, threaten staff and the guard, and empty the tellers' drawers.",
+        "Go through the staff-only door, destroy the footage and open the manager's safe by code or sticky bomb.",
+        "Escape: one Key Lento hold-up still held 4-5 stars until the player took a boat across the bay.",
+        "Fence the marked bills (Dye Pack Jammer needed)."
+      ],
+      "toolsNeeded": [
+        "Mask",
+        "Weapons",
+        "Dye Pack Jammer",
+        "Getaway vehicle or boat"
+      ],
+      "payoutMin": 5000,
+      "payoutMax": 45000,
+      "payoutBand": "high",
+      "heat": null,
+      "sellAt": "Yasmani, Little Cuba (marked bills: High); Tyrone, La Perle (Medium); Brian, Donnie, Dunk pay Very Low. Needs the Dye Pack Jammer.",
+      "cooldown": null,
+      "chapterOrder": 3,
+      "notes": "Branch ranges from GTA6Map.io (name carries the range): $5,000-$15,000 up to $15,000-$45,000 (Lombank Bayside, Lombank Ocean Beach, Druthers State Bank). Sixthstar gives $5,000-$45,000 overall. Heat: GTA6Heists saw 4-5 stars after the Key Lento Fleeca in one run, so heat is left null. Large vaults are a separate item.",
+      "image": "images/steal/steal-small-banks.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "A masked Jason and Lucia with weapons and a duffel bag inside a green-branded Fleeca bank branch, as a teller and a kneeling customer raise their hands.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-small-banks.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "small-banks-fsrt5nnx",
+          "name": "Fleeca – Washington Beach ($10,000–$30,000)",
+          "area": "SW 4th St, Vice Beach",
+          "mapX": 83.6,
+          "mapY": 45.1,
+          "precision": "exact"
+        },
+        {
+          "id": "small-banks-t6qtyr7b",
+          "name": "Fleeca – Key Lento ($5,000–$20,000)",
+          "area": "Key Lento",
+          "mapX": 56.4,
+          "mapY": 83.2,
+          "precision": "exact"
+        },
+        {
+          "id": "small-banks-h35k1xh1",
+          "name": "Shorefront – Watson Bay ($5,000–$20,000)",
+          "area": "Watson Bay",
+          "mapX": 41.0,
+          "mapY": 69.5,
+          "precision": "exact"
+        },
+        {
+          "id": "small-banks-s0qqfhyr",
+          "name": "Gibson Brothers Bank ($10,000–$30,000)",
+          "area": "Capri",
+          "mapX": 28.8,
+          "mapY": 52.5,
+          "precision": "exact"
+        },
+        {
+          "id": "small-banks-a9cq8cmq",
+          "name": "Lombank – Peacock Bay ($5,000–$20,000)",
+          "area": "Peacock Bay, Vice City",
+          "mapX": 65.3,
+          "mapY": 62.4,
+          "precision": "exact"
+        },
+        {
+          "id": "small-banks-tnxqqe0q",
+          "name": "Fleeca – Peacock Bay ($5,000–$20,000)",
+          "area": "SW 9th Ave, Peacock Bay, Vice City",
+          "mapX": 65.6,
+          "mapY": 61.9,
+          "precision": "exact"
+        },
+        {
+          "id": "small-banks-ahncczwr",
+          "name": "Shorefront – Downtown ($5,000–$15,000)",
+          "area": "Downtown, Vice City",
+          "mapX": 68.9,
+          "mapY": 54.9,
+          "precision": "exact"
+        },
+        {
+          "id": "small-banks-fzanp43z",
+          "name": "Shorefront – Rockridge ($5,000–$20,000)",
+          "area": "Rockridge, Vice City",
+          "mapX": 65.1,
+          "mapY": 50.0,
+          "precision": "exact"
+        },
+        {
+          "id": "small-banks-fjray19r",
+          "name": "Lombank – Bayside ($15,000–$45,000)",
+          "area": "Crosstown, Vice City",
+          "mapX": 71.6,
+          "mapY": 46.1,
+          "precision": "exact"
+        },
+        {
+          "id": "small-banks-bv4fsmxv",
+          "name": "Lombank – Ocean Beach ($15,000–$45,000)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 85.2,
+          "mapY": 47.5,
+          "precision": "exact"
+        },
+        {
+          "id": "small-banks-n4yvx9z2",
+          "name": "Fleeca – Ocean Beach ($5,000–$15,000)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 85.6,
+          "mapY": 51.4,
+          "precision": "exact"
+        },
+        {
+          "id": "small-banks-n3g1dzay",
+          "name": "Shorefront – Ocean Beach ($5,000–$15,000)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 84.4,
+          "mapY": 52.7,
+          "precision": "exact"
+        },
+        {
+          "id": "small-banks-c6xhx256",
+          "name": "Druthers State Bank ($15,000–$45,000)",
+          "area": "Belville",
+          "mapX": 64.8,
+          "mapY": 40.4,
+          "precision": "exact"
+        },
+        {
+          "id": "small-banks-n4hcghcn",
+          "name": "Shorefront – Ambrosia ($5,000–$15,000)",
+          "area": "Ambrosia",
+          "mapX": 55.9,
+          "mapY": 32.9,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-bank-vaults",
+      "title": "Large bank vaults (8 branches)",
+      "category": "Heists & Banks",
+      "verified": true,
+      "source": "Tech4Gamers, large bank vault payouts guide (gta.tech4gamers.com); GTA6Heists, \"GTA 6 Bank Robbery\" (https://www.gta6heists.com/robberies/bank); RetroBroker, \"Rob Armored Security Vans\" (https://retrobroker.com/en-US/us/blog/rob-armored-security-vans-gta-6-guide); Sixthstar, \"GTA 6 Robberies\" (https://sixthstar.net/guides/gta-6-robberies/); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "The biggest legitimate score: a vault that opens only while an armored van delivers cash.",
+      "howTo": [
+        "Unlock with the optional Chapter 4 mission That's Where The Money Is... (Wait at the Cafe).",
+        "Bring your partner. Yasmani sells $10,000 tips that mark the delivery vans with a purple icon.",
+        "Tail the van to the bank; the vault cannot be picked, drilled or blown, it opens for a short window during the delivery.",
+        "Go in, take the staff, and load the cash into your bags while the door is open.",
+        "Expect 4 stars straight away and plan the getaway.",
+        "Fence the marked bills (Dye Pack Jammer needed)."
+      ],
+      "toolsNeeded": [
+        "Partner",
+        "Weapons",
+        "Getaway vehicle",
+        "Dye Pack Jammer",
+        "Yasmani's $10,000 van tips (optional)"
+      ],
+      "payoutMin": 65000,
+      "payoutMax": 205000,
+      "payoutBand": "high",
+      "heat": "high",
+      "sellAt": "Yasmani, Little Cuba (marked bills: High); Tyrone, La Perle (Medium); Brian, Donnie, Dunk pay Very Low. Needs the Dye Pack Jammer.",
+      "cooldown": null,
+      "chapterOrder": 4,
+      "notes": "Branch ranges: Lombank Downtown and Lombank Ocean Beach $135,000-$205,000; Fleeca VCIA and Downtown $100,000-$150,000; Shorefront Ocean Beach $95,000-$140,000; Fleeca Ocean Beach (its GTA6Map.io card only shows the teller range, $5,000-$15,000) and the second Lombank Ocean Beach $75,000-$135,000; Fleeca Tequesta $65,000-$110,000 (Tech4Gamers, GTA6Map.io). Disagreement: RetroBroker gives a $75,000 floor and about $80,000 for the tutorial vault; Sixthstar says $65,000-$205,000. Trophy: Maximum Withdrawal (five vaults).",
+      "image": "images/steal/steal-bank-vaults.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Jason and Lucia, masked and armed, standing in front of an open bank-vault door with banknotes in the air.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-bank-vaults.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "bank-vaults-xsd6wd17",
+          "name": "Fleeca – Ocean Beach (vault $75,000–$135,000, Tech4Gamers)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 84.8,
+          "mapY": 53.6,
+          "precision": "exact"
+        },
+        {
+          "id": "bank-vaults-swvaxteq",
+          "name": "Fleeca – VCIA ($100,000–$150,000)",
+          "area": "Vice City",
+          "mapX": 62.6,
+          "mapY": 56.1,
+          "precision": "exact"
+        },
+        {
+          "id": "bank-vaults-mjepzp0c",
+          "name": "Fleeca – Tequesta ($65,000–$110,000)",
+          "area": "SW 4th Ave, Tequesta, Vice City",
+          "mapX": 67.7,
+          "mapY": 59.1,
+          "precision": "exact"
+        },
+        {
+          "id": "bank-vaults-h0pm40jg",
+          "name": "Lombank – Downtown ($135,000–$205,000)",
+          "area": "Downtown, Vice City",
+          "mapX": 70.1,
+          "mapY": 55.3,
+          "precision": "exact"
+        },
+        {
+          "id": "bank-vaults-mg4jx93t",
+          "name": "Fleeca – Downtown ($100,000–$150,000)",
+          "area": "Downtown, Vice City",
+          "mapX": 69.2,
+          "mapY": 54.6,
+          "precision": "exact"
+        },
+        {
+          "id": "bank-vaults-pr9ms8xa",
+          "name": "Lombank – Ocean Beach ($135,000–$205,000)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 84.6,
+          "mapY": 53.7,
+          "precision": "exact"
+        },
+        {
+          "id": "bank-vaults-r33vrjt0",
+          "name": "Lombank – Ocean Beach ($75,000–$135,000)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 83.0,
+          "mapY": 52.1,
+          "precision": "exact"
+        },
+        {
+          "id": "bank-vaults-s6b9gc51",
+          "name": "Shorefront – Ocean Beach ($95,000–$140,000)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 85.4,
+          "mapY": 48.3,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-jewelry-stores",
+      "title": "Jewelry and watch stores (Smash 'n' Grab)",
+      "category": "Fenceable Goods & Contraband",
+      "verified": true,
+      "source": "Leonipedia, \"Jewelry Stores\" (https://leonipedia.com/guides/jewelry-stores/); Sixthstar, \"GTA 6 Robberies\" (https://sixthstar.net/guides/gta-6-robberies/); Vice Hacks, \"GTA 6 Smash 'n' Grab Locations\" (https://vicehacks.com/guides/gta-6-smash-n-grab-locations/); GTA6Heists, \"GTA 6 Jewelry Store Robbery\" (https://www.gta6heists.com/robberies/jewelry-store); PC Gamer, \"GTA 6: The fastest ways to make money\" (https://www.pcgamer.com/games/grand-theft-auto/gta-6-how-to-make-money/); The Games Wiki, \"Robberies and Heists\" (https://thegameswiki.com/gta6/wiki/robberies-and-heists); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Twenty jewelry stores to loot for jewelry (and safes) that you fence for the best rate at Yasmani.",
+      "howTo": [
+        "Do Yasmani's Jewelry Jobs (Chapter 3); you get the Snap Gun, which silently picks alarmed back doors.",
+        "Pick a store from Map > Robberies > Smash 'n' Grabs (card shows take and security).",
+        "Quiet route: snap the back door, subdue staff, destroy CCTV, disable the alarm at the office, open the safe with its note code.",
+        "Loud route: mask, threaten staff and guard, smash every display case ($140-$450 each at Icegem), empty registers and wallets.",
+        "Loot the safe too so the store counts for the Sneakthief trophy.",
+        "Sell the jewelry to a fence."
+      ],
+      "toolsNeeded": [
+        "Snap Gun",
+        "Mask",
+        "Safe code or Sticky Bomb"
+      ],
+      "payoutMin": 1000,
+      "payoutMax": 25000,
+      "payoutBand": "high",
+      "heat": null,
+      "sellAt": "Yasmani, Little Cuba (jewelry: High); Tyrone (Medium); Dunk (Low); Brian and Donnie (Very Low)",
+      "cooldown": "A robbed store closes for a few in-game days (The Games Wiki)",
+      "chapterOrder": 3,
+      "notes": "Game cards run $1,000-$10,000 (low-security shops) up to $14,000-$25,000 (Icegem, Donovan Banks, Blanc & Giroux, Roval, Covgari, Akoya). Observed runs are lower: $3,200 at Icegem; $7,740 of jewelry plus $3,044 cash at Marshal's. Disagreement: Leonipedia says guides disagree on the range; Sixthstar and PowerPyx say $10,000-$25,000, PC Gamer $6,000-$15,000 for back-door stores. Quiet jobs drew no police; smashing cases or a safe blast gave 2-4 stars. Luxury watches turn up as key valuables in some safes; no guide says which fence rate they take.",
+      "image": "images/steal/steal-jewelry-stores.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "In-game capture inside the Icegem jewelry store showroom: glass display cases, a chandelier, and a player character looting a case beside a downed guard.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-jewelry-stores.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "jewelry-stores-v76rc4a5",
+          "name": "The Siren’s Chest ($1,000–$10,000)",
+          "area": "Route 1, Key Lento",
+          "mapX": 53.2,
+          "mapY": 85.7,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-mg43tf3k",
+          "name": "Victoria Lee Jeweler ($9,000–$20,000)",
+          "area": "Capri",
+          "mapX": 29.3,
+          "mapY": 52.7,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-x3400vp3",
+          "name": "Donovan Banks & Co. ($14,000–$25,000)",
+          "area": "Peacock Bay, Vice City",
+          "mapX": 66.0,
+          "mapY": 62.0,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-j7mmjgza",
+          "name": "Plush ($9,000–$20,000)",
+          "area": "Tequesta, Vice City",
+          "mapX": 67.9,
+          "mapY": 58.8,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-fyyv6k68",
+          "name": "Icegem Diamonds & Watches ($14,000–$25,000)",
+          "area": "Downtown, Vice City",
+          "mapX": 69.8,
+          "mapY": 54.7,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-wfmzwbrg",
+          "name": "Richardson Jewelry & Diamonds ($4,500–$12,000)",
+          "area": "Downtown, Vice City",
+          "mapX": 69.4,
+          "mapY": 54.3,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-d88srexb",
+          "name": "All That Glitters ($9,000–$20,000)",
+          "area": "Shoreline, Vice City",
+          "mapX": 71.9,
+          "mapY": 53.4,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-nfwgwpdy",
+          "name": "Peacock ($9,000–$20,000)",
+          "area": "Shoreline, Vice City",
+          "mapX": 71.9,
+          "mapY": 53.0,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-kn0vd49p",
+          "name": "The Jewelry Place ($1,000–$10,000)",
+          "area": "Tisha-Wocka, Vice City",
+          "mapX": 55.8,
+          "mapY": 50.2,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-kc5zjycv",
+          "name": "Crown Jewels ($1,000–$10,000)",
+          "area": "Tisha-Wocka, Vice City",
+          "mapX": 55.5,
+          "mapY": 50.4,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-ecy535mg",
+          "name": "Blanc & Giroux ($14,000–$25,000)",
+          "area": "Vice Decor District, Vice City",
+          "mapX": 72.0,
+          "mapY": 43.1,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-bvvhn095",
+          "name": "Roval Jewelry ($14,000–$25,000)",
+          "area": "Vice Decor District, Vice City",
+          "mapX": 71.7,
+          "mapY": 43.0,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-fszyrn11",
+          "name": "Covgari ($14,000–$25,000)",
+          "area": "Decor District, Vice City",
+          "mapX": 71.9,
+          "mapY": 42.8,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-qfsyknty",
+          "name": "Akoya Jewelers ($14,000–$25,000)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 84.7,
+          "mapY": 47.4,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-y7bjd0s8",
+          "name": "Marshal’s ($9,000–$20,000)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 86.6,
+          "mapY": 47.4,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-fejf1nx4",
+          "name": "Rococo Rich ($14,000–$25,000)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 85.4,
+          "mapY": 50.7,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-jncq1014",
+          "name": "Legendary Custom Jewelry ($14,000–$25,000)",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 84.1,
+          "mapY": 52.7,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-fsbxvqbk",
+          "name": "Brilliant Cuts ($9,000–$20,000)",
+          "area": "Belville",
+          "mapX": 65.9,
+          "mapY": 40.0,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-h039w99h",
+          "name": "Skala ($14,000–$25,000)",
+          "area": "Waning Sands",
+          "mapX": 73.0,
+          "mapY": 34.8,
+          "precision": "exact"
+        },
+        {
+          "id": "jewelry-stores-zkgjkkvd",
+          "name": "Kowalski ($14,000–$25,000)",
+          "area": "Waning Sands",
+          "mapX": 72.6,
+          "mapY": 34.4,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-pawn-shops",
+      "title": "Pawn shops (Smash 'n' Grab)",
+      "category": "Fenceable Goods & Contraband",
+      "verified": true,
+      "source": "Vice Hacks, \"GTA 6 Smash 'n' Grab Locations\" (https://vicehacks.com/guides/gta-6-smash-n-grab-locations/); Leonipedia, \"Jewelry Stores\" (https://leonipedia.com/guides/jewelry-stores/); Sixthstar, \"GTA 6 Robberies\" (https://sixthstar.net/guides/gta-6-robberies/); GTA6Heists, \"GTA 6 Pawn Shop Robbery\" (https://www.gta6heists.com/robberies/pawn-shop-robbery); GTA6Heists, \"GTA 6 Local Store Robbery\" (https://www.gta6heists.com/robberies/local-store), launch-stream and own captures; The Games Wiki, \"Robberies and Heists\" (https://thegameswiki.com/gta6/wiki/robberies-and-heists); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Fifteen pawn shops with jewelry cabinets, a safe and cash; open after Chapter 2's Coffee Break.",
+      "howTo": [
+        "Finish the Chapter 2 mission Coffee Break; Lucia's paper-map choice PAWN SHOP leads to Avery Pawn in Crossroad Park Mall, Port Gellhorn.",
+        "Optionally ask your partner to wait outside as getaway driver.",
+        "Mask on, THREATEN the clerk, ask for the safe code.",
+        "Smash the jewelry cabinets, disarm the security system (CCTV can be destroyed only if it is on site).",
+        "Open the safe by code or explosive and take the cash.",
+        "Lose the cops (Avery Pawn sits beside a mall); sell the jewelry to a fence (Dunk's trailer is closest to Avery Pawn)."
+      ],
+      "toolsNeeded": [
+        "Mask",
+        "Gun",
+        "Safe code or Sticky Bomb"
+      ],
+      "payoutMin": 1000,
+      "payoutMax": 12000,
+      "payoutBand": "medium",
+      "heat": null,
+      "sellAt": "Yasmani, Little Cuba (jewelry: High); Tyrone (Medium); Dunk (Low); Brian and Donnie (Very Low)",
+      "cooldown": "A robbed store closes for a few in-game days (The Games Wiki)",
+      "chapterOrder": 2,
+      "notes": "Game cards: $1,000-$10,000 or $4,500-$12,000 depending on the shop. Observed at Avery Pawn: about $890 cash plus $120 jewelry in one run, $1,350 in jewelry in another (GTA6Heists). Hamlet Pawn turned into 3 stars after a cop was shot in a stream run. Pawn shops also buy collectibles (see the card item). Pins are the GTA6Map.io Smash 'n' Grab pawn shops only.",
+      "image": "images/steal/steal-pawn-shops.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "In-game capture inside Avery Pawn: two characters aim guns at the clerk behind a counter with a red 'Avery Pawn' sign and jewelry cabinets.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-pawn-shops.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "pawn-shops-kppzphwf",
+          "name": "Timeless Peculiars ($4,500–$12,000)",
+          "area": "Watson Bay",
+          "mapX": 42.2,
+          "mapY": 70.2,
+          "precision": "exact"
+        },
+        {
+          "id": "pawn-shops-csv6fabg",
+          "name": "Hamlet Pawn ($4,500–$12,000)",
+          "area": "Hamlet",
+          "mapX": 57.3,
+          "mapY": 71.1,
+          "precision": "exact"
+        },
+        {
+          "id": "pawn-shops-zc22mm1c",
+          "name": "Joyeria Empenos ($4,500–$12,000)",
+          "area": "Southside, Vice City",
+          "mapX": 62.4,
+          "mapY": 64.4,
+          "precision": "exact"
+        },
+        {
+          "id": "pawn-shops-y4kryr1h",
+          "name": "Ernesto’s Pawn ($4,500–$12,000)",
+          "area": "El Joven Blvd, Southside, Vice City",
+          "mapX": 63.1,
+          "mapY": 63.8,
+          "precision": "exact"
+        },
+        {
+          "id": "pawn-shops-xjykqbnv",
+          "name": "Pawn City ($1,000–$10,000)",
+          "area": "Salton, Vice City",
+          "mapX": 64.4,
+          "mapY": 56.7,
+          "precision": "exact"
+        },
+        {
+          "id": "pawn-shops-eg8he78k",
+          "name": "Fast Cash ($1,000–$10,000)",
+          "area": "Little Cuba, Vice City",
+          "mapX": 66.1,
+          "mapY": 52.7,
+          "precision": "exact"
+        },
+        {
+          "id": "pawn-shops-vzy5y8y4",
+          "name": "Dorado Pawn Shop ($4,500–$12,000)",
+          "area": "Rockridge, Vice City",
+          "mapX": 66.1,
+          "mapY": 50.4,
+          "precision": "exact"
+        },
+        {
+          "id": "pawn-shops-fnzd79tw",
+          "name": "White Sands Jewelry Pawn ($4,500–$12,000)",
+          "area": "Rockridge, Vice City",
+          "mapX": 66.3,
+          "mapY": 48.5,
+          "precision": "exact"
+        },
+        {
+          "id": "pawn-shops-hmfsqkan",
+          "name": "Down Town Pawn ($1,000–$10,000)",
+          "area": "Crosstown, Vice City",
+          "mapX": 68.9,
+          "mapY": 49.5,
+          "precision": "exact"
+        },
+        {
+          "id": "pawn-shops-sy7nq7pj",
+          "name": "Vice City Pawn ($4,500–$12,000)",
+          "area": "Crosstown, Vice City",
+          "mapX": 69.5,
+          "mapY": 48.2,
+          "precision": "exact"
+        },
+        {
+          "id": "pawn-shops-pdkw9p02",
+          "name": "Pawn Stash ($4,500–$12,000)",
+          "area": "La Perle, Vice City",
+          "mapX": 69.8,
+          "mapY": 45.9,
+          "precision": "exact"
+        },
+        {
+          "id": "pawn-shops-bb83xznk",
+          "name": "Casa De Empeno ($4,500–$12,000)",
+          "area": "Thompson Ave, Ocean Beach, Vice Beach",
+          "mapX": 85.4,
+          "mapY": 48.9,
+          "precision": "exact"
+        },
+        {
+          "id": "pawn-shops-eabn3tns",
+          "name": "Buck’s Jewelry & Pawn ($1,000–$10,000)",
+          "area": "Port Gellhorn",
+          "mapX": 32.1,
+          "mapY": 39.2,
+          "precision": "exact"
+        },
+        {
+          "id": "pawn-shops-wvwtb7dx",
+          "name": "Avery Pawn ($1,000–$10,000)",
+          "area": "Port Gellhorn",
+          "mapX": 32.5,
+          "mapY": 35.4,
+          "precision": "exact"
+        },
+        {
+          "id": "pawn-shops-g1zsqdmf",
+          "name": "Florence & Co. ($4,500–$12,000)",
+          "area": "Ambrosia",
+          "mapX": 55.7,
+          "mapY": 32.0,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-illegal-operations",
+      "title": "Illegal Operations (gang hideouts)",
+      "category": "Fenceable Goods & Contraband",
+      "verified": true,
+      "source": "GTA6.fr, \"GTA 6 : operations illegales, coffres et codes\" (https://www.gta6.fr/guide/operations-illegales.html), updated 19 Nov 2026; The Games Wiki, \"Illegal Operations\" (https://thegameswiki.com/gta6/wiki/illegal-operations); PC Gamer, \"GTA 6: The fastest ways to make money\" (https://www.pcgamer.com/games/grand-theft-auto/gta-6-how-to-make-money/); PC Gamer, \"GTA 6 fence locations\" (https://www.pcgamer.com/games/grand-theft-auto/gta-6-fence-locations/); GTA6Info, \"Fences\" (https://gta6info.com/wiki/Fences); VicePulse, \"GTA 6 hidden money locations\" (https://vicepulse.org/gta-6/money/hidden-cash); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Thirty-nine gang sites holding cash, narcotics, luxury watches, unique weapons and vehicles.",
+      "howTo": [
+        "Finish the first mission Gone Fishing; hideouts then show on the map as 'Robbery Opportunity' when you get close.",
+        "Bring a shotgun or assault rifle; enemies are many and security is often high. A hidden timer brings more gang members, then police.",
+        "Use Focus (both sticks) to see enemies (red), drugs (purple) and cash (green); search bodies.",
+        "Open small safes with a screwdriver; big safes need a code (often on a map or note in the same or another hideout) or a Sticky Bomb.",
+        "Take every Key Valuable (cash safes, unique weapons, rare vehicles, a luxury watch) to finish the operation.",
+        "Call your partner to carry two more bags if yours are full; sell narcotics to a fence (Tyrone pays best)."
+      ],
+      "toolsNeeded": [
+        "Rifle or shotgun",
+        "Screwdriver (small safes)",
+        "Sticky Bombs or codes for large safes",
+        "Partner (extra bags)"
+      ],
+      "payoutMin": 1366,
+      "payoutMax": 46100,
+      "payoutBand": "high",
+      "heat": null,
+      "sellAt": "Narcotics: Tyrone (High); Yasmani (Medium); Brian, Donnie, Dunk (Low/Very Low). Cash and key valuables need no fence.",
+      "cooldown": null,
+      "chapterOrder": 1,
+      "notes": "Payout range is the first 12 operations' loot ranges from GTA6.fr ($1,366 Exotic Animals Front up to $27,600-$46,100 La Cascara Motel); the game states the range per site. Vault codes seen: 6769, 6823, 0300, 6969, 7777 (GTA6.fr). Disagreement: PC Gamer says many robbery codes are fixed, others say random. Trophy: Pest Control (one operation per gang). Pins are the GTA6Map.io 'gang-operation' markers.",
+      "image": "images/steal/steal-illegal-operations.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "In-game daytime capture of a gang compound's yard from behind a parked sedan, with wrecked cars, a rusty lettered sign and men standing near a red SUV.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-illegal-operations.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "illegal-operations-qkbnb0d4",
+          "name": "Fishing Shacks",
+          "area": "Mariana County",
+          "mapX": 44.6,
+          "mapY": 75.0,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-esv5c9cw",
+          "name": "Sunrise RV Park",
+          "area": "Mariana County",
+          "mapX": 51.3,
+          "mapY": 75.3,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-c9vta9j1",
+          "name": "Manatee Motel",
+          "area": "Grassrivers",
+          "mapX": 54.3,
+          "mapY": 73.5,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-f0hwxnm5",
+          "name": "Kingpin Bowling",
+          "area": "Port Gellhorn",
+          "mapX": 32.4,
+          "mapY": 38.4,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-gf94p308",
+          "name": "June Warehouse",
+          "area": "Port Gellhorn",
+          "mapX": 31.6,
+          "mapY": 36.8,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-ydj3wt5j",
+          "name": "La Cascara Motel",
+          "area": "Port Gellhorn",
+          "mapX": 29.3,
+          "mapY": 34.9,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-wyw0wbc7",
+          "name": "Brooks Boatworks",
+          "area": "Port Gellhorn",
+          "mapX": 31.3,
+          "mapY": 33.1,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-qqf5v5br",
+          "name": "Robbery Opportunity – Kolts & Associates",
+          "area": "Port Gellhorn",
+          "mapX": 32.5,
+          "mapY": 33.1,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-qfn0fyws",
+          "name": "M7 Compound",
+          "area": "Hamlet",
+          "mapX": 57.7,
+          "mapY": 70.8,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-z0vbzvje",
+          "name": "Robbery Opportunity – M7",
+          "area": "Lummox County",
+          "mapX": 65.0,
+          "mapY": 19.8,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-s635d5ee",
+          "name": "Palmer Fishing Warehouse",
+          "area": "Watson Bay",
+          "mapX": 39.1,
+          "mapY": 68.8,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-ds3m2b7a",
+          "name": "Farm Fix Meth Lab",
+          "area": "Leonard County",
+          "mapX": 66.1,
+          "mapY": 36.0,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-x9bh53fq",
+          "name": "Robbery Opportunity",
+          "area": "Ambrosia",
+          "mapX": 60.8,
+          "mapY": 35.1,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-tc8c9wgk",
+          "name": "Irons Building Supply",
+          "area": "Allied Crystal, Ambrosia",
+          "mapX": 54.2,
+          "mapY": 34.9,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-hhqsrh23",
+          "name": "Sound4Sond Studio",
+          "area": "Stockyard, Vice City",
+          "mapX": 71.3,
+          "mapY": 44.6,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-s33qm8tn",
+          "name": "Robbery Opportunity – San4San",
+          "area": "La Perle, Vice City",
+          "mapX": 68.8,
+          "mapY": 46.3,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-zxqmhxk9",
+          "name": "Robbery Opportunity – San4San",
+          "area": "La Perle, Vice City",
+          "mapX": 67.4,
+          "mapY": 46.7,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-z3scskdh",
+          "name": "JanJak’s Garage",
+          "area": "La Perle, Vice City",
+          "mapX": 65.6,
+          "mapY": 48.1,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-d1td9t2j",
+          "name": "Robbery Opportunity – San4San",
+          "area": "Rockridge, Vice City",
+          "mapX": 65.2,
+          "mapY": 50.5,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-sjxhjw3c",
+          "name": "Robbery Opportunity – PTT Youngin$",
+          "area": "Southside, Vice City",
+          "mapX": 62.9,
+          "mapY": 63.2,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-k7ehg8p2",
+          "name": "Robbery Opportunity – PTT Youngin$",
+          "area": "Southside, Vice City",
+          "mapX": 62.7,
+          "mapY": 64.8,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-jtfaq68d",
+          "name": "Robbery Opportunity – The Guardia Brothers",
+          "area": "Vice City",
+          "mapX": 64.6,
+          "mapY": 52.9,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-sx35b6zq",
+          "name": "Casa Guardia",
+          "area": "Little Cuba, Vice City",
+          "mapX": 66.5,
+          "mapY": 52.0,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-ak6tvr2t",
+          "name": "Robbery Opportunity – The Guardia Brothers",
+          "area": "Balsero, Vice City",
+          "mapX": 63.8,
+          "mapY": 51.0,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-s2fyyhyd",
+          "name": "Exotic Animals Front",
+          "area": "Key Lento",
+          "mapX": 57.9,
+          "mapY": 82.4,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-es3vwpwd",
+          "name": "Slator Towing Inc",
+          "area": "Salton, Vice City",
+          "mapX": 64.6,
+          "mapY": 60.2,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-dkwft1hv",
+          "name": "Chatfield Storage & Logistics",
+          "area": "Vice-Dale County",
+          "mapX": 74.6,
+          "mapY": 52.1,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-garadawf",
+          "name": "Leonida Carrier Warehouse",
+          "area": "Balsero, Vice City",
+          "mapX": 58.6,
+          "mapY": 50.5,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-tds8c6ef",
+          "name": "Cigar Import Front",
+          "area": "La Perle, Vice City",
+          "mapX": 66.9,
+          "mapY": 47.8,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-mgm9fx9j",
+          "name": "Gas Station Meth Front",
+          "area": "Kelly County",
+          "mapX": 51.9,
+          "mapY": 40.3,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-q52kvwqz",
+          "name": "Backroom Weed Front",
+          "area": "Port Gellhorn",
+          "mapX": 32.7,
+          "mapY": 38.1,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-t8xn5hwn",
+          "name": "Carter Mining Boathouse",
+          "area": "Lummox County",
+          "mapX": 48.6,
+          "mapY": 12.7,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-arvw8gzc",
+          "name": "Criminals: Walker Farm",
+          "area": "Ambrosia",
+          "mapX": 43.2,
+          "mapY": 34.0,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-teq0zg5q",
+          "name": "Final Chapter: Hog Stars Garage",
+          "area": "Allied Crystal, Ambrosia",
+          "mapX": 55.9,
+          "mapY": 34.4,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-veyxsnb1",
+          "name": "San4San: La Perle Trap House",
+          "area": "La Perle, Vice City",
+          "mapX": 68.7,
+          "mapY": 45.7,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-ph2bhpxs",
+          "name": "Criminals: Vespucci Mansion",
+          "area": "Rialto Islands",
+          "mapX": 77.1,
+          "mapY": 48.0,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-a846ggvw",
+          "name": "Criminals: Ocean Beach Lab",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 85.6,
+          "mapY": 50.9,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-ckb0047q",
+          "name": "Criminals: Industrial Weed Grow",
+          "area": "Mariana County",
+          "mapX": 39.2,
+          "mapY": 59.4,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-y9v924tc",
+          "name": "PTT Youngin$: Illegal Goods Store",
+          "area": "Southside, Vice City",
+          "mapX": 62.8,
+          "mapY": 62.5,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-j64v07zp",
+          "name": "PTT Youngin$: Southside Trap House",
+          "area": "SW 3rd Ave, Southside, Vice City",
+          "mapX": 62.7,
+          "mapY": 64.1,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-ejk0rbra",
+          "name": "Criminals: Mill Station Radar Base",
+          "area": "Mariana County",
+          "mapX": 41.7,
+          "mapY": 66.0,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-s34r275q",
+          "name": "La Polilla Negra: Watson Bay Safehouse",
+          "area": "Watson Bay",
+          "mapX": 44.1,
+          "mapY": 67.8,
+          "precision": "exact"
+        },
+        {
+          "id": "illegal-operations-vnqxznmp",
+          "name": "M7: Nova Auto Junkyard",
+          "area": "Hamlet",
+          "mapX": 57.8,
+          "mapY": 70.1,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-robbing-other-criminals",
+      "title": "Rob other criminals (crimes in progress)",
+      "category": "Fenceable Goods & Contraband",
+      "verified": false,
+      "source": "PC Gamer, \"GTA 6: The fastest ways to make money\" (https://www.pcgamer.com/games/grand-theft-auto/gta-6-how-to-make-money/); GTA6.house, \"GTA 6 money guide\" (https://gta6.house/guides/gta-6-money-guide-make-money-fast), which says it is written from outlets such as PC Gamer (so not independent of them). All read 20 November 2026.",
+      "summary": "Take down crooks fleeing a crime and grab their duffel bags; their heat becomes yours.",
+      "howTo": [
+        "Watch for sirens, alarms, gunshots or screeching tires: a crime in progress (bank job, jewelry heist, armored car hit, drug deal).",
+        "Drop the crew (non-lethally if you prefer) and grab their duffel bags.",
+        "Switch to your partner if there are several bags so both of you can carry them.",
+        "Escape the police heat and take the bags to a fence."
+      ],
+      "toolsNeeded": [
+        "Weapon",
+        "Partner for extra bags"
+      ],
+      "payoutMin": 1000,
+      "payoutMax": 15000,
+      "payoutBand": "medium",
+      "heat": null,
+      "sellAt": "Any fence (what the bags hold decides the rate)",
+      "cooldown": null,
+      "chapterOrder": 0,
+      "notes": "Single upstream: PC Gamer (and GTA6.house, which is written from it) report $1,000-$15,000 per crew, best in Chapters 2-3. Nothing else read confirms the range, and no fixed locations exist, so no pins.",
+      "image": null,
+      "imageCredit": null,
+      "imageAlt": null,
+      "imageSource": null,
+      "imageVerified": false,
+      "locations": []
+    },
+    {
+      "id": "steal-stealing-cars",
+      "title": "Steal cars and sell them (Moses, Pay 'n' Spray, Randy)",
+      "category": "Stolen Vehicles",
+      "verified": true,
+      "source": "The Games Wiki, \"How to Sell Cars\" (https://thegameswiki.com/gta6/wiki/how-to-sell-cars); GTA6Heists, \"GTA 6 Sell Stolen Cars\" (https://www.gta6heists.com/money/sell-stolen-cars); PC Gamer, \"GTA 6: The fastest ways to make money\" (https://www.pcgamer.com/games/grand-theft-auto/gta-6-how-to-make-money/); GTA6Info, \"Fences\" (https://gta6info.com/wiki/Fences); PC Gamer, \"GTA 6 fence locations\" (https://www.pcgamer.com/games/grand-theft-auto/gta-6-fence-locations/); GTA6.house, \"GTA 6 money guide\" (https://gta6.house/guides/gta-6-money-guide-make-money-fast), which says it is written from outlets such as PC Gamer (so not independent of them); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Scan with WAiNK, steal an untracked or tracked car and sell it to the buyer that matches its tracker.",
+      "howTo": [
+        "Finish the Chapter 2 mission Moses (Take a Vehicle to Moses); he gives you a slim jim and buys low-key untracked cars at Watkins Auto Parts, Port Gellhorn.",
+        "Scan a target with the WAiNK app (hold R1): it shows access, alarm, tracker, sell value and registration cost.",
+        "Open the door with the slim jim (quiet) or smash the window (louder); some cars need a key cloner (Chapter 3, Clonin' Keys, Makin' GS).",
+        "Drive it clean: damage lowers the price, and a car in top condition earned a +$500 bonus.",
+        "No tracker: Moses. Standard tracker: any Pay 'n' Spray (from early Chapter 3). Advanced tracker: Randy in Balsero buys certain high-end cars."
+      ],
+      "toolsNeeded": [
+        "Slim jim or key cloner",
+        "WAiNK app",
+        "Getaway route to the buyer"
+      ],
+      "payoutMin": 1000,
+      "payoutMax": 20000,
+      "payoutBand": "medium",
+      "heat": null,
+      "sellAt": "Moses (untracked), Pay 'n' Spray (standard tracker), Randy (high-end, advanced tracker)",
+      "cooldown": "Moses' garage closes for 1-2 minutes after each sale and refuses cars stolen too close to it (The Games Wiki)",
+      "chapterOrder": 2,
+      "notes": "Typical: about $1,000 or more from Moses, $2,475-$4,000 at a Pay 'n' Spray, best seen $5,575 (Caracara 4x4, Moses). Disagreement on the top end: PC Gamer says $1,000-$20,000 in all; GTA6Info says $30,000 or more from Randy for a wish-list car in perfect condition. Randy's wish list is in cars.json. Chapter varies: Moses Chapter 2, Pay 'n' Spray and Randy Chapter 3. Pins are the buyers (Moses, Randy, 19 Pay 'n' Sprays).",
+      "image": "images/steal/steal-stealing-cars.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "In-game pause-map capture of Port Gellhorn with Moses' card open: 'Interested in Vapid Caracara 4x4', sell value $5,575, registration fee $5,550.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-stealing-cars.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "stealing-cars-z0xsmdfy",
+          "name": "Moses",
+          "area": "Port Gellhorn",
+          "mapX": 32.0,
+          "mapY": 38.1,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-nk3t46x2",
+          "name": "Randy",
+          "area": "Tisha-Wocka, Vice City",
+          "mapX": 56.7,
+          "mapY": 49.7,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-g3v19a62",
+          "name": "Pay 'n' Spray – Southwind",
+          "area": "Southwind",
+          "mapX": 32.1,
+          "mapY": 83.8,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-k1qdecaj",
+          "name": "Pay 'n' Spray – Key Lento",
+          "area": "Route 1, Key Lento",
+          "mapX": 57.7,
+          "mapY": 82.7,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-msshwgfe",
+          "name": "Pay 'n' Spray – Watson Bay",
+          "area": "Watson Bay",
+          "mapX": 41.5,
+          "mapY": 70.3,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-xpms3yn1",
+          "name": "Pay 'n' Spray – Grassrivers",
+          "area": "Capri",
+          "mapX": 32.9,
+          "mapY": 57.0,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-h3s8zgva",
+          "name": "Pay 'n' Spray – Hamlet",
+          "area": "Hamlet",
+          "mapX": 54.6,
+          "mapY": 70.3,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-v6tvkjyp",
+          "name": "Pay 'n' Spray – Salton",
+          "area": "Calderone Ave, Southside, Vice City",
+          "mapX": 63.6,
+          "mapY": 61.6,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-m6c984xx",
+          "name": "Pay 'n' Spray – West-Vice Dale County",
+          "area": "Leonida",
+          "mapX": 46.5,
+          "mapY": 55.1,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-c6v3bx10",
+          "name": "Pay 'n' Spray – Downtown",
+          "area": "Downtown, Vice City",
+          "mapX": 69.8,
+          "mapY": 55.0,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-smnsv84z",
+          "name": "Pay 'n' Spray – Balsero",
+          "area": "Balsero",
+          "mapX": 62.0,
+          "mapY": 52.1,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-sffa8k6c",
+          "name": "Pay 'n' Spray – La Perle",
+          "area": "La Perle, Vice City",
+          "mapX": 66.5,
+          "mapY": 48.0,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-knh5gcpb",
+          "name": "Pay 'n' Spray – Stockyard",
+          "area": "Stockyard, Vice City",
+          "mapX": 71.0,
+          "mapY": 45.5,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-vj61vx2h",
+          "name": "Pay 'n' Spray – Waxman Island",
+          "area": "Vice-Dale County",
+          "mapX": 74.7,
+          "mapY": 52.4,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-amyq8w80",
+          "name": "Pay 'n' Spray – Ocean Beach",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 85.8,
+          "mapY": 49.4,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-exftesag",
+          "name": "Pay 'n' Spray – Washington Beach",
+          "area": "Vice Beach",
+          "mapX": 83.5,
+          "mapY": 43.5,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-tkyz7zjw",
+          "name": "Pay 'n' Spray – Waning Sands",
+          "area": "Waning Sands",
+          "mapX": 75.9,
+          "mapY": 35.9,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-xg36vpja",
+          "name": "Pay 'n' Spray – Port Gellhorn",
+          "area": "Port Gellhorn",
+          "mapX": 31.1,
+          "mapY": 35.1,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-t7dd392e",
+          "name": "Pay 'n' Spray – Ambrosia",
+          "area": "Allied Crystal, Ambrosia",
+          "mapX": 56.3,
+          "mapY": 34.6,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-abg0b4jd",
+          "name": "Pay 'n' Spray – Grayson",
+          "area": "Yorktown",
+          "mapX": 36.5,
+          "mapY": 22.1,
+          "precision": "exact"
+        },
+        {
+          "id": "stealing-cars-nne4qebv",
+          "name": "Pay 'n' Spray – Millport",
+          "area": "Millport",
+          "mapX": 66.8,
+          "mapY": 22.6,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-exotic-animals-front",
+      "title": "Exotic Animals Front (Three Sheets Liquor yard)",
+      "category": "Wild & Petty Theft",
+      "verified": true,
+      "source": "GTA6.fr, \"GTA 6 : operations illegales, coffres et codes\" (https://www.gta6.fr/guide/operations-illegales.html), updated 19 Nov 2026; PC Gamer, \"GTA 6 safe codes and where to find them\" (https://www.pcgamer.com/games/grand-theft-auto/gta-6-safe-codes-combinations/); VicePulse, \"GTA 6 hidden money locations\" (https://vicepulse.org/gta-6/money/hidden-cash); GTA6Heists, \"GTA 6 Fast Money\" captures (https://www.gta6heists.com/money/fast-money); GTA6.house, \"GTA 6 money guide\" (https://gta6.house/guides/gta-6-money-guide-make-money-fast), which says it is written from outlets such as PC Gamer (so not independent of them); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "A hidden-cash raid on the exotic-animal trafficking yard behind a Key Lento liquor store; the animals themselves are not stealable.",
+      "howTo": [
+        "Finish 'Get Shirley's Rum' first: after the shoot-out the store stays closed for a long time.",
+        "Ask the clerk at Three Sheets Liquor where the bird screams come from; the operation starts as 'Strange Noises'.",
+        "Walk left of the store and hop the fence; a small mesh door is on the right wall by a 'No Trespassing' graffiti.",
+        "Kill the four armed men, then talk to the caged parrot several times until it mentions the generator.",
+        "Open the vent grille at the base of the black-and-yellow generator beside the cage for the cash.",
+        "Leave fast; police arrive quickly."
+      ],
+      "toolsNeeded": [
+        "Gun"
+      ],
+      "payoutMin": 1366,
+      "payoutMax": 1366,
+      "payoutBand": "low",
+      "heat": null,
+      "sellAt": "None (cash)",
+      "cooldown": null,
+      "chapterOrder": 1,
+      "notes": "Payout disagrees across sources: $1,366 (GTA6.fr), $1,353 on the HUD (GTA6Heists capture), about $1,370 (a Vice Daily Drops tweet via VicePulse), $1,000 (VicePulse video). The 'generator' is only the hiding place; no guide lists generators, tools or the animals as sellable. Also a Chapter 1 robbery tip in GTA6.house's money guide. Pin is the GTA6Map.io operation marker.",
+      "image": "images/steal/steal-exotic-animals-front.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "In-game capture of the Exotic Animals Front yard behind a liquor store: a caged group of green parrots on the right, a gate and barrels, and a character kneeling over a downed gang member.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-exotic-animals-front.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "exotic-animals-front-s2fyyhyd",
+          "name": "Exotic Animals Front",
+          "area": "Key Lento",
+          "mapX": 57.9,
+          "mapY": 82.4,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-hunting",
+      "title": "Hunting and selling carcasses to Bret Vogel",
+      "category": "Wild & Petty Theft",
+      "verified": true,
+      "source": "Vice City Hustle, \"GTA 6 Hunting: How Wildlife Makes You Money\" (https://www.vicecityhustle.com/guides/gta-6-hunting-money); How To Video Game, \"GTA 6: How to Sell Animals\" (https://howtovideogame.com/gta-6-sell-animals/), own PS5 captures; GTA6.house, \"Boar\" (https://gta6.house/library/animals/boar); PC Gamer, \"GTA 6: The fastest ways to make money\" (https://www.pcgamer.com/games/grand-theft-auto/gta-6-how-to-make-money/); GTA6.house, \"GTA 6 money guide\" (https://gta6.house/guides/gta-6-money-guide-make-money-fast), which says it is written from outlets such as PC Gamer (so not independent of them); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Kill animals cleanly and sell the carcasses to Bret at Killtelligence Provisions near Mount Kalaga.",
+      "howTo": [
+        "Play as Jason (Bret's jobs are Jason-only). Bret texts after the Chapter 2 mission Coffee Break and gives you the unique SM-69 rifle on the first hunt.",
+        "Study an animal (aim and hold R1): its card shows the value range and a recommended weapon.",
+        "Kill it with one clean shot to the head, heart or lungs so the carcass stays Pristine.",
+        "Small animals: carry the carcass (Triangle) to your truck and park outside Killtelligence Provisions; Bret buys it straight from the trunk.",
+        "Large animals (boar, bear, alligator): send Bret a photo with the location and he collects it.",
+        "Payment arrives by BuckMe."
+      ],
+      "toolsNeeded": [
+        "Hunting rifle (Ammu-Nation lockers return a lost one)",
+        "Truck or vehicle"
+      ],
+      "payoutMin": 135,
+      "payoutMax": 2500,
+      "payoutBand": "medium",
+      "heat": null,
+      "sellAt": "Bret Vogel, Killtelligence Provisions (north of Dawson Dam, Lummox County)",
+      "cooldown": null,
+      "chapterOrder": 2,
+      "notes": "Card values seen: Leonida kingsnake $135-$170, whitetail doe $220-$380, Nile monitor $255-$440, adolescent alligator $290-$505, large boar about $2,500 (PC Gamer, How To Video Game, GTA6.house). The first job paid $500 flat. Disagreement: GTA6.house says no alligator price is published while How To Video Game shows a card. Bret's 15 target decks count toward 100%. Poaching can bring police. No marker exists for the shop, so the pin is the Mount Kalaga anchor (area only).",
+      "image": "images/steal/steal-hunting.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Two people in orange tops carrying rifles through pine woodland in Mount Kalaga National Park.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-hunting.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "steal-hunting-kalaga",
+          "name": "Killtelligence Provisions, near Mount Kalaga (area anchor)",
+          "area": "Mount Kalaga, Lummox County",
+          "mapX": 55.0,
+          "mapY": 21.7,
+          "precision": "area"
+        }
+      ]
+    },
+    {
+      "id": "steal-clothing-stores",
+      "title": "Clothing stores (till cash and a free temporary outfit)",
+      "category": "Wild & Petty Theft",
+      "verified": true,
+      "source": "The Games Wiki, \"Interaction System\" (https://thegameswiki.com/gta6/wiki/interaction-system); GTA6Heists, \"GTA 6 Local Store Robbery\" (https://www.gta6heists.com/robberies/local-store), launch-stream and own captures; GTA6 Activities, \"GTA 6 Store Robbery: Payouts, Safes and 91 Stick Ups\" (https://www.gta6activities.com/activities/store-robbery); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script). All read 20 November 2026.",
+      "summary": "Threaten a clothing-store clerk for the till and a temporary outfit to shake police recognition.",
+      "howTo": [
+        "Walk into any clothing or shoe store with a gun out (mask optional).",
+        "Hold L2/LT on the clerk, press THREATEN, then ROB the register.",
+        "Use the TAKE OUTFIT prompt to take a temporary set of clothes (useful when the police know your outfit).",
+        "Move on to the next store; nights drew fewer cops."
+      ],
+      "toolsNeeded": [
+        "Gun"
+      ],
+      "payoutMin": 200,
+      "payoutMax": 600,
+      "payoutBand": "low",
+      "heat": null,
+      "sellAt": "None (cash)",
+      "cooldown": "A robbed store closes for a few in-game days (The Games Wiki)",
+      "chapterOrder": 0,
+      "notes": "The outfit mechanic is in two sources (The Games Wiki, GTA6Heists). The $200 to a little over $600 per till and $3,100 for a 15-minute run of Vice City clothing stores come from one stream run (TheSpazo, via GTA6Heists). The stolen outfit is not a sellable good: fences buy only narcotics, jewelry and marked bills. No pins: every clothing store qualifies.",
+      "image": null,
+      "imageCredit": null,
+      "imageAlt": null,
+      "imageSource": null,
+      "imageVerified": false,
+      "locations": []
+    },
+    {
+      "id": "steal-hidden-cash",
+      "title": "Hidden cash (rooftop boxes, wall vents, wallets, stash bags)",
+      "category": "Hidden Cash & Collectibles",
+      "verified": true,
+      "source": "VicePulse, \"GTA 6 hidden money locations\" (https://vicepulse.org/gta-6/money/hidden-cash); Map Master, \"Loose Cash Spots in GTA 6\" (https://mapmaster.io/games/grand-theft-auto-6/guides/Loose%20Cash); GTA6Heists, \"GTA 6 Fast Money\" captures (https://www.gta6heists.com/money/fast-money); GTA6.house, \"GTA 6 money guide\" (https://gta6.house/guides/gta-6-money-guide-make-money-fast), which says it is written from outlets such as PC Gamer (so not independent of them); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Small cash stashes in rooftop yellow boxes, wall vents, desks, wallets and washed-up boats.",
+      "howTo": [
+        "Look up in Key Lento: yellow boxes on rooftops and towers (the Inked Mermaid Tattoo Parlor roof held $242; another box on the hotel roof north-east of the Key Lento Convenience Store).",
+        "Check hotel terraces, house floors and back offices for wallets and cash stacks.",
+        "Open the vent grille behind Three Sheets Liquor ($1,000 or so; cops clear it if alerted).",
+        "Boat spots: the stranded smuggler boat in Grassrivers (deck hatch, $1,280 plus cocaine) and Donnie's capsized boat off Corsair Key.",
+        "Bank found cash at an ATM: it is lost if you die or are busted while carrying it."
+      ],
+      "toolsNeeded": [
+        "None for most; a boat for the coastal stashes"
+      ],
+      "payoutMin": 100,
+      "payoutMax": 6000,
+      "payoutBand": "medium",
+      "heat": null,
+      "sellAt": "None for cash; cocaine and stash bags go to a fence",
+      "cooldown": null,
+      "chapterOrder": 0,
+      "notes": "Amounts are per pickup and each is a single-guide report: $175 (Badger R&D tower phone box), $242 (Inked Mermaid roof), $389 (kids' room stack), $1,280 (Grassrivers boat), $6,000+ (stash bag at the Apollo Aggregates warehouse). Cash on you is lost on death; you can carry at most $20,000 (GTA6.house, via PC Gamer). Pins are the few places that match a GTA6Map.io marker; most spots are not mapped.",
+      "image": "images/steal/steal-hidden-cash.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "In-game capture of a character crouching beside a yellow generator and opening a wall vent, with a '+$1,353' cash notification on screen.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-hidden-cash.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "steal-hc-mermaid",
+          "name": "Inked Mermaid Tattoo Parlor roof lockbox, $242",
+          "area": "Key Lento",
+          "mapX": 60.1,
+          "mapY": 80.0,
+          "precision": "street"
+        },
+        {
+          "id": "steal-hc-badger",
+          "name": "Badger R&D Tower, phone-box balcony, $175",
+          "area": "Key Lento",
+          "mapX": 56.7,
+          "mapY": 82.6,
+          "precision": "exact"
+        },
+        {
+          "id": "steal-hc-threesheets",
+          "name": "Three Sheets Liquor back-room vent, about $1,000",
+          "area": "Key Lento",
+          "mapX": 57.8,
+          "mapY": 82.4,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-collectible-cards",
+      "title": "Collectible cards (sell at pawn shops)",
+      "category": "Hidden Cash & Collectibles",
+      "verified": false,
+      "source": "GTA6Heists, \"GTA 6 Collectible Cards\" (https://www.gta6heists.com/money/collectible-cards); VicePulse, \"GTA 6 hidden money locations\" (https://vicepulse.org/gta-6/money/hidden-cash); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Hidden cards from safes, trailers and rooftops that pawn shops buy from $20 up to $6,000.",
+      "howTo": [
+        "Find cards in safes, trailers, restrooms, phone boxes and rooftop yellow containers (18 sets, 480 cards reported).",
+        "Hover a pawn shop on the map: its card shows what your cards fetch there.",
+        "Sell at any pawn shop (SELL ALL also works); sold cards stay logged for 100%.",
+        "Take the Leroy Rook (Silver) card from the Hamlet drug-warehouse safe: it sold for $6,000 at Hamlet Pawn."
+      ],
+      "toolsNeeded": [
+        "None"
+      ],
+      "payoutMin": 20,
+      "payoutMax": 6000,
+      "payoutBand": "medium",
+      "heat": null,
+      "sellAt": "Pawn shops (Hamlet Pawn, Dorado Pawn Shop and others)",
+      "cooldown": "One card per save: reloading does not put the Leroy Rook card back in the safe (GTA6Heists)",
+      "chapterOrder": 0,
+      "notes": "Verified false: price range is one outlet (GTA6Heists in-game capture); GTA Corner and Sixthstar were read only as search summaries and agree on 'from about $20 to $6,000' but were not opened. The set count disagrees in game (18 sets in Collections, 15 in Stats). Pins are the GTA6Map.io collectible-card markers (where cards sit).",
+      "image": "images/steal/steal-collectible-cards.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "In-game close-up of a hand holding the Leroy Rook (Vice City Narcos, 1 of 24) collectible card above an open safe drawer, with the tip 'Collectible cards can be sold at pawn shops'.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-collectible-cards.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "collectible-cards-h8z21edd",
+          "name": "Los Santos Panic card: Marquise Bernard",
+          "area": "Key Lento",
+          "mapX": 60.6,
+          "mapY": 81.1,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-hs4hefsd",
+          "name": "Card basketball",
+          "area": "Ocean Beach, Vice Beach",
+          "mapX": 86.8,
+          "mapY": 51.9,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-d71p16js",
+          "name": "Nine1Nine card: Serena (Silver)",
+          "area": "Yorktown",
+          "mapX": 35.6,
+          "mapY": 22.4,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-ye1xvsda",
+          "name": "Nine1Nine card: Lenora (Deep Red)",
+          "area": "Tequesta Retreat, Vice City",
+          "mapX": 72.0,
+          "mapY": 58.8,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-t3n72x67",
+          "name": "Vice City Club De Fútbol card",
+          "area": "Lummox County",
+          "mapX": 52.8,
+          "mapY": 22.9,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-ezchr8xs",
+          "name": "Backyard Wrestling card: J.D. Wild",
+          "area": "Lummox County",
+          "mapX": 53.0,
+          "mapY": 23.0,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-mjm25e6z",
+          "name": "The Legends of Ratface card: Wokester (Blue)",
+          "area": "Key Lento",
+          "mapX": 54.8,
+          "mapY": 84.5,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-f4qnxjzs",
+          "name": "Nine1Nine card: Chrissie (Deep Red)",
+          "area": "Moreau",
+          "mapX": 49.2,
+          "mapY": 16.9,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-k8vdgvxx",
+          "name": "Nine1Nine card: Lavinia (Purple)",
+          "area": "Redhill",
+          "mapX": 49.1,
+          "mapY": 18.2,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-s36xtqcz",
+          "name": "Nine1Nine card: Braelynn (Purple)",
+          "area": "Millport",
+          "mapX": 65.1,
+          "mapY": 22.6,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-vcd0re92",
+          "name": "Nine1Nine card: Serena (Bronze)",
+          "area": "Lummox County",
+          "mapX": 58.0,
+          "mapY": 22.9,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-t95by60r",
+          "name": "Nine1Nine card: Lavinia (Pink)",
+          "area": "Millport",
+          "mapX": 66.6,
+          "mapY": 23.1,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-kb0bbk3q",
+          "name": "Nine1Nine card: Georgia (Deep Red)",
+          "area": "Millport",
+          "mapX": 67.8,
+          "mapY": 23.5,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-nwpqbn1n",
+          "name": "Nine1Nine card: Lavinia (Deep Red)",
+          "area": "Port Gellhorn",
+          "mapX": 25.0,
+          "mapY": 28.0,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-skxmwk5p",
+          "name": "Nine1Nine card: Braelynn (Deep Red)",
+          "area": "Kelly County",
+          "mapX": 45.1,
+          "mapY": 28.2,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-haras4er",
+          "name": "Nine1Nine card: Chrissie (Purple)",
+          "area": "Kelly County",
+          "mapX": 40.1,
+          "mapY": 28.5,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-an8386nh",
+          "name": "Nine1Nine card: Louise (Silver)",
+          "area": "Leonard County",
+          "mapX": 63.6,
+          "mapY": 33.1,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-e31rfx2g",
+          "name": "Nine1Nine card: Chrissie (Pink)",
+          "area": "Port Gellhorn",
+          "mapX": 31.7,
+          "mapY": 35.3,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-vxq18eh0",
+          "name": "Nine1Nine card: Julia (Bronze)",
+          "area": "Port Gellhorn",
+          "mapX": 26.8,
+          "mapY": 37.5,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-bapjp6j4",
+          "name": "Nine1Nine card: Meghan (Silver)",
+          "area": "North Beaches",
+          "mapX": 80.4,
+          "mapY": 37.5,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-j4dx3mw9",
+          "name": "Nine1Nine card: Braelynn (Pink)",
+          "area": "Gellhorn International Raceway",
+          "mapX": 30.7,
+          "mapY": 45.6,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-vrg2a0nd",
+          "name": "Nine1Nine card: Jesenia (Bronze)",
+          "area": "La Perle",
+          "mapX": 64.2,
+          "mapY": 46.6,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-q3mzgvyj",
+          "name": "Nine1Nine card: Jesenia (Gold)",
+          "area": "Rialto Islands",
+          "mapX": 76.7,
+          "mapY": 47.0,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-y7wecnw3",
+          "name": "Nine1Nine card: Georgia (Pink)",
+          "area": "La Perle",
+          "mapX": 66.3,
+          "mapY": 47.5,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-a8xf0q4r",
+          "name": "Nine1Nine card: Amie (Deep Red)",
+          "area": "Buckskin",
+          "mapX": 47.3,
+          "mapY": 47.8,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-tf14jp07",
+          "name": "Nine1Nine card: Meghan (Gold)",
+          "area": "Kelly County",
+          "mapX": 39.5,
+          "mapY": 48.2,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-qg4x0m3q",
+          "name": "Nine1Nine card: Meghan (Bronze)",
+          "area": "Crosstown, Vice City",
+          "mapX": 69.6,
+          "mapY": 48.2,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-z1y9s776",
+          "name": "Nine1Nine card: Lenora (Pink)",
+          "area": "Rockridge, Vice City",
+          "mapX": 67.4,
+          "mapY": 48.8,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-a9awbdjb",
+          "name": "Nine1Nine card: Clarissa (Silver)",
+          "area": "Capri",
+          "mapX": 26.2,
+          "mapY": 50.5,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-wzbtpes0",
+          "name": "Nine1Nine card: Amie (Purple)",
+          "area": "Capri",
+          "mapX": 27.2,
+          "mapY": 50.8,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-sdrvrn1q",
+          "name": "Nine1Nine card: Julia (Gold)",
+          "area": "Shorefront Ave, Ocean Beach, Vice Beach",
+          "mapX": 83.9,
+          "mapY": 51.2,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-w651zw6q",
+          "name": "Nine1Nine card: Louise (Gold)",
+          "area": "Balsero, Vice City",
+          "mapX": 58.2,
+          "mapY": 51.8,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-mycmn10f",
+          "name": "Nine1Nine card: Clarissa (Bronze)",
+          "area": "Little Cuba, Vice City",
+          "mapX": 66.5,
+          "mapY": 54.8,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-g37pfkr9",
+          "name": "Nine1Nine card: Louise (Bronze)",
+          "area": "Salton Vice City",
+          "mapX": 66.4,
+          "mapY": 56.8,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-r0qjceps",
+          "name": "Nine1Nine card: Lenora (Purple)",
+          "area": "Tequesta, Vice City",
+          "mapX": 67.2,
+          "mapY": 57.7,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-qpcyh9w0",
+          "name": "Nine1Nine card: Clarissa (Gold)",
+          "area": "Mariana County",
+          "mapX": 42.9,
+          "mapY": 60.6,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-ek1wsbfq",
+          "name": "Nine1Nine card: Julia (Silver)",
+          "area": "SW 9th Ave, Peacock Bay, Vice City",
+          "mapX": 65.6,
+          "mapY": 61.9,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-pcgp3ngz",
+          "name": "Nine1Nine card: Serena (Gold)",
+          "area": "Vice City",
+          "mapX": 66.7,
+          "mapY": 67.1,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-da56fy46",
+          "name": "Nine1Nine card: Amie (Pink)",
+          "area": "Key Lento",
+          "mapX": 59.3,
+          "mapY": 79.0,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-hpwkx7y8",
+          "name": "Nine1Nine card: Jesenia (Silver)",
+          "area": "Mariana County",
+          "mapX": 37.9,
+          "mapY": 82.4,
+          "precision": "exact"
+        },
+        {
+          "id": "collectible-cards-s8jag4f1",
+          "name": "Nine1Nine card: Georgia (Purple)",
+          "area": "Route 1, Key Lento",
+          "mapX": 57.7,
+          "mapY": 82.6,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-sunken-treasure",
+      "title": "Sunken treasure and Kenton's dive jobs",
+      "category": "Hidden Cash & Collectibles",
+      "verified": true,
+      "source": "GTA6Heists, \"Scuba Diving and Treasure Hunting with Kenton\" (https://www.gta6heists.com/money/scuba-diving-treasure); GTA6.house, \"GTA 6 money guide\" (https://gta6.house/guides/gta-6-money-guide-make-money-fast), which says it is written from outlets such as PC Gamer (so not independent of them); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Dive wrecks with Kenton's metal detector; he pays a finder's fee and buys treasure.",
+      "howTo": [
+        "Do Kenton's Dive Tours (unlocked in the Chapter 1 mission Island Dreams, per GTA6.house); the first half-tour paid $400.",
+        "Take the metal detector Kenton hands you and search the wreck (hold L2 or R2).",
+        "Afterwards he texts three Nuestra Senora wreck sites and leaves scuba gear on your boat.",
+        "Dive from your own boat; bring the speargun, because the first tour ends with a shark.",
+        "Return treasure to Kenton or sell collectibles (doubloons, meteorites) at pawn shops."
+      ],
+      "toolsNeeded": [
+        "Boat",
+        "Scuba gear and metal detector (from Kenton)",
+        "Speargun"
+      ],
+      "payoutMin": null,
+      "payoutMax": null,
+      "payoutBand": null,
+      "heat": null,
+      "sellAt": "Kenton (Key Lento dive shop); pawn shops buy doubloons",
+      "cooldown": null,
+      "chapterOrder": 1,
+      "notes": "Verified true because Kenton's job and his 'finder's fee plus bonus' card text are in two sources (GTA6Heists, GTA6.house), but no treasure price is shown in game yet (GTA6Heists). Search-result snippets from other guides give $400 per doubloon at Kenton and $200 at pawn shops; not confirmed here. Also Donnie's lost drugs: a sunken boat off Corsair Key with a $1,200 cocaine stash (one guide). Pins: Kenton's shop and the shipwreck marker.",
+      "image": "images/steal/steal-sunken-treasure.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "In-game underwater capture of a diver with a green tank swimming over a sandy seabed, with a 'Gold Doubloons' marker on screen.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-sunken-treasure.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "sunken-treasure-dnrff2rm",
+          "name": "Shipwreck",
+          "area": "Mariana County",
+          "mapX": 72.1,
+          "mapY": 78.6,
+          "precision": "exact"
+        },
+        {
+          "id": "sunken-treasure-zh54be83",
+          "name": "Kenton",
+          "area": "Key Lento",
+          "mapX": 60.8,
+          "mapY": 81.1,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-pilot-pete-drops",
+      "title": "Pilot Pete's drug drops",
+      "category": "Side Jobs & Legit Cash",
+      "verified": true,
+      "source": "PC Gamer, \"GTA 6: The fastest ways to make money\" (https://www.pcgamer.com/games/grand-theft-auto/gta-6-how-to-make-money/); TheGTA6Map, \"Pilot Pete missions\" (https://thegta6map.com/articles/gta-6-pilot-pete-missions), which says it follows PowerPyx's walkthroughs; GTA6.house, \"GTA 6 money guide\" (https://gta6.house/guides/gta-6-money-guide-make-money-fast), which says it is written from outlets such as PC Gamer (so not independent of them); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Fly Pete's plane over drop sites: $12,000 for the first job and $20,000 for each timed run.",
+      "howTo": [
+        "Meet Pete in Chapter 3; his jobs open early in Chapter 4 as Jason.",
+        "The Last Mile - Passing the Torch: start at Sundown Private Airfield, open the hangar safe (3718), fly Pete's plane over three marked sites and press the drop button (X/A), land south of Port Gellhorn.",
+        "Backseat Pilot: pick up the seaplane at Wild Hog Airfield and drop seven packages in two in-game hours.",
+        "Pete's Deliveries: three more runs of seven drops (Southpoint Airfield, Avery Allen & Co., Deliver Packages), each with a deadline; avoid the red circles."
+      ],
+      "toolsNeeded": [
+        "Plane (Pete's)"
+      ],
+      "payoutMin": 12000,
+      "payoutMax": 20000,
+      "payoutBand": "medium",
+      "heat": null,
+      "sellAt": "None (BuckMe payment from Pete)",
+      "cooldown": null,
+      "chapterOrder": 4,
+      "notes": "Disagreement: PC Gamer says $10,000-$20,000 per run and GTA6.house says up to $100,000 reported; TheGTA6Map (which follows PowerPyx) says $12,000 then $20,000 a run, $92,000 for the strand. Safe code 3718 and mission names are from TheGTA6Map/PowerPyx only. The pin is the GTA6Map.io 'Pete' marker.",
+      "image": null,
+      "imageCredit": null,
+      "imageAlt": null,
+      "imageSource": null,
+      "imageVerified": false,
+      "locations": [
+        {
+          "id": "pilot-pete-drops-c4a4vcmv",
+          "name": "Pete",
+          "area": "Port Gellhorn",
+          "mapX": 27.1,
+          "mapY": 37.1,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-demolition-derby",
+      "title": "Demolition derby at Ambrosia Raceway",
+      "category": "Side Jobs & Legit Cash",
+      "verified": false,
+      "source": "The Games Wiki, \"Racing\" (https://thegameswiki.com/gta6/wiki/racing); PC Gamer, \"GTA 6: The fastest ways to make money\" (https://www.pcgamer.com/games/grand-theft-auto/gta-6-how-to-make-money/); GTA6.house, \"GTA 6 money guide\" (https://gta6.house/guides/gta-6-money-guide-make-money-fast), which says it is written from outlets such as PC Gamer (so not independent of them); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Rent a car, wreck the field, and win by default once every other car is destroyed.",
+      "howTo": [
+        "Go to Ambrosia Raceway (north of Ambrosia, Kelly County); it is marked on the map when you get close.",
+        "Pay the buy-in ($190+) and rent a car ($150+); the demolition races accept rentals only.",
+        "Ram the other 11 cars; you win automatically when they are all destroyed, long before the laps end.",
+        "Repeat: the Oval and Figure 8 races can be replayed."
+      ],
+      "toolsNeeded": [
+        "Rental car (track)"
+      ],
+      "payoutMin": 1900,
+      "payoutMax": 3150,
+      "payoutBand": "medium",
+      "heat": null,
+      "sellAt": "None (cash prize)",
+      "cooldown": null,
+      "chapterOrder": 0,
+      "notes": "Payout conflict, so verified false: The Games Wiki lists a max payout of $1,900 (Oval) and $3,150 (Figure 8), buy-in $190+, rental $150+; PC Gamer (and GTA6.house) say $3,800-$6,300 per win. A VicePulse run reports $2,685 net on the Figure 8. Pins are the two GTA6Map.io race markers.",
+      "image": "images/steal/steal-demolition-derby.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Video thumbnail from a player's Ambrosia Raceway demolition-derby run, showing a results card reading '$3,150 WIN' beside the headline text.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-demolition-derby.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "demolition-derby-qftd377b",
+          "name": "Ambrosia Raceway - Oval",
+          "area": "Ambrosia",
+          "mapX": 55.0,
+          "mapY": 30.7,
+          "precision": "exact"
+        },
+        {
+          "id": "demolition-derby-vqwqpeb1",
+          "name": "Ambrosia Raceway - Figure 8",
+          "area": "Ambrosia",
+          "mapX": 55.1,
+          "mapY": 30.8,
+          "precision": "exact"
+        }
+      ]
+    },
+    {
+      "id": "steal-pool-wagers",
+      "title": "Pool wagers (7 opponent tables)",
+      "category": "Side Jobs & Legit Cash",
+      "verified": false,
+      "source": "The Games Wiki, \"Pool Locations and Opponents\" (https://thegameswiki.com/gta6/wiki/pool-locations-and-opponents); Bloxodes, \"Can You Enter Buildings in GTA 6?\" (https://bloxodes.com/articles/gta-6-enterable-buildings); GTA6Map.io interactive map marker list (https://gta6map.io; coordinates read from the site's public script); GTADB landmarks data, CC BY 4.0 (https://github.com/rolux/gtadb.org; https://map.gtadb.org). All read 20 November 2026.",
+      "summary": "Small stakes: beat a bar's pool opponent and a win pays back double your stake.",
+      "howTo": [
+        "Find an opponent table (purple 8-ball icon; 7 of the 17 tables have an opponent).",
+        "Pay the stake and win the game.",
+        "Beat any five of the seven opponents for 100%."
+      ],
+      "toolsNeeded": [
+        "Cash for the stake"
+      ],
+      "payoutMin": 20,
+      "payoutMax": 200,
+      "payoutBand": "low",
+      "heat": null,
+      "sellAt": "None (cash)",
+      "cooldown": null,
+      "chapterOrder": 0,
+      "notes": "The 'win pays double your stake' rule is in The Games Wiki. The stakes ($10 Delights up to $100 Skeeter's) are one source (Bloxodes) read as a search summary, so verified is false. Delights closes for a stretch after Chapter 2. Casinos (Merlin's Palace and another) exist but cannot be entered, so there is no gambling item. Pins are the 17 GTA6Map.io pool markers ('Opponent Pool' = pays).",
+      "image": "images/steal/steal-pool-wagers.jpg",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Two men playing pool in a bar, one leaning over the table with a cue while another watches with a drink.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/steal/steal-pool-wagers.jpg",
+      "imageVerified": true,
+      "locations": [
+        {
+          "id": "pool-wagers-w15185h5",
+          "name": "Tiki Touchdown",
+          "area": "Key Lento",
+          "mapX": 57.7,
+          "mapY": 80.9,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-xtw1aepy",
+          "name": "Opponent Pool - Jacob's Tavern",
+          "area": "Millport",
+          "mapX": 66.7,
+          "mapY": 22.8,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-g7bk798v",
+          "name": "Pool - Sands Of Time",
+          "area": "Waning Sands",
+          "mapX": 76.1,
+          "mapY": 32.7,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-mg1vh99t",
+          "name": "Opponent Pool - The Thirsty Wolf",
+          "area": "Ambrosia",
+          "mapX": 60.7,
+          "mapY": 35.1,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-jk3tjabn",
+          "name": "Opponent Pool - Delights",
+          "area": "Interstate 404, Port Gellhorn",
+          "mapX": 32.4,
+          "mapY": 36.7,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-s2eqdg6h",
+          "name": "Opponent Pool - Kowaachobee",
+          "area": "Buckskin",
+          "mapX": 46.9,
+          "mapY": 49.0,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-e0d8xxgv",
+          "name": "Pool - Sumerian Hotel",
+          "area": "Delphino Cir, Bayside, Vice City",
+          "mapX": 72.1,
+          "mapY": 49.5,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-e19hq8nd",
+          "name": "Opponent Pool - Zotico's",
+          "area": "Tisha-Wocka, Vice City",
+          "mapX": 55.4,
+          "mapY": 49.8,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-j73xa5xm",
+          "name": "Pool - Tisha-Wocka Flea Market",
+          "area": "Tisha-Wocka, Vice City",
+          "mapX": 55.7,
+          "mapY": 50.2,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-aqpnzy2r",
+          "name": "Pool - Pegassi Residences",
+          "area": "Tequesta Retreat, Vice City",
+          "mapX": 73.9,
+          "mapY": 58.3,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-m2ddcnhf",
+          "name": "Pool - Dalton Island",
+          "area": "Dalton Island",
+          "mapX": 87.0,
+          "mapY": 59.9,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-jpk50dpm",
+          "name": "Pool - Grand Majestic",
+          "area": "Tequesta, Vice City",
+          "mapX": 67.1,
+          "mapY": 60.0,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-x3dtd1hq",
+          "name": "Pool - The White Clam",
+          "area": "Watson Bay",
+          "mapX": 39.5,
+          "mapY": 68.0,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-bam3j1wv",
+          "name": "Opponent Pool - Skeeter's Bar",
+          "area": "Hamlet",
+          "mapX": 57.0,
+          "mapY": 72.4,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-gckwck4b",
+          "name": "Opponent Pool - Rusty Anchor",
+          "area": "Key Lento",
+          "mapX": 59.2,
+          "mapY": 79.0,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-qnmnfmm9",
+          "name": "Pool - Riquezas Keys",
+          "area": "Southwind",
+          "mapX": 32.8,
+          "mapY": 84.6,
+          "precision": "exact"
+        },
+        {
+          "id": "pool-wagers-rg0bkp2z",
+          "name": "Pool - Isla Tropical",
+          "area": "Key Lento",
+          "mapX": 52.8,
+          "mapY": 85.0,
+          "precision": "exact"
+        }
+      ]
+    }
+  ]
+}

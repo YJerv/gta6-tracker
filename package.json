@@ -1,0 +1,13 @@
+{
+  "name": "gta6-tracker",
+  "private": true,
+  "type": "module",
+  "description": "Leonida Map & Guide \u2014 unofficial fan companion (cars, weapons, jobs & skills). Static files, no build step.",
+  "scripts": {
+    "test": "node --test tests/smoke.test.js",
+    "validate": "node scripts/validate.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

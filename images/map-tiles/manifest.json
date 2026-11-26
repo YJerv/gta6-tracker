@@ -1,0 +1,43 @@
+{
+  "tileSize": 512,
+  "minZoom": 0,
+  "maxZoom": 3,
+  "path": "images/map-tiles/{z}/{x}_{y}.jpg",
+  "overview": "images/cars/leonida-map.jpg",
+  "sourceWidth": 5610,
+  "sourceHeight": 7680,
+  "levels": [
+    {
+      "z": 0,
+      "width": 1402,
+      "height": 1920,
+      "tileSize": 512,
+      "cols": 3,
+      "rows": 4
+    },
+    {
+      "z": 1,
+      "width": 2805,
+      "height": 3840,
+      "tileSize": 512,
+      "cols": 6,
+      "rows": 8
+    },
+    {
+      "z": 2,
+      "width": 4208,
+      "height": 5760,
+      "tileSize": 512,
+      "cols": 9,
+      "rows": 12
+    },
+    {
+      "z": 3,
+      "width": 5610,
+      "height": 7680,
+      "tileSize": 512,
+      "cols": 11,
+      "rows": 15
+    }
+  ]
+}
