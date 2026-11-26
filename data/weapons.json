@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-20",
+  "lastUpdated": "2026-11-26",
   "section": "weapons",
   "description": "Unique and hidden weapons you can get for free in GTA VI story mode (gang-operation loot, world pickups, challenge and mission rewards, Ultimate Edition weapons), with a pin on Rockstar's official Leonida map where the place is mapped. Each weapon has a precision: exact (an interactive-map marker or mapped place), street (a street or landmark named by guides) or area (district or region only). Pins are converted from community-map game coordinates and are good to about 1 to 2 percent of the map (15 to 30 map pixels). chapterOrder is the story chapter a guide says the weapon becomes available in; 0 means no chapter gate is stated (open-world pickup you can reach whenever you can get to the spot). Gang-operation weapons are 1 because Illegal Operations open after the Chapter 1 mission Gone Fishing. Most guide sites repeat IGN's wiki or PowerPyx, so two guides agreeing is weaker than it looks; 'verified' is true only when at least two sources agree and nothing conflicts. Shop-only weapons are not listed individually; see the 'Gun shops' entry. Every row names its sources.",
   "map": {
     "image": "images/cars/leonida-map.jpg",
-    "imageCredit": "Map: Rockstar Games. Official Leonida map poster from rockstargames.com/VI/media (Leonida Map & Cover Art Poster). © Rockstar Games / Take-Two Interactive.",
-    "imageAlt": "Rockstar's official map poster of the State of Leonida, showing its five counties, the Keys in the south, Vice City on the east coast and a lettered grid.",
-    "source": "Rockstar Games, \"Leonida Map & Cover Art Poster\", standard (screen) version, 2,805 x 3,840 px, downloaded from https://www.rockstargames.com/VI/media/artwork-wallpapers on 20 November 2026 and resized to 1,402 x 1,920 px for phones. Pin positions use game coordinates from GTADB landmarks data (CC BY 4.0, https://map.gtadb.org), GTA6Map.io and GTA6 GPS, converted to this poster by a fit on 11 named places and a small east-side correction.",
+    "imageCredit": "Original companion artwork & illustrated map",
+    "imageAlt": "Illustrated unofficial companion map of Leonida, showing Vice City on the east coast, the Keys to the south, inland counties, and the road network.",
+    "source": "Pin positions use game coordinates from GTADB landmarks data (CC BY 4.0, https://map.gtadb.org), GTA6Map.io and GTA6 GPS, fitted to this illustrated companion map.",
     "width": 1402,
     "height": 1920
   },
@@ -33,10 +33,10 @@
       ],
       "notes": "Wortham W-22 small game rifle variant. Gang: Kingfishers. Security: High. Comes with a scope and a suppressor (KeenGamer, GTAVibes video). IGN and GTAPilot place the shacks 'south-west of Hamlet'; The Games Wiki and GTA6.fr say 'north-west of Key Lento'; the map marker fits both. A Chapter 1 operation (open from the start of Chapter 1).",
       "image": "images/weapons/weapon-kingfishers-w-22.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Kingfishers W-22.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Kingfishers W-22, a Small Game Rifle with a brown camo frame and \"Wortham\" logo along its magazine, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-kingfishers-w-22.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-kingfishers-akulus",
@@ -59,10 +59,10 @@
       ],
       "notes": "Scorpio Akulus heavy revolver variant. Gang: Kingfishers. Security: High. Largest and hardest of the three Kingfishers sites (The Games Wiki). Guides group this site in Chapter 2.",
       "image": "images/weapons/weapon-kingfishers-akulus.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Kingfishers Akulus.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Kingfishers Akulus, a Heavy Revolver with a camo aesthetic and black grip, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-kingfishers-akulus.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-kingfishers-laird-350",
@@ -85,10 +85,10 @@
       ],
       "notes": "Fortune & Son Laird 350 sporting sniper rifle variant. Gang: Kingfishers. Security: High. Easiest Kingfishers site: one tiger and one truck of backup (The Games Wiki). IGN and GTAPilot say 'Gullet Marsh, south-west of Hamlet'; The Games Wiki says 'north-east of Cottonmouth Lake'. The pin is the GTA6Map.io marker. Guides group this site in Chapter 2.",
       "image": "images/weapons/weapon-kingfishers-laird-350.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Kingfishers Laird 350.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Kingfishers Laird 350, a Sporting Sniper Rifle with a unique gray camo wrap job, featuring hints of white, black, and orange, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-kingfishers-laird-350.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-gutterball-moreland-850",
@@ -111,10 +111,10 @@
       ],
       "notes": "Fortune & Son Moreland 850 pump-action shotgun variant. Gang: Kolt & Associates. Security: High. Kingpin Bowling first shows up as the optional objective 'Hit Kingpin Bowling' during the main mission Coffee Break (The Games Wiki). Guides group it in Chapter 2.",
       "image": "images/weapons/weapon-gutterball-moreland-850.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Gutterball Moreland 850.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Gutterball Moreland 850, a Pump Action Shotgun with a blue and black ombre color, and a bowling pin decal on its stock, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-gutterball-moreland-850.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-kolt-and-associates-vatra",
@@ -137,10 +137,10 @@
       ],
       "notes": "BZI Vatra heavy submachine gun variant. Gang: Kolt & Associates. Security: High. A notepad here also puts La Cascara Motel on your map (The Games Wiki). Guides group it in Chapter 2.",
       "image": "images/weapons/weapon-kolt-and-associates-vatra.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Kolt & Associates Vatra.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Kolt & Associates Vatra, a Heavy SMG with a bright green frame, black stock and magazine, and a faded decal for \"Lube Bros\", on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-kolt-and-associates-vatra.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-scrapper-vf5c",
@@ -163,10 +163,10 @@
       ],
       "notes": "Vom Feuer VF5C compact military SMG variant. Gang: Kolt & Associates. Security: High. The site's safe code is on a map in the Brooks Boatworks security office, and a note at June Warehouse also points here (The Games Wiki). Guides group it in Chapter 2.",
       "image": "images/weapons/weapon-scrapper-vf5c.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Scrapper VF5C.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Scrapper VF5C, a Compact Military SMG with a dull green frame, accented with scribbles of gold marker, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-scrapper-vf5c.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-clunker-556",
@@ -189,10 +189,10 @@
       ],
       "notes": "Duke 556 carbine variant. Gang: Kolt & Associates. Security: High. Guides group this site in Chapter 2 (GTAVibes also says Chapter 2).",
       "image": "images/weapons/weapon-clunker-556.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Clunker 556.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Clunker 556, a Carbine Assault Rifle with a black barrel, military green and tan frame, and painted white American flag decal on its magazine, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-clunker-556.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-kolt-and-associates-556",
@@ -215,10 +215,10 @@
       ],
       "notes": "Duke 556 carbine variant. Gang: Kolt & Associates. Security: Medium. Pin: the unlabelled 'Robbery Opportunity - Kolts & Associates' marker east of Brooks Boatworks, which matches the guides' description; the marker is not named Stash House on the map. Guides group it in Chapter 2.",
       "image": "images/weapons/weapon-kolt-and-associates-556.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Kolt & Associates 556.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Kolt & Associates 556, a Carbine Assault Rifle with a worn blue and gray frame, and a faded skull sticker decal on its stock, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-kolt-and-associates-556.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-marabunta-grande-kz-59",
@@ -241,10 +241,10 @@
       ],
       "notes": "Kozlov KZ-59 assault rifle variant. Gang: M7. Security: High. A group of bikers delivered a bag here (The Games Wiki). Guides group it in Chapter 2.",
       "image": "images/weapons/weapon-marabunta-grande-kz-59.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Marabunta Grande KZ-59.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Marabunta Grande KZ-59, an Assault Rifle with a burnished gold frame and magazine, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-marabunta-grande-kz-59.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-marabunta-grande-type-9",
@@ -267,10 +267,10 @@
       ],
       "notes": "Zhang Wu Type 9 machine pistol variant. Gang: M7. Security: not listed. Pin: the unlabelled 'Robbery Opportunity - M7' marker just east of Lake Tallaloko, the only M7 marker there; the map does not name it Weed Grow, so treat the pin as probable, not certain. The Games Wiki lists M7's two sites as 'M7 Compound' and 'Weed Grow'.",
       "image": "images/weapons/weapon-marabunta-grande-type-9.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Marabunta Grande Type 9.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Marabunta Grande Type 9, a Machine Pistol SMG, with gold accents along its barrel, frame, and magazine, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-marabunta-grande-type-9.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-chronic-vatra",
@@ -293,10 +293,10 @@
       ],
       "notes": "BZI Vatra heavy submachine gun variant. Gang: Other criminals. Security: High. Remote factory with heavy security (The Games Wiki). Guides group it in Chapter 2.",
       "image": "images/weapons/weapon-chronic-vatra.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Chronic Vatra.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Chronic Vatra, a Heavy SMG with neon green and purple accents, and a decal of two skeletal hands reaching out along the stock, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-chronic-vatra.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-la-polilla-negra-kz-59",
@@ -319,10 +319,10 @@
       ],
       "notes": "Kozlov KZ-59 assault rifle variant. Gang: La Polilla Negra. Security: not listed. GTAVibes (a player-video roundup) also lists it here.",
       "image": "images/weapons/weapon-la-polilla-negra-kz-59.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'La Polilla Negra KZ-59.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the La Polilla Negra KZ-59, an Assault Rifle with a golden yellow frame, texture with filigree and a dark stock, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-la-polilla-negra-kz-59.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-la-polilla-negra-vf-g1",
@@ -345,10 +345,10 @@
       ],
       "notes": "Vom Feuer VF-G1 special assault rifle variant. Gang: La Polilla Negra. Security: not listed. GTAVibes (a player-video roundup) also lists it here.",
       "image": "images/weapons/weapon-la-polilla-negra-vf-g1.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'La Polilla Negra VF-G1.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the La Polilla Negra VF-G1, a Special Assault Rifle with a black frame, accented with a gold barrel and magazine, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-la-polilla-negra-vf-g1.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-final-chapter-kvga-12",
@@ -371,10 +371,10 @@
       ],
       "notes": "Kozlov KVGA-12 auto shotgun variant. Gang: Final Chapter. Security: not listed.",
       "image": "images/weapons/weapon-final-chapter-kvga-12.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Final Chapter KVGA-12.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Final Chapter KVGA-12, an Auto Shotgun with a faded wooden frame and black stock, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-final-chapter-kvga-12.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-final-chapter-shortstraw",
@@ -397,10 +397,10 @@
       ],
       "notes": "Mason & Keen Shortstraw sporting sawed-off shotgun variant. Gang: Final Chapter. Security: not listed.",
       "image": "images/weapons/weapon-final-chapter-shortstraw.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Final Chapter Shortstraw.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Final Chapter Shortstraw, a Sporting Sawed-Off with a chestnut wooden grip and stock, and two ducks embossed near the trigger, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-final-chapter-shortstraw.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-throttler-vero",
@@ -423,10 +423,10 @@
       ],
       "notes": "Girardi Verro semi-auto stubby shotgun variant. Gang: Final Chapter. Security: not listed.",
       "image": "images/weapons/weapon-throttler-vero.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Throttler Vero.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Throttler Vero, a Semi-Auto Stubby Shotgun with a yellow and red flame decal along its frame, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-throttler-vero.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-ride-free-h-and-l-38",
@@ -449,10 +449,10 @@
       ],
       "notes": "Hawk & Little .38 double-action revolver variant. Gang: Final Chapter. Security: not listed. Location disagreement on the exact spot: IGN and GTAPilot say the hideout is west of Ambrosia along the road out of town, but the only unlabelled Final Chapter marker on GTA6Map.io sits about 750 m EAST of the Ambrosia sites, on the lake's south shore. The pin uses that marker, so treat it as approximate.",
       "image": "images/weapons/weapon-ride-free-h-and-l-38.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Ride Free H&L .38.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Ride Free H&L .38, a Double Action Revolver with a narrow wooden grip, and shiny dark gray barrel, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-ride-free-h-and-l-38.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-san4san-gorse-425",
@@ -475,10 +475,10 @@
       ],
       "notes": "Fortune & Son Gorse 425 stubby shotgun variant. Gang: San4San. Security: not listed. Pin: the unlabelled 'Robbery Opportunity - San4San' marker in south-west Rockridge; the map does not name it Parlor Apartments.",
       "image": "images/weapons/weapon-san4san-gorse-425.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'San4San Gorse 425.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the San4San Gorse 425, a Stubby Shotgun with a dull gold frame, and San4San Gorse accents decorated along its grip and stock, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-san4san-gorse-425.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-san4san-k17",
@@ -501,10 +501,10 @@
       ],
       "notes": "Klose K17 service pistol variant. Gang: San4San. Security: not listed. The map marker spells it 'Sound4Sond Studio'.",
       "image": "images/weapons/weapon-san4san-k17.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'San4San K17.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the San4San K17, a Service Pistol with a modern aesthetic, touched with gold accents, including a scope, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-san4san-k17.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-chromium-w-10",
@@ -527,10 +527,10 @@
       ],
       "notes": "Wortham W-10 micro SMG variant. Gang: San4San. Security: not listed.",
       "image": "images/weapons/weapon-chromium-w-10.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Chromium W-10.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Chromium W-10, a Micro SMG with a chrome, cylindrical barrel, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-chromium-w-10.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-san4san-kz-59",
@@ -553,10 +553,10 @@
       ],
       "notes": "Kozlov KZ-59 assault rifle variant. Gang: San4San. Security: not listed.",
       "image": "images/weapons/weapon-san4san-kz-59.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'San4San KZ-59.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the San4San KZ-59, an Assault Rifle with a red, abstract wrap job on its frame and stock, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-san4san-kz-59.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-ptt-youngins-k17",
@@ -579,10 +579,10 @@
       ],
       "notes": "Klose K17 service pistol variant. Gang: PTT Youngin$. Security: not listed. Pin is approximate: GTA6Map.io has two unnamed 'Robbery Opportunity - PTT Youngin$' markers in Southside and neither is labelled Kamar Devon Community Center; the pin sits between them.",
       "image": "images/weapons/weapon-ptt-youngins-k17.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'PTT Youngin$ K17.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the PTT Youngin$ K17, a colorful Service Pistol with street art graffiti details, featuring splashes of blue, yellow, and orange, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-ptt-youngins-k17.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-eris-fresh-dsg",
@@ -631,10 +631,10 @@
       ],
       "notes": "Girardi ES18 burst pistol variant. Gang: The Guardia Brothers. Security: not listed. Pin: the Guardia Brothers 'Robbery Opportunity' marker in Little Cuba. GTA6Map.io's two Guardia safe markers both say 'Saber Shipping Facility'; IGN puts the Yard in Little Cuba and the Facility in Balsero, and the pins follow IGN.",
       "image": "images/weapons/weapon-the-guardian-es18.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'The Guardian ES18.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Guardian ES18, a Burst Pistol with a cream white grip and gold accents, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-the-guardian-es18.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-guardia-brothers-vf5",
@@ -657,10 +657,10 @@
       ],
       "notes": "Vom Feuer VF5 military SMG variant. Gang: The Guardia Brothers. Security: not listed. Pin: the east-side Guardia Brothers 'Robbery Opportunity' marker; see The Guardian ES18 for the Yard/Facility labelling mix-up on the map.",
       "image": "images/weapons/weapon-guardia-brothers-vf5.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Guardia Brothers VF5.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Guardia Brothers VF5, a Military SMG with a tan frame and pink camo accents, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-guardia-brothers-vf5.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-guardia-brothers-fra",
@@ -709,10 +709,10 @@
       ],
       "notes": "Girardi Super400 heavy shotgun variant. Gang: Other criminals. Security: not listed.",
       "image": "images/weapons/weapon-hostile-super400.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Hostile Super400.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Hostile Super400, a Heavy Shotgun with a light blue frame and graffiti art-style accents on its frame and stock, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-hostile-super400.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-grx-556",
@@ -735,10 +735,10 @@
       ],
       "notes": "Duke 556 carbine variant. Gang: Other criminals. Security: not listed.",
       "image": "images/weapons/weapon-grx-556.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'GRX 556.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the GRX 556, a Carbine Assault Rifle with an army green frame and camo wrap job on its stock, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-grx-556.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-quarter-mile-es9",
@@ -761,10 +761,10 @@
       ],
       "notes": "Girardi ES9 military pistol variant. Gang: Other criminals. Security: not listed.",
       "image": "images/weapons/weapon-quarter-mile-es9.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Quarter Mile ES9.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Quarter Mile ES9, a Military Pistol with a sleek silver frame and wooden grip, which can be looted from the Chatfield Storage & Logistics Illegal Operation located in Waxman Island, east of Downtown Vice City, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-quarter-mile-es9.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-zodiac-nipper-38",
@@ -787,10 +787,10 @@
       ],
       "notes": "Scorpio Nipper .38 compact pistol variant. Gang: Other criminals. Security: not listed.",
       "image": "images/weapons/weapon-zodiac-nipper-38.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Zodiac Nipper .38.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Zodiac Nipper .38, a Compact Pistol with a blue and purple aesthetic which can be looted during the Ocean Beach Lab Illegal Operation, located in Ocean City, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-zodiac-nipper-38.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-kingpin-heathen",
@@ -813,10 +813,10 @@
       ],
       "notes": "Hillinger Heathen bullpup assault rifle variant. Gang: Other criminals. Security: not listed.",
       "image": "images/weapons/weapon-kingpin-heathen.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Kingpin Heathen.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Kingpin Heathen, a Bullpup Assault Rifle with a sleek gray frame with a checkered texture, and gold accents on its barrel and magazine, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-kingpin-heathen.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-crabshack-vf5",
@@ -841,10 +841,10 @@
       ],
       "notes": "Military SMG with a nuclear-waste wrap. Codes (0072 safe, 0212 door) come from KeenGamer and are confirmed by the GTAVibes video roundup; IGN and GTAPilot confirm the location (their code text is not copied here). The pin is the Pelican Valley Observation Tower, used as an anchor because the outpost is not mapped on GTA6Map.io or GTADB (treat as area only).",
       "image": "images/weapons/weapon-crabshack-vf5.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Crabshack VF5.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Crabshack VF5, a Military SMG with a nuclear waste-themed wrap job, smeared in blood, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-crabshack-vf5.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-cruel-huntsmans-sm-69",
@@ -866,10 +866,10 @@
       ],
       "notes": "Hunting sniper rifle with a warped-wood body. Location disagreement on the neighbouring revolver: KeenGamer and the GTAVibes video roundup put both this rifle and the Swamp Bait Akulus in the same ruined cabin; IGN and GTAPilot put the Swamp Bait Akulus in a different waterfront building south-west of Hamlet. The pin is the Pelican Valley Observation Tower as an area anchor. GTA6 GPS has unlabelled unique-weapon pins in this region that could not be matched to a name.",
       "image": "images/weapons/weapon-cruel-huntsmans-sm-69.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Cruel Huntsman's SM-69.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Cruel Huntsman's SM-69, a Hunting Sniper Rifle with a beautiful warped wood body, featuring stripes of blue-gray and brown, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-cruel-huntsmans-sm-69.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-swamp-bait-akulus",
@@ -890,10 +890,10 @@
       ],
       "notes": "Heavy revolver with a warped green-and-black grip. DISAGREEMENT: IGN and GTAPilot put it in a waterfront building south-west of Hamlet; KeenGamer and the GTAVibes video roundup put it on the blood-covered floor of the same Pelican Valley cabin as the Cruel Huntsman's SM-69. Check both places. The pin is Gullet Marsh (IGN's side), approximate.",
       "image": "images/weapons/weapon-swamp-bait-akulus.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Swamp Bait Akulus.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Swamp Bait Akulus, a Heavy Revolver with a gray steel barrel and warped green-and-black grip, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-swamp-bait-akulus.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-conspiracist-type-9",
@@ -917,10 +917,10 @@
       ],
       "notes": "Machine pistol. KeenGamer says the bunker opens after the Chapter 1 mission Building a Life; IGN gives no chapter. Pin is the Griffin Shooting Range, a few hundred metres off, because the mobile home itself is not mapped. Rockets are lost on death (GTAVibes).",
       "image": "images/weapons/weapon-conspiracist-type-9.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Conspiracist Type 9.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Conspiracist Type 9.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-conspiracist-type-9.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-double-cross-vatra",
@@ -942,10 +942,10 @@
       ],
       "notes": "Heavy SMG with a severely rusted frame. Pin is Bobcat Key itself; the weapon is out to sea to its west, so the pin is only approximate. Two guide sources (IGN, GTAPilot).",
       "image": "images/weapons/weapon-double-cross-vatra.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Double Cross Vatra.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Double Cross Vatra, a Heavy SMG with a severely rusted frame, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-double-cross-vatra.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-little-friend-w-10",
@@ -968,10 +968,10 @@
       ],
       "notes": "Micro SMG, matte black-grey. Two guide sources (IGN, GTAPilot). The Sunlite Motel is not on GTA6Map.io or GTADB, so the pin is the Ocean Beach Pharmacy marker as a district anchor.",
       "image": "images/weapons/weapon-little-friend-w-10.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Little Friend W-10.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Little Friend W-10, a Micro SMG with a matte black-gray finish, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-little-friend-w-10.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-assassin-nipper-38",
@@ -995,10 +995,10 @@
       ],
       "notes": "Compact pistol, tied to the 'Big War Puzzle' spy-boat side activity (IGN). Pin is the 'Derelict Spy Vessel' landmark on GTA6Map.io; GTA6 GPS has pins at the same spot. GTAVibes (video roundup) says 'southernmost island'; IGN and KeenGamer say south-east edge. Same place.",
       "image": "images/weapons/weapon-assassin-nipper-38.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Assassin Nipper .38.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Assassin Nipper .38 Unique Weapon Variant, a Compact Pistol found on the southeastern edge of Permit Keys, east of the Mile Zero Air Station, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-assassin-nipper-38.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-turnt-nipper-38",
@@ -1021,10 +1021,10 @@
       ],
       "notes": "Compact pistol with a colourful finish and red dot (GTAVibes). Four sources agree (IGN, GTAPilot, KeenGamer, GTAVibes). Pin is the Bobcat Bight place marker from GTADB.",
       "image": "images/weapons/weapon-turnt-nipper-38.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Turnt Nipper .38.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Turnt Nipper .38 Unique Weapon Variant, a Compact Pistol, a colorful variant of the Nipper , on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-turnt-nipper-38.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-stoner-k17-mcd",
@@ -1046,10 +1046,10 @@
       ],
       "notes": "Automatic pistol, sleek black and white. Two guide sources (IGN, GTAPilot). The motel is not mapped on GTA6Map.io or GTADB; the pin is the Ambrosia town marker.",
       "image": "images/weapons/weapon-stoner-k17-mcd.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Stoner K17 MCD.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Stoner K17 MCD, an Automatic Pistol with a sleek black-and-white aesthetic, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-stoner-k17-mcd.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-the-patriarch-drx",
@@ -1071,10 +1071,10 @@
       ],
       "notes": "Tactical pistol, matte black with purple-blue accents. Two guide sources (IGN, GTAPilot). Pin is the Kalaga Reservoir place marker from GTADB.",
       "image": "images/weapons/weapon-the-patriarch-drx.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'The Patriarch DRX.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Patriarch DRX, a Tactical Pistol with a matte black frame and accents of metallic purple-blue, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-the-patriarch-drx.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-deadringer-1992",
@@ -1096,10 +1096,10 @@
       ],
       "notes": "Heavy pistol with filigree on the silver frame. Same mobile home as the Money Bag 1992. Two guide sources (IGN, GTAPilot). Pin is the Moreau River place marker, so only area-accurate.",
       "image": "images/weapons/weapon-deadringer-1992.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Deadringer 1992.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Deadringer 1992, a Heavy Pistol with a silver frame and light wooden grip, both embossed with filigree details, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-deadringer-1992.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-money-bag-1992",
@@ -1121,10 +1121,10 @@
       ],
       "notes": "Heavy pistol with filigree on the barrel. Same mobile home as the Deadringer 1992. IGN's own text calls it 'Money Bag 1922' once; the name everywhere else is 1992. Two guide sources (IGN, GTAPilot).",
       "image": "images/weapons/weapon-money-bag-1992.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Money Bag 1992.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Money Bag 1992, a Heavy Pistol with a dark steel frame and wooden grip, with filigree embossed into the barrel, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-money-bag-1992.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-marthas-1992",
@@ -1147,10 +1147,10 @@
       ],
       "notes": "Heavy pistol, rusted, with 'M&L' carved in the grip. Two guide sources (IGN, GTAPilot); IGN's text once writes '1922'. Pin is the 'Outlaw's Cabin' landmark on GTA6Map.io.",
       "image": "images/weapons/weapon-marthas-1992.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Martha's 1992.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Martha's 1992, a Heavy Pistol with a rusted metal frame and worn wooden grip, with \"M&L\" carved into the grip, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-marthas-1992.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-lyles-h-and-l-38",
@@ -1172,10 +1172,10 @@
       ],
       "notes": "Double-action revolver with 'M&L' engraved on the barrel. Two guide sources (IGN, GTAPilot). Bonanza is not mapped as a place; the pin is the 'Bonanza Giant' landmark marker, so treat it as a rough area.",
       "image": "images/weapons/weapon-lyles-h-and-l-38.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Lyle's H&L .38.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Lyle's H&L .38, a Double Action Revolver with a rusted frame and worn wooden grip, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-lyles-h-and-l-38.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-couch-potato-mustang-357",
@@ -1197,10 +1197,10 @@
       ],
       "notes": "Magnum revolver, rusted black with white grip tape. Two guide sources (IGN, GTAPilot). Tanglewood Ln is not on GTA6Map.io or GTADB; the pin is the Port Gellhorn town marker.",
       "image": "images/weapons/weapon-couch-potato-mustang-357.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Couch Potato Mustang .357.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Couch Potato Mustang .357, a Magnum Revolver with a rusted black aesthetic, and white grip tape tied around the grip, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-couch-potato-mustang-357.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-cargo-h-and-l-38",
@@ -1223,10 +1223,10 @@
       ],
       "notes": "Double-action revolver, grey with a brown wooden grip. Two guide sources (IGN, GTAPilot). The Mercenary LMG 6 is in another yellow 'Scoop' container in the same cargo area. Pin is the Port Vice City landmark marker.",
       "image": "images/weapons/weapon-cargo-h-and-l-38.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Cargo H&L .38.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Cargo H&L .38, a Double Action Revolver with a gray frame and brown wooden grip, with burnished-blue metal accents, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-cargo-h-and-l-38.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-donnies-h-and-l-38",
@@ -1249,10 +1249,10 @@
       ],
       "notes": "MISSABLE: once the car is destroyed the weapon is gone for that playthrough (PowerPyx, KeenGamer, GTAPilot, GTAVibes video all agree). Double-action revolver with a hawk-and-flowers engraving. No map pin: it is tied to a mission, not a place on the map.",
       "image": "images/weapons/weapon-donnies-h-and-l-38.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Donnie's H&L .38.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Donnie's H&L .38, a Double Action Revolver with a black frame and light gray grip, embossed withy details of a hawk and flowers, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-donnies-h-and-l-38.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-montys-1992",
@@ -1274,10 +1274,10 @@
       ],
       "notes": "Heavy pistol, gold with filigree grip. Mission pickup, probably missable. Single walkthrough source for the location (PowerPyx; vicecity.codes repeats it and tags Watson Bay); IGN lists the weapon with no location. Pin is the Watson Bay town marker, so only a rough area; verify in-game.",
       "image": "images/weapons/weapon-montys-1992.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Monty's 1992.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Monty's 1992, a Heavy Pistol with a yellow-gold coloring, embossed frame, and a filigree texture inlaid in the grip, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-montys-1992.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-gils-kalinga-50",
@@ -1298,10 +1298,10 @@
       ],
       "notes": "Mission reward (.50 pistol with a spray-painted red and black frame). Single walkthrough source (PowerPyx; vicecity.codes repeats it); IGN lists the weapon with no location. No pin: tied to a mission at Raul's compound in Stockyard, which is not mapped.",
       "image": "images/weapons/weapon-gils-kalinga-50.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Gil's Kalinga .50.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Gil's Kalinga .50, a , on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-gils-kalinga-50.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-black-eagle-import-kalinga",
@@ -1324,10 +1324,10 @@
       ],
       "notes": "Dark grey .50 cal pistol with a bright red grip and zebra accents. Three sources: IGN, GTAPilot and the GTAVibes video roundup (which calls it a 'Desert Eagle-style pistol'). The door and safe codes are not copied here; read them off the in-game computer screen. Pin is the Black Eagle Ammu-Nation marker next door.",
       "image": "images/weapons/weapon-black-eagle-import-kalinga.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Black Eagle Import Kalinga.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Black Eagle Import Kalinga, a , on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-black-eagle-import-kalinga.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-mercenary-lmg-6",
@@ -1349,10 +1349,10 @@
       ],
       "notes": "Assault machine gun with grey, red and black camo. Two guide sources (IGN, GTAPilot). Same cargo area as the Cargo H&L .38. Pin is the Port Vice City landmark marker.",
       "image": "images/weapons/weapon-mercenary-lmg-6.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Mercenary LMG 6.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Mercenary LMG 6, an Assault Machine Gun with a gray, red, and black camo print, featuring red and black accents, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-mercenary-lmg-6.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-cockroach-xtreme-556",
@@ -1374,10 +1374,10 @@
       ],
       "notes": "Carbine rifle, dark blue and black with gold. Four sources agree (IGN, GTAPilot, vicecity.codes, GTAVibes video roundup, which says a storage room). The Deever Tech GLR40 is reported in the same garage. The Sunrise Motel is not mapped; the pin is the Tequesta Station marker (district only).",
       "image": "images/weapons/weapon-cockroach-xtreme-556.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Cockroach Xtreme 556.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Cockroach Xtreme 556, a Carbine Assault Rifle with a dark blue and black frame and gold accents, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-cockroach-xtreme-556.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-deever-tech-glr40",
@@ -1399,10 +1399,10 @@
       ],
       "notes": "Rotary grenade launcher, the only unique grenade launcher. DISAGREEMENT: IGN and the GTAVibes video roundup place it at the Sunrise Motel garage; GTAPilot notes that PowerPyx lists one for sale at $15,500 instead. If it is not in the garage, check Ammu-Nation. The Sunrise Motel is not mapped; the pin is the Tequesta Station marker (district only).",
       "image": "images/weapons/weapon-deever-tech-glr40.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Deever Tech GLR40.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Deever Tech GLR40.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-deever-tech-glr40.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-cold-war-556",
@@ -1424,10 +1424,10 @@
       ],
       "notes": "Carbine, dull black with a brown stock. Two guide sources (IGN, GTAPilot). Pin is the Big Pine place marker from GTADB.",
       "image": "images/weapons/weapon-cold-war-556.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Cold War 556.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Cold War 556, a Carbine Assault Rifle with a dull black frame and a brown accent on its stock, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-cold-war-556.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-drug-mule-kz-59",
@@ -1450,10 +1450,10 @@
       ],
       "notes": "Assault rifle, faded black with brown leather grip. Three sources: IGN, GTAPilot, KeenGamer. Pin is the Riquezas Keys place marker from GTADB.",
       "image": "images/weapons/weapon-drug-mule-kz-59.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Drug Mule KZ-59.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Drug Mule KZ-59, an Assault Rifle with a faded black frame and brown leather grip, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-drug-mule-kz-59.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-redneck-w-22",
@@ -1475,10 +1475,10 @@
       ],
       "notes": "Small game rifle, grey camo with tyre marks on the stock. Two guide sources (IGN, GTAPilot). Neither names the river; pin is the Mount Lummox / Moreau area marker from GTADB, so area only.",
       "image": "images/weapons/weapon-redneck-w-22.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Redneck W-22.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Redneck W-22, a Small Game Rifle with a gray camo wrap, featuring tiremarks across the stock, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-redneck-w-22.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-black-eagle-import-m306-tmr",
@@ -1503,10 +1503,10 @@
       ],
       "notes": "Marksman elite rifle, black. Lucia only. Three sources: IGN, GTAPilot, GTAVibes video roundup. Pin is the Black Eagle Ammu-Nation marker next door.",
       "image": "images/weapons/weapon-black-eagle-import-m306-tmr.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Black Eagle Import M306 TMR.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Black Eagle Import M306 TMR, a Marksman Elite Rifle with a sleek black frame and glossy black barrel, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-black-eagle-import-m306-tmr.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-hunters-laird-350",
@@ -1530,10 +1530,10 @@
       ],
       "notes": "Sporting sniper rifle with a warped-wood finish. SINGLE SOURCE for the location (KeenGamer). IGN lists the weapon without a location and GTAPilot says 'named, not found yet'. A random encounter, so it may not be there on your first pass. Pin is the Hamlet town marker.",
       "image": "images/weapons/weapon-hunters-laird-350.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Hunter's Laird 350.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Hunter's Laird 350, a Sporting Sniper Rifle with a beautifully warped wooden frame, featuring stripes of brown, blue, and gray, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-hunters-laird-350.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-twins-laird-350",
@@ -1555,10 +1555,10 @@
       ],
       "notes": "Sporting sniper rifle, dark wood. Two guide sources (IGN, GTAPilot). Pin is the Kalaga Reservoir place marker from GTADB.",
       "image": "images/weapons/weapon-twins-laird-350.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Twin's Laird 350.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Twin's Laird 350, a Sporting Sniper Rifle with a dark wood frame and sleek black barrel, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-twins-laird-350.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-mister-mangrove-laird-350",
@@ -1580,10 +1580,10 @@
       ],
       "notes": "Tranquilizer-rifle variant. Single walkthrough source (PowerPyx; vicecity.codes repeats it, GTAPilot/IGN list the name without a location). Mission-based, so no map pin.",
       "image": "images/weapons/weapon-mister-mangrove-laird-350.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Mister Mangrove Laird 350.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Mister Mangrove Laird 350, a Sporting Sniper Rifle with a green camo wrap around its frame and stock, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-mister-mangrove-laird-350.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-killtelligence-sm-69",
@@ -1605,10 +1605,10 @@
       ],
       "notes": "Hunting sniper rifle with grey camo. Four sources agree (PowerPyx, KeenGamer, IGN, GTAPilot). Jason only. No map pin: Bret's marker only appears after the text, and no coordinate is published for it.",
       "image": "images/weapons/weapon-killtelligence-sm-69.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Killtelligence SM-69.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Killtelligence SM-69, a Hunting Sniper Rifle with a gray camo frame and sleek black barrel, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-killtelligence-sm-69.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-fib-sm-69",
@@ -1630,10 +1630,10 @@
       ],
       "notes": "Hunting sniper rifle, matte black. Two guide sources (IGN, GTAPilot), but neither names the unlocking mission or the exact building. chapterOrder 0 means no chapter is stated. Pin is the Vice Beach town marker (area only).",
       "image": "images/weapons/weapon-fib-sm-69.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'FIB SM-69.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the FIB SM-69, a Hunting Sniper Rifle with a matte black frame, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-fib-sm-69.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-iaa-sms-01",
@@ -1655,10 +1655,10 @@
       ],
       "notes": "Advanced sniper rifle with a long black frame and army-green scope. Two guide sources (IGN, GTAPilot); neither names the mission. Pin is the 'Aichi Condominiums Outdoor Gym' marker on GTA6Map.io, the same building.",
       "image": "images/weapons/weapon-iaa-sms-01.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'IAA SMS-01.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the IAA SMS-01, an Advanced Sniper Rifle with a long black frame and barrel, and an army green scope, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-iaa-sms-01.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-internal-affairs-ff-sr",
@@ -1680,10 +1680,10 @@
       ],
       "notes": "Combat sniper rifle, dull green. Two guide sources (IGN, GTAPilot). Pin reuses the Aichi Condominiums marker on the same avenue, so it is only a district-level pin.",
       "image": "images/weapons/weapon-internal-affairs-ff-sr.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Internal Affairs FF-SR.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Internal Affairs FF-SR, a Combat Sniper Rifle with a dull green frame and black accents, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-internal-affairs-ff-sr.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-dirty-drifter",
@@ -1705,10 +1705,10 @@
       ],
       "notes": "Double-barrel shotgun, black with gold. Two guide sources (IGN, GTAPilot). Bonanza is not mapped as a place; the pin is the 'Bonanza Giant' landmark marker, so a rough area.",
       "image": "images/weapons/weapon-dirty-drifter.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Dirty Drifter.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Dirty Drifter, a Double Barrel Shotgun with a black barrel, gold accents, and a stock decorated with gray-green and brown brush strokes, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-dirty-drifter.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-hellspawn-comshot-12",
@@ -1730,10 +1730,10 @@
       ],
       "notes": "Combat shotgun with a dark red, fleshy-looking grip. Two guide sources (IGN, GTAPilot). No pin: neither guide gives a landmark that can be mapped, and none was guessed.",
       "image": "images/weapons/weapon-hellspawn-comshot-12.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Hellspawn Comshot 12.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Hellspawn Comshot 12, a Combat Shotgun with a dark red frame and an uncomfortably, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-hellspawn-comshot-12.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-unpacked-comshot-12",
@@ -1756,10 +1756,10 @@
       ],
       "notes": "Combat shotgun, dull black. Three sources: IGN, GTAPilot, KeenGamer (which names Key Lento as an early weapon). Pin is the Key Lento town marker (island only).",
       "image": "images/weapons/weapon-unpacked-comshot-12.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Unpacked Comshot 12.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Unpacked Comshot 12, a Combat Shotgun with a dull black, minimalist aesthetic, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-unpacked-comshot-12.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-smuggler-gorse-425",
@@ -1781,10 +1781,10 @@
       ],
       "notes": "Stubby shotgun, dull green with a death's-head moth. Four sources (IGN, GTAPilot, KeenGamer, GTAVibes). Small disagreement on the island (IGN: east of Mile Zero; KeenGamer/GTAVibes: northernmost of Permit Keys) and on whether it is inside the boat or beside it. Pin is the Permit Keys place marker.",
       "image": "images/weapons/weapon-smuggler-gorse-425.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Smuggler Gorse 425.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Smuggler Gorse 425, a Stubby Shotgun with a dull green frame, and a spray painted decal of a death's head moth near the stock, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-smuggler-gorse-425.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-marabunta-grande-hobo",
@@ -1806,10 +1806,10 @@
       ],
       "notes": "Double-barrel sawed-off shotgun with gold filigree reading 'La Familia Primero'. SINGLE SOURCE for the location (KeenGamer). IGN lists the weapon with no location; GTAPilot says 'named, not found yet'. Pin is the Hamlet town marker.",
       "image": "images/weapons/weapon-marabunta-grande-hobo.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Marabunta Grande Hobo.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Marabunta Grande Hobo, a Double Barrel Sawed-Off Shotgun with dark wooden accents on its barrel and stock, and gold filigree inlaid above its trigger, including the words \"La Familia Primero\", on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-marabunta-grande-hobo.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-gun-nut-sms-01",
@@ -1831,10 +1831,10 @@
       ],
       "notes": "Advanced sniper rifle with a flaming American-flag wrap. SINGLE SOURCE for the location (KeenGamer); IGN lists it with no location and GTAPilot says 'named, not found yet'. Pin is the Key Lento town marker.",
       "image": "images/weapons/weapon-gun-nut-sms-01.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Gun Nut SMS-01.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Gun Nut SMS-01, an Advanced Sniper Rifle with an American flag wrap with flames and \"America\" written across the frame, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-gun-nut-sms-01.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-brontasaurus-bat",
@@ -1856,10 +1856,10 @@
       ],
       "notes": "Unique baseball bat with a metallic green sheen and orange accents. Two guide sources (IGN, GTAPilot). Pin is the Dino Golf marker on GTA6Map.io.",
       "image": "images/weapons/weapon-brontasaurus-bat.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Brontasaurus Bat 1.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Brontasaurus Bat, a Unique Variant melee weapon with a metallic green sheen and orange accents, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-brontasaurus-bat.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-shark-knife",
@@ -1881,10 +1881,10 @@
       ],
       "notes": "Unique knife. Two guide sources (IGN lists it under 'Hyde Island', GTAPilot says north of the Saint Attaway Islands). Pin is the Hyde Island place marker from GTADB.",
       "image": "images/weapons/weapon-shark-knife.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Shark Knife.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Shark Knife, a special Unique Variant knife you can discover while exploring, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-shark-knife.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-explorers-knife",
@@ -1907,10 +1907,10 @@
       ],
       "notes": "Unique knife with a jagged black handle and serrated blade. Two guide sources (IGN, GTAPilot). Pin is the Selkie Hole entrance (GTA6Map.io), not the knife itself.",
       "image": "images/weapons/weapon-explorers-knife.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Explorer's Knife.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Explorer's Knife, a Unique Variant melee weapon with a jagged black handle and serrated blade, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-explorers-knife.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-tallaloko-knife",
@@ -1932,10 +1932,10 @@
       ],
       "notes": "Unique knife with a gold filigree handle and runes on the blade; tied to the 'Tallaloko Hotel Puzzle' (IGN). Two guide sources (IGN, GTAPilot). Pin is the Lake Tallaloko place marker from GTADB.",
       "image": "images/weapons/weapon-tallaloko-knife.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Tallaloko Knife.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Tallaloko Knife, a Unique Variant melee weapon with a filigreed golden handle and silver blade with gold runes etched into its surface, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-tallaloko-knife.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-soldiers-combat-knife",
@@ -1957,10 +1957,10 @@
       ],
       "notes": "Unique knife with a rusted blade and worn leather handle. Two guide sources (IGN, GTAPilot). Pin is the midpoint of the Bobcat Bight and Bobcat Key place markers.",
       "image": "images/weapons/weapon-soldiers-combat-knife.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Soldier's Combat Knife.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Soldier's Combat Knife, a Unique Variant melee weapon with a rusted blade and worn leather handle, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-soldiers-combat-knife.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-bae-luxes-bat",
@@ -2003,10 +2003,10 @@
       ],
       "notes": "Micro SMG with an ombre purple-and-pink wrap and zebra stripes (IGN). PowerPyx writes the reward as 'Bae-Luxe's W-10', IGN and vicecity.codes as 'Bae-Lux's W-10': same weapon, spelling differs. Two sources for the location (PowerPyx, vicecity.codes repeating it). No map pin: mission reward.",
       "image": "images/weapons/weapon-bae-luxs-w-10.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Bae-Lux's W-10.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Bae-Lux's W-10, a Micro SMG, with an ombre purple-and-pink wrap job, accented with zebra stripes, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-bae-luxs-w-10.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-roxys-w-10",
@@ -2026,10 +2026,10 @@
       ],
       "notes": "Micro SMG with a magenta wrap and cheetah print (IGN). Location from PowerPyx (repeated by vicecity.codes); IGN lists the weapon without a location. No map pin: mission reward.",
       "image": "images/weapons/weapon-roxys-w-10.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Roxy's W-10.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Roxy's W-10, a cute Micro SMG with a magenta wrap job, featuring cheetah print accents, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-roxys-w-10.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-petes-kz-59",
@@ -2051,10 +2051,10 @@
       ],
       "notes": "Assault rifle with a black frame and leather furniture. Mission 'The Last Mile: Passing the Torch (Recover Pete's Plane)'. Single walkthrough source (PowerPyx; vicecity.codes repeats it); IGN lists the weapon without a location. Pin is the Sundown Private Airfield marker (GTA6Map.io).",
       "image": "images/weapons/weapon-petes-kz-59.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: IGN Wiki, GTA 6 Unique Weapon Variants (ign.com), weapon render 'Pete's KZ-59.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Render of the Pete's KZ-59, an Assault Rifle with black frame, dark leather stock, and chestnut leather magazine, on a dark background.",
-      "imageSource": "https://www.ign.com/wikis/gta-6/Unique_Weapon_Variants",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-petes-kz-59.jpg",
+      "imageVerified": true
     },
     {
       "id": "weapon-duval-signature-es9",
@@ -2075,9 +2075,9 @@
       ],
       "notes": "Ultimate Edition only. PowerPyx says Ultimate Edition content unlocks gradually as you advance the story, so it is not all there at the start. Military pistol with a sleek, plain look (IGN). The Rockstar image shows both UE pistols together (title 'Weapon Variants'); which is which is inferred from IGN's descriptions. Sources disagree on timing: PowerPyx gives no chapter; the GTAVibes video roundup says Jason's Duval ES9 comes in Chapter 1 (so chapterOrder 1 is from that single source). No map pin.",
       "image": "images/weapons/weapon-duval-signature-es9.jpg",
-      "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI Ultimate Edition screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
-      "imageAlt": "Rockstar Ultimate Edition weapon variants screenshot: two pistols on a poolside ledge, a grey-and-black military pistol on top (the Duval Signature ES9) and a dark red pistol with a pink rose on the grip below.",
-      "imageSource": "https://www.rockstargames.com/VI/media/screenshots",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Two pistols on a poolside ledge, a grey-and-black military pistol on top (the Duval Signature ES9) and a dark red pistol with a pink rose on the grip below.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-duval-signature-es9.jpg",
       "imageVerified": true
     },
     {
@@ -2099,9 +2099,9 @@
       ],
       "notes": "Ultimate Edition only. PowerPyx says Ultimate Edition content unlocks gradually as you advance the story, so it is not all there at the start. Service pistol with a dark red grip and opalescent rose (IGN). The Rockstar image shows both UE pistols together; which is which is inferred from IGN's description. PowerPyx gives no chapter; the GTAVibes video roundup says Lucia's K17 arrives in Chapter 2 (single source for chapterOrder 2). No map pin.",
       "image": "images/weapons/weapon-caminos-signature-k17.jpg",
-      "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI Ultimate Edition screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
-      "imageAlt": "Rockstar Ultimate Edition weapon variants screenshot: two pistols on a poolside ledge, a grey-and-black military pistol on top and a dark red pistol with a pink rose on the grip below (the Caminos Signature K17).",
-      "imageSource": "https://www.rockstargames.com/VI/media/screenshots",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Two pistols on a poolside ledge, a grey-and-black military pistol on top and a dark red pistol with a pink rose on the grip below (the Caminos Signature K17).",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-caminos-signature-k17.jpg",
       "imageVerified": true
     },
     {
@@ -2123,9 +2123,9 @@
       ],
       "notes": "Ultimate Edition only. PowerPyx says Ultimate Edition content unlocks gradually as you advance the story, so it is not all there at the start. Scoped revolver, sold (not given). GTAVibes (a single video) says the Hawk & Little Morgan revolvers arrive in Chapter 2; PowerPyx gives no chapter. The Rockstar image is titled 'Hawk and Little Morgan Revolvers' and shows the pair, not Jason's alone. No map pin.",
       "image": "images/weapons/weapon-jasons-hawk-and-little-morgan-revolver.jpg",
-      "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI Ultimate Edition screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
-      "imageAlt": "A scoped Hawk & Little Morgan revolver aimed forward by a man in sunglasses, from Rockstar's Ultimate Edition screenshot.",
-      "imageSource": "https://www.rockstargames.com/VI/media/screenshots",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "A scoped Hawk & Little Morgan revolver aimed forward by a man in sunglasses.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-jasons-hawk-and-little-morgan-revolver.jpg",
       "imageVerified": true
     },
     {
@@ -2147,9 +2147,9 @@
       ],
       "notes": "Ultimate Edition only. PowerPyx says Ultimate Edition content unlocks gradually as you advance the story, so it is not all there at the start. Sold (not given). GTAVibes (a single video) says Chapter 2; PowerPyx gives no chapter. The Rockstar image is titled 'Hawk and Little Morgan Revolvers' and shows the pair, not Lucia's alone. No map pin.",
       "image": "images/weapons/weapon-lucias-hawk-and-little-morgan-revolver.jpg",
-      "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI Ultimate Edition screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
-      "imageAlt": "Two Hawk & Little Morgan revolvers, one scoped with a palm-tree grip and one with gold palm-tree grips, beside a switchblade and an ammo box, from Rockstar's Ultimate Edition screenshots.",
-      "imageSource": "https://www.rockstargames.com/VI/media/screenshots",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Two Hawk & Little Morgan revolvers, one scoped with a palm-tree grip and one with gold palm-tree grips, beside a switchblade and an ammo box.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/weapons/weapon-lucias-hawk-and-little-morgan-revolver.jpg",
       "imageVerified": true
     },
     {

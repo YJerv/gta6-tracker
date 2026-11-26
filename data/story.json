@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "lastUpdated": "2026-11-20",
+  "lastUpdated": "2026-11-26",
   "section": "story",
   "description": "Story missions grouped by chapter. Chapter 1 missions 1 to 10 are filled from named guides. Every other row is a placeholder until a verified guide covers it. Sources list five chapters, so the old sixth scaffold chapter has been removed.",
   "notice": {
@@ -42,10 +42,7 @@
           "bonusObjectives": [],
           "missables": [
             "Nothing missable. The chase can't be escaped and the arrest at the end always happens, so neither is a failure."
-          ],
-          "image": "images/chapter-1-mission-1.jpg",
-          "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
-          "imageAlt": "Lucia in an orange prison jumpsuit and handcuffs, escorted past other inmates."
+          ]
         },
         {
           "verified": true,
@@ -71,10 +68,7 @@
           "missables": [
             "The trailer cash is missable. PowerPyx says taking it also earns 'professional' reputation.",
             "There's a hammer behind Donnie's shack if you want a melee weapon (VGC)."
-          ],
-          "image": "images/chapter-1-mission-2.jpg",
-          "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
-          "imageAlt": "Jason fishing from the back of a boat while Cal stands behind him in a Hawaiian shirt."
+          ]
         },
         {
           "verified": true,
@@ -94,10 +88,7 @@
           "bonusObjectives": [],
           "missables": [
             "No lasting choices. PowerPyx says dying in the ambush just respawns you at home and still ends the mission."
-          ],
-          "image": "images/chapter-1-mission-3.jpg",
-          "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
-          "imageAlt": "Jason handling a pistol, with loose bullets in the foreground."
+          ]
         },
         {
           "verified": true,
@@ -120,10 +111,7 @@
           "missables": [
             "The free repair only applies during this mission. After it, repairs cost money (VGC, GTA 6 Notebook).",
             "The Ganado is replaced later, and any upgrades you buy go with it. You can't register a new personal vehicle until Chapter 2 (PowerPyx)."
-          ],
-          "image": "images/chapter-1-mission-4.jpg",
-          "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
-          "imageAlt": "Jason driving his Vapid Ganado, equipped with a yellow paint job and red racing stripe."
+          ]
         },
         {
           "verified": true,
@@ -147,10 +135,7 @@
           "missables": [
             "Scan the Wonder Whale statue next to the shop with the WAINK app. It's one of the WAINK scan collectibles (VGC).",
             "Killing the clerk still lets you finish, but it alerts the police (VGC)."
-          ],
-          "image": "images/chapter-1-mission-5.jpg",
-          "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
-          "imageAlt": "A busy street in the Leonida Keys with shops, a bus, cyclists and an iguana on the road."
+          ]
         },
         {
           "verified": true,
@@ -173,10 +158,7 @@
           "missables": [
             "Knocked-out impound guards stop answering their radio, and the police send a patrol to check (PowerPyx).",
             "Tip for later: after a chase, the police remember your outfit and car. Respray, swap cars or change clothes to lose recognition."
-          ],
-          "image": "images/chapter-1-mission-6.jpg",
-          "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
-          "imageAlt": "Jason behind a chain-link fence at night, with police lights and an armed officer behind him."
+          ]
         },
         {
           "verified": true,
@@ -221,10 +203,7 @@
           "missables": [
             "The Arnold choice doesn't change the story. GTA 6 Notebook says sparing him gives a Restrained rating and killing him gives a Hardened rating on your Criminal Profile.",
             "Two optional, missable jobs can appear around now: Get Shirley's Rum and Steal the Scooter. They don't count toward trophies or 100% completion."
-          ],
-          "image": "images/chapter-1-mission-8.jpg",
-          "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
-          "imageAlt": "Brian, in sunglasses, leaning out of a pickup truck window."
+          ]
         },
         {
           "verified": true,
@@ -247,10 +226,7 @@
             "If you don't stop the shark, Dobbs dies. PowerPyx says either outcome is fine and only changes the closing dialogue.",
             "You can come back to this and other shipwrecks later for treasure you didn't collect (VGC).",
             "Hold LB near fish while diving to study them for the 100% checklist (PowerPyx)."
-          ],
-          "image": "images/chapter-1-mission-9.jpg",
-          "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
-          "imageAlt": "Scuba divers swimming over a coral reef with a sea turtle in the Leonida Keys."
+          ]
         },
         {
           "verified": true,
@@ -269,10 +245,7 @@
           "bonusObjectives": [],
           "missables": [
             "After this mission, you can play the JoyStation at the safehouse whenever you like (VGC)."
-          ],
-          "image": "images/chapter-1-mission-10.jpg",
-          "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
-          "imageAlt": "The exterior of Jason's safehouse, with the Vapid Ganado, Dinka Enduro, and Crest Kayak all stationed outside."
+          ]
         },
         {
           "verified": false,

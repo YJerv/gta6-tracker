@@ -1,6 +1,6 @@
-# GTA VI Tracker
+# Leonida Map & Guide
 
-A mobile-first progress tracker for a single-player GTA VI playthrough on Xbox Series X|S. It is a static site: HTML, CSS, and vanilla JavaScript, with no build step and no backend. Progress stays in the browser. After one online visit, a service worker opens the same files offline.
+An unofficial fan companion for cars, weapons, jobs and skills in a single-player playthrough on Xbox Series X|S. It is not affiliated with or endorsed by Rockstar Games or Take-Two Interactive. It is a static site: HTML, CSS, and vanilla JavaScript, with no build step and no backend. Progress stays in the browser. After one online visit, a service worker opens the same files offline.
 
 Launch is recorded here as **19 November 2026**, single-player only. No online mode was announced as of 20 November 2026. Chapter 1 missions 1 to 10 are sourced from named guides in `data/story.json`. Every other mission, place, and price is still a placeholder until a verified guide is added.
 
@@ -61,6 +61,11 @@ For a commit that is already on GitHub:
 `https://raw.githack.com/YJerv/gta6-tracker/<commit>/index.html`
 
 Replace `<commit>` with the full commit SHA. Use that host for a short-lived preview. It is not a substitute for Pages if you want a stable install URL.
+
+## Play Store
+
+The paid Google Play edition (£2.99, no ads, no in-app purchases) is packaged as a Trusted Web Activity that opens this site at `https://yjerv.github.io/gta6-tracker/`. See `android/README.md` and `play-store/listing.md`. The public privacy policy is `privacy.html` (also at `https://yjerv.github.io/gta6-tracker/privacy.html` once Pages is enabled).
+
 
 ## Offline
 
@@ -216,7 +221,7 @@ Easter eggs, separate from the map checklist. `entries`: `id`, `title`, `verifie
 
 ### `data/skills.json`
 
-`map` plus `items`. Each item has `category`, `summary`, `instructions`, `drills` (exactly one of `reps` or `duration`), `goal`, optional `recommendedSettings`, `notes`, an official picture under `images/skills/`, and `locations` (empty when there is no drill-spot pin). `generic: true` is general advice, such as deadzones or online prep. `chapterOrder` `0` means no chapter gate. Goal ticks are stored apart from the other lists, under `gta6-tracker-skills-goals-v1`.
+`map` plus `items`. Each item has `category`, `summary`, `instructions`, `drills` (exactly one of `reps` or `duration`), `goal`, optional `recommendedSettings`, `notes`, an original companion picture under `images/skills/`, and `locations` (empty when there is no drill-spot pin). `generic: true` is general advice, such as deadzones or online prep. `chapterOrder` `0` means no chapter gate. Goal ticks are stored apart from the other lists, under `gta6-tracker-skills-goals-v1`.
 
 ### `data/gear.json`
 
@@ -245,7 +250,7 @@ Each car: `id`, `verified`, `source`, `generic` (must be `false`), `chapterOrder
 
 `precision` is how close the pin is. `exact` means the right block, roughly 1-2% of the map width. `street` means street level. `area` means the general area only. The poster still has no street names.
 
-The shipped file uses Rockstar's Leonida map poster (`images/cars/leonida-map.jpg`, 1402×1920). The credit under the map is the file's `imageCredit` and `source` text, including GTADB, GTA6Map.io, and GTA6 GPS.
+The shipped file uses an original illustrated companion map (`images/cars/leonida-map.jpg`, 1402×1920). The credit under the map is the file's `imageCredit` and `source` text, including pin-position sources (GTADB, GTA6Map.io, and GTA6 GPS).
 
 `data/weapons.json` is the same shape. The Weapons tab is on with Cars. `chapterOrder` `0` means no chapter gate. A null `mapX` or `mapY` means the row has no pin. Pictures live under `images/weapons/`. `verified: false` marks a probable spot (one source, or the guides conflict), and the card says so. Found weapons are stored separately from car ticks.
 
@@ -335,7 +340,7 @@ Export produces:
 
 ## Screenshots
 
-Phone-sized captures (390×844) of each section are in `docs/screenshots/`.
+Play Store listing copy, a privacy policy, a feature graphic, and phone screenshots live in `play-store/`. The Google Play TWA wrapper notes are in `android/`.
 
 ## Layout
 

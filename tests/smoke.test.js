@@ -242,46 +242,28 @@ test("the story notice stays above the chapters when spoilers are hidden", () =>
   assert.ok(validateAll(broken).some((error) => error.includes("story.notice.source")));
 });
 
-test("mission illustrations are credited and stay inside the open mission", () => {
+test("story missions have no promotional images and the about copy is unofficial", () => {
   const missions = data.story.chapters[0].missions;
-  const withImage = missions.filter((mission) => mission.image);
-  assert.deepEqual(withImage.map((mission) => mission.id), [
-    "chapter-1-mission-1",
-    "chapter-1-mission-2",
-    "chapter-1-mission-3",
-    "chapter-1-mission-4",
-    "chapter-1-mission-5",
-    "chapter-1-mission-6",
-    "chapter-1-mission-8",
-    "chapter-1-mission-9",
-    "chapter-1-mission-10",
-  ]);
-  assert.equal("image" in missions.find((mission) => mission.id === "chapter-1-mission-7"), false);
-  assert.equal(illustrationCredits(data.story).length, 1);
-  assert.match(illustrationCredits(data.story)[0], /Rockstar Games/);
+  assert.equal(missions.filter((mission) => mission.image).length, 0);
+  assert.equal(illustrationCredits(data.story).length, 0);
+  for (const mission of missions) {
+    assert.equal("image" in mission, false);
+    assert.equal("imageCredit" in mission, false);
+    assert.equal("imageAlt" in mission, false);
+  }
 
   const open = renderMain(model(emptyProgress(NOW), { section: "story" }));
-  assert.match(open, /src="images\/chapter-1-mission-1\.jpg"/);
-  assert.match(open, /loading="lazy"/);
-  assert.match(open, /Lucia in an orange prison jumpsuit and handcuffs, escorted past other inmates\./);
-  assert.match(open, /Illustration/);
-  assert.match(open, /Official promo image, not a screenshot of this mission/);
-  assert.doesNotMatch(open, /src="images\/chapter-1-mission-2\.jpg"/);
-
-  const shut = renderMain(model(setStoryOpen(emptyProgress(NOW), "chapters", "chapter-1", false, NOW), { section: "story" }));
-  assert.equal(shut.includes("<img"), false);
-
-  const missing = structuredClone(data);
-  missing.story.chapters[0].missions[0].image = "images/missing.jpg";
-  assert.ok(validateAll(missing).some((error) => error.includes("file not found")));
-
-  const bare = structuredClone(data);
-  delete bare.story.chapters[0].missions[0].imageAlt;
-  assert.ok(validateAll(bare).some((error) => error.includes("imageAlt") || error.includes("set together")));
+  assert.doesNotMatch(open, /src="images\/chapter-1-mission-/);
+  assert.doesNotMatch(open, /Official promo image/);
+  assert.equal(open.includes("<img"), false);
 
   const page = readFileSync(path.join(root, "index.html"), "utf8");
-  assert.match(page, /free, non-commercial, and has no ads/);
-  assert.match(page, /fan content policy covers non-commercial use only/);
+  assert.match(page, /unofficial fan companion/i);
+  assert.match(page, /not affiliated with or endorsed by Rockstar Games or Take-Two Interactive/i);
+  assert.match(page, /Original companion artwork/);
+  assert.match(page, /privacy\.html/);
+  assert.doesNotMatch(page, /fan content policy covers non-commercial use only/);
+  assert.doesNotMatch(page, />VI</);
 });
 
 test("sourced cars use the Leonida map and hide later chapters", () => {
@@ -289,11 +271,11 @@ test("sourced cars use the Leonida map and hide later chapters", () => {
   assert.equal(data.cars.map.image, "images/cars/leonida-map.jpg");
   assert.equal(data.cars.map.width, 1402);
   assert.equal(data.cars.map.height, 1920);
-  assert.match(data.cars.map.imageCredit, /Rockstar Games/);
+  assert.match(data.cars.map.imageCredit, /Original companion artwork & illustrated map/);
   const withPicture = data.cars.cars.filter((car) => car.image);
   assert.equal(withPicture.length, 29);
-  assert.equal(withPicture.filter((car) => car.imageVerified === true).length, 8);
-  assert.equal(withPicture.filter((car) => car.imageVerified === false).length, 21);
+  assert.equal(withPicture.filter((car) => car.imageVerified === true).length, 29);
+  assert.equal(withPicture.filter((car) => car.imageVerified === false).length, 0);
   assert.ok(withPicture.every((car) => typeof car.imageSource === "string" && car.imageSource.startsWith("https://")));
   const hustler = data.cars.cars.find((car) => car.id === "car-driveshaft-hustler");
   assert.equal(hustler.image, null);
@@ -330,7 +312,7 @@ test("sourced cars use the Leonida map and hide later chapters", () => {
   assert.match(page, /Cars in chapter 3/);
   assert.match(page, /data-filter="chapter"/);
   assert.match(page, /value="1"/);
-  assert.match(page, /Map: Rockstar Games/);
+  assert.match(page, /Original companion artwork &amp; illustrated map/);
   assert.ok(page.indexOf('class="car-list"') < page.indexOf('class="map-credits"'));
 
   const open = renderMain({
@@ -353,8 +335,9 @@ test("sourced cars use the Leonida map and hide later chapters", () => {
     carsUi: { area: "all", found: "all", chapter: "all", selected: "car-penumbra-ff-eclipse" },
   });
   assert.match(unverified, /src="images\/cars\/car-penumbra-ff-eclipse\.jpg"/);
-  assert.match(unverified, /image-unverified/);
-  assert.match(unverified, /Unverified image/);
+  assert.doesNotMatch(unverified, /image-unverified/);
+  assert.doesNotMatch(unverified, /Unverified image/);
+  assert.match(unverified, /Original companion artwork &amp; illustrated map/);
   const plain = renderMain({
     ...model(progress, { section: "cars" }),
     carsUi: { area: "all", found: "all", chapter: "all", selected: "car-driveshaft-hustler" },
@@ -475,7 +458,8 @@ test("steal jobs keep many spots, payouts, and a light map", () => {
   assert.match(selected, /1 of 99 spots done/);
   assert.match(selected, /These figures come from guides/);
   assert.match(selected, /\$7,200|Varies/);
-  assert.match(selected, /Unverified image/);
+  assert.doesNotMatch(selected, /Unverified image/);
+  assert.match(selected, /Original companion artwork &amp; illustrated map/);
   assert.match(selected, /data-spot="/);
 
   const spot = renderMain({
@@ -546,7 +530,8 @@ test("weapons reuse the map list, skip empty pins, and filter by type", () => {
     listUi: { area: "all", found: "all", chapter: "all", precision: "all", category: "all", selected: "weapon-kingfishers-w-22" },
   });
   assert.match(card, /src="images\/weapons\/weapon-kingfishers-w-22\.jpg"/);
-  assert.match(card, /Unverified image/);
+  assert.doesNotMatch(card, /Unverified image/);
+  assert.match(card, /Original companion artwork &amp; illustrated map/);
   assert.match(card, /data-clear/);
   assert.deepEqual(
     [...card.matchAll(/data-pin="([^"]+)"/g)].map((match) => match[1]),

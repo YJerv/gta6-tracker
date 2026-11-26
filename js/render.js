@@ -364,7 +364,7 @@ function missionFigure(detail) {
     <img src="${e(detail.image)}" alt="${e(detail.imageAlt)}" width="1600" height="900" loading="lazy" decoding="async">
     <figcaption>
       <span class="badge badge-generic">Illustration</span>
-      <span class="illustration-note">Official promo image, not a screenshot of this mission.</span>
+      <span class="illustration-note">Original companion artwork.</span>
       <span class="image-credit">${e(detail.imageCredit)}</span>
     </figcaption>
   </figure>`;

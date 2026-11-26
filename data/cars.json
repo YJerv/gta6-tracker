@@ -1,13 +1,13 @@
 {
   "version": 3,
-  "lastUpdated": "2026-11-20",
+  "lastUpdated": "2026-11-26",
   "section": "cars",
   "description": "Secret, rare and hidden cars from launch-week guides, with a pin on Rockstar's official Leonida map. Each car has a precision: exact (an interactive-map marker or mapped place), street (a street or landmark named by guides) or area (district only). Pins are converted from community-map game coordinates and are good to about 1 to 2 percent of the map (15 to 30 map pixels). Every row names its sources.",
   "map": {
     "image": "images/cars/leonida-map.jpg",
-    "imageCredit": "Map: Rockstar Games. Official Leonida map poster from rockstargames.com/VI/media (Leonida Map & Cover Art Poster). © Rockstar Games / Take-Two Interactive.",
-    "imageAlt": "Rockstar's official map poster of the State of Leonida, showing its five counties, the Keys in the south, Vice City on the east coast and a lettered grid.",
-    "source": "Rockstar Games, \"Leonida Map & Cover Art Poster\", standard (screen) version, 2,805 x 3,840 px, downloaded from https://www.rockstargames.com/VI/media/artwork-wallpapers on 20 November 2026 and resized to 1,402 x 1,920 px for phones. Pin positions use game coordinates from GTADB landmarks data (CC BY 4.0, https://map.gtadb.org), GTA6Map.io and GTA6 GPS, converted to this poster by a fit on 11 named places and a small east-side correction.",
+    "imageCredit": "Original companion artwork & illustrated map",
+    "imageAlt": "Illustrated unofficial companion map of Leonida, showing Vice City on the east coast, the Keys to the south, inland counties, and the road network.",
+    "source": "Pin positions use game coordinates from GTADB landmarks data (CC BY 4.0, https://map.gtadb.org), GTA6Map.io and GTA6 GPS, fitted to this illustrated companion map.",
     "width": 1402,
     "height": 1920
   },
@@ -33,10 +33,10 @@
       ],
       "notes": "Pin: an unnamed delivery-point marker on the GTA6 GPS/Gamersky map (X -2684, Y -6053) sits at the south-west end of Key Lento, which fits Brian's Lockup on Sunset Dr (LeonidaInsights names Sunset Dr, Isla Tropical and Maroon Keys there). The marker has no label, so this is street level, not exact. GTABase's map also lists the car 'outside Brian's Isla Tropical'. Set to Chapter 3 because that is when you can drive it.",
       "image": "images/cars/car-twinstripe-vigero.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'VigeroZXConvertible-GTAVI-AnExtendedLook.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "The rear of a white Declasse Vigero ZX Convertible with its roof down, driving down a Vice City street.",
-      "imageSource": "https://gta.wiki/w/File:VigeroZXConvertible-GTAVI-AnExtendedLook.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-twinstripe-vigero.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-driveshaft-hustler",
@@ -83,9 +83,9 @@
       ],
       "notes": "Exact: GTA6Map.io puts the Teniente Manana at X -2484.6, Y -3415.8 and the 'M7: Nova Auto Junkyard' operation at X -2476, Y -3409, so they match. The junkyard is by Kurt's Barber Shop (GTADB: Route 61, Hamlet). GTABase lists it under Hamlet. Chapter 1 because GTAVIMaps counts it among the early rare cars; the key requirement is not stated anywhere.",
       "image": "images/cars/car-teniente-manana.jpg",
-      "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
-      "imageAlt": "A gold and lime lowrider Albany Manana with gold wire wheels, lit by an orange glow, from Rockstar's Rideout Customs screenshots.",
-      "imageSource": "https://www.rockstargames.com/VI/media/screenshots",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "A gold and lime lowrider Albany Manana with gold wire wheels, lit by an orange glow.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-teniente-manana.jpg",
       "imageVerified": true
     },
     {
@@ -110,10 +110,10 @@
       ],
       "notes": "Street level: every guide names the island and the villa's landmarks but none gives a house number, and GTAVibes says its own pin 'marks the island, not the exact house'. GTABase's map has a marker under Vice City that I could not read. The pin is the centre of Vespucci Island on Rockstar's poster, so it is approximate. Source disagreement: side door (KeenGamer, VICE, games.gg, GTA6Locations) vs main door (Tech4Gamers); alarm panel left (KeenGamer) vs far wall (games.gg).",
       "image": "images/cars/car-penumbra-ff-eclipse.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'PenumbraFF-GTAVI-AnExtendedLook.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A dark Maibatsu Penumbra FF coupe parked in the shade under trees.",
-      "imageSource": "https://gta.wiki/w/File:PenumbraFF-GTAVI-AnExtendedLook.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-penumbra-ff-eclipse.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-hauners-rhino-tank",
@@ -137,10 +137,10 @@
       ],
       "notes": "Street level: the base is a single landmark (GTADB puts Mile Zero Air Station at X -6956, Y -6403) and the guides only say 'south part, near the big hangars'. The pin sits in the south of the base on Rockstar's poster by eye. Wanted level: 3 stars (Military Times, MetaForge). The entry routes agree across Military Times, Tech4Gamers, GamesFuze, PlayStationInfo, Output Lag and MetaForge. Open from Chapter 1.",
       "image": "images/cars/car-hauners-rhino-tank.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: ConsolePulse, GTA 6 Tank Location guide (consolepulse.com). Game screenshot © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "Jason climbing onto a desert-tan Hauners Rhino main battle tank at Mile Zero Air Station, with more tanks lined up behind.",
-      "imageSource": "https://consolepulse.com/playstation/gta/guides/gta-6-tank-location",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-hauners-rhino-tank.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-hauners-p996-lazer",
@@ -164,10 +164,10 @@
       ],
       "notes": "Street level: landmark plus a half of the base. The pin is the north half of the base on Rockstar's poster by eye (GTADB puts the base at X -6956, Y -6403). Star count disagrees: five (Military Times, Tech4Gamers, Vice City Hustle, Output Lag) vs four (GTA 6 Notebook, MetaForge 'four to five'), and 'on entering' vs 'on take-off'. No garage storage is documented. Open from Chapter 1.",
       "image": "images/cars/car-hauners-p996-lazer.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'P996LAZER-GTAVI-front.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A grey Hauners P-996 Lazer fighter jet flying over green hills.",
-      "imageSource": "https://gta.wiki/w/File:P996LAZER-GTAVI-front.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-hauners-p996-lazer.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-pegassi-infernus",
@@ -190,10 +190,10 @@
       ],
       "notes": "Needs the Clone Key (Chapter 3). Exact: GTA6Map.io and GTA6 GPS mark the Infernus request at X -856, Y 780 (Crosstown). Naming disagrees: Push Square and GTA6Bugs say 'Crosstown Police Station, NW 9th St'; GTA6Notebook says NE 9th St; Sportskeeda calls it the 'Vice-Dale Police Department car parking garage'. All say level 7. Hardest car on the list per GTA6Supercars. Trackers (GTA6Supercars/Push Square): a yellow tracker only alerts police if you stop for more than a few seconds; a red one needs you to keep your speed up.",
       "image": "images/cars/car-pegassi-infernus.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'InfernusClassic-GTAVI-AnExtendedLook.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "The rear of a dark pink Infernus supercar driving along a Vice City street at dusk.",
-      "imageSource": "https://gta.wiki/w/File:InfernusClassic-GTAVI-AnExtendedLook.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-pegassi-infernus.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-pegassi-vitello",
@@ -216,10 +216,10 @@
       ],
       "notes": "Needs the Clone Key (Chapter 3). Exact: GTA6Map.io and GTA6 GPS mark the Vitello request at X 657, Y 3772 (X 644, Y 3768 on GTA6 GPS), on the coast east of Waning Sands. Disagreement on the district: GTA6Notebook and Sportskeeda say 'southern Vinewood Beach'; Push Square, Radio Times and ConsolePCGaming say Waning Sands east of Belville. The marker fits Waning Sands. No tracker is mentioned.",
       "image": "images/cars/car-pegassi-vitello.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'UnnamedPegassiSportsCar-GTAVI-Trailer2-1.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A bright green Pegassi Vitello supercar with gold wheels parked at the roadside.",
-      "imageSource": "https://gta.wiki/w/File:UnnamedPegassiSportsCar-GTAVI-Trailer2-1.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-pegassi-vitello.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-bravado-gauntlet-hellfire",
@@ -242,9 +242,9 @@
       ],
       "notes": "Needs the Clone Key (Chapter 3). Exact: GTA6Map.io puts the Hellfire at X -2499, Y -3424, on top of the 'M7: Nova Auto Junkyard' marker (X -2476, Y -3409). Naming disagreement: Sportskeeda calls the yard 'All Grade Scrapyard' on the south-east side of Hamlet; Push Square, Radio Times and ConsolePCGaming call it the M7 junkyard by Galerina St. The map supports the M7 yard. No tracker is mentioned.",
       "image": "images/cars/car-bravado-gauntlet-hellfire.jpg",
-      "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots (cropped). © Rockstar Games / Take-Two Interactive.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A pink and purple custom Bravado Gauntlet Hellfire muscle car on a cobbled Vice City plaza, with Lucia sitting on its hood.",
-      "imageSource": "https://www.rockstargames.com/VI/media/screenshots",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-bravado-gauntlet-hellfire.jpg",
       "imageVerified": true
     },
     {
@@ -268,10 +268,10 @@
       ],
       "notes": "Exact: GTA6Map.io and GTA6 GPS mark the Tempesta request at X -1969, Y 7041 (GTA6 GPS: X -1965, Y 7045) in the far north, matching the cabin by Lake Tallaloko from Radio Times and Sportskeeda. Push Square's tow-truck event on NE 3rd St (Vice City) is shown as an alternative and is not pinned. Needs the Clone Key (Chapter 3).",
       "image": "images/cars/car-pegassi-tempesta.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'Tempesta-GTAVI-Trailer2.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "The red rear light bar and Leonida plate of a Pegassi Tempesta supercar.",
-      "imageSource": "https://gta.wiki/w/File:Tempesta-GTAVI-Trailer2.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-pegassi-tempesta.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-bravado-banshee",
@@ -293,10 +293,10 @@
       ],
       "notes": "Needs the Clone Key (Chapter 3). Exact: GTA6Map.io and GTA6 GPS mark the Banshee request at X -1633, Y -1801 in Southside (X -1642, Y -1799 on GTA6 GPS), matching the dealership from Radio Times and Sportskeeda. The Sweetbay Inn in Capri (Push Square) is an alternative and is not pinned. The 3 AM time is one player's sighting, not a confirmed schedule.",
       "image": "images/cars/car-bravado-banshee.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'Banshee-GTAVI-Trailer2.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A blue and white Bravado Banshee sports car parked in the street.",
-      "imageSource": "https://gta.wiki/w/File:Banshee-GTAVI-Trailer2.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-bravado-banshee.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-ascot-paragon",
@@ -318,10 +318,10 @@
       ],
       "notes": "Needs the Clone Key (Chapter 3). Exact: GTA6Map.io and GTA6 GPS mark the Paragon request at X -1624, Y 3502 (GTA6 GPS: X -1630, Y 3503) in northern Belville, matching Radio Times and Sportskeeda. The Banana Hole spot (Push Square, ConsolePCGaming first lead) is an alternative and is not pinned (no map data names Shore Dr's bars). Tracker per Push Square.",
       "image": "images/cars/car-ascot-paragon.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'ParagonR-GTAVI-WebsiteAnimation.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A dark Ascot Paragon sports coupe parked in front of neon-lit Vice City bars.",
-      "imageSource": "https://gta.wiki/w/File:ParagonR-GTAVI-WebsiteAnimation.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-ascot-paragon.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-piccia-furia",
@@ -343,10 +343,10 @@
       ],
       "notes": "Needs the Clone Key (Chapter 3). Exact: GTA6Map.io and GTA6 GPS mark the Furia request at X -1094, Y -2780 (GTA6 GPS: X -1100, Y -2778), matching the 'southernmost corner of Peacock Estates' (Sportskeeda). No tracker or alarm is mentioned.",
       "image": "images/cars/car-piccia-furia.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'Furia-GTAVI-FrontQuarter.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A red Piccia Furia supercar seen from the front, parked on a Vice City street.",
-      "imageSource": "https://gta.wiki/w/File:Furia-GTAVI-FrontQuarter.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-piccia-furia.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-pegassi-toros",
@@ -368,10 +368,10 @@
       ],
       "notes": "Needs the Clone Key (Chapter 3). Street level: no map marks this car. The pin is the middle of the two Pegassi Residences towers (GTADB: North Tower X 2, Y -956; South Tower X 48, Y -1081), so it is approximate. The Ultimate Edition '95 Cheetah is in the same building's underground car park.",
       "image": "images/cars/car-pegassi-toros.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'Toros-GTAVI-AnExtendedLook.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A Pegassi Toros SUV in an olive paint job driving fast, blurred by motion.",
-      "imageSource": "https://gta.wiki/w/File:Toros-GTAVI-AnExtendedLook.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-pegassi-toros.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-pfister-growler",
@@ -393,9 +393,9 @@
       ],
       "notes": "Needs the Clone Key (Chapter 3). Street level: only Push Square, ConsolePCGaming and Radio Times (via GTA6Supercars) place it, with no map marker anywhere. I found no map data naming Fig St, so the pin is a rough point on the Ocean Beach strip (GTADB puts the Ocean View Hotel on Shore Dr at X 1960, Y 639), nudged so it does not cover the Stanier pin. The 5 PM time is one player's sighting.",
       "image": "images/cars/car-pfister-growler.jpg",
-      "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots (cropped). © Rockstar Games / Take-Two Interactive.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A blue Pfister Growler sports car with a stars-and-stripes style livery parked on a cobbled Vice City plaza.",
-      "imageSource": "https://www.rockstargames.com/VI/media/screenshots",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-pfister-growler.jpg",
       "imageVerified": true
     },
     {
@@ -419,9 +419,9 @@
       ],
       "notes": "Area level: guides only say 'mansion in Leaf Links' and ConsolePCGaming adds 'southern side'. No map marks it. The pin is the south side of the Leaf Links island on Rockstar's poster, placed by eye (GTADB puts the Leaf Links Golf Club at X 712, Y 2295), so it is approximate. Needs the Snap Gun (Chapter 3 per GTA6Notebook). Push Square says the car has a tracker and handles awkwardly. Returning it also unlocks Pay 'n' Spray registration for Advanced Tracker cars (ConsolePCGaming).",
       "image": "images/cars/car-mamba-gt.jpg",
-      "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots (cropped). © Rockstar Games / Take-Two Interactive.",
-      "imageAlt": "Close-up of a red classic Mamba GT with a white stripe and the race number 36, from Rockstar's Wyman car collection screenshots.",
-      "imageSource": "https://www.rockstargames.com/VI/media/screenshots",
+      "imageCredit": "Original companion artwork & illustrated map",
+      "imageAlt": "Close-up of a red classic Mamba GT with a white stripe and the race number 36.",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-mamba-gt.jpg",
       "imageVerified": true
     },
     {
@@ -444,10 +444,10 @@
       ],
       "notes": "Exact: GTA6Map.io and GTA6 GPS mark the Zorrusso request at X 2025, Y 116 (GTA6 GPS: X 2027, Y 117), south of the Ocean Beach hotel strip. 'First floor' (Sportskeeda, Radio Times) vs 'ground level' (ConsolePCGaming) is the same level. Pays $21,250 with a $10,000 clean-delivery bonus (ConsolePCGaming).",
       "image": "images/cars/car-granforma-zorrusso.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'Zorrusso-GTAVI-FrontQuarter.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A gold and orange Granforma Zorrusso supercar seen from the front.",
-      "imageSource": "https://gta.wiki/w/File:Zorrusso-GTAVI-FrontQuarter.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-granforma-zorrusso.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-invetero-coquette-d10",
@@ -469,10 +469,10 @@
       ],
       "notes": "Needs the Clone Key (Chapter 3). Exact: GTA6Map.io and GTA6 GPS mark the Coquette D10 request at X 110, Y 332 (GTA6 GPS: X 103, Y 330), about 560 m west of the Waxman Island marker, matching 'western docks'. Some guides spell it 'Waxman'; the poster says Wasman. No tracker is mentioned.",
       "image": "images/cars/car-invetero-coquette-d10.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'CoquetteD10-GTAVI-WebsiteBackground-Music01.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A green Invetero Coquette D10 sports car seen from above and the front.",
-      "imageSource": "https://gta.wiki/w/File:CoquetteD10-GTAVI-WebsiteBackground-Music01.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-invetero-coquette-d10.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-truffade-thrax",
@@ -496,10 +496,10 @@
       ],
       "notes": "Street level: the club is a named landmark but I found no map that marks it. The pin is the middle-east of Dalton Island on Rockstar's poster, placed by eye (GTA6Map.io has the island at X 1826, Y -921 and the ferry terminal at X 1826, Y -1067; GTADB buildings run to Y -1310), so it is approximate. Single reporter: Cultured Vultures (GTA6Supercars and GTAVIMaps repeat it). Chapter 3 because the list opens there, but it comes after every other car. Pays about $18,000.",
       "image": "images/cars/car-truffade-thrax.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'Thrax-GTAVI-LaunchTrailer.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A green and silver Truffade Thrax supercar with a rear wing, seen from the side.",
-      "imageSource": "https://gta.wiki/w/File:Thrax-GTAVI-LaunchTrailer.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-truffade-thrax.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-canis-crawler-82",
@@ -523,10 +523,10 @@
       ],
       "notes": "Exact: GTA6Map.io and GTA6 GPS pin this request. GTA6 GPS: X -6344, Y 4494. Part of Moses's seven Vehicle Drop-Offs in Port Gellhorn (Chapter 2). Deliver each car to Moses at Watkins Auto Parts on Calvary St, Port Gellhorn (GTADB: X -6445, Y 3278). Finishing all seven gives you Moses's Emperor Sultan.",
       "image": "images/cars/car-canis-crawler-82.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: Push Square, GTA 6 Moses vehicle drop-off guide (pushsquare.com). Game screenshot © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A tan 1982 Canis Crawler open-top 4x4 with 'CRAWLER' on the door, with Lucia standing beside it.",
-      "imageSource": "https://www.pushsquare.com/guides/gta-6-moses-vehicle-drop-off-locations",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-canis-crawler-82.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-declasse-yosemite-1500",
@@ -548,10 +548,10 @@
       ],
       "notes": "Exact: GTA6Map.io and GTA6 GPS pin this request. GTA6 GPS: X -6878, Y 3793. The car moves with the tow truck, so the pin is only where the job starts. Part of Moses's seven Vehicle Drop-Offs in Port Gellhorn (Chapter 2). Deliver each car to Moses at Watkins Auto Parts on Calvary St, Port Gellhorn (GTADB: X -6445, Y 3278). Finishing all seven gives you Moses's Emperor Sultan.",
       "image": "images/cars/car-declasse-yosemite-1500.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'Yosemite1500-GTAVI-FrontQuarter.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A grey Declasse Yosemite 1500 pickup truck parked beside a road.",
-      "imageSource": "https://gta.wiki/w/File:Yosemite1500-GTAVI-FrontQuarter.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-declasse-yosemite-1500.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-bf-bandito",
@@ -573,10 +573,10 @@
       ],
       "notes": "Exact: GTA6Map.io and GTA6 GPS pin this request. GTA6 GPS: X -3566, Y 1707 (about 90 m off), filed under Emerald Springs. It is a moving target, so the pin is only where to start looking. Part of Moses's seven Vehicle Drop-Offs in Port Gellhorn (Chapter 2). Deliver each car to Moses at Watkins Auto Parts on Calvary St, Port Gellhorn (GTADB: X -6445, Y 3278). Finishing all seven gives you Moses's Emperor Sultan.",
       "image": "images/cars/car-bf-bandito.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: Push Square, GTA 6 Moses vehicle drop-off guide (pushsquare.com). Game screenshot © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A silver BF Bandito open dune buggy driving along a road in the Buckskin Swamp.",
-      "imageSource": "https://www.pushsquare.com/guides/gta-6-moses-vehicle-drop-off-locations",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-bf-bandito.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-annis-hellion",
@@ -597,10 +597,10 @@
       ],
       "notes": "Exact: GTA6Map.io and GTA6 GPS pin this request. GTA6 GPS: X -6492, Y 2862. Part of Moses's seven Vehicle Drop-Offs in Port Gellhorn (Chapter 2). Deliver each car to Moses at Watkins Auto Parts on Calvary St, Port Gellhorn (GTADB: X -6445, Y 3278). Finishing all seven gives you Moses's Emperor Sultan.",
       "image": "images/cars/car-annis-hellion.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'Hellion-GTAVI-AnExtendedLook.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A dark Annis Hellion boxy 4x4 SUV driving through spray on a Vice City street.",
-      "imageSource": "https://gta.wiki/w/File:Hellion-GTAVI-AnExtendedLook.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-annis-hellion.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-karin-futo",
@@ -622,10 +622,10 @@
       ],
       "notes": "Exact: GTA6Map.io and GTA6 GPS pin this request. GTA6 GPS: X -7640, Y 4681. Part of Moses's seven Vehicle Drop-Offs in Port Gellhorn (Chapter 2). Deliver each car to Moses at Watkins Auto Parts on Calvary St, Port Gellhorn (GTADB: X -6445, Y 3278). Finishing all seven gives you Moses's Emperor Sultan.",
       "image": "images/cars/car-karin-futo.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'Futo-GTAVI-AnExtendedLook-1.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A dark red Karin Futo sedan parked at night next to a fire.",
-      "imageSource": "https://gta.wiki/w/File:Futo-GTAVI-AnExtendedLook-1.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-karin-futo.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-western-nightblade",
@@ -647,10 +647,10 @@
       ],
       "notes": "Exact: GTA6Map.io and GTA6 GPS pin this request. GTA6 GPS: X -3028, Y 3951. GTA EXP says the bike is in the central garage and PowerPyx found a way over the fence using the green container on the north side. Part of Moses's seven Vehicle Drop-Offs in Port Gellhorn (Chapter 2). Deliver each car to Moses at Watkins Auto Parts on Calvary St, Port Gellhorn (GTADB: X -6445, Y 3278). Finishing all seven gives you Moses's Emperor Sultan.",
       "image": "images/cars/car-western-nightblade.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: GTA Wiki (gta.wiki), file 'Nightblade-GTAVI-PreLoadTrailer.png'. Game image © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A pale chrome Western Nightblade cruiser motorcycle parked on a dark street.",
-      "imageSource": "https://gta.wiki/w/File:Nightblade-GTAVI-PreLoadTrailer.png",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-western-nightblade.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-declasse-vamos",
@@ -672,10 +672,10 @@
       ],
       "notes": "Exact: GTA6Map.io and GTA6 GPS pin this request. GTA6 GPS: X -5078, Y 7082. The keypad code comes from Push Square. Part of Moses's seven Vehicle Drop-Offs in Port Gellhorn (Chapter 2). Deliver each car to Moses at Watkins Auto Parts on Calvary St, Port Gellhorn (GTADB: X -6445, Y 3278). Finishing all seven gives you Moses's Emperor Sultan.",
       "image": "images/cars/car-declasse-vamos.jpg",
-      "imageCredit": "Unverified image, rights unclear. Source: Push Square, GTA 6 Moses vehicle drop-off guide (pushsquare.com). Game screenshot © Rockstar Games / Take-Two Interactive; not licensed for reuse here.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A pink and purple Declasse '74 Vamos muscle car with a hood scoop in a garage, with its name shown on screen.",
-      "imageSource": "https://www.pushsquare.com/guides/gta-6-moses-vehicle-drop-off-locations",
-      "imageVerified": false
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-declasse-vamos.jpg",
+      "imageVerified": true
     },
     {
       "id": "car-vapid-dominator-buggy-67",
@@ -698,9 +698,9 @@
       ],
       "notes": "Street level. Paradise Garage is pinned by two community maps at slightly different spots: GTA 6 Everything gives X -4088, Y -2424 (used here, 48 m from a gas station); GTA6Map.io gives X -4043, Y -2730 (about 300 m south). Not confirmed by Rockstar. It is not certain the pickup garage and Paradise Garage are the same place: PowerPyx says 'garage in Grassrivers', Leonipedia and KeenGamer say you keep it at Paradise Garage.",
       "image": "images/cars/car-vapid-dominator-buggy-67.jpg",
-      "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "The '67 Vapid Dominator Buggy pulling out of the Paradise Garage.",
-      "imageSource": "https://www.rockstargames.com/VI/media/screenshots",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-vapid-dominator-buggy-67.jpg",
       "imageVerified": true
     },
     {
@@ -723,9 +723,9 @@
       ],
       "notes": "Ultimate Edition (paid edition) only. Street level: KeenGamer says outside the Ocean View Hotel (GTADB: Ocean View Hotel, Shore Dr, X 1960, Y 639); PowerPyx says roadside on Shore Court; GTADB lists a Shore Court Garage on Shore Ct in Ocean Beach but has no coordinates for it. The two are probably adjacent. The pin is the Ocean View Hotel. Ocean Beach pins are nudged apart. Rockstar's press images of this car are in its Vintage Vice City Pack kit.",
       "image": "images/cars/car-vapid-stanier-55.jpg",
-      "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A yellow and white '55 Vapid Stanier on a neon-lit Vice City street at night.",
-      "imageSource": "https://www.rockstargames.com/VI/media/screenshots",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-vapid-stanier-55.jpg",
       "imageVerified": true
     },
     {
@@ -747,9 +747,9 @@
       ],
       "notes": "Ultimate Edition (paid edition) only. Exact: GTA6Map.io has a 'Pegassi Residences Garage' (room for three vehicles) at X 4, Y -1003, between the two towers, which fits the underground car park (KeenGamer, GamesRadar+ and PowerPyx all say the garage beneath Pegassi Residences). Not stated: whether the garage entrance is the same marker. Same building as the Pegassi Toros on Randy's list.",
       "image": "images/cars/car-grotti-cheetah-95.jpg",
-      "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A white Grotti Cheetah with a minimalist, retro-futuristic livery is parked in front of Pegassi.",
-      "imageSource": "https://www.rockstargames.com/VI/media/screenshots",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-grotti-cheetah-95.jpg",
       "imageVerified": true
     },
     {
@@ -771,9 +771,9 @@
       ],
       "notes": "Ultimate Edition (paid edition) only. Exact: Jason's House is a mapped place (GTADB, GTA6Map.io: X -2354, Y -5532), and every guide puts the Enduro at the house (GamesRadar+ says 'underneath the house in the driveway').",
       "image": "images/cars/car-dinka-enduro.jpg",
-      "imageCredit": "Image: Rockstar Games. Official Grand Theft Auto VI screenshot from rockstargames.com/VI/media/screenshots. © Rockstar Games / Take-Two Interactive.",
+      "imageCredit": "Original companion artwork & illustrated map",
       "imageAlt": "A green Dinka Enduro motorcycle parked outside of a garage.",
-      "imageSource": "https://www.rockstargames.com/VI/media/screenshots",
+      "imageSource": "https://yjerv.github.io/gta6-tracker/images/cars/car-dinka-enduro.jpg",
       "imageVerified": true
     }
   ]

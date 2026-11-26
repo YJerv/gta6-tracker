@@ -98,7 +98,7 @@ function viewProgress() {
 function syncChrome(route) {
   const report = completionReport(state.catalog, viewProgress());
   document.getElementById("view-title").textContent = ROUTES[route.section].title;
-  document.title = `${ROUTES[route.section].title} · GTA VI Tracker`;
+  document.title = `${ROUTES[route.section].title} · Leonida Map & Guide`;
   const percent = document.getElementById("header-percent");
   const unit = document.getElementById("header-unit");
   if (route.section === "steal" && state.data.steal) {
@@ -207,7 +207,10 @@ function render() {
   const about = document.getElementById("about-credits");
   document.body.classList.toggle("map-open", Boolean(state.mapOpen));
   syncDockHeight();
-  if (about) about.textContent = illustrationCredits(state.data.story).join("\n\n");
+  if (about) {
+    const lines = ["Original companion artwork & illustrated map.", ...illustrationCredits(state.data.story)];
+    about.textContent = [...new Set(lines.filter(Boolean))].join("\n\n");
+  }
   if (state.pendingScroll != null) {
     const top = state.pendingScroll;
     state.pendingScroll = null;

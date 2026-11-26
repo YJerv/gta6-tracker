@@ -93,14 +93,18 @@ summary:focus-visible {
   width: 42px;
   height: 42px;
   border-radius: 13px;
+  overflow: hidden;
   background: linear-gradient(140deg, var(--pink), var(--amber));
-  color: var(--ink-amber);
   display: grid;
   place-items: center;
-  font-family: var(--display);
-  font-weight: 800;
-  letter-spacing: -0.04em;
   flex: none;
+}
+
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .eyebrow {

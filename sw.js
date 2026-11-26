@@ -1,8 +1,9 @@
 /* Bump CACHE when shipped files change so old caches are dropped. */
-const CACHE = "gta6-tracker-v14";
+const CACHE = "leonida-guide-v1";
 
 const RELATIVE_ASSETS = [
   "./index.html",
+  "./privacy.html",
   "./favicon.ico",
   "./css/styles.css",
   "./js/app.js",
@@ -26,15 +27,6 @@ const RELATIVE_ASSETS = [
   "./data/weapons.json",
   "./data/steal.json",
   "./data/online.json",
-  "./images/chapter-1-mission-1.jpg",
-  "./images/chapter-1-mission-2.jpg",
-  "./images/chapter-1-mission-3.jpg",
-  "./images/chapter-1-mission-4.jpg",
-  "./images/chapter-1-mission-5.jpg",
-  "./images/chapter-1-mission-6.jpg",
-  "./images/chapter-1-mission-8.jpg",
-  "./images/chapter-1-mission-9.jpg",
-  "./images/chapter-1-mission-10.jpg",
   "./images/cars/leonida-map.jpg",
   "./images/cars/car-annis-hellion.jpg",
   "./images/cars/car-ascot-paragon.jpg",
